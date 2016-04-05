@@ -37,7 +37,7 @@ Continuous Integration:
 # Cel projektu
 
 Celem projektu jest stworzenie aplikacji webowej do zarządzania fakturami w technologii .NET MVC wykorzystującej bazę danych Microsoft SQL Server 2014. W systemie istnieć będą dwie rolę: użytkownik i administrator. Aplikacja dostarczy użytkownikowi następujące funkcjonalności:
-* rzeglądanie istniejących faktur,
+* przeglądanie istniejących faktur,
 * wprowadzanie nowych faktur do systemu,
 * ręczne usuwanie wybranych faktur,
 * automatyczną archiwizację starych faktur
