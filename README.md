@@ -1,9 +1,9 @@
-# Tworzenie aplikacji biznesowych w technologii .NET
+## Tworzenie aplikacji biznesowych w technologii .NET
 
-# System zarządzania fakturami
+## System zarządzania fakturami
 
 
-# Skład grupy:
+##### Skład grupy:
 * Bobak Mateusz
 * Brańka Paweł
 * Drożdż Michał
@@ -14,7 +14,7 @@
 * Płonka Rafał
 
 
-# Podział na role
+##### Podział na role
 
 Project Manager:
 * Konrad Komnata
@@ -34,7 +34,7 @@ Continuous Integration:
 * Mateusz Bobak
 * Rafał Płonka
 
-# Cel projektu
+##### Cel projektu
 
 Celem projektu jest stworzenie aplikacji webowej do zarządzania fakturami w technologii .NET MVC wykorzystującej bazę danych Microsoft SQL Server 2014. W systemie istnieć będą dwie rolę: użytkownik i administrator. Aplikacja dostarczy użytkownikowi następujące funkcjonalności:
 * przeglądanie istniejących faktur,
