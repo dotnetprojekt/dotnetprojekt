@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<goods>
+	<product id="1">
+		<name>Product 1</name>
+		<amount>1</amount>
+		<unitPrice>100</unitPrice>
+		<netValue>77</netValue>
+		<tax>23</tax>
+		<grossValue>100</grossValue>
+	</product>
+	<product id="1">
+		<name>Product 2</name>
+		<amount>1</amount>
+		<unitPrice>100</unitPrice>
+		<netValue>77</netValue>
+		<tax>23</tax>
+		<grossValue>100</grossValue>
+	</product>
+	<product id="1">
+		<name>Product 3</name>
+		<amount>1</amount>
+		<unitPrice>100</unitPrice>
+		<netValue>77</netValue>
+		<tax>23</tax>
+		<grossValue>100</grossValue>
+	</product>
+</goods>
