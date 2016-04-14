@@ -1,0 +1,17 @@
+All:
+* Jakie nazwy pól?
+
+Logowanie:
+* Czy nastêpuje przekierowanie do strony g³ównej w przypadku poprawnego logowania?
+* Czy administrator posiada prawa u¿ytkownika i dostêp do jego funkcjonalnoœci?
+* Czy w przypadku pozytywnego logowania administratora nastêpuje przekierowanie do panelu administratora czy strony g³ównej?
+
+Partnerzy biznesowi:
+* Jakie walidatory na nazwy pól tesktowych?
+* Co okreœla, ¿e partner biznesowy ju¿ istnieje? VAT_ID czy wszystkie parametry?
+* Czy wylistowanie parametrów bêdzie w postaci tabeli?
+
+Rejestracja:
+* Jakie walidatory?
+* Jaka d³ugoœæ has³a?
+* Co okreœla ¿e u¿ytkownik istnieje? Email / Login / Wszystko? (OR / AND)
