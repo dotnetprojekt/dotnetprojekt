@@ -1,0 +1,28 @@
+TODO
+
+Global:
+	DbClearScript +
+	Locking -
+	OperationsLogger -
+	Transactions -
+
+Users:
+	userAdd +
+	userAccept +
+	userList +
+	userBlock +
+	userUnblock +
+	Login +
+	Logout +
+
+Partners:
+	partnerAdd +
+	partnerList +
+
+Invoices:
+	invoiceAdd +
+	invoiceList -
+	invoiceShowDetails -
+	invoiceChangeStatus -
+	invoiceArchive -
+	invoiceDelete -
