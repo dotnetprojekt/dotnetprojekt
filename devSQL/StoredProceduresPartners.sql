@@ -45,7 +45,7 @@ end
 
 go
 
-create procedure usp_PartnersList
+create procedure inv.usp_PartnersList
 	@p_pageNumber int,
 	@p_rowsPerPage int
 as
@@ -57,7 +57,7 @@ begin
 		Part_CompanyName,
 		Part_Vatin,
 		Part_Address
-	from inv.Partners with(readpast)
+	from inv.Partners with(nolock)
 	order by Part_Id
 	offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
 	fetch next (@p_rowsPerPage) rows only;

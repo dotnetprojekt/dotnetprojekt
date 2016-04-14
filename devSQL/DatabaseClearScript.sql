@@ -1,5 +1,9 @@
 use InvoiceSystem
 
+drop table dbo.Logs;
+
+drop view inv.LogTab;
+
 declare @v_ObjectName nvarchar(4000);
 declare @v_TmpName nvarchar(4000);
 declare @v_Cmd nvarchar(4000);
@@ -82,5 +86,3 @@ end
 
 close cursorProcNames;
 deallocate cursorProcNames;
-
-drop schema inv;

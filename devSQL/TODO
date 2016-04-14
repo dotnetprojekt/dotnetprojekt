@@ -8,10 +8,12 @@ Global:
 
 Users:
 	userAdd +
-	userAccept -
-	userList -
-	userBlock -
-	userUnblock -
+	userAccept +
+	userList +
+	userBlock +
+	userUnblock +
+	Login +
+	Logout +
 
 Partners:
 	partnerAdd +

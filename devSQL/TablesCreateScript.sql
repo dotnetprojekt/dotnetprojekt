@@ -2,16 +2,13 @@ use InvoiceSystem;
 
 go
 
-create schema inv;
-
-go
-
-create table inv.Logs
+create table dbo.Logs
 (
 	Log_Id int identity(1,1) not null,
 	Log_Date datetime2 constraint DF_Date default getutcdate(),
 	Log_Context nvarchar(1024) not null,
 	Log_Status nvarchar(10) not null,
+	Log_User int not null,
 	Log_Description nvarchar(4000),
 
 	constraint PK_logs primary key (Log_Id)
@@ -70,7 +67,8 @@ create table inv.Users
 	Usr_PasswordHash nvarchar(128) not null,
 	Usr_Email nvarchar(128),
 	Usr_IsAdmin bit not null constraint DF_IsAdmin default 0,
-	Usr_IsActive bit not null constraint DF_IsActive default 1,
+	Usr_Status tinyint not null constraint DF_UsrStatus default 1,
+	Usr_IsLogged bit not null constraint DF_IsLogged default 0,
 
 	constraint PK_Users primary key (Usr_Id),
 	constraint UQ_Login unique (Usr_Login)
@@ -89,3 +87,21 @@ foreign key (Inv_BuyerId) references inv.Partners(Part_Id);
 alter table inv.Invoices
 add constraint FK_Creator
 foreign key (Inv_Creator) references inv.Users(Usr_Id);
+
+alter table dbo.Logs
+add constraint FK_User
+foreign key (Log_User) references inv.Users(Usr_Id);
+
+go
+
+create view inv.LogTab
+as
+	select
+		Log_Id as Id,
+		Log_Date as "Date",
+		Log_Context as Context,
+		Log_Status as "Status",
+		Log_User as UserId,
+		(select Usr_Login from inv.Users where Usr_Id = Log_User) as UserLogin,
+		Log_Description as "Description"
+	from dbo.Logs with(nolock);
