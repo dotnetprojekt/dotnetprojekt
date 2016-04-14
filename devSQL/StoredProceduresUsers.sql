@@ -2,7 +2,7 @@ use InvoiceSystem
 
 go
 
-create procedure inv.usp_UserAdd
+create procedure inv.usp_UsersAdd
 	@p_FirstName nvarchar(128),
 	@p_LastName nvarchar(128),
 	@p_Login nvarchar(32),
@@ -19,7 +19,7 @@ begin
 	if( @p_FirstName is null or @p_LastName is null or @p_Login is null or @p_PasswordHash is null or @p_User is null)
 		raiserror (15600,-1,-1, 'inv.usp_UserAdd');
 	else
-		insert into inv.Users
+		insert into inv.Users with(rowlock)
 		(
 			Usr_FirstName,
 			Usr_LastName,
@@ -40,3 +40,26 @@ begin
 			@p_IsActive
 		);
 end
+
+go
+
+create procedure usp_UsersList
+	@p_pageNumber int,
+	@p_rowsPerPage int
+as
+begin
+	select
+		Usr_Id,
+		Usr_FirstName,
+		Usr_LastName,
+		Usr_Login,
+		Usr_Email,
+		Usr_IsAdmin,
+		Usr_IsActive
+	from inv.Users with(readpast)
+	order by Usr_Id
+	offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
+	fetch next (@p_rowsPerPage) rows only;
+end
+
+go
