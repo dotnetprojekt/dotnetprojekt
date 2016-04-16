@@ -1,5 +1,3 @@
-go
-
 create procedure inv.NextInvoiceNumber
 	@p_InvoiceNumber nvarchar(16) output
 as
@@ -174,7 +172,7 @@ create procedure inv.InvoicesDetails
 	@p_Inv_Id int
 as
 begin
-		select
+	select
 		Inv_Id,
 		Inv_Number,
 		Inv_DateOfIssue,
@@ -208,7 +206,7 @@ create procedure inv.InvoicesSetPaid
 	@p_Inv_Id int
 as
 begin
-	update inv.Invoices
+	update inv.Invoices with(rowlock)
 	set Inv_Status = 2
 	where Inv_Id = @p_Inv_Id
 		and Inv_Status = 1;
@@ -219,19 +217,18 @@ go
 create procedure inv.InvoicesArchive
 as
 begin
-	set xact_abort on;
 	set nocount on;
 
 	declare @p_Date datetime2 = dateadd(year,-1,getutcdate());
 
 	while(1=1)
 	begin
-		update top (1000) inv.Invoices
+		update top (1000) inv.Invoices with(rowlock)
 		set Inv_Status = 3
 		where Inv_Status != 3
 			and Inv_DateOfIssue < @p_Date
 
-		if(@@ROWCOUNT=0)
+		if(@@rowcount=0)
 			break;
 
 		waitfor delay '00:00:02';
@@ -243,7 +240,6 @@ go
 create procedure inv.InvoicesDelete
 as
 begin
-	set xact_abort on;
 	set nocount on;
 
 	declare @p_Date datetime2 = dateadd(year,-1,getutcdate());
@@ -255,7 +251,7 @@ begin
 		where Inv_Status = 3
 			and Inv_DateOfIssue < @p_Date
 
-		if(@@ROWCOUNT=0)
+		if(@@rowcount=0)
 			break;
 
 		waitfor delay '00:00:02';
