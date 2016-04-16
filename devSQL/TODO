@@ -1,10 +1,8 @@
 TODO
 
 Global:
+	DbCreateTablesScript +
 	DbClearScript +
-	Locking -
-	OperationsLogger -
-	Transactions -
 
 Users:
 	userAdd +
@@ -21,8 +19,8 @@ Partners:
 
 Invoices:
 	invoiceAdd +
-	invoiceList -
-	invoiceShowDetails -
-	invoiceChangeStatus -
-	invoiceArchive -
-	invoiceDelete -
+	invoiceList +
+	invoiceShowDetails +
+	invoiceChangeStatus +
+	invoiceArchive +
+	invoiceDelete +
