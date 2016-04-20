@@ -1,7 +1,7 @@
 use InvoiceSystem
 
 drop table dbo.Logs;
-
+drop table dbo.CurrentNumber;
 drop view inv.LogTab;
 
 declare @v_ObjectName nvarchar(4000);

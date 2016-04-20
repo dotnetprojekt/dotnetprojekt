@@ -19,7 +19,7 @@ go
 create table inv.Invoices
 (
 	Inv_Id int identity(1,1) not null,
-	Inv_Number uniqueidentifier not null constraint DF_Number default newid(),
+	Inv_Number nvarchar(16) not null,
 	Inv_DateOfIssue datetime2 not null constraint DF_DateOfIssue default getutcdate(),
 	Inv_VendorId int not null,
 	Inv_BuyerId int not null,
@@ -105,3 +105,13 @@ as
 		(select Usr_Login from inv.Users where Usr_Id = Log_User) as UserLogin,
 		Log_Description as "Description"
 	from dbo.Logs with(nolock);
+
+go
+
+create table dbo.CurrentNumber
+(
+	number int
+);
+
+insert into dbo.CurrentNumber
+values (1);
