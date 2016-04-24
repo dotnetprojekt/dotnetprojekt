@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Wyszukiwarka faktur";
+}
+
+<br />
+<h1>@ViewBag.Title</h1>
+<br />
+
+<hr />
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @id = "searchInvoiceForm", @class = "form-inline" }))
+{
+
+    <div class="col-xs-8 pull-left">
+        @Html.Label("Numer faktury", new { @class = "margin-top-10" })
+        @Html.TextBox("invNumber", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Sprzedawca", new { @class = "margin-top-10" })
+        @Html.TextBox("vendor", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Kupiec", new { @class = "margin-top-10" })
+        @Html.TextBox("buyer", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Data początkowa", new { @class = "margin-top-10" })
+        @Html.TextBox("start", "", new { @class = "my-date input-sm form-control margin-right-10 margin-left-20", @placeholder = "Start date" })
+        <br />
+        @Html.Label("Data końcowa", new { @class = "margin-top-10" })
+        @Html.TextBox("end", "", new { @class = "my-date input-sm form-control margin-right-10 margin-left-20", @placeholder = "End date" })
+        <br />
+        @*<button type="submit" name="searchButton" id="searchButton" value="Send" class="btn margin-top-10 margin-bottom-10">Szukaj</button>*@
+    </div>
+}
+    <div class="clearfix"></div>
+    <button id="searchForInvoicesButton" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
+
+    @*
+    <div class="col-xs-4 text-center margin-bottom-10">
+
+        @Html.Label("Data początkowa")
+        @Html.TextBox("start", "", new { @class = "my-date input-sm form-control margin-right-10 margin-auto", @placeholder = "Start date" })
+
+        @Html.Label("Data końcowa", new { @class = "margin-top-10" })
+        @Html.TextBox("end", "", new { @class = "my-date input-sm form-control margin-right-10 margin-auto margin-auto", @placeholder = "End date" })
+    </div>
+    *@
+
+    <div class=" clearfix"></div>
+ 
+    <div id="invoiceSearchResults">
+        
+    </div>
+
+
+
+@section Scripts {
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/custom/bootstrap-datepicker.js"></script>
+    @Styles.Render("~/Content/bootstrap-datepicker.css")
+    <script src="~/Scripts/custom/HomeScripts.js"></script>
+
+}

@@ -1,0 +1,29 @@
+﻿
+
+
+@model FakturyMVC.Models.PartnersVievModel
+
+
+<div class="">
+    <table class="table table-striped table-hover margin-top-10" id="configTable">
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Firma</th>
+            <th>VATIN</th>
+            <th>Adres</th>
+        </tr>
+        @for (int i = 0; i < Model.Partners.Count; i++)
+        {
+            <tr>
+                <th>@Model.Partners[i].FirstName</th>
+                <th>@Model.Partners[i].LastName</th>
+                <th>@Model.Partners[i].CompanyName</th>
+                <th>@Model.Partners[i].Vatin</th>
+                <th>@Model.Partners[i].Address</th>
+            </tr>
+        }
+
+
+    </table>
+</div>

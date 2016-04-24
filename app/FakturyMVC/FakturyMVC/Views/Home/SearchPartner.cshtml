@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "SearchInvoice";
+}
+
+<h2>Szukaj partnerów</h2>
+
+@using (Html.BeginForm("SearchPartner", "Home", FormMethod.Post, new { @id = "searchInvoiceForm", @class = "form-inline" }))
+{
+
+    <div class="col-xs-8 pull-left">
+        @Html.Label("Imię", new { @class = "margin-top-10" })
+        @Html.TextBox("firstName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Nazwisko", new { @class = "margin-top-10" })
+        @Html.TextBox("lastName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Firma", new { @class = "margin-top-10" })
+        @Html.TextBox("companyName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("VATIN", new { @class = "margin-top-10" })
+        @Html.TextBox("vatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Adres", new { @class = "margin-top-10" })
+        @Html.TextBox("address", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @*<button type="submit" name="searchButton" id="searchButton" value="Send" class="btn margin-top-10 margin-bottom-10">Szukaj</button>*@
+    </div>
+}
+<div class=" clearfix"></div>
+<button id="searchForPartnersButton" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
+
+
+<div id="partnerSearchResults">
+    
+</div>
+    @section Scripts {
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/custom/bootstrap-datepicker.js"></script>
+        @Styles.Render("~/Content/bootstrap-datepicker.css")
+        <script src="~/Scripts/custom/HomeScripts.js"></script>
+
+    }
