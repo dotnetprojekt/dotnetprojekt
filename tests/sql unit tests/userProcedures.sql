@@ -1,10 +1,12 @@
+use InvoiceSystem;
+
 exec tSQLt.NewTestClass 'StoredProceduresUsersTest';
 
 go
 create procedure StoredProceduresUsersTest.[testLoginSuccesssful] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
     declare @correctPassword nvarchar
 	declare @retIsLogged int
@@ -13,8 +15,8 @@ begin
 	set @correctPassword='correctPassword'
 
 	exec inv.usp_UsersAdd 'FirstName','LastName', @correctLogin, @correctPassword,'test.mail@example.com',0,2
-	exec inv.usp_UsersAccept @correctLogin
-	
+	exec inv.usp_UsersAccept @correctLogin;
+
 	exec @retIsLogged = inv.usp_UsersLogin @correctLogin, @correctPassword;
 	exec tSQLt.AssertEquals 1, @retIsLogged -- 1 == is logged
 end;
@@ -23,7 +25,7 @@ go
 create procedure StoredProceduresUsersTest.[testLoginIncorrectPassword] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
     declare @correctPassword nvarchar
     declare @incorrectPassword nvarchar
@@ -45,7 +47,7 @@ go
 create procedure StoredProceduresUsersTest.[testLoginIncorrectLogin] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
 	declare @incorrectLogin nvarchar
     declare @correctPassword nvarchar
@@ -66,7 +68,7 @@ go
 create procedure StoredProceduresUsersTest.[testLogout] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
 	declare @retIsLogged int
 
@@ -84,7 +86,7 @@ go
 create procedure StoredProceduresUsersTest.[testUserAccept] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
 	declare @retVal int
 
@@ -103,7 +105,7 @@ go
 create procedure StoredProceduresUsersTest.[testUserBlock] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
 	declare @retVal int
 
@@ -121,7 +123,7 @@ go
 create procedure StoredProceduresUsersTest.[testUserUnblock] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @correctLogin nvarchar
 	declare @retVal int
 
@@ -144,7 +146,7 @@ go
 create procedure StoredProceduresUsersTest.[testUserList] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users'
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;
 	declare @retCount int;
 
 	declare  @Users TABLE (
@@ -176,7 +178,7 @@ go
 create procedure StoredProceduresUsersTest.[testUserAdd] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users';
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;;
 	declare @retVal nvarchar(128);
 	exec inv.usp_UsersAdd 'FirstName','LastName', 'testLogin', 'testPassword','test.mail@example.com', 0, 2;
 	select top(1) @retVal=Usr_Login from inv.Users;	
@@ -187,11 +189,11 @@ go
 create procedure StoredProceduresUsersTest.[testUserErrorAdd] 
 as
 begin
-	exec tsqlt.FakeTable 'inv.Users';
+	exec tsqlt.FakeTable @TableName = 'inv.Users', @Identity = 1, @Defaults = 1;;
 
 	exec tSQLt.ExpectException;
 	exec inv.usp_UsersAdd null,'LastName', 'testLogin', 'testPassword','test.mail@example.com', 0, 2;
 end;
 
 go
-exec tSQLt.RunAll
+exec tSQLt.RunAll;
