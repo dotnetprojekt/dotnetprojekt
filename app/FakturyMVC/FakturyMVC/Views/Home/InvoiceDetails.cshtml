@@ -1,0 +1,84 @@
+﻿@model FakturyMVC.Models.InvoiceDetailsViewModel
+
+@{
+    ViewBag.Title = "InvoiceDetails";
+}
+
+<h2>Faktura nr @Model.Number - szczegóły</h2>
+
+<div>
+    Numer: <b>@Model.Number</b><br /><br />
+    Data: <b>@Model.Date</b><br /><br />
+    Tytuł: <b>@Model.Title</b><br /><br />
+    Sprzedawca:<br />
+    <b>@Model.Vendor.FirstName @Model.Vendor.LastName</b><br />
+    <b>@Model.Vendor.CompanyName</b><br />
+    <b>@Model.Vendor.Address</b><br />
+    VATIN: <b>@Model.Vendor.Vatin</b><br /><br />
+
+    Kupiec:<br />
+    <b>@Model.Buyer.FirstName @Model.Buyer.LastName</b><br />
+    <b>@Model.Buyer.CompanyName</b><br />
+    <b>@Model.Buyer.Address</b><br />
+    VATIN: <b>@Model.Buyer.Vatin</b><br /><br />
+
+    Produkty:<br /> 
+    <div class="">
+        <table class="table table-striped table-hover margin-top-10" id="goodsTable">
+            <tr>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Cena netto</th>
+                <th>Podatek</th>
+                <th>Cena brutto</th>
+            </tr>
+            @for (int i = 0; i < Model.Goods.Count; i++)
+            {
+                <tr>
+                    <th>@Model.Goods[i].Name</th>
+                    <th>@Model.Goods[i].Price</th>
+                    <th>@Model.Goods[i].Value</th>
+                    <th>@Model.Goods[i].Tax</th>
+                    <th>@Model.Goods[i].Amount</th>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+
+    Wartość netto: <b>@Model.Netto</b><br /><br />
+    Wartość brutto: <b>@Model.Brutto</b><br /><br />
+    Zniżka: <b>@Model.Discount</b><br /><br />
+    Podliczona wartość: <b>@Model.Value</b><br /><br />
+
+    @using (Html.BeginForm("ChangeInvoiceStatus", "Home", FormMethod.Post, new { @id = "changeInvoiceStatus", @class = "form-inline" }))
+    {
+        <div>
+            Status: <br /> @Html.DropDownList("status", Model.Status, new { @id = "status", @class = "form-control margin-top-10", @style = "width: 100%;" })
+        </div>
+        @Html.Hidden("invoiceNumber", Model.Number)
+        <button type="submit" name="submitButton" id="changeStatus" class="btn margin-top-10 margin-bottom-10">Zmień status</button>
+
+    }
+
+    <br />
+
+</div>
+
+
+
+@*
+public int Number { get; set; }
+        public string Date { get; set; }
+        public string Title { get; set; }
+        public string Vendor { get; set; }
+        public string Buyer { get; set; }
+        public List<goods>
+    Goods { get; set; }
+    public double Netto { get; set; }
+    public double Brutto { get; set; }
+    public double Discount { get; set; }
+    public double Value { get; set; }
+    public List<selectlistitem> Status { get; set; }
+*@

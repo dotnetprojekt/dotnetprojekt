@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "AddInvoice";
+}
+
+<h2>Dodaj fakturę</h2>
+
+@using (Html.BeginForm("AddInvoice", "Home", FormMethod.Post, new { @id = "searchInvoiceForm", @class = "form-inline" }))
+{
+
+    <div class="col-xs-8 pull-left">
+        @Html.Label("Data", new { @class = "margin-top-10" })
+        @Html.TextBox("date", @DateTime.Now.ToString("dd/MM/yyyy"), new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        <br />
+        @Html.Label("Tytuł", new { @class = "margin-top-10" })
+        @Html.TextBox("title", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Sprzedawca", new { @class = "margin-top-10" })
+        @Html.TextBox("vendor", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Kupiec", new { @class = "margin-top-10" })
+        @Html.TextBox("buyer", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        <br />
+        <b>Produkty</b>
+
+        <div class="">
+            <table class="table table-striped table-hover margin-top-10" id="goodsTable">
+                <tr>
+                    <th></th>
+                    <th>Nazwa</th>
+                    <th>Ilość</th>
+                    <th>Cena jednostkowa</th>
+                    <th>Wartość netto</th>
+                    <th>Podatek</th>
+                </tr>
+
+                <tr id="row0" name="row0">
+                    <th>
+                    </th>
+                    <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control" })</th>
+                    <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control" })</th>
+                    <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control" })</th>
+                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control" })</th>
+                    <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control" })</th>
+                </tr>
+            </table>
+            <button id="addRow" class="btn margin-top-10 margin-bottom-10">Dodaj produkt</button>
+            
+        </div>
+
+
+        <br />
+
+        @Html.Label("Wartość netto", new { @class = "margin-top-10" })
+        @Html.TextBox("netto", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        <br />
+        @Html.Label("Wartość brutto", new { @class = "margin-top-10" })
+        @Html.TextBox("brutto", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        <br />
+        @Html.Label("Zniżka", new { @class = "margin-top-10" })
+        @Html.TextBox("discount", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        <br />
+        @Html.Label("Podliczona wartość", new { @class = "margin-top-10" })
+        @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        <br />
+        
+        
+    </div>
+    <div class="clearfix"></div>
+    <button type="submit" name="addButton" id="addButton" value="Add" class="btn margin-top-10 margin-bottom-10">Dodaj</button>
+}
+
+<div class="clearfix"></div>
+
+
+
+<input id="rowCount" value=0 name="0" hidden="true" />
+
+
+@section Scripts {
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/custom/bootstrap-datepicker.js"></script>
+    @Styles.Render("~/Content/bootstrap-datepicker.css")
+    <script src="~/Scripts/custom/HomeScripts.js"></script>
+
+}

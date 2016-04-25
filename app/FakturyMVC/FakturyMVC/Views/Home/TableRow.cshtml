@@ -1,0 +1,12 @@
+﻿@model FakturyMVC.Models.Row
+
+<th>
+    <button type="button" class="btn btn-default delete-button" name="button @Model.Number" aria-label="Left Align">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button>
+</th>
+<th>@Html.TextBox("goods[" + @Model.Number + "].name", "", new { @class = "input-sm form-control" })</th>
+<th>@Html.TextBox("goods[" + @Model.Number + "].amount", "", new { @class = "input-sm form-control" })</th>
+<th>@Html.TextBox("goods[" + @Model.Number + "].price", "", new { @class = "input-sm form-control" })</th>
+<th>@Html.TextBox("goods[" + @Model.Number + "].value", "", new { @class = "input-sm form-control" })</th>
+<th>@Html.TextBox("goods[" + @Model.Number + "].tax", "", new { @class = "input-sm form-control" })</th>

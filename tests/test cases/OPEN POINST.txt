@@ -1,5 +1,7 @@
 All:
 * Jakie nazwy pól?
+* Czy komunikaty w przypadku sukcesu?
+* Czyszczenie pól? Czy podpowiedzi co z³e?
 
 Logowanie:
 * Czy nastêpuje przekierowanie do strony g³ównej w przypadku poprawnego logowania?
@@ -8,10 +10,8 @@ Logowanie:
 
 Partnerzy biznesowi:
 * Jakie walidatory na nazwy pól tesktowych?
-* Co okreœla, ¿e partner biznesowy ju¿ istnieje? VAT_ID czy wszystkie parametry?
 * Czy wylistowanie parametrów bêdzie w postaci tabeli?
 
 Rejestracja:
 * Jakie walidatory?
 * Jaka d³ugoœæ has³a?
-* Co okreœla ¿e u¿ytkownik istnieje? Email / Login / Wszystko? (OR / AND)
