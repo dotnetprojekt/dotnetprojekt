@@ -1,4 +1,4 @@
-create procedure inv.NextInvoiceNumber
+create procedure inv.usp_InvoiceNumberNext
 	@p_InvoiceNumber nvarchar(16) output
 as
 begin
@@ -32,7 +32,7 @@ end
 
 go
 
-create procedure inv.InvoiceAdd
+create procedure inv.usp_InvoiceAdd
 	@p_VendorId int,
 	@p_BuyerId int,
 	@p_Title nvarchar(2048),
@@ -55,7 +55,7 @@ begin
 	begin
 		begin transaction
 				
-			exec inv.NextInvoiceNumber @v_InvoiceNumber output;
+			exec inv.usp_InvoiceNumberNext @v_InvoiceNumber output;
 
 			insert into inv.Invoices
 			(
@@ -89,7 +89,7 @@ end
 
 go
 
-create procedure inv.usp_InvoicesList
+create procedure inv.usp_InvoicesListGet
 	@p_pageNumber int,
 	@p_rowsPerPage int,
 	@p_showArchived bit = 0
@@ -168,7 +168,7 @@ end
 
 go
 
-create procedure inv.InvoicesDetails
+create procedure inv.usp_InvoicesDetailsGet
 	@p_Inv_Id int
 as
 begin
@@ -202,7 +202,7 @@ end
 
 go
 
-create procedure inv.InvoicesSetPaid
+create procedure inv.usp_InvoicesSetPaid
 	@p_Inv_Id int
 as
 begin
@@ -214,7 +214,7 @@ end
 
 go
 
-create procedure inv.InvoicesArchive
+create procedure inv.usp_InvoicesArchive
 as
 begin
 	set nocount on;
@@ -237,7 +237,7 @@ end
 
 go
 
-create procedure inv.InvoicesDelete
+create procedure inv.usp_InvoicesDelete
 as
 begin
 	set nocount on;
