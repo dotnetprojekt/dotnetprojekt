@@ -16,7 +16,7 @@ begin
 	if(@p_Context is null or @p_Status is null or @p_Login is null)
 		raiserror (15600,-1,-1, 'inv.usp_PartnerAdd');
 	else
-		insert into inv.Logs with(rowlock)
+		insert into dbo.Logs with(rowlock)
 		(
 			Log_Context,
 			Log_Status,

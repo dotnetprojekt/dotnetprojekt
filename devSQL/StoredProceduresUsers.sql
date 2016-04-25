@@ -121,6 +121,7 @@ as
 begin
 	set nocount on;
 	set xact_abort on;
+	declare @v_loginStatus bit = 0;
 
 	begin transaction
 
@@ -132,12 +133,13 @@ begin
 			and Usr_Status = 2
 
 		if(@@ROWCOUNT > 0)
-			return 1;
+			set @v_loginStatus = 1;
 		else
-			return 0;
+			set @v_loginStatus = 0;
 
 	commit transaction
 
+	return @v_loginStatus;
 end
 
 go

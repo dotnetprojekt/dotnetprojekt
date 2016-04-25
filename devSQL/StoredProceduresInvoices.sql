@@ -40,7 +40,7 @@ create procedure inv.InvoiceAdd
 	@p_OverallNetValue decimal(9,2),
 	@p_OverallGrossValue decimal(9,2),
 	@p_Discount decimal(3,2),
-	@p_OverallCost decimal(3,2),
+	@p_OverallCost decimal(9,2),
 	@p_Creator int
 as
 begin

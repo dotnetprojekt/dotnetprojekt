@@ -29,7 +29,7 @@ create table inv.Invoices
 	Inv_OverallGrossValue decimal(9,2) not null,
 	Inv_Discount decimal(3,2) constraint DF_Discount default null,
 	Inv_OverallCost decimal(9,2) not null,
-	Inv_Status int not null constraint DF_Status default 0,
+	Inv_Status int not null constraint DF_Status default 1,
 	Inv_Creator int not null,
 	
 	constraint PK_Invoices primary key (Inv_Id),
