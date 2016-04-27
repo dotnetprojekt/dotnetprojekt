@@ -5,6 +5,7 @@
     SearchInvoices();
     AddRow();
     DeleteRow();
+    AddInvoiceSearchVendors();
 
 });
 
@@ -106,20 +107,6 @@ function AddRow() {
     })
 }
 
-/*
-function AllowTableRowsToBeClicked() {
-    $('#resultTable tbody tr').on('click', function () {
-        alert("asdas");
-
-        var invoiceNumber = $(this).attr('title');
-        var url = "/Home/InvoiceDetails";
-        $.post(url, { invoiceNumber: invoiceNumber }, function (result) {
-            $(".body-content").replaceWith(result)
-        });
-    });
-}
-*/
-
 function DeleteRow() {
 
     $(".delete-button").click(function () {
@@ -129,3 +116,61 @@ function DeleteRow() {
 
     })
 }
+
+
+function AddInvoiceSearchVendors() {
+    
+    var url = "/Home/AddInvoiceSearchPartners";
+    $('#getVendors').click(function (e) {
+        e.preventDefault();
+        //alert("aaa");
+        var vfirstname = $('#vfirstname').val();
+        var vlastname = $('#vlastname').val();
+        var vcompany = $('#vcompany').val();
+        $('#vendorTable tbody').load(url, { firstName: vfirstname, lastName: vlastname, companyName: vcompany });
+
+    })
+}
+
+
+$('#vendorTableDiv').on('click', '#vendorTable tbody tr', function () {
+
+    //var rowNumber = $(this).attr('title');
+    //var rowNumber = $(this).id;
+    //alert(rowNumber);
+
+    //alert(this.rowIndex);
+    var rowId = this.id.substring(5);
+
+
+
+    //var fnameEl = 'vfirstname_' + rowId;
+    //var fname = $('#' + fnameEl).html();
+    var fname = $('#vfirstname_' + rowId).html();
+    var lname = $('#vlastname_' + rowId).html();
+    var cname = $('#vcompanyname_' + rowId).html();
+
+    $('#vfirstname').val(fname);
+    $('#vlastname').val(lname);
+    $('#vcompany').val(cname);
+
+    $('#vendorTable tr').removeClass('highlighted');
+    $(this).addClass('highlighted');
+
+
+    //alert(rowId);
+
+    //var fname = $('#vfirstname ' + rowId).html();
+    //alert("vfirstname " + rowId);
+    //alert(fname);
+
+    //var krakra = $('#krakra').html();
+    //alert(krakra);
+
+
+});
+/*
+$('#vendorTable tr').click(function (e) {
+    $('#vendorTable tr').removeClass('highlighted');
+    $(this).addClass('highlighted');
+});*/

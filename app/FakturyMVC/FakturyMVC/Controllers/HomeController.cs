@@ -41,7 +41,7 @@ namespace FakturyMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddInvoice(string date, string title, string vendor, string buyer, List<Goods> goods, double? netto, double? brutto, double? discount, double? value)
+        public ActionResult AddInvoice(string date, string title, string vendor, string buyer, List<Goods> goods, double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany)
         {
             return RedirectToAction("Index");
         }
@@ -154,6 +154,33 @@ namespace FakturyMVC.Controllers
         {
             // get invoice details from database
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddInvoiceSearchPartners(string firstName, string lastName, string companyName)
+        {
+            PartnersVievModel model = new PartnersVievModel();
+            List<Partner> partnerList = new List<Partner>();
+
+            Partner partner1 = new Partner();
+            partner1.FirstName = "Adam";
+            partner1.LastName = "Żelazko";
+            partner1.CompanyName = "Żabka";
+            partner1.Vatin = 12423423;
+            partner1.Address = "ul. Mokra 2 Kraków";
+
+            Partner partner2 = new Partner();
+            partner2.FirstName = "Michał";
+            partner2.LastName = "Żelazko";
+            partner2.CompanyName = "Żabka";
+            partner2.Vatin = 12423423;
+            partner2.Address = "ul. Mokra 2 Kraków";
+
+            partnerList.Add(partner1);
+            partnerList.Add(partner2);
+
+            model.Partners = partnerList;
+
+            return PartialView("AddInvoiceSearchPartners", model);
         }
 
     }

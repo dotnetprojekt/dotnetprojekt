@@ -168,6 +168,7 @@
     <Content Include="Views\Home\SearchPartnersResults.cshtml" />
     <Content Include="Views\Home\TableRow.cshtml" />
     <Content Include="Views\Home\InvoiceDetails.cshtml" />
+    <Content Include="Views\Home\AddInvoiceSearchPartners.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,6 +14,56 @@
         @Html.Label("Tytuł", new { @class = "margin-top-10" })
         @Html.TextBox("title", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-xs-4 pull-left margin-top-40">
+        @Html.Label("Imię", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vfirstname" })
+        <br />
+        @Html.Label("Nazwisko", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vlastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vlastname" })
+        <br />
+        @Html.Label("Firma", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vcompany" })
+        <br />
+    </div>
+
+    <div class="col-xs-4 pull-left margin-top-40" id="vendorTableDiv">
+        <table class="table table-striped table-hover margin-top-10" id="vendorTable">
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Firma</th>
+                <th>VATIN</th>
+            </tr> 
+            <tr>
+                <th></th><th></th><th></th><th></th>
+            </tr> 
+            <tr>
+                <th></th><th></th><th></th><th></th>
+            </tr>  
+            <tr>
+                <th></th><th></th><th></th><th></th>
+            </tr>  
+            <tr>
+                <th></th><th></th><th></th><th></th>
+            </tr>  
+            <tr>
+                <th></th><th></th><th></th><th></th>
+            </tr>           
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+    <button id="getVendors" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
+    <div class="clearfix"></div>
+    
+    <div class="col-xs-8 pull-left margin-top-40">
         @Html.Label("Sprzedawca", new { @class = "margin-top-10" })
         @Html.TextBox("vendor", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
@@ -45,7 +95,7 @@
                 </tr>
             </table>
             <button id="addRow" class="btn margin-top-10 margin-bottom-10">Dodaj produkt</button>
-            
+
         </div>
 
 
@@ -63,8 +113,8 @@
         @Html.Label("Podliczona wartość", new { @class = "margin-top-10" })
         @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
-        
-        
+
+
     </div>
     <div class="clearfix"></div>
     <button type="submit" name="addButton" id="addButton" value="Add" class="btn margin-top-10 margin-bottom-10">Dodaj</button>

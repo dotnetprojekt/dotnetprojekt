@@ -181,3 +181,7 @@ ul {
     float:left;
     margin-right:10px;
 }
+
+tr.highlighted th {
+    background: #52C5FF !important;
+}
