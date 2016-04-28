@@ -1,0 +1,26 @@
+﻿@model FakturyMVC.Models.PartnersVievModel
+
+<tr class="top-row">
+    <td><b>Imię</b></td>
+    <td><b>Nazwisko</b></td>
+    <td><b>Firma</b></td>
+    <td><b>VATIN</b></td>
+</tr> 
+
+@for (int i = 0; i < Model.Partners.Count; i++)
+{
+    <tr id="vrow @i">
+        <td id="vfirstname_@i">@Model.Partners[i].FirstName</td>
+        <td id="vlastname_@i">@Model.Partners[i].LastName</td>
+        <td id="vcompanyname_@i">@Model.Partners[i].CompanyName</td>
+        <td id="vvatin_@i">@Model.Partners[i].Vatin</td>
+    </tr>
+}
+
+@for (int i = 5; i > Model.Partners.Count; i--)
+{
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+}
+

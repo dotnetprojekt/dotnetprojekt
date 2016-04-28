@@ -182,6 +182,32 @@ ul {
     margin-right:10px;
 }
 
-tr.highlighted th {
-    background: #52C5FF !important;
+tr.highlighted td {
+    background: #B9C3C6 !important;
+}
+
+#vendorTable {
+    min-width: 500px;
+}
+
+#vendorTable td {
+    height: 40px;
+    width: 250px;
+}
+
+#buyerTable {
+    min-width: 500px;
+}
+
+#buyerTable td {
+    height: 40px;
+    width: 250px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.top-row {
+    background-color: #E0E0E0;
 }

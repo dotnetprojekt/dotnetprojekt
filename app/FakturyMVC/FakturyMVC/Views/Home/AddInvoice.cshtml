@@ -18,7 +18,7 @@
 
     <div class="clearfix"></div>
 
-    <div class="col-xs-4 pull-left margin-top-40">
+    <div class="col-sm-3 pull-left margin-top-40 margin-right-10">
         @Html.Label("Imię", new { @class = "margin-top-10" })
         <br />
         @Html.TextBox("vfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vfirstname" })
@@ -33,44 +33,128 @@
         <br />
     </div>
 
-    <div class="col-xs-4 pull-left margin-top-40" id="vendorTableDiv">
-        <table class="table table-striped table-hover margin-top-10" id="vendorTable">
-            <tr>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>Firma</th>
-                <th>VATIN</th>
+    <div class="col-sm-3 pull-left margin-top-40" id="vendorTableDiv">
+        <table class="table table-bordered table-hover margin-top-10" id="vendorTable">
+            <tr class="top-row">
+                <td><b>Imię</b></td>
+                <td><b>Nazwisko</b></td>
+                <td><b>Firma</b></td>
+                <td><b>VATIN</b></td>
             </tr> 
             <tr>
-                <th></th><th></th><th></th><th></th>
-            </tr> 
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
-                <th></th><th></th><th></th><th></th>
-            </tr>  
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
-                <th></th><th></th><th></th><th></th>
-            </tr>  
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
-                <th></th><th></th><th></th><th></th>
-            </tr>  
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
-                <th></th><th></th><th></th><th></th>
-            </tr>           
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
         </table>
     </div>
 
     <div class="clearfix"></div>
     <button id="getVendors" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
     <div class="clearfix"></div>
-    
+
+
+    <div class="col-sm-3 pull-left margin-top-40 margin-right-10">
+        @Html.Label("Imię", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("bfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bfirstname" })
+        <br />
+        @Html.Label("Nazwisko", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("blastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "blastname" })
+        <br />
+        @Html.Label("Firma", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("bcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bcompany" })
+        <br />
+    </div>
+
+    <div class="col-sm-3 pull-left margin-top-40" id="buyerTableDiv">
+        <table class="table table-bordered table-hover margin-top-10" id="buyerTable">
+            <tr class="top-row">
+                <td><b>Imię</b></td>
+                <td><b>Nazwisko</b></td>
+                <td><b>Firma</b></td>
+                <td><b>VATIN</b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+    <button id="getBuyers" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
+    <div class="clearfix"></div>
+
+
+
+
+
+
+
     <div class="col-xs-8 pull-left margin-top-40">
+
+        @*
         @Html.Label("Sprzedawca", new { @class = "margin-top-10" })
         @Html.TextBox("vendor", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
         @Html.Label("Kupiec", new { @class = "margin-top-10" })
         @Html.TextBox("buyer", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
-        <br />
-        <br />
+        *@
+        
         <b>Produkty</b>
 
         <div class="">

@@ -6,6 +6,7 @@
     AddRow();
     DeleteRow();
     AddInvoiceSearchVendors();
+    AddInvoiceSearchBuyers();
 
 });
 
@@ -24,8 +25,21 @@ $('#goodsTable').on('click', 'tbody tr .delete-button', function () {
     var name = $(this).attr('name');
     //alert(name);
     var number = name.substring(7);
-    //alert(number);
+    //alert("aa" + number);
     var rowId = "row" + number;
+
+    $('#goods_' + number + '__name').val("");
+    $('#goods_' + number + '__amount').val("");
+    $('#goods_' + number + '__price').val("");
+    $('#goods_' + number + '__value').val("");
+    $('#goods_' + number + '__tax').val("");
+    
+
+
+   // $(this).find('th').each(function (th) {
+        //$('#goods_' + rowId + '__name').val("");
+   // });
+
     $('#' + rowId).hide();
 });
 
@@ -120,10 +134,9 @@ function DeleteRow() {
 
 function AddInvoiceSearchVendors() {
     
-    var url = "/Home/AddInvoiceSearchPartners";
+    var url = "/Home/AddInvoiceSearchVendors";
     $('#getVendors').click(function (e) {
         e.preventDefault();
-        //alert("aaa");
         var vfirstname = $('#vfirstname').val();
         var vlastname = $('#vlastname').val();
         var vcompany = $('#vcompany').val();
@@ -135,17 +148,8 @@ function AddInvoiceSearchVendors() {
 
 $('#vendorTableDiv').on('click', '#vendorTable tbody tr', function () {
 
-    //var rowNumber = $(this).attr('title');
-    //var rowNumber = $(this).id;
-    //alert(rowNumber);
-
-    //alert(this.rowIndex);
     var rowId = this.id.substring(5);
 
-
-
-    //var fnameEl = 'vfirstname_' + rowId;
-    //var fname = $('#' + fnameEl).html();
     var fname = $('#vfirstname_' + rowId).html();
     var lname = $('#vlastname_' + rowId).html();
     var cname = $('#vcompanyname_' + rowId).html();
@@ -154,23 +158,43 @@ $('#vendorTableDiv').on('click', '#vendorTable tbody tr', function () {
     $('#vlastname').val(lname);
     $('#vcompany').val(cname);
 
-    $('#vendorTable tr').removeClass('highlighted');
-    $(this).addClass('highlighted');
-
-
-    //alert(rowId);
-
-    //var fname = $('#vfirstname ' + rowId).html();
-    //alert("vfirstname " + rowId);
-    //alert(fname);
-
-    //var krakra = $('#krakra').html();
-    //alert(krakra);
-
+    if (!$(this).hasClass("top-row"))
+    {
+        $('#vendorTable tr').removeClass('highlighted');
+        $(this).addClass('highlighted');
+    }
 
 });
-/*
-$('#vendorTable tr').click(function (e) {
-    $('#vendorTable tr').removeClass('highlighted');
-    $(this).addClass('highlighted');
-});*/
+
+function AddInvoiceSearchBuyers() {
+
+    var url = "/Home/AddInvoiceSearchBuyers";
+    $('#getBuyers').click(function (e) {
+        e.preventDefault();
+        var bfirstname = $('#bfirstname').val();
+        var blastname = $('#blastname').val();
+        var bcompany = $('#bcompany').val();
+        $('#buyerTable tbody').load(url, { firstName: bfirstname, lastName: blastname, companyName: bcompany });
+
+    })
+}
+
+
+$('#buyerTableDiv').on('click', '#buyerTable tbody tr', function () {
+
+    var rowId = this.id.substring(5);
+
+    var fname = $('#bfirstname_' + rowId).html();
+    var lname = $('#blastname_' + rowId).html();
+    var cname = $('#bcompanyname_' + rowId).html();
+
+    $('#bfirstname').val(fname);
+    $('#blastname').val(lname);
+    $('#bcompany').val(cname);
+
+    if (!$(this).hasClass("top-row")) {
+        $('#buyerTable tr').removeClass('highlighted');
+        $(this).addClass('highlighted');
+    }
+
+});
