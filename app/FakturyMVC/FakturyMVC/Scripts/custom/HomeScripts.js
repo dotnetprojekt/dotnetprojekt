@@ -82,7 +82,8 @@ function DatePicker() {
 function SearchInvoices() {
 
     var url = "/Home/SearchInvoice";
-    $('#searchForInvoicesButton').click(function () {
+    $('#searchForInvoicesButton').click(function (e) {
+        e.preventDefault();
         var invNumber = $('#invNumber').val();
         var vendor = $('#vendor').val();
         var buyer = $('#buyer').val();
@@ -243,8 +244,12 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
 
     var discount = $('#discount').val();
 
-    var totalValue = parseFloat(brutto) - parseFloat(discount) * parseFloat(brutto);
-    $('#value').val(totalValue);
+    var discountCorrect = discount.toString().replace(/\,/g, '.');
+
+    var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);
+
+    var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
+    $('#value').val(correctedTotalValue);
 
 });
 
@@ -276,19 +281,16 @@ function ChangedDiscount() {
 
         $('#netto').val(netto);
         $('#brutto').val(brutto);
-
-        //var discount = $('#discount').val();
         var discount = $(this).val();
-        //alert(discount);
 
-        var totalValue = parseFloat(brutto) - parseFloat(discount) * parseFloat(brutto);
-        alert(totalValue);
+        var bruttoCorrect = brutto.toString().replace(/\,/g, '.');
+        var discountCorrect = discount.toString().replace(/\,/g, '.');
 
-        $('#value').val(totalValue);
+        var totalValue = bruttoCorrect - parseFloat(discountCorrect) * parseFloat(bruttoCorrect);
 
-        //alert(brutto);
-        //alert(discount);
-        //alert(totalValue);
+        var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
+        $('#value').val(correctedTotalValue);
+
 
     })
 
