@@ -7,6 +7,8 @@
     DeleteRow();
     AddInvoiceSearchVendors();
     AddInvoiceSearchBuyers();
+    ChangedDiscount();
+    //CountPrice();
 
 });
 
@@ -28,11 +30,25 @@ $('#goodsTable').on('click', 'tbody tr .delete-button', function () {
     //alert("aa" + number);
     var rowId = "row" + number;
 
+    $('#goods_' + number + '__name').prop('required', false);
+    $('#goods_' + number + '__amount').prop('required', false);
+    $('#goods_' + number + '__price').prop('required', false);
+    $('#goods_' + number + '__value').prop('required', false);
+    $('#goods_' + number + '__tax').prop('required', false);
+
     $('#goods_' + number + '__name').val("");
     $('#goods_' + number + '__amount').val("");
     $('#goods_' + number + '__price').val("");
     $('#goods_' + number + '__value').val("");
     $('#goods_' + number + '__tax').val("");
+
+    /*
+    $('#goods_' + number + '__name').removeAttr('required');​​​​​
+    $('#goods_' + number + '__amount').removeAttr('required');​​​​​
+    $('#goods_' + number + '__price').removeAttr('required');​​​​​
+    $('#goods_' + number + '__value').removeAttr('required');​​​​​
+    $('#goods_' + number + '__tax').removeAttr('required');​​​​​
+    */
     
 
 
@@ -198,3 +214,82 @@ $('#buyerTableDiv').on('click', '#buyerTable tbody tr', function () {
     }
 
 });
+
+$('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
+    var rowCount = $('#rowCount').val();
+    //alert(rowCount);
+
+    var i = 0;
+    var netto = 0;
+    var brutto = 0;
+    
+    while (i <= rowCount) {
+        var name = $('#goods_' + i + '__name').val();
+        var amount = $('#goods_' + i + '__amount').val();
+        var price = $('#goods_' + i + '__price').val();
+        var value = $('#goods_' + i + '__value').val();
+        var tax = $('#goods_' + i + '__tax').val();
+
+        if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length >0 )
+        {
+            netto = netto + parseInt(value);
+            brutto = brutto + parseInt(value) + parseInt(value) * parseFloat(tax);            
+        }        
+        i++;
+    }
+
+    $('#netto').val(netto);
+    $('#brutto').val(brutto);
+
+    var discount = $('#discount').val();
+
+    var totalValue = parseFloat(brutto) - parseFloat(discount) * parseFloat(brutto);
+    $('#value').val(totalValue);
+
+});
+
+
+function ChangedDiscount() {
+
+    $('#discount').focusout(function () {
+
+        var rowCount = $('#rowCount').val();
+        //alert(rowCount);
+
+        var i = 0;
+        var netto = 0;
+        var brutto = 0;
+
+        while (i <= rowCount) {
+            var name = $('#goods_' + i + '__name').val();
+            var amount = $('#goods_' + i + '__amount').val();
+            var price = $('#goods_' + i + '__price').val();
+            var value = $('#goods_' + i + '__value').val();
+            var tax = $('#goods_' + i + '__tax').val();
+
+            if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0) {
+                netto = netto + parseInt(value);
+                brutto = brutto + parseInt(value) + parseInt(value) * parseFloat(tax);
+            }
+            i++;
+        }
+
+        $('#netto').val(netto);
+        $('#brutto').val(brutto);
+
+        //var discount = $('#discount').val();
+        var discount = $(this).val();
+        //alert(discount);
+
+        var totalValue = parseFloat(brutto) - parseFloat(discount) * parseFloat(brutto);
+        alert(totalValue);
+
+        $('#value').val(totalValue);
+
+        //alert(brutto);
+        //alert(discount);
+        //alert(totalValue);
+
+    })
+
+}

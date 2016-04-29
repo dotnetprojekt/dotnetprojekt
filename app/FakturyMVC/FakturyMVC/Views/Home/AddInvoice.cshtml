@@ -12,7 +12,7 @@
         @Html.TextBox("date", @DateTime.Now.ToString("dd/MM/yyyy"), new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
         @Html.Label("Tytuł", new { @class = "margin-top-10" })
-        @Html.TextBox("title", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("title", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true" })
         <br />
     </div>
 
@@ -21,15 +21,15 @@
     <div class="col-sm-3 pull-left margin-top-40 margin-right-10">
         @Html.Label("Imię", new { @class = "margin-top-10" })
         <br />
-        @Html.TextBox("vfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vfirstname" })
+        @Html.TextBox("vfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vfirstname", @required = "true" })
         <br />
         @Html.Label("Nazwisko", new { @class = "margin-top-10" })
         <br />
-        @Html.TextBox("vlastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vlastname" })
+        @Html.TextBox("vlastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vlastname", @required = "true" })
         <br />
         @Html.Label("Firma", new { @class = "margin-top-10" })
         <br />
-        @Html.TextBox("vcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vcompany" })
+        @Html.TextBox("vcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vcompany", @required = "true" })
         <br />
     </div>
 
@@ -82,15 +82,15 @@
     <div class="col-sm-3 pull-left margin-top-40 margin-right-10">
         @Html.Label("Imię", new { @class = "margin-top-10" })
         <br />
-        @Html.TextBox("bfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bfirstname" })
+        @Html.TextBox("bfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bfirstname", @required = "true" })
         <br />
         @Html.Label("Nazwisko", new { @class = "margin-top-10" })
         <br />
-        @Html.TextBox("blastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "blastname" })
+        @Html.TextBox("blastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "blastname", @required = "true" })
         <br />
         @Html.Label("Firma", new { @class = "margin-top-10" })
         <br />
-        @Html.TextBox("bcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bcompany" })
+        @Html.TextBox("bcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bcompany", @required = "true" })
         <br />
     </div>
 
@@ -171,11 +171,11 @@
                 <tr id="row0" name="row0">
                     <th>
                     </th>
-                    <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control" })</th>
+                    <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control goods-data", @required = "true" })</th>
+                    <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0" })</th>
+                    <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+                    <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
                 </tr>
             </table>
             <button id="addRow" class="btn margin-top-10 margin-bottom-10">Dodaj produkt</button>
@@ -192,10 +192,10 @@
         @Html.TextBox("brutto", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
         @Html.Label("Zniżka", new { @class = "margin-top-10" })
-        @Html.TextBox("discount", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("discount", 0, new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
         @Html.Label("Podliczona wartość", new { @class = "margin-top-10" })
-        @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly"})
         <br />
 
 

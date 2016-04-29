@@ -211,3 +211,7 @@ tr.highlighted td {
 .top-row {
     background-color: #E0E0E0;
 }
+
+#goodsTable {
+    min-width: 700px;
+}
