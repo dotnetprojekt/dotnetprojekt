@@ -23,9 +23,11 @@ namespace FakturyMVC.Controllers
             List<Invoice> invoices = new List<Invoice>();
             Invoice invoice = new Invoice();
 
-            int invNumberInt = Int32.Parse(invNumber);
+            int invNumberInt;
+            if (invNumber != "")
+                invNumberInt = Int32.Parse(invNumber);
 
-            invoice.Number = invNumberInt;
+            invoice.Number = 555;
             invoice.Buyer = "Adam";
             invoice.Vendor = "Krzysiek";
             invoice.Date = "krolik";
@@ -73,7 +75,10 @@ namespace FakturyMVC.Controllers
             List<Partner> partners = new List<Partner>();
             Partner partner = new Partner();
 
-            int vatinInt = Int32.Parse(vatin);
+            int vatinInt;
+            if (vatin != "")
+                vatinInt = Int32.Parse(vatin);
+
             partner.FirstName = "Kamil";
             partner.LastName = "Nowak";
             partner.CompanyName = "Biedronka";

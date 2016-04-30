@@ -8,6 +8,8 @@
     AddInvoiceSearchVendors();
     AddInvoiceSearchBuyers();
     ChangedDiscount();
+    ValidateInvNumber();
+    ValidateVatin();
     //CountPrice();
 
 });
@@ -84,15 +86,39 @@ function SearchInvoices() {
     var url = "/Home/SearchInvoice";
     $('#searchForInvoicesButton').click(function (e) {
         e.preventDefault();
+
         var invNumber = $('#invNumber').val();
         var vendor = $('#vendor').val();
         var buyer = $('#buyer').val();
         var start = $('#start').val();
         var end = $('#end').val();
-        $('#invoiceSearchResults').load(url, { invNumber: invNumber, vendor: vendor, buyer: buyer, start: start, end: end });
+        $('#invoiceSearchResults').load(url, { invNumber: invNumber, vendor: vendor, buyer: buyer, start: start, end: end });     
 
     })
 }
+
+function ValidateInvNumber() {
+
+    $('#invNumber').focusout(function () {
+
+        var invNumber = $('#invNumber').val();
+        if (!(/^\d+$/.test(invNumber)))
+            $('#invNumber').val("");
+
+    })
+}
+
+function ValidateVatin() {
+
+    $('#vatin').focusout(function () {
+
+        var vatin = $('#vatin').val();
+        if (!(/^\d+$/.test(vatin)))
+            $('#vatin').val("");
+
+    })
+}
+
 
 
 function SearchPartners() {
