@@ -1,4 +1,4 @@
-box: windows
+box: default
 build:
   steps:
-    - wercker-labs/msbuild
+    - validate-wercker-step
