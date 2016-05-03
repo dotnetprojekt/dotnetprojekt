@@ -1,6 +1,5 @@
 box: wercker-labs/windows
 build:
   steps:
-    - wercker-labs/msbuild:
+    - wercker-labs/msbuild@0.0.6:
 		configuration: Release
-		solution: app\FakturyMVC\FakturyMVC.sln
