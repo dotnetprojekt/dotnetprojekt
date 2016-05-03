@@ -1,6 +1,6 @@
 box: wercker-labs/windows
 build:
   steps:
-    - wercker-labs/nuget
-    - wercker-labs/msbuild
-    - wercker-labs/dotnet-test
+    - wercker-labs/msbuild:
+		configuration: Release
+		solution: app\FakturyMVC\FakturyMVC.sln
