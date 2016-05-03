@@ -1,4 +1,4 @@
-box: wercker-labs/windows
+box: wercker/default
 build:
   steps:
-    - wercker-labs/msbuild@0.0.6
+    - validate-wercker-step
