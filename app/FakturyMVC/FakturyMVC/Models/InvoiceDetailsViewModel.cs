@@ -8,7 +8,7 @@ namespace FakturyMVC.Models
 {
     public class InvoiceDetailsViewModel
     {
-        public int Number { get; set; }
+        public long Number { get; set; }
         public string Date { get; set; }
         public string Title { get; set; }
         public Partner Vendor { get; set; }

@@ -23,9 +23,10 @@ namespace FakturyMVC.Controllers
             List<Invoice> invoices = new List<Invoice>();
             Invoice invoice = new Invoice();
 
-            int invNumberInt;
+            long invNumberInt;
             if (invNumber != "")
-                invNumberInt = Int32.Parse(invNumber);
+                invNumberInt = long.Parse(invNumber);
+            
 
             invoice.Number = 555;
             invoice.Buyer = "Adam";
@@ -56,7 +57,7 @@ namespace FakturyMVC.Controllers
         }
         
         [HttpPost]
-        public ActionResult AddPartner(string firstName, string lastName, string companyName, int VATIN, string address)
+        public ActionResult AddPartner(string firstName, string lastName, string companyName, long VATIN, string address)
         {
             // send to database (addPartner)
             return RedirectToAction("Index");
@@ -75,9 +76,9 @@ namespace FakturyMVC.Controllers
             List<Partner> partners = new List<Partner>();
             Partner partner = new Partner();
 
-            int vatinInt;
+            long vatinInt;
             if (vatin != "")
-                vatinInt = Int32.Parse(vatin);
+                vatinInt = long.Parse(vatin);
 
             partner.FirstName = "Kamil";
             partner.LastName = "Nowak";
@@ -105,9 +106,9 @@ namespace FakturyMVC.Controllers
             InvoiceDetailsViewModel model = new InvoiceDetailsViewModel();
 
             List<SelectListItem> status = new List<SelectListItem>();
-            status.Add(new SelectListItem { Text = "Nowa", Value = "new" });
-            status.Add(new SelectListItem { Text = "Opłacona", Value = "paid" });
-            status.Add(new SelectListItem { Text = "Zarchiwizowana", Value = "archived" });
+            status.Add(new SelectListItem { Text = "Nowa", Value = "new", Selected=true });
+            status.Add(new SelectListItem { Text = "Opłacona", Value = "paid", Selected = false });
+            status.Add(new SelectListItem { Text = "Zarchiwizowana", Value = "archived", Selected = false });
 
             List<Goods> goods = new List<Goods>();
 
@@ -157,7 +158,7 @@ namespace FakturyMVC.Controllers
             return View(model);
         }
 
-        public ActionResult ChangeInvoiceStatus(int invoiceNumber, string status)
+        public ActionResult ChangeInvoiceStatus(long invoiceNumber, string status)
         {
             // get invoice details from database
             return RedirectToAction("Index");
