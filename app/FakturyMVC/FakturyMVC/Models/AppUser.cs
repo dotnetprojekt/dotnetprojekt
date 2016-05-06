@@ -8,6 +8,8 @@ namespace FakturyMVC.Models
 {
     public class AppUser
     {
+        public int Id { get; set; }
+
         public string Email { get; set; }
 
         public string PasswordHash { get; set; }
@@ -19,6 +21,8 @@ namespace FakturyMVC.Models
         public string Login { get; set; }
 
         public bool IsAdmin { get; set; }
+    
+        public int Status { get; set; }
 
     }
 }

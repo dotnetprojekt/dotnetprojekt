@@ -1,0 +1,48 @@
+﻿@model FakturyMVC.Models.UsersManagementViewModel
+@{
+    ViewBag.Title = "Zarządzanie użytkownikami";
+}
+
+<h2>Zarządzanie użytkownikami</h2>
+
+
+<div class="">
+    <table class="table table-striped table-hover margin-top-10" id="configTable">
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Email</th>
+            <th>Login</th>
+            <th>Akcja</th>
+        </tr>
+        @for (int i = 0; i < Model.Users.Count; i++)
+        {
+            <tr>
+                <th>@Model.Users[i].Id</th>
+                <th>@Model.Users[i].FirstName</th>
+                <th>@Model.Users[i].LastName</th>
+                <th>@Model.Users[i].Email</th>
+                <th>@Model.Users[i].Login</th>
+                @if(!Model.Users[i].IsAdmin)
+                { 
+                    if(Model.Users[i].Status == 1)
+                    {
+                        <th>@Html.ActionLink("Zablokuj", "BlockUser", "Admin", new { UserId = Model.Users[i].Id }, null)</th>
+                    }
+                    else
+                    {
+                        <th>@Html.ActionLink("Odblokuj", "UnblockUser", "Admin", new { UserId = Model.Users[i].Id}, null)</th>
+                    }
+                }
+                else
+                {
+                    <th>---</th>
+                }
+            </tr>
+      }
+
+
+    </table>
+</div>
+

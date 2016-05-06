@@ -27,5 +27,13 @@ namespace FakturyMVC.Models
                 return this.FindFirst(ClaimTypes.Country).Value;
             }
         }
+
+        public string Role
+        {
+            get
+            {
+                return this.FindFirst(ClaimTypes.Role).Value;
+            }
+        }
     }
 }

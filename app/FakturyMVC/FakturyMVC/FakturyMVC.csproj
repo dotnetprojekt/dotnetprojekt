@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\AppUserPrincipal.cs" />
     <Compile Include="Models\AppViewPage.cs" />
+    <Compile Include="Models\BlockUnblockViewModel.cs" />
     <Compile Include="Models\Goods.cs" />
     <Compile Include="Models\InvoiceDetailsViewModel.cs" />
     <Compile Include="Models\InvoicesViewModel.cs" />
@@ -165,6 +167,7 @@
     <Compile Include="Models\PartnersVievModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\UsersManagementViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +220,10 @@
     <Content Include="Views\Home\AddInvoiceSearchBuyers.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Admin\UsersManagement.cshtml" />
+    <Content Include="Views\Admin\AddUser.cshtml" />
+    <Content Include="Views\Admin\BlockUser.cshtml" />
+    <Content Include="Views\Admin\UnblockUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

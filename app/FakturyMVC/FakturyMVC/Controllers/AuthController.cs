@@ -31,6 +31,8 @@ namespace FakturyMVC.Controllers
         [HttpPost]
         public ActionResult LogIn(LogInModel model)
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -42,7 +44,8 @@ namespace FakturyMVC.Controllers
                 var identity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, "Waldek"),
                 new Claim(ClaimTypes.Email, "a@a.com"),
-                new Claim(ClaimTypes.Country, "Polska")
+                new Claim(ClaimTypes.Country, "Polska"),
+                new Claim(ClaimTypes.Role, "Admin")
             },
                     "ApplicationCookie");
 
