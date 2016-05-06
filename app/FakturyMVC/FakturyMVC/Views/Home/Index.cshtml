@@ -3,7 +3,12 @@
 }
 
 <br />
+<h1>
+    Hello @CurrentUser.Name. How's the weather in @CurrentUser.Country?
+</h1>
+
 <h2>@ViewBag.Title</h2>
+
 
 <hr />
 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @id = "searchInvoiceForm", @class = "form-inline" }))

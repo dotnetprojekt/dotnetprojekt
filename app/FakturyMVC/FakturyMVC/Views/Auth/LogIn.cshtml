@@ -1,0 +1,29 @@
+﻿@model FakturyMVC.Models.LogInModel
+@{
+    ViewBag.Title = "Logowanie";
+}
+
+<h2>Zaloguj się</h2>
+
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm("LogIn", "Auth", FormMethod.Post, new { @id = "logInForm", @class = "form-inline" }))
+{
+
+    <div class="col-xs-8 pull-left">
+        @Html.Label("Email: ", new { @class = "margin-top-10" })
+        @Html.TextBox("email", "", new { placeholder = "Email" , @class = "input-sm form-control margin-right-10 margin-left-20",  @type = "email", @min = "0" })
+        <br />
+       
+
+
+        @Html.Label("Hasło:  ", new { @class = "margin-top-10" })
+        @Html.PasswordFor(model => model.Password, new {@class = "input-sm form-control margin-right-10 margin-left-20", placeholder = "Hasło" })
+        <br />
+        
+     </div>
+
+    <div class="clearfix"></div>
+    <button type="submit" class="btn margin-top-10 margin-bottom-10">Log In</button>
+
+}

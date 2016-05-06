@@ -20,9 +20,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Dodaj fakturę", "AddInvoice", "Home")</li>
-                    <li>@Html.ActionLink("Dodaj partnera", "AddPartner", "Home")</li>
-                    <li>@Html.ActionLink("Szukaj partnera", "SearchPartner", "Home")</li>
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Dodaj fakturę", "AddInvoice", "Home")</li>
+                        <li>@Html.ActionLink("Dodaj partnera", "AddPartner", "Home")</li>
+                        <li>@Html.ActionLink("Szukaj partnera", "SearchPartner", "Home")</li>
+                        <li>@Html.ActionLink("Rejestracja", "Register", "Auth")</li>
+                        <li>@Html.ActionLink("Wyloguj się", "Logout", "Auth")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Rejestracja", "Register", "Auth")</li>
+                    }
                 </ul>
             </div>
         </div>
