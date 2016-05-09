@@ -27,7 +27,6 @@ go
 				or (@p_FirstName is null and @p_LastName is null and @p_CompanyName is not null)
 				or (@p_FirstName is not null and @p_LastName is not null and @p_CompanyName is null)
 			)
-			and not exists (select top 1 1 from inv.Partners where Part_Vatin = @p_Vatin)
 			and @p_User is not null
 		begin
 			insert into inv.Partners with(rowlock)
