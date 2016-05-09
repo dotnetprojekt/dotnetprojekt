@@ -23,9 +23,12 @@ namespace FakturyMVC.Controllers
             List<Invoice> invoices = new List<Invoice>();
             Invoice invoice = new Invoice();
 
-            int invNumberInt = Int32.Parse(invNumber);
+            long invNumberInt;
+            if (invNumber != "")
+                invNumberInt = long.Parse(invNumber);
+            
 
-            invoice.Number = invNumberInt;
+            invoice.Number = 555;
             invoice.Buyer = "Adam";
             invoice.Vendor = "Krzysiek";
             invoice.Date = "krolik";
@@ -41,7 +44,9 @@ namespace FakturyMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddInvoice(string date, string title, string vendor, string buyer, List<Goods> goods, double? netto, double? brutto, double? discount, double? value)
+        public ActionResult AddInvoice(string date, string title, /*string vendor, string buyer,*/ List<Goods> goods, 
+            double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany,
+            string bfirstname, string blastname, string bcompany)
         {
             return RedirectToAction("Index");
         }
@@ -52,7 +57,7 @@ namespace FakturyMVC.Controllers
         }
         
         [HttpPost]
-        public ActionResult AddPartner(string firstName, string lastName, string companyName, int VATIN, string address)
+        public ActionResult AddPartner(string firstName, string lastName, string companyName, long VATIN, string address)
         {
             // send to database (addPartner)
             return RedirectToAction("Index");
@@ -71,7 +76,10 @@ namespace FakturyMVC.Controllers
             List<Partner> partners = new List<Partner>();
             Partner partner = new Partner();
 
-            int vatinInt = Int32.Parse(vatin);
+            long vatinInt;
+            if (vatin != "")
+                vatinInt = long.Parse(vatin);
+
             partner.FirstName = "Kamil";
             partner.LastName = "Nowak";
             partner.CompanyName = "Biedronka";
@@ -98,9 +106,9 @@ namespace FakturyMVC.Controllers
             InvoiceDetailsViewModel model = new InvoiceDetailsViewModel();
 
             List<SelectListItem> status = new List<SelectListItem>();
-            status.Add(new SelectListItem { Text = "Nowa", Value = "new" });
-            status.Add(new SelectListItem { Text = "Opłacona", Value = "paid" });
-            status.Add(new SelectListItem { Text = "Zarchiwizowana", Value = "archived" });
+            status.Add(new SelectListItem { Text = "Nowa", Value = "new", Selected=true });
+            status.Add(new SelectListItem { Text = "Opłacona", Value = "paid", Selected = false });
+            status.Add(new SelectListItem { Text = "Zarchiwizowana", Value = "archived", Selected = false });
 
             List<Goods> goods = new List<Goods>();
 
@@ -150,10 +158,64 @@ namespace FakturyMVC.Controllers
             return View(model);
         }
 
-        public ActionResult ChangeInvoiceStatus(int invoiceNumber, string status)
+        public ActionResult ChangeInvoiceStatus(long invoiceNumber, string status)
         {
             // get invoice details from database
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddInvoiceSearchVendors(string firstName, string lastName, string companyName)
+        {
+            PartnersVievModel model = new PartnersVievModel();
+            List<Partner> partnerList = new List<Partner>();
+
+            Partner partner1 = new Partner();
+            partner1.FirstName = "Adam";
+            partner1.LastName = "Żelazko";
+            partner1.CompanyName = "Żabka";
+            partner1.Vatin = 12423423;
+            partner1.Address = "ul. Mokra 2 Kraków";
+
+            Partner partner2 = new Partner();
+            partner2.FirstName = "Michał";
+            partner2.LastName = "Żelazko";
+            partner2.CompanyName = "Żabka";
+            partner2.Vatin = 12423423;
+            partner2.Address = "ul. Mokra 2 Kraków";
+
+            partnerList.Add(partner1);
+            partnerList.Add(partner2);
+
+            model.Partners = partnerList;
+
+            return PartialView("AddInvoiceSearchVendors", model);
+        }
+
+        public ActionResult AddInvoiceSearchBuyers(string firstName, string lastName, string companyName)
+        {
+            PartnersVievModel model = new PartnersVievModel();
+            List<Partner> partnerList = new List<Partner>();
+
+            Partner partner1 = new Partner();
+            partner1.FirstName = "Adam";
+            partner1.LastName = "Żelazko";
+            partner1.CompanyName = "Żabka";
+            partner1.Vatin = 12423423;
+            partner1.Address = "ul. Mokra 2 Kraków";
+
+            Partner partner2 = new Partner();
+            partner2.FirstName = "Michał";
+            partner2.LastName = "Żelazko";
+            partner2.CompanyName = "Żabka";
+            partner2.Vatin = 12423423;
+            partner2.Address = "ul. Mokra 2 Kraków";
+
+            partnerList.Add(partner1);
+            partnerList.Add(partner2);
+
+            model.Partners = partnerList;
+
+            return PartialView("AddInvoiceSearchBuyers", model);
         }
 
     }

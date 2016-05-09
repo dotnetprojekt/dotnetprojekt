@@ -2,26 +2,28 @@
     ViewBag.Title = "AddPartner";
 }
 
+<br />
 <h2>Dodaj partnerów</h2>
+<hr />
 
 @using (Html.BeginForm("AddPartner", "Home", FormMethod.Post, new { @id = "addPartnerForm", @class = "form-inline" }))
 {
 
     <div class="col-xs-8 pull-left">
         @Html.Label("Imię", new { @class = "margin-top-10" })
-        @Html.TextBox("firstName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("firstName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true" })
         <br />
         @Html.Label("Nazwisko", new { @class = "margin-top-10" })
-        @Html.TextBox("lastName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("lastName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true" })
         <br />
         @Html.Label("Firma", new { @class = "margin-top-10" })
-        @Html.TextBox("companyName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("companyName", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true" })
         <br />
         @Html.Label("VATIN", new { @class = "margin-top-10" })
-        @Html.TextBox("vatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("vatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @type = "number", @required = "true", @min = "0" })
         <br />
         @Html.Label("Adres", new { @class = "margin-top-10" })
-        @Html.TextBox("address", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("address", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true" })
         <br />        
     </div>
     <div class=" clearfix"></div>

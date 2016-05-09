@@ -2,7 +2,9 @@
     ViewBag.Title = "AddInvoice";
 }
 
+<br />
 <h2>Dodaj fakturę</h2>
+<hr />
 
 @using (Html.BeginForm("AddInvoice", "Home", FormMethod.Post, new { @id = "searchInvoiceForm", @class = "form-inline" }))
 {
@@ -12,15 +14,149 @@
         @Html.TextBox("date", @DateTime.Now.ToString("dd/MM/yyyy"), new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
         @Html.Label("Tytuł", new { @class = "margin-top-10" })
-        @Html.TextBox("title", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("title", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true" })
         <br />
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-sm-3 pull-left margin-top-40 margin-right-10">
+        @Html.Label("Imię", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vfirstname", @required = "true" })
+        <br />
+        @Html.Label("Nazwisko", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vlastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vlastname", @required = "true" })
+        <br />
+        @Html.Label("Firma", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vcompany", @required = "true" })
+        <br />
+    </div>
+
+    <div class="col-sm-3 pull-left margin-top-40" id="vendorTableDiv">
+        <table class="table table-bordered table-hover margin-top-10" id="vendorTable">
+            <tr class="top-row">
+                <td><b>Imię</b></td>
+                <td><b>Nazwisko</b></td>
+                <td><b>Firma</b></td>
+                <td><b>VATIN</b></td>
+            </tr> 
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+    <button id="getVendors" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
+    <div class="clearfix"></div>
+
+
+    <div class="col-sm-3 pull-left margin-top-40 margin-right-10">
+        @Html.Label("Imię", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("bfirstname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bfirstname", @required = "true" })
+        <br />
+        @Html.Label("Nazwisko", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("blastname", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "blastname", @required = "true" })
+        <br />
+        @Html.Label("Firma", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("bcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bcompany", @required = "true" })
+        <br />
+    </div>
+
+    <div class="col-sm-3 pull-left margin-top-40" id="buyerTableDiv">
+        <table class="table table-bordered table-hover margin-top-10" id="buyerTable">
+            <tr class="top-row">
+                <td><b>Imię</b></td>
+                <td><b>Nazwisko</b></td>
+                <td><b>Firma</b></td>
+                <td><b>VATIN</b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+    <button id="getBuyers" class="btn margin-top-10 margin-bottom-10">Szukaj</button>
+    <div class="clearfix"></div>
+
+
+
+
+
+
+
+    <div class="col-xs-8 pull-left margin-top-40">
+
+        @*
         @Html.Label("Sprzedawca", new { @class = "margin-top-10" })
         @Html.TextBox("vendor", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
         @Html.Label("Kupiec", new { @class = "margin-top-10" })
         @Html.TextBox("buyer", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
-        <br />
-        <br />
+        *@
+        
         <b>Produkty</b>
 
         <div class="">
@@ -37,15 +173,15 @@
                 <tr id="row0" name="row0">
                     <th>
                     </th>
-                    <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control" })</th>
-                    <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control" })</th>
+                    <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control goods-data", @required = "true" })</th>
+                    <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0" })</th>
+                    <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+                    <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
                 </tr>
             </table>
             <button id="addRow" class="btn margin-top-10 margin-bottom-10">Dodaj produkt</button>
-            
+
         </div>
 
 
@@ -58,13 +194,13 @@
         @Html.TextBox("brutto", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
         @Html.Label("Zniżka", new { @class = "margin-top-10" })
-        @Html.TextBox("discount", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("discount", 0, new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
         @Html.Label("Podliczona wartość", new { @class = "margin-top-10" })
-        @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly"})
         <br />
-        
-        
+
+
     </div>
     <div class="clearfix"></div>
     <button type="submit" name="addButton" id="addButton" value="Add" class="btn margin-top-10 margin-bottom-10">Dodaj</button>

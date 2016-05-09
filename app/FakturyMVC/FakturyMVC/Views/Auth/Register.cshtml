@@ -1,0 +1,45 @@
+﻿@model FakturyMVC.Models.RegistrationModel
+@{
+    ViewBag.Title = "Rejestracja";
+}
+
+<h2>Zarejestruj się</h2>
+
+@Html.ValidationSummary(false)
+
+@using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @id = "registerForm", @class = "form-inline" }))
+{
+
+    <div class="col-xs-8 pull-left">
+        @Html.Label("Login:", new { @class = "margin-top-10" })
+        @Html.TextBox("login", "", new { placeholder = "Login", @class = "input-sm form-control margin-right-10 margin-left-20", @min = "0" })
+        <br />
+
+        @Html.Label("Email:", new { @class = "margin-top-10" })
+        @Html.TextBox("email", "", new { placeholder = "Email", @class = "input-sm form-control margin-right-10 margin-left-20", @type = "email", @min = "0" })
+        <br />
+
+        @Html.Label("Hasło:", new { @class = "margin-top-10" })
+        @Html.PasswordFor(model => model.Password, new { @class = "input-sm form-control margin-right-10 margin-left-20", placeholder = "Hasło" })
+        <br />
+
+        @Html.Label("Powtórz hasło:", new { @class = "margin-top-10" })
+        @Html.PasswordFor(model => model.PasswordConfirmation, new { @class = "input-sm form-control margin-right-10 margin-left-20", placeholder = "Powtórz hasło" })
+        <br />
+
+        @Html.Label("Imię:", new { @class = "margin-top-10" })
+        @Html.TextBox("firstName", "", new { placeholder = "Imię", @class = "input-sm form-control margin-right-10 margin-left-20", @min = "0" })
+        <br />
+
+        @Html.Label("Nazwisko:", new { @class = "margin-top-10" })
+        @Html.TextBox("lastName", "", new { placeholder = "Nazwisko", @class = "input-sm form-control margin-right-10 margin-left-20", @min = "0" })
+        <br />
+
+    </div>
+
+    <div class="clearfix"></div>
+    <button type="submit" class="btn margin-top-10 margin-bottom-10">Zarejestruj się</button>
+
+}
+
+
