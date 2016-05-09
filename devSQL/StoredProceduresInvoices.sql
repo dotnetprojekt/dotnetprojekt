@@ -1,3 +1,30 @@
+use InvoiceSystem;
+
+go
+
+	if(object_id('inv.usp_InvoiceNumberNext') is not null)
+		drop procedure inv.usp_InvoiceNumberNext;
+
+	if(object_id('inv.usp_InvoiceAdd') is not null)
+		drop procedure inv.usp_InvoiceAdd;
+
+	if(object_id('inv.usp_InvoicesListGet') is not null)
+		drop procedure inv.usp_InvoicesListGet;
+
+	if(object_id('inv.usp_InvoicesDetailsGet') is not null)
+		drop procedure inv.usp_InvoicesDetailsGet;
+
+	if(object_id('inv.usp_InvoicesSetPaid') is not null)
+		drop procedure inv.usp_InvoicesSetPaid;
+
+	if(object_id('inv.usp_InvoicesArchive') is not null)
+		drop procedure inv.usp_InvoicesArchive;
+
+	if(object_id('inv.usp_InvoicesDelete') is not null)
+		drop procedure inv.usp_InvoicesDelete;
+
+go
+
 create procedure inv.usp_InvoiceNumberNext
 	@p_InvoiceNumber nvarchar(16) output
 as
@@ -92,13 +119,13 @@ go
 create procedure inv.usp_InvoicesListGet
 	@p_pageNumber int,
 	@p_rowsPerPage int,
-	@p_showArchived bit = 0
+	@p_showArchive bit = 0
 as
 begin
 	set nocount on;
 	set xact_abort on;
 
-	if(@p_showArchived = 0)
+	if(@p_showArchive = 0)
 		select
 			Inv_Id,
 			Inv_Number,
