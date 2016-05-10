@@ -35,7 +35,8 @@ go
 		Inv_OverallGrossValue decimal(9,2) not null,
 		Inv_Discount decimal(3,2) constraint DF_Discount default null,
 		Inv_OverallCost decimal(9,2) not null,
-		Inv_Status int not null constraint DF_Status default 1
+		Inv_Status int not null constraint DF_Status default 1,
+		--Inv_Creator int not null,
 	
 		constraint PK_Invoices primary key (Inv_Id),
 		constraint CK_Status check ((Inv_Status=0) or (Inv_Status=1) or (Inv_Status=2)),
@@ -95,9 +96,9 @@ go
 	add constraint FK_Buyer
 	foreign key (Inv_BuyerId) references inv.Partners(Part_Id);
 
-	alter table inv.Invoices
-	add constraint FK_Creator
-	foreign key (Inv_Creator) references inv.Users(Usr_Id);
+	--alter table inv.Invoices
+	--add constraint FK_Creator
+	--foreign key (Inv_Creator) references inv.Users(Usr_Id);
 
 	alter table dbo.Logs
 	add constraint FK_User
