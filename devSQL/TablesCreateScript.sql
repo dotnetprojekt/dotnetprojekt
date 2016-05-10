@@ -35,8 +35,7 @@ go
 		Inv_OverallGrossValue decimal(9,2) not null,
 		Inv_Discount decimal(3,2) constraint DF_Discount default null,
 		Inv_OverallCost decimal(9,2) not null,
-		Inv_Status int not null constraint DF_Status default 1,
-		Inv_Creator int not null,
+		Inv_Status int not null constraint DF_Status default 1
 	
 		constraint PK_Invoices primary key (Inv_Id),
 		constraint CK_Status check ((Inv_Status=0) or (Inv_Status=1) or (Inv_Status=2)),

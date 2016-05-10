@@ -67,8 +67,7 @@ go
 		@p_OverallNetValue decimal(9,2),
 		@p_OverallGrossValue decimal(9,2),
 		@p_Discount decimal(3,2),
-		@p_OverallCost decimal(9,2),
-		@p_Creator int
+		@p_OverallCost decimal(9,2)
 	as
 	begin
 		set nocount on;
@@ -76,7 +75,7 @@ go
 
 		declare @v_InvoiceNumber nvarchar(16);
 
-		if( @p_VendorId is null or @p_BuyerId is null or @p_Title is null or @p_OverallNetValue is null or @p_OverallGrossValue is null or @p_OverallCost is null or @p_Creator is null )
+		if( @p_VendorId is null or @p_BuyerId is null or @p_Title is null or @p_OverallNetValue is null or @p_OverallGrossValue is null or @p_OverallCost is null )
 			raiserror (15600,-1,-1, 'inv.usp_UserAdd');
 		else
 		begin
@@ -94,8 +93,7 @@ go
 					Inv_OverallNetValue,
 					Inv_OverallGrossValue,
 					Inv_Discount,
-					Inv_OverallCost,
-					Inv_Creator
+					Inv_OverallCost
 				)
 				values
 				(
@@ -107,8 +105,7 @@ go
 					@p_OverallNetValue,
 					@p_OverallGrossValue,
 					@p_Discount,
-					@p_OverallCost,
-					@p_Creator
+					@p_OverallCost
 				);
 			commit transaction
 		end
@@ -119,20 +116,20 @@ go
 	create procedure inv.usp_InvoicesListGet
 		@p_pageNumber int,
 		@p_rowsPerPage int,
-		@p_showArchive bit = 0
+		@p_showMode int = 1
 	as
 	begin
 		set nocount on;
 		set xact_abort on;
 
-		if(@p_showArchive = 0)
+		if(@p_showMode = 1)
 			select
 				Inv_Id,
 				Inv_Number,
 				Inv_DateOfIssue,
 				(
 					select
-						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
+						isnull(Part_FirstName,'') + ' ' + isnull(Part_LastName,'') + 
 							case
 								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
 								else ''
@@ -158,7 +155,8 @@ go
 			order by Inv_Id
 			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
 			fetch next (@p_rowsPerPage) rows only
-		else
+
+		else if(@p_showMode=2)
 			select
 				Inv_Id,
 				Inv_Number,
@@ -191,6 +189,39 @@ go
 			order by Inv_Id
 			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
 			fetch next (@p_rowsPerPage) rows only
+
+		else if(@p_showMode=3)
+			select
+				Inv_Id,
+				Inv_Number,
+				Inv_DateOfIssue,
+				(
+					select
+						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
+							case
+								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
+								else ''
+							end
+					 from Partners with(nolock)
+					 where Part_Id = Inv_VendorId
+				),
+				(
+					select
+						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
+							case
+								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
+								else ''
+							end
+					 from Partners with(nolock)
+					 where Part_Id = Inv_BuyerId
+				)
+				Inv_Title,
+				Inv_OverallCost,
+				Inv_Status
+			from inv.Invoices with(nolock)
+			order by Inv_Id
+			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
+			fetch next (@p_rowsPerPage) rows only
 	end
 
 go
@@ -204,25 +235,14 @@ go
 			Inv_Number,
 			Inv_DateOfIssue,
 			Inv_VendorId,
-			(select Part_FirstName from Partners with(nolock) where Part_Id = Inv_VendorId) as Inv_VendorFirstName,
-			(select Part_LastName from Partners with(nolock) where Part_Id = Inv_VendorId) as Inv_VendorLastName,
-			(select Part_CompanyName from Partners with(nolock) where Part_Id = Inv_VendorId) as Inv_VendorCompanyName,
-			(select Part_Vatin from Partners with(nolock) where Part_Id = Inv_VendorId) as Inv_VendorVatin,
 			Inv_BuyerId,
-			(select Part_FirstName from Partners with(nolock) where Part_Id = Inv_BuyerId) as Inv_BuyerFirstName,
-			(select Part_LastName from Partners with(nolock) where Part_Id = Inv_BuyerId) as Inv_BuyerLastName,
-			(select Part_CompanyName from Partners with(nolock) where Part_Id = Inv_BuyerId) as Inv_BuyerCompanyName,
-			(select Part_Vatin from Partners with(nolock) where Part_Id = Inv_BuyerId) as Inv_BuyerVatin,
 			Inv_Title,
 			Inv_Goods,
 			Inv_OverallNetValue,
 			Inv_OverallGrossValue,
 			Inv_Discount,
 			Inv_OverallCost,
-			Inv_Status,
-			Inv_Creator,
-			(select Usr_FirstName from inv.Users with(nolock) where Usr_id = Inv_Creator) as Inv_CreatorFirstName,
-			(select Usr_LastName from inv.Users with(nolock) where Usr_Id = Inv_Creator) as Inv_CreatorLastName
+			Inv_Status
 		from inv.Invoices with(nolock)
 		where Inv_Id = @p_Inv_Id;
 	end

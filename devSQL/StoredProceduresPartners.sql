@@ -8,6 +8,12 @@ go
 	if(object_id('inv.usp_PartnersList') is not null)
 		drop procedure inv.usp_PartnersList;
 
+	if(object_id('inv.usp_PartnerSearch') is not null)
+		drop procedure inv.usp_PartnerSearch;
+
+	if(object_id('inv.usp_PartnerGetById') is not null)
+		drop procedure inv.usp_PartnerGetById;
+
 go
 
 	create procedure inv.usp_PartnersAdd
@@ -58,7 +64,7 @@ go
 	as
 	begin
 		select
-			Part_id,
+			Part_Id,
 			Part_FirstName,
 			Part_LastName,
 			Part_CompanyName,
@@ -68,4 +74,49 @@ go
 		order by Part_Id
 		offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
 		fetch next (@p_rowsPerPage) rows only;
+	end
+
+go
+
+	create procedure inv.usp_PartnerSearch
+		@p_FirstName nvarchar(128),
+		@p_LastName nvarchar(128),
+		@p_CompanyName nvarchar(256),
+		@p_Vatin decimal(24,0)
+	as
+	begin
+		declare @v_query nvarchar(max) = 'select Part_Id, Part_FirstName, Part_LastName, Part_CompanyName, Part_Vatin, Part_Address from inv.Partners where 1 = 1';
+
+		if(@p_vatin is not null)
+			set @v_query = @v_query + ' and Part_Vatin = ' + convert(nvarchar(24),@p_vatin);
+		else
+		begin
+			if(@p_firstName is not null)
+				set @v_query = @v_query + ' and Part_FirstName = ''' + @p_firstName + '''';
+
+			if(@p_lastName is not null)
+				set @v_query = @v_query + ' and Part_LastName = ''' + @p_lastName + '''';
+
+			if(@p_companyName is not null)
+				set @v_query = @v_query + ' and Part_CompanyName = ''' + @p_companyName + '''';
+		end
+		
+		exec sp_executesql @v_query;
+	end
+
+go
+
+	create procedure inv.usp_PartnerGetById
+		@p_PartnerId int
+	as
+	begin
+		select
+			Part_Id,
+			Part_FirstName,
+			Part_LastName,
+			Part_CompanyName,
+			Part_Vatin,
+			Part_Address
+		from inv.Partners with(nolock)
+		where Part_Id = @p_PartnerId;
 	end
