@@ -240,7 +240,6 @@ fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 					on v_Inv_VendorId = v.v_Part_Id
 				inner join @v_BuyerTab b
 					on v_Inv_BuyerId = b.v_Part_Id
-				
 
 	end
 
