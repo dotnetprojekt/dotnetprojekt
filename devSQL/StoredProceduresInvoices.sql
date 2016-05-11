@@ -140,6 +140,18 @@ go
 			v_number int
 		);
 
+		declare @v_InvoicesTmp table
+		(
+			v_Inv_Id int,
+			v_Inv_Number nvarchar(16),
+			v_Inv_DateOfIssue datetime2(7),
+			v_Inv_VendorId int,
+			v_Inv_BuyerId int,
+			v_Inv_Title nvarchar(2048),
+			v_Inv_OverallCost decimal(9,2),
+			v_Inv_Status int
+		);
+
 		declare @v_VendorTab table
 		(
 			v_Part_Id int,
@@ -179,26 +191,8 @@ go
 	Inv_Id,
 	Inv_Number,
 	Inv_DateOfIssue,
-	(
-		select
-			isnull(Part_FirstName,'''') + '' '' + isnull(Part_LastName,'') + 
-				case
-					when Part_CompanyName is not null then '' ('' + Part_CompanyName + '')''
-					else ''''
-				end
-			from Partners with(nolock)
-			where Part_Id = Inv_VendorId
-	),
-	(
-		select
-			isnull(Part_FirstName,'''') + isnull(Part_LastName,'''') + 
-				case
-					when Part_CompanyName is not null then '' ('' + Part_CompanyName + '')''
-					else ''''
-				end
-			from Partners with(nolock)
-			where Part_Id = Inv_BuyerId
-	)
+	Inv_VendorId,
+	Inv_BuyerId,
 	Inv_Title,
 	Inv_OverallCost,
 	Inv_Status
@@ -208,26 +202,45 @@ where 1=1';
 			declare @v_QueryConditions nvarchar(max) = '';
 
 			declare @v_QueryEnd nvarchar(max) = 
-' order by Inv_Id
+CHAR(13)+CHAR(10)+'order by Inv_Id
 offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
 fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 
 			if(@p_DateStart is not null)
-				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
+				set @v_QueryConditions = @v_QueryConditions +CHAR(13)+CHAR(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
 
 			if(@p_DateEnd is not null)
-				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
+				set @v_QueryConditions = @v_QueryConditions +CHAR(13)+CHAR(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
 
 			if(@p_Title is not null)
-				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Contains(Inv_Title,''' + @p_Title + ''')';
+				set @v_QueryConditions = @v_QueryConditions +CHAR(13)+CHAR(10)+ '	and Inv_Title like ''%'+ @p_Title + '%'''; --fulltextsearch?
 
 			if(@p_CostMin is not null)
-				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_OverallCost >= ''' + convert(nvarchar(16),@p_CostMin) + '''';
+				set @v_QueryConditions = @v_QueryConditions +CHAR(13)+CHAR(10)+ '	and Inv_OverallCost >= ' + convert(nvarchar(16),@p_CostMin);
 
 			if(@p_CostMax is not null)
-				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_OverallCost <= ''' + convert(nvarchar(16),@p_CostMax) + '''';
+				set @v_QueryConditions = @v_QueryConditions +CHAR(13)+CHAR(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
 
-			select @v_QueryBody + @v_QueryConditions + @v_QueryEnd;
+			set @v_QueryBody = @v_QueryBody + @v_QueryConditions + @v_QueryEnd;
+			
+			insert into @v_InvoicesTmp
+			exec sp_executesql @v_QueryBody;
+
+			select
+				v_Inv_Id,
+				v_Inv_Number,
+				v_Inv_DateOfIssue,
+				isnull(v.v_Part_FirstName,'') + ' ' + isnull(v.v_Part_LastName,'') + ' ' + isnull(v.v_Part_CompanyName,'') as v_Inv_Vendor,
+				isnull(b.v_Part_FirstName,'') + ' ' + isnull(b.v_Part_LastName,'') + ' ' + isnull(b.v_Part_CompanyName,'') as v_Inv_Buyer,
+				v_Inv_Title,
+				v_Inv_OverallCost,
+				v_Inv_Status
+			from @v_InvoicesTmp
+				inner join @v_VendorTab v
+					on v_Inv_VendorId = v.v_Part_Id
+				inner join @v_BuyerTab b
+					on v_Inv_BuyerId = b.v_Part_Id
+				
 
 	end
 
@@ -351,5 +364,4 @@ EXECUTE @RC = [inv].[usp_InvoicesSearch]
   ,@p_CostMax
   ,@p_pageNumber
   ,@p_rowsPerPage
-GO
-
+Go
