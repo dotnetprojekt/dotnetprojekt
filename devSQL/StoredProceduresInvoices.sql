@@ -8,8 +8,8 @@ go
 	if(object_id('inv.usp_InvoiceAdd') is not null)
 		drop procedure inv.usp_InvoiceAdd;
 
-	if(object_id('inv.usp_InvoicesListGet') is not null)
-		drop procedure inv.usp_InvoicesListGet;
+	if(object_id('inv.usp_InvoicesSearch') is not null)
+		drop procedure inv.usp_InvoicesSearch;
 
 	if(object_id('inv.usp_InvoicesDetailsGet') is not null)
 		drop procedure inv.usp_InvoicesDetailsGet;
@@ -25,7 +25,7 @@ go
 
 go
 
-	create procedure inv.usp_InvoiceNumberNext
+	create procedure inv.usp_InvoiceNumberNext --InvoiceDAL.GetInvoiceNumber()
 		@p_InvoiceNumber nvarchar(16) output
 	as
 	begin
@@ -59,11 +59,12 @@ go
 
 go
 
-	create procedure inv.usp_InvoiceAdd
-		@p_VendorId int,
-		@p_BuyerId int,
+	create procedure inv.usp_InvoiceAdd -- InvoiceDAL.InvoiceAdd()
+		@p_InvoiceNumber nvarchar(16),
+		@p_VendorVatin decimal(24,0),
+		@p_BuyerVatin decimal(24,0),
 		@p_Title nvarchar(2048),
-		@p_Goods xml,
+		@p_Goods nvarchar(max),
 		@p_OverallNetValue decimal(9,2),
 		@p_OverallGrossValue decimal(9,2),
 		@p_Discount decimal(3,2),
@@ -73,15 +74,14 @@ go
 		set nocount on;
 		set xact_abort on;
 
-		declare @v_InvoiceNumber nvarchar(16);
-
-		if( @p_VendorId is null or @p_BuyerId is null or @p_Title is null or @p_OverallNetValue is null or @p_OverallGrossValue is null or @p_OverallCost is null )
+		if( @p_VendorVatin is null or @p_BuyerVatin is null or @p_Title is null or @p_OverallNetValue is null or @p_OverallGrossValue is null or @p_OverallCost is null )
 			raiserror (15600,-1,-1, 'inv.usp_UserAdd');
 		else
 		begin
 			begin transaction
 				
-				exec inv.usp_InvoiceNumberNext @v_InvoiceNumber output;
+				declare @v_VendorId int = (select Part_Id from inv.Partners where Part_Vatin = @p_VendorVatin);
+				declare @v_BuyerId int = (select Part_Id from inv.Partners where Part_Vatin = @p_BuyerVatin);
 
 				insert into inv.Invoices
 				(
@@ -97,9 +97,9 @@ go
 				)
 				values
 				(
-					@v_InvoiceNumber,
-					@p_VendorId,
-					@p_BuyerId,
+					@p_InvoiceNumber,
+					@v_VendorId,
+					@v_BuyerId,
 					@p_Title,
 					@p_Goods,
 					@p_OverallNetValue,
@@ -113,120 +113,127 @@ go
 
 go
 
-	create procedure inv.usp_InvoicesListGet
+	create procedure inv.usp_InvoicesSearch
+		@p_Number nvarchar(16),
+		@p_DateStart nvarchar(16),
+		@p_DateEnd nvarchar(16),
+		@p_VendorFirstName nvarchar(128),
+		@p_VendorLastName nvarchar(128),
+		@p_VendorCompany nvarchar(256),
+		@p_VendorVatin decimal(24,0),
+		@p_BuyerFirstName nvarchar(128),
+		@p_BuyerLastName nvarchar(128),
+		@p_BuyerCompany nvarchar(256),
+		@p_BuyerVatin decimal(24,0),
+		@p_Title nvarchar(2048),
+		@p_CostMin decimal(9,2),
+		@p_CostMax decimal(9,2),
 		@p_pageNumber int,
-		@p_rowsPerPage int,
-		@p_showMode int = 1
+		@p_rowsPerPage int
 	as
 	begin
 		set nocount on;
 		set xact_abort on;
 
-		if(@p_showMode = 1)
-			select
-				Inv_Id,
-				Inv_Number,
-				Inv_DateOfIssue,
-				(
-					select
-						isnull(Part_FirstName,'') + ' ' + isnull(Part_LastName,'') + 
-							case
-								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
-								else ''
-							end
-					 from Partners with(nolock)
-					 where Part_Id = Inv_VendorId
-				),
-				(
-					select
-						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
-							case
-								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
-								else ''
-							end
-					 from Partners with(nolock)
-					 where Part_Id = Inv_BuyerId
-				)
-				Inv_Title,
-				Inv_OverallCost,
-				Inv_Status
-			from inv.Invoices with(nolock)
-			where Inv_Status in (1,2)
-			order by Inv_Id
-			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
-			fetch next (@p_rowsPerPage) rows only
+		declare @v_dynamicList table
+		(
+			v_number int
+		);
 
-		else if(@p_showMode=2)
-			select
-				Inv_Id,
-				Inv_Number,
-				Inv_DateOfIssue,
-				(
-					select
-						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
-							case
-								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
-								else ''
-							end
-					 from Partners with(nolock)
-					 where Part_Id = Inv_VendorId
-				),
-				(
-					select
-						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
-							case
-								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
-								else ''
-							end
-					 from Partners with(nolock)
-					 where Part_Id = Inv_BuyerId
-				)
-				Inv_Title,
-				Inv_OverallCost,
-				Inv_Status
-			from inv.Invoices with(nolock)
-			where Inv_Status = 3
-			order by Inv_Id
-			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
-			fetch next (@p_rowsPerPage) rows only
+		declare @v_VendorTab table
+		(
+			v_Part_Id int,
+			v_Part_FirstName nvarchar(128),
+			v_Part_LastName nvarchar(128),
+			v_Part_CompanyName nvarchar(256),
+			v_Part_Vatin decimal(24,0),
+			v_Part_Address nvarchar(2048)
+		);
 
-		else if(@p_showMode=3)
-			select
-				Inv_Id,
-				Inv_Number,
-				Inv_DateOfIssue,
-				(
-					select
-						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
-							case
-								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
-								else ''
-							end
-					 from Partners with(nolock)
-					 where Part_Id = Inv_VendorId
-				),
-				(
-					select
-						isnull(Part_FirstName,'') + isnull(Part_LastName,'') + 
-							case
-								when Part_CompanyName is not null then ' (' + Part_CompanyName + ')'
-								else ''
-							end
-					 from Partners with(nolock)
-					 where Part_Id = Inv_BuyerId
-				)
-				Inv_Title,
-				Inv_OverallCost,
-				Inv_Status
-			from inv.Invoices with(nolock)
-			order by Inv_Id
-			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
-			fetch next (@p_rowsPerPage) rows only
+		declare @v_BuyerTab table
+		(
+			v_Part_Id int,
+			v_Part_FirstName nvarchar(128),
+			v_Part_LastName nvarchar(128),
+			v_Part_CompanyName nvarchar(256),
+			v_Part_Vatin decimal(24,0),
+			v_Part_Address nvarchar(2048)
+		);
+
+		insert into @v_VendorTab
+		exec inv.usp_PartnerSearch
+			@p_VendorFirstName,
+			@p_VendorLastName,
+			@p_VendorCompany,
+			@p_VendorVatin;
+
+		insert into @v_BuyerTab
+		exec inv.usp_PartnerSearch
+			@p_BuyerFirstName,
+			@p_BuyerLastName,
+			@p_BuyerCompany,
+			@p_BuyerVatin;
+
+			declare @v_QueryBody nvarchar(max) = 
+'select
+	Inv_Id,
+	Inv_Number,
+	Inv_DateOfIssue,
+	(
+		select
+			isnull(Part_FirstName,'''') + '' '' + isnull(Part_LastName,'') + 
+				case
+					when Part_CompanyName is not null then '' ('' + Part_CompanyName + '')''
+					else ''''
+				end
+			from Partners with(nolock)
+			where Part_Id = Inv_VendorId
+	),
+	(
+		select
+			isnull(Part_FirstName,'''') + isnull(Part_LastName,'''') + 
+				case
+					when Part_CompanyName is not null then '' ('' + Part_CompanyName + '')''
+					else ''''
+				end
+			from Partners with(nolock)
+			where Part_Id = Inv_BuyerId
+	)
+	Inv_Title,
+	Inv_OverallCost,
+	Inv_Status
+from inv.Invoices with(nolock)
+where 1=1';
+
+			declare @v_QueryConditions nvarchar(max) = '';
+
+			declare @v_QueryEnd nvarchar(max) = 
+' order by Inv_Id
+offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
+fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
+
+			if(@p_DateStart is not null)
+				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
+
+			if(@p_DateEnd is not null)
+				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
+
+			if(@p_Title is not null)
+				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Contains(Inv_Title,''' + @p_Title + ''')';
+
+			if(@p_CostMin is not null)
+				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_OverallCost >= ''' + convert(nvarchar(16),@p_CostMin) + '''';
+
+			if(@p_CostMax is not null)
+				set @v_QueryConditions = @v_QueryConditions + CHAR(13)+CHAR(10)+ '	and Inv_OverallCost <= ''' + convert(nvarchar(16),@p_CostMax) + '''';
+
+			select @v_QueryBody + @v_QueryConditions + @v_QueryEnd;
+
 	end
 
 go
 
-	create procedure inv.usp_InvoicesDetailsGet
+	create procedure inv.usp_InvoicesDetailsGet -- InvoiceDAL.InvoiceGetDetails()
 		@p_Inv_Id int
 	as
 	begin
@@ -249,7 +256,7 @@ go
 
 go
 
-	create procedure inv.usp_InvoicesSetPaid
+	create procedure inv.usp_InvoicesSetPaid -- InvoiceDAL.InvoiceSetPaid()
 		@p_Inv_Id int
 	as
 	begin
@@ -261,7 +268,7 @@ go
 
 go
 
-	create procedure inv.usp_InvoicesArchive
+	create procedure inv.usp_InvoicesArchive -- Job
 	as
 	begin
 		set nocount on;
@@ -284,7 +291,7 @@ go
 
 go
 
-	create procedure inv.usp_InvoicesDelete
+	create procedure inv.usp_InvoicesDelete -- Job
 	as
 	begin
 		set nocount on;
@@ -304,3 +311,45 @@ go
 			waitfor delay '00:00:02';
 		end
 	end
+
+	go
+
+DECLARE @RC int
+DECLARE @p_Number nvarchar(16) = null;
+DECLARE @p_DateStart nvarchar(16) = '2016-10-10';
+DECLARE @p_DateEnd nvarchar(16) = '2016-12-12';
+DECLARE @p_VendorFirstName nvarchar(128) = null;
+DECLARE @p_VendorLastName nvarchar(128) = null;
+DECLARE @p_VendorCompany nvarchar(256) = null;
+DECLARE @p_VendorVatin decimal(24,0) = null;
+DECLARE @p_BuyerFirstName nvarchar(128) = null;
+DECLARE @p_BuyerLastName nvarchar(128) = null;
+DECLARE @p_BuyerCompany nvarchar(256) = null;
+DECLARE @p_BuyerVatin decimal(24,0) = null;
+DECLARE @p_Title nvarchar(2048) = 'TSW'
+DECLARE @p_CostMin decimal(9,2) = 500;
+DECLARE @p_CostMax decimal(9,2) = 1500;
+DECLARE @p_pageNumber int = 1;
+DECLARE @p_rowsPerPage int = 300;
+
+-- TODO: Set parameter values here.
+
+EXECUTE @RC = [inv].[usp_InvoicesSearch] 
+   @p_Number
+  ,@p_DateStart
+  ,@p_DateEnd
+  ,@p_VendorFirstName
+  ,@p_VendorLastName
+  ,@p_VendorCompany
+  ,@p_VendorVatin
+  ,@p_BuyerFirstName
+  ,@p_BuyerLastName
+  ,@p_BuyerCompany
+  ,@p_BuyerVatin
+  ,@p_Title
+  ,@p_CostMin
+  ,@p_CostMax
+  ,@p_pageNumber
+  ,@p_rowsPerPage
+GO
+

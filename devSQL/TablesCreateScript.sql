@@ -30,7 +30,7 @@ go
 		Inv_VendorId int not null,
 		Inv_BuyerId int not null,
 		Inv_Title nvarchar(2048) not null,
-		Inv_Goods xml,
+		Inv_Goods xml not null,
 		Inv_OverallNetValue decimal(9,2) not null,
 		Inv_OverallGrossValue decimal(9,2) not null,
 		Inv_Discount decimal(3,2) constraint DF_Discount default null,
