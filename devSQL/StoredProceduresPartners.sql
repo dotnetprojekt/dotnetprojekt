@@ -82,26 +82,45 @@ go
 		@p_FirstName nvarchar(128),
 		@p_LastName nvarchar(128),
 		@p_CompanyName nvarchar(256),
-		@p_Vatin decimal(24,0)
+		@p_Vatin decimal(24,0),
+		@p_pageNumber int,
+		@p_rowsPerPage int
 	as
 	begin
-		declare @v_query nvarchar(max) = 'select Part_Id, Part_FirstName, Part_LastName, Part_CompanyName, Part_Vatin, Part_Address from inv.Partners where 1 = 1';
+		declare @v_QueryBody nvarchar(max) =
+'select
+	Part_Id,
+	Part_FirstName,
+	Part_LastName,
+	Part_CompanyName,
+	Part_Vatin,
+	Part_Address
+	from inv.Partners
+where 1 = 1';
+
+	declare @v_QueryConditions nvarchar(max) = '';
+
+	declare @v_QueryEnd nvarchar(max) = 
+char(13)+char(10)+'order by Part_Id
+offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
+fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 
 		if(@p_vatin is not null)
-			set @v_query = @v_query + ' and Part_Vatin = ' + convert(nvarchar(24),@p_vatin);
+			set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Part_Vatin = ' + convert(nvarchar(24),@p_vatin);
 		else
 		begin
 			if(@p_firstName is not null)
-				set @v_query = @v_query + ' and Part_FirstName = ''' + @p_firstName + '''';
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Part_FirstName = ''' + @p_firstName + '''';
 
 			if(@p_lastName is not null)
-				set @v_query = @v_query + ' and Part_LastName = ''' + @p_lastName + '''';
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Part_LastName = ''' + @p_lastName + '''';
 
 			if(@p_companyName is not null)
-				set @v_query = @v_query + ' and Part_CompanyName = ''' + @p_companyName + '''';
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Part_CompanyName = ''' + @p_companyName + '''';
 		end
 		
-		exec sp_executesql @v_query;
+		set @v_QueryBody = @v_QueryBody+@v_QueryConditions+@v_QueryEnd;
+		exec sp_executesql @v_QueryBody;
 	end
 
 go
@@ -120,3 +139,5 @@ go
 		from inv.Partners with(nolock)
 		where Part_Id = @p_PartnerId;
 	end
+
+go

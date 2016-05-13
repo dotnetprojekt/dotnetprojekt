@@ -129,10 +129,11 @@ go
 
 	create table dbo.CurrentNumber
 	(
-		number int
+		number int,
+		yearLast int
 	);
 
 	insert into dbo.CurrentNumber
-	values (1);
+	values (1,0);
 
 go
