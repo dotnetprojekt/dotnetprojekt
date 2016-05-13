@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<goods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <product>
+    <name>Product 1</name>
+    <amount>1</amount>
+    <unitPrice>100</unitPrice>
+    <tax>23</tax>
+    <netValue>77</netValue>
+    <grossValue>100</grossValue>
+  </product>
+  <product>
+    <name>Product 2</name>
+    <amount>1</amount>
+    <unitPrice>100</unitPrice>
+    <tax>23</tax>
+    <netValue>77</netValue>
+    <grossValue>100</grossValue>
+  </product>
+  <product>
+    <name>Product 3</name>
+    <amount>1</amount>
+    <unitPrice>100</unitPrice>
+    <tax>23</tax>
+    <netValue>77</netValue>
+    <grossValue>100</grossValue>
+  </product>
+</goods>
