@@ -12,6 +12,8 @@
     ValidateVatin();
     ValidateVendorVatin();
     ValidateBuyerVatin();
+    ValidateMinValue();
+    ValidateMaxValue();
     //CountPrice();
 
 });
@@ -103,9 +105,16 @@ function SearchInvoices() {
         var bcompany = $('#bcompany').val();
         var bvatin = $('#bvatin').val();
 
+        var minValue = $('#minValue').val();
+        var maxValue = $('#maxValue').val();
+
+        var minValueCorrect = minValue.toString().replace(/\,/g, '.');
+        var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
+
         $('#invoiceSearchResults').load(url, {
             invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname,
-            vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin
+            vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
+            minValue: minValueCorrect, maxValue: maxValueCorrect
         });
 
     })
@@ -153,6 +162,30 @@ function ValidateBuyerVatin() {
         var vatin = $('#bvatin').val();
         if (!(/^\d+$/.test(vatin)))
             $('#bvatin').val("");
+
+    })
+}
+
+function ValidateMinValue() {
+
+    $('#minValue').focusout(function () {
+
+        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var vatin = $('#minValue').val();
+        if (!(float.test(vatin)))
+            $('#minValue').val("");
+
+    })
+}
+
+function ValidateMaxValue() {
+
+    $('#maxValue').focusout(function () {
+
+        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var vatin = $('#maxValue').val();
+        if (!(float.test(vatin)))
+            $('#maxValue').val("");
 
     })
 }
@@ -314,6 +347,7 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
 
     var discount = $('#discount').val();
 
+    // change comma do dot
     var discountCorrect = discount.toString().replace(/\,/g, '.');
 
     var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);

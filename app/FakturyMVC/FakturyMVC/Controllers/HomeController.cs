@@ -17,12 +17,14 @@ namespace FakturyMVC.Controllers
 
         //[HttpPost]
         public ActionResult SearchInvoice(string invNumber, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
-            string bname, string blastname, string bcompany, string bvatin)
+            string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue)
         {
             // search for invoices in database
             InvoicesViewModel model = new InvoicesViewModel();
             List<Invoice> invoices = new List<Invoice>();
             Invoice invoice = new Invoice();
+
+            // convert vvatin, bvatin, minValue, maxValue to numbers - TODO
 
             invoice.Number = "555";
             invoice.Buyer = "Adam";
@@ -44,6 +46,7 @@ namespace FakturyMVC.Controllers
             double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany,
             string bfirstname, string blastname, string bcompany)
         {
+            // convert string do date?? TODO
             return RedirectToAction("Index");
         }
 
