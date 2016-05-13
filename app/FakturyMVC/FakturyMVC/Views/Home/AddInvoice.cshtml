@@ -33,6 +33,10 @@
         <br />
         @Html.TextBox("vcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vcompany", @required = "true" })
         <br />
+        @Html.Label("Vatin", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("vvatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "vvatin", @required = "true", @type = "number", @min = "0" })
+        <br />
     </div>
 
     <div class="col-sm-3 pull-left margin-top-40" id="vendorTableDiv">
@@ -93,6 +97,10 @@
         @Html.Label("Firma", new { @class = "margin-top-10" })
         <br />
         @Html.TextBox("bcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bcompany", @required = "true" })
+        <br />
+        @Html.Label("Vatin", new { @class = "margin-top-10" })
+        <br />
+        @Html.TextBox("bvatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @id = "bvatin", @required = "true", @type = "number", @min = "0" })
         <br />
     </div>
 

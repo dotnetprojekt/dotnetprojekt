@@ -8,8 +8,12 @@
     AddInvoiceSearchVendors();
     AddInvoiceSearchBuyers();
     ChangedDiscount();
-    ValidateInvNumber();
+    //ValidateInvNumber();
     ValidateVatin();
+    ValidateVendorVatin();
+    ValidateBuyerVatin();
+    ValidateMinValue();
+    ValidateMaxValue();
     //CountPrice();
 
 });
@@ -88,15 +92,35 @@ function SearchInvoices() {
         e.preventDefault();
 
         var invNumber = $('#invNumber').val();
-        var vendor = $('#vendor').val();
-        var buyer = $('#buyer').val();
         var start = $('#start').val();
         var end = $('#end').val();
-        $('#invoiceSearchResults').load(url, { invNumber: invNumber, vendor: vendor, buyer: buyer, start: start, end: end });     
+
+        var vname = $('#vname').val();
+        var vlastname = $('#vlastname').val();
+        var vcompany = $('#vcompany').val();
+        var vvatin = $('#vvatin').val();
+
+        var bname = $('#bname').val();
+        var blastname = $('#blastname').val();
+        var bcompany = $('#bcompany').val();
+        var bvatin = $('#bvatin').val();
+
+        var minValue = $('#minValue').val();
+        var maxValue = $('#maxValue').val();
+
+        var minValueCorrect = minValue.toString().replace(/\,/g, '.');
+        var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
+
+        $('#invoiceSearchResults').load(url, {
+            invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname,
+            vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
+            minValue: minValueCorrect, maxValue: maxValueCorrect
+        });
 
     })
 }
 
+/*
 function ValidateInvNumber() {
 
     $('#invNumber').focusout(function () {
@@ -107,6 +131,7 @@ function ValidateInvNumber() {
 
     })
 }
+*/
 
 function ValidateVatin() {
 
@@ -115,6 +140,52 @@ function ValidateVatin() {
         var vatin = $('#vatin').val();
         if (!(/^\d+$/.test(vatin)))
             $('#vatin').val("");
+
+    })
+}
+
+function ValidateVendorVatin() {
+
+    $('#vvatin').focusout(function () {
+
+        var vatin = $('#vvatin').val();
+        if (!(/^\d+$/.test(vatin)))
+            $('#vvatin').val("");
+
+    })
+}
+
+function ValidateBuyerVatin() {
+
+    $('#bvatin').focusout(function () {
+
+        var vatin = $('#bvatin').val();
+        if (!(/^\d+$/.test(vatin)))
+            $('#bvatin').val("");
+
+    })
+}
+
+function ValidateMinValue() {
+
+    $('#minValue').focusout(function () {
+
+        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var vatin = $('#minValue').val();
+        if (!(float.test(vatin)))
+            $('#minValue').val("");
+
+    })
+}
+
+function ValidateMaxValue() {
+
+    $('#maxValue').focusout(function () {
+
+        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var vatin = $('#maxValue').val();
+        if (!(float.test(vatin)))
+            $('#maxValue').val("");
 
     })
 }
@@ -183,7 +254,8 @@ function AddInvoiceSearchVendors() {
         var vfirstname = $('#vfirstname').val();
         var vlastname = $('#vlastname').val();
         var vcompany = $('#vcompany').val();
-        $('#vendorTable tbody').load(url, { firstName: vfirstname, lastName: vlastname, companyName: vcompany });
+        var vvatin = $('#vvatin').val();
+        $('#vendorTable tbody').load(url, { firstName: vfirstname, lastName: vlastname, companyName: vcompany, vatin: vvatin });
 
     })
 }
@@ -196,10 +268,12 @@ $('#vendorTableDiv').on('click', '#vendorTable tbody tr', function () {
     var fname = $('#vfirstname_' + rowId).html();
     var lname = $('#vlastname_' + rowId).html();
     var cname = $('#vcompanyname_' + rowId).html();
+    var vname = $('#vvatin_' + rowId).html();
 
     $('#vfirstname').val(fname);
     $('#vlastname').val(lname);
     $('#vcompany').val(cname);
+    $('#vvatin').val(vname);
 
     if (!$(this).hasClass("top-row"))
     {
@@ -217,7 +291,8 @@ function AddInvoiceSearchBuyers() {
         var bfirstname = $('#bfirstname').val();
         var blastname = $('#blastname').val();
         var bcompany = $('#bcompany').val();
-        $('#buyerTable tbody').load(url, { firstName: bfirstname, lastName: blastname, companyName: bcompany });
+        var bvatin = $('#bvatin').val();
+        $('#buyerTable tbody').load(url, { firstName: bfirstname, lastName: blastname, companyName: bcompany, vatin: bvatin });
 
     })
 }
@@ -230,10 +305,12 @@ $('#buyerTableDiv').on('click', '#buyerTable tbody tr', function () {
     var fname = $('#bfirstname_' + rowId).html();
     var lname = $('#blastname_' + rowId).html();
     var cname = $('#bcompanyname_' + rowId).html();
+    var vname = $('#bvatin_' + rowId).html();
 
     $('#bfirstname').val(fname);
     $('#blastname').val(lname);
     $('#bcompany').val(cname);
+    $('#bvatin').val(vname);
 
     if (!$(this).hasClass("top-row")) {
         $('#buyerTable tr').removeClass('highlighted');
@@ -270,6 +347,7 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
 
     var discount = $('#discount').val();
 
+    // change comma do dot
     var discountCorrect = discount.toString().replace(/\,/g, '.');
 
     var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);
