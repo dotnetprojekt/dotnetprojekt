@@ -16,19 +16,15 @@ namespace FakturyMVC.Controllers
         }
 
         //[HttpPost]
-        public ActionResult SearchInvoice(string invNumber, string vendor, string buyer, string start, string end)
+        public ActionResult SearchInvoice(string invNumber, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
+            string bname, string blastname, string bcompany, string bvatin)
         {
             // search for invoices in database
             InvoicesViewModel model = new InvoicesViewModel();
             List<Invoice> invoices = new List<Invoice>();
             Invoice invoice = new Invoice();
 
-            long invNumberInt;
-            if (invNumber != "")
-                invNumberInt = long.Parse(invNumber);
-            
-
-            invoice.Number = 555;
+            invoice.Number = "555";
             invoice.Buyer = "Adam";
             invoice.Vendor = "Krzysiek";
             invoice.Date = "krolik";
@@ -69,7 +65,7 @@ namespace FakturyMVC.Controllers
         }
 
         //[HttpPost]
-        public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin, string address)
+        public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin/*string address*/)
         {
             // search for invoices in database
             PartnersVievModel model = new PartnersVievModel();
@@ -100,7 +96,7 @@ namespace FakturyMVC.Controllers
             return PartialView("TableRow", model);
         }
 
-        public ActionResult InvoiceDetails(int invoiceNumber)
+        public ActionResult InvoiceDetails(string invoiceNumber)
         {
             // get invoice details from database
             InvoiceDetailsViewModel model = new InvoiceDetailsViewModel();
@@ -164,7 +160,7 @@ namespace FakturyMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddInvoiceSearchVendors(string firstName, string lastName, string companyName)
+        public ActionResult AddInvoiceSearchVendors(string firstName, string lastName, string companyName, string vatin)
         {
             PartnersVievModel model = new PartnersVievModel();
             List<Partner> partnerList = new List<Partner>();
@@ -191,7 +187,7 @@ namespace FakturyMVC.Controllers
             return PartialView("AddInvoiceSearchVendors", model);
         }
 
-        public ActionResult AddInvoiceSearchBuyers(string firstName, string lastName, string companyName)
+        public ActionResult AddInvoiceSearchBuyers(string firstName, string lastName, string companyName, string vatin)
         {
             PartnersVievModel model = new PartnersVievModel();
             List<Partner> partnerList = new List<Partner>();
