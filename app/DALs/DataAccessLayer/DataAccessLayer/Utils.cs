@@ -22,5 +22,20 @@ namespace DataAccessLayer
 
             return decimalParam;
         }
+
+        public static string GetStringSha256Hash(string password)
+        {
+            if (String.IsNullOrEmpty(password))
+            {
+                return String.Empty;
+            }
+
+            using (var sha = new System.Security.Cryptography.SHA256Managed())
+            {
+                byte[] passBytes = System.Text.Encoding.UTF8.GetBytes(password);
+                byte[] hashBytes = sha.ComputeHash(passBytes);
+                return BitConverter.ToString(hashBytes).Replace("-", String.Empty);
+            }
+        }
     }
 }

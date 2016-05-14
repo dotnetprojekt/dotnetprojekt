@@ -63,10 +63,6 @@ namespace DataAccessLayer
                 Console.WriteLine(sb.ToString());
             }*/
 
-            DateTime dt = DateTime.Now;
-
-            Console.WriteLine(dt);
-
             Console.Read();
         }
     }

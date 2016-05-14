@@ -7,3 +7,6 @@ C:\Users\Pawel\Documents\Visual Studio 2013\Projects\C#\DataAccessLayer\DataAcce
 D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.exe.config
 D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.exe
 D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.exe
+D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
