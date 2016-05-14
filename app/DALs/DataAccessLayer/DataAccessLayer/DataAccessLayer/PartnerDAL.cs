@@ -12,7 +12,7 @@ namespace DataAccessLayer
     {
         private static string _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
 
-        public static void PartnerAdd(Partner partner, int userId)
+        public static void PartnerAdd(Partner partner, int userId=5)
         {
             using(SqlConnection connection = new SqlConnection(_connectionString))
             {
