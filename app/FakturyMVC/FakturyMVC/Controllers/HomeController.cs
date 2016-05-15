@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FakturyMVC.Models;
 using FakturyMVC.Models.DALmodels;
+using System.Globalization;
 
 namespace FakturyMVC.Controllers
 {
@@ -17,7 +18,7 @@ namespace FakturyMVC.Controllers
             return View();
         }
 
-        //search invoices - TODO
+        //search invoices - DONE - parse date
         public ActionResult SearchInvoice(string invNumber, string title, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
             string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue)
         {
@@ -89,20 +90,49 @@ namespace FakturyMVC.Controllers
             return PartialView("SearchInvoicesResults", model);
         }
 
+        // return view for adding invoice - DONE
         public ActionResult AddInvoice()
         {
-            return View();
+            string invNumber = InvoiceDAL.GetInvoiceNumber();
+            AddInvoiceViewModel model = new AddInvoiceViewModel();
+            model.InvNumber = invNumber;
+            return View("AddInvoice", model);
         }
 
+        // adding invoice - TODO - parse date and floats
         [HttpPost]
-        public ActionResult AddInvoice(string date, string title, /*string vendor, string buyer,*/ List<StringProductList> goods, 
+        public ActionResult AddInvoice(string date, string title, string invNumber, List<StringProductList> goods, 
             double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany,
             string bfirstname, string blastname, string bcompany)
         {
-            Product product = new Product();
-            
-            // convert string do date?? TODO
-            return RedirectToAction("Index");
+            //DateTime? todayDate = new DateTime();
+            //todayDate = DateTime.Parse(date);
+            List<Product> productList = new List<Product>();
+
+            for (int i = 0; i < goods.Count; i++ )
+            {
+                if (goods[i].Name != "")
+                {
+                    Product product = new Product();
+                    product.Name = goods[i].Name;
+                    product.Amount = Int32.Parse(goods[i].Amount, CultureInfo.InvariantCulture);
+                    product.UnitPrice = float.Parse(goods[i].Price, CultureInfo.InvariantCulture);
+                    product.NetValue = float.Parse(goods[i].Value, CultureInfo.InvariantCulture);
+                    product.Tax = float.Parse(goods[i].Tax, CultureInfo.InvariantCulture);
+                    product.GrossValue = float.Parse(goods[i].Gross, CultureInfo.InvariantCulture);
+                    productList.Add(product);
+                }
+            }
+
+
+
+
+                //Invoice invoice = new Invoice(invNumber, todayDate, title
+
+                //InvoiceDAL.InvoiceAdd
+
+                // convert string do date?? TODO
+                return RedirectToAction("Index");
         }
 
         public ActionResult AddPartner()
@@ -279,4 +309,5 @@ namespace FakturyMVC.Controllers
         }
 
     }
+
 }

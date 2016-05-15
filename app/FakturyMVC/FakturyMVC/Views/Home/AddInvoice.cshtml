@@ -1,4 +1,6 @@
-﻿@{
+﻿@model FakturyMVC.Models.AddInvoiceViewModel
+
+@{
     ViewBag.Title = "AddInvoice";
 }
 
@@ -10,6 +12,9 @@
 {
 
     <div class="col-xs-8 pull-left">
+        @Html.Label("Numer faktury", new { @class = "margin-top-10" })
+        @Html.TextBox("invNumber", Model.InvNumber, new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
+        <br />
         @Html.Label("Data", new { @class = "margin-top-10" })
         @Html.TextBox("date", @DateTime.Now.ToString("dd/MM/yyyy"), new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
@@ -229,4 +234,5 @@
     @Styles.Render("~/Content/bootstrap-datepicker.css")
     <script src="~/Scripts/custom/HomeScripts.js"></script>
 
+>>>>>>> fix commit...
 }
