@@ -22,6 +22,12 @@ namespace FakturyMVC.Controllers
         public ActionResult SearchInvoice(string invNumber, string title, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
             string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue)
         {
+            if (invNumber == "")
+                invNumber = null;
+
+            if (title == "")
+                title = null;
+
             DateTime? startDate = new DateTime();
             DateTime? endDate = new DateTime();
 
@@ -44,6 +50,23 @@ namespace FakturyMVC.Controllers
             if (!(bvatin == ""))
                 buyerVatin = long.Parse(bvatin);
 
+            if (vname == "")
+                vname = null;
+            if (vlastname == "")
+                vlastname = null;
+            if (vcompany == "")
+                vcompany = null;
+
+            if (bname == "")
+                bname = null;
+            if (blastname == "")
+                blastname = null;
+            if (bcompany == "")
+                bcompany = null;
+
+            Partner vendor = new Partner(vname, vlastname, vcompany, vendorVatin, null);
+            Partner buyer = new Partner(bname, blastname, bcompany, buyerVatin, null);
+
             float minValueFloat = -1;
             float maxValueFloat = -1;
 
@@ -52,9 +75,7 @@ namespace FakturyMVC.Controllers
 
             if (!(maxValue == ""))
                 maxValueFloat = float.Parse(maxValue);
-
-            Partner vendor = new Partner(vname, vlastname, vcompany, vendorVatin, "");
-            Partner buyer = new Partner(bname, blastname, bcompany, buyerVatin, "");
+                       
 
             List<InvoiceGenerals> invoiceGeneralsList = new List<InvoiceGenerals>();
             invoiceGeneralsList = InvoiceDAL.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
