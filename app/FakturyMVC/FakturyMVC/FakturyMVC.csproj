@@ -155,6 +155,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceDAL.cs" />
     <Compile Include="Controllers\PartnerDAL.cs" />
+    <Compile Include="Controllers\UserDAL.cs" />
     <Compile Include="Controllers\Utils.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,6 +171,8 @@
     <Compile Include="Models\DALmodels\InvoiceState.cs" />
     <Compile Include="Models\DALmodels\Partner.cs" />
     <Compile Include="Models\DALmodels\Product.cs" />
+    <Compile Include="Models\DALmodels\User.cs" />
+    <Compile Include="Models\DALmodels\UserStatus.cs" />
     <Compile Include="Models\GoodsList.cs" />
     <Compile Include="Models\InvoiceDetailsViewModel.cs" />
     <Compile Include="Models\InvoicesViewModel.cs" />

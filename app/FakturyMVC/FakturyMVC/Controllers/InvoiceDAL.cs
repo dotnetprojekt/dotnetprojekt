@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 using FakturyMVC.Models.DALmodels;
 
 namespace FakturyMVC.Controllers
 {
     static class InvoiceDAL
     {
-        //private static string _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
-        private static string _connectionString = @"Data Source=MIREK-LAPTOP\SQLEXPRESS;Initial Catalog=InvoiceSystem;Integrated Security=True;";
-
+        private static string _connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["Developer"]].ConnectionString;
 
         public static string GetInvoiceNumber()
         {
@@ -55,7 +54,7 @@ namespace FakturyMVC.Controllers
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallNetValue", 9, 2, invoice.OverallNet));
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallGrossValue", 9, 2, invoice.OverallGross));
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_Discount", 3, 2, invoice.Discount));
-                    cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallCost", 9, 2, invoice.OverallGross));
+                    cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallCost", 9, 2, invoice.OverallCost));
 
                     connection.Open();
                     cmd.ExecuteNonQuery();

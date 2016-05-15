@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 using FakturyMVC.Models.DALmodels;
 
 
@@ -12,9 +13,7 @@ namespace FakturyMVC.Controllers
 {
     static class PartnerDAL
     {
-        //private static string _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
-        private static string _connectionString = @"Data Source=MIREK-LAPTOP\SQLEXPRESS;Initial Catalog=InvoiceSystem;Integrated Security=True;";
-
+        private static string _connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["Developer"]].ConnectionString;
 
         public static void PartnerAdd(Partner partner, int userId = 5)
         {
