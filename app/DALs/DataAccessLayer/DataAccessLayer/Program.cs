@@ -12,58 +12,41 @@ namespace DataAccessLayer
     {
         static void Main(string[] args)
         {
-            string xml =
-@"<?xml version=""1.0""?>
-<goods xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <product>
-    <name>Product 1</name>
-    <amount>1</amount>
-    <unitPrice>100</unitPrice>
-    <tax>23</tax>
-    <netValue>77.443</netValue>
-    <grossValue>100</grossValue>
-  </product>
-  <product>
-    <name>Product 2</name>
-    <amount>1</amount>
-    <unitPrice>100</unitPrice>
-    <tax>23</tax>
-    <netValue>77</netValue>
-    <grossValue>100</grossValue>
-  </product>
-  <product>
-    <name>Product 3</name>
-    <amount>1</amount>
-    <unitPrice>100</unitPrice>
-    <tax>23</tax>
-    <netValue>77</netValue>
-    <grossValue>100</grossValue>
-  </product>
-</goods>";
+            Random rnd = new Random();
+            List<string> fNamesList = System.IO.File.ReadAllLines("names.txt").ToList();
+            List<string> lNamesList = System.IO.File.ReadAllLines("surnames.txt").ToList();
+            List<string> companies = new List<string>() {"Comarch","Google","Ericpol","BMW","JP","Kamis","Tesco","Fiat","Wedel","Coca Cola", "Pepsico", "Sabre", "Sabatier", "Ikea", "Adidas", "Nike", "Rebook", "Zelmer", "Amino", "Amica", "Sony", "Microsoft", "KrzychuSoftware"};
+            
 
-            /* serializer = new XmlSerializer(typeof(Goods));
-            Goods car = null;
-            using (var reader = new StringReader(xml))
+            for (int i = 0; i < 10; i++ )
             {
-                car = (Goods)serializer.Deserialize(reader);
-
-                
-                foreach(Product p in car.ProductList )
-                {
-                    Console.WriteLine(p.Name);
-                }
+                string firstName = fNamesList[rnd.Next(fNamesList.Count)];
+                string lastName = lNamesList[rnd.Next(lNamesList.Count)];
+                User usr = new User(firstName,lastName, "user_" + lastName + "_" + i.ToString().PadLeft(2,'0'), "password", firstName + "." + lastName + "@.invoiceSystem.pl", UserStatus.User, rnd.NextDouble() < 0.3 ? true : false, false);
+                UserDAL.UserAdd(usr);
             }
 
-            XmlSerializer ser = new XmlSerializer(typeof(Goods));
-
-            StringBuilder sb = new StringBuilder();
-            using (StringWriter fs = new StringWriter(sb))
+            for (int i = 0; i < 5000; i++ )
             {
-                ser.Serialize(fs, car);
-                Console.WriteLine(sb.ToString());
-            }*/
+                Partner part = new Partner(fNamesList[rnd.Next(fNamesList.Count)], lNamesList[rnd.Next(lNamesList.Count)], companies[rnd.Next(companies.Count)], 10000000 + i, "Address " + i.ToString());
+                PartnerDAL.PartnerAdd(part);
+            }
 
-            Console.Read();
+            for (int i = 0; i < 2000; i++)
+            {
+                string number = InvoiceDAL.GetInvoiceNumber();
+                List<Product> prods = new List<Product>();
+
+                for (int j = 0; j < rnd.Next(20)+1; j++)
+                {
+                    prods.Add(new Product("Produkt" + j.ToString(), rnd.Next(100), (float)rnd.NextDouble() * 1000, ((float)rnd.Next(23)) / 100));
+                }
+
+                Invoice inv = new Invoice(number, DateTime.Now, "Faktura za towary " + i.ToString(), prods, ((float)rnd.Next(20)) / 100);
+                InvoiceDAL.InvoiceAdd(inv, 10000000 + rnd.Next(5000), 10000000 + rnd.Next(5000));
+            }
+
+                Console.Read();
         }
     }
 }

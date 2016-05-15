@@ -8,6 +8,7 @@ namespace DataAccessLayer
 {
     public class User
     {
+        private int _id;
         private string _firstName;
         private string _lastName;
         private string _login;
@@ -17,8 +18,9 @@ namespace DataAccessLayer
         private bool _isLogged;
         private UserStatus _status;
 
-        public User(string firstName, string lastName, string login, string password, string email, UserStatus status = UserStatus.Guest, bool isAdmin = false, bool isLogged = false)
+        public User(string firstName, string lastName, string login, string password, string email, UserStatus status = UserStatus.Guest, bool isAdmin = false, bool isLogged = false, int id = 0)
         {
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Login = login;
@@ -27,6 +29,12 @@ namespace DataAccessLayer
             IsAdmin = isAdmin;
             IsLogged = isLogged;
             Status = status;
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
 	    public string FirstName

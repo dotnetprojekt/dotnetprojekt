@@ -52,7 +52,7 @@ namespace DataAccessLayer
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallNetValue", 9, 2, invoice.OverallNet));
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallGrossValue", 9, 2, invoice.OverallGross));
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_Discount", 3, 2, invoice.Discount));
-                    cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallCost", 9, 2, invoice.OverallGross));
+                    cmd.Parameters.Add(Utils.GetDecimalParam("@p_OverallCost", 9, 2, invoice.OverallCost));
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
