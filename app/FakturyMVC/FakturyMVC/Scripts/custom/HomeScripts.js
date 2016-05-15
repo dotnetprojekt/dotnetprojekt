@@ -93,6 +93,8 @@ function SearchInvoices() {
         e.preventDefault();
 
         var invNumber = $('#invNumber').val();
+        var title = $('#title').val();
+
         var start = $('#start').val();
         var end = $('#end').val();
 
@@ -113,7 +115,7 @@ function SearchInvoices() {
         var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
 
         $('#invoiceSearchResults').load(url, {
-            invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname,
+            invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
             vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
             minValue: minValueCorrect, maxValue: maxValueCorrect
         });

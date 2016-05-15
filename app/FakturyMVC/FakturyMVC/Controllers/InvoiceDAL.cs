@@ -11,7 +11,9 @@ namespace FakturyMVC.Controllers
 {
     static class InvoiceDAL
     {
-        private static string _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
+        //private static string _connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
+        private static string _connectionString = @"Data Source=MIREK-LAPTOP\SQLEXPRESS;Initial Catalog=InvoiceSystem;Integrated Security=True;";
+
 
         public static string GetInvoiceNumber()
         {

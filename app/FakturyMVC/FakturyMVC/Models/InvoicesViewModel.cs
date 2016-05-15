@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FakturyMVC.Models.DALmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,7 @@ namespace FakturyMVC.Models
 
     public class InvoicesViewModel
     {
-        public List<InvoiceApp> Invoices { get; set; }
+        //public List<InvoiceApp> Invoices { get; set; }
+        public List<InvoiceGenerals> InvoiceGeneralsList { get; set; }
     }
 }

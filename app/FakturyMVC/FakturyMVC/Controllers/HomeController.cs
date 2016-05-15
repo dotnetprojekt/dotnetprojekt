@@ -10,31 +10,82 @@ namespace FakturyMVC.Controllers
 {
     public class HomeController : Controller
     {
+        // get view for invoice search - DONE
         public ActionResult Index()
         {
             // invoice search
             return View();
         }
 
-        //[HttpPost]
-        public ActionResult SearchInvoice(string invNumber, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
+        //search invoices - TODO
+        public ActionResult SearchInvoice(string invNumber, string title, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
             string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue)
         {
-            // search for invoices in database
+            DateTime? startDate = new DateTime();
+            DateTime? endDate = new DateTime();
+
+            if (start == "")
+                startDate = null;
+            else
+                startDate = DateTime.Parse(start);
+
+            if (end == "")
+                endDate = null;
+            else
+                endDate = DateTime.Parse(end);
+
+            long vendorVatin = -1;
+            long buyerVatin = -1;
+
+            if (!(vvatin == ""))
+                vendorVatin = long.Parse(vvatin);
+
+            if (!(bvatin == ""))
+                buyerVatin = long.Parse(bvatin);
+
+            float minValueFloat = -1;
+            float maxValueFloat = -1;
+
+            if (!(minValue == ""))
+                minValueFloat = float.Parse(minValue);
+
+            if (!(maxValue == ""))
+                maxValueFloat = float.Parse(maxValue);
+
+            Partner vendor = new Partner(vname, vlastname, vcompany, vendorVatin, "");
+            Partner buyer = new Partner(bname, blastname, bcompany, buyerVatin, "");
+
+            List<InvoiceGenerals> invoiceGeneralsList = new List<InvoiceGenerals>();
+            invoiceGeneralsList = InvoiceDAL.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
             InvoicesViewModel model = new InvoicesViewModel();
-            List<InvoiceApp> invoices = new List<InvoiceApp>();
-            InvoiceApp invoice = new InvoiceApp();
+            model.InvoiceGeneralsList = invoiceGeneralsList;
+
+            /*
+            Id = id;
+            Number = number;
+            DateOfIssue = dateOfIssue;
+            VendorData = vendor;
+            BuyerData = buyer;
+            Title = title;
+            OverallCost = overallCost;
+            Status = status;
+             */
+
+            // search for invoices in database
+            //InvoicesViewModel model = new InvoicesViewModel();
+            //List<InvoiceApp> invoices = new List<InvoiceApp>();
+            //InvoiceApp invoice = new InvoiceApp();
 
             // convert vvatin, bvatin, minValue, maxValue to numbers - TODO
             // convert start and end to dates
-
+            /*
             invoice.Number = "555";
             invoice.Buyer = "Adam";
             invoice.Vendor = "Krzysiek";
             invoice.Date = "krolik";
             invoices.Add(invoice);
             model.Invoices = invoices;
-            
+            */
             return PartialView("SearchInvoicesResults", model);
         }
 
@@ -59,13 +110,13 @@ namespace FakturyMVC.Controllers
             return View();
         }
         
+        // addPartner to database - DONE
         [HttpPost]
         public ActionResult AddPartner(string firstName, string lastName, string companyName, long VATIN, string address)
         {
             Partner partner = new Partner(firstName, lastName, companyName, VATIN, address);
             PartnerDAL.PartnerAdd(partner);
 
-            // send to database (addPartner)
             return RedirectToAction("Index");
         }
 
