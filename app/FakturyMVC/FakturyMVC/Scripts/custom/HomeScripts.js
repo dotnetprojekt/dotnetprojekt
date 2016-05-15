@@ -4,7 +4,7 @@
     SearchPartners();
     SearchInvoices();
     AddRow();
-    DeleteRow();
+    //DeleteRow();
     AddInvoiceSearchVendors();
     AddInvoiceSearchBuyers();
     ChangedDiscount();
@@ -212,10 +212,6 @@ function AddRow() {
         var count = $('#rowCount').val();
         count++;
         $('#rowCount').val(count);
-        //alert(count);
-        //var d1 = document.getElementById('goodsTable');
-        //var d1 = document.getElementsByClassName('tbody');
-        //d1.insertAdjacentHTML('beforeend', '<div id="two">two</div>');
 
         var tableRef = document.getElementById('goodsTable').getElementsByTagName('tbody')[0];
         tableRef.insertAdjacentHTML('beforeend', '<tr id="row' + count + '" name="row' + count + '"></tr>');
@@ -225,16 +221,12 @@ function AddRow() {
         $.post(url, { count: count }, function (result) {
             var changedRow = document.getElementById(rowName);
             changedRow.innerHTML = result;
-            //$('#row1').replaceWith(result);
-            //$("body").replaceWith(result);
-            //$(".body-content").replaceWith(result)
         });
-
-        //alert(count);
         
     })
 }
 
+/*
 function DeleteRow() {
 
     $(".delete-button").click(function () {
@@ -244,7 +236,7 @@ function DeleteRow() {
 
     })
 }
-
+*/
 
 function AddInvoiceSearchVendors() {
     
@@ -334,7 +326,7 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
         var value = $('#goods_' + i + '__value').val();
         var tax = $('#goods_' + i + '__tax').val();
 
-        if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length >0 )
+        if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0 )
         {
             netto = netto + parseInt(value);
             brutto = brutto + parseInt(value) + parseInt(value) * parseFloat(tax);            

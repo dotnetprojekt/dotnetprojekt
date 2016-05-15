@@ -184,7 +184,7 @@
                     <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control goods-data", @required = "true" })</th>
                     <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0" })</th>
                     <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
-                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01", @disabled=true })</th>
                     <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
                 </tr>
             </table>

@@ -13,7 +13,7 @@ namespace FakturyMVC.Models
         public string Title { get; set; }
         public Partner Vendor { get; set; }
         public Partner Buyer { get; set; }
-        public List<Goods> Goods { get; set; }
+        public List<GoodsList> GoodsList { get; set; }
         public double Netto { get; set; }
         public double Brutto { get; set; }
         public double Discount { get; set; }

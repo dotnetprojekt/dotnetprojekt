@@ -8,5 +8,5 @@
 <th>@Html.TextBox("goods[" + @Model.Number + "].name", "", new { @class = "input-sm form-control goods-data", @required = "true" })</th>
 <th>@Html.TextBox("goods[" + @Model.Number + "].amount", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0" })</th>
 <th>@Html.TextBox("goods[" + @Model.Number + "].price", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
-<th>@Html.TextBox("goods[" + @Model.Number + "].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+<th>@Html.TextBox("goods[" + @Model.Number + "].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01", @disabled=true })</th>
 <th>@Html.TextBox("goods[" + @Model.Number + "].tax", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>

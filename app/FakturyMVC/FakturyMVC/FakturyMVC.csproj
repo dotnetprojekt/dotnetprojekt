@@ -160,7 +160,7 @@
     <Compile Include="Models\AppUserPrincipal.cs" />
     <Compile Include="Models\AppViewPage.cs" />
     <Compile Include="Models\BlockUnblockViewModel.cs" />
-    <Compile Include="Models\Goods.cs" />
+    <Compile Include="Models\GoodsList.cs" />
     <Compile Include="Models\InvoiceDetailsViewModel.cs" />
     <Compile Include="Models\InvoicesViewModel.cs" />
     <Compile Include="Models\LogInModel.cs" />

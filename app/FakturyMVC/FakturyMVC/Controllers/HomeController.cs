@@ -42,7 +42,7 @@ namespace FakturyMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddInvoice(string date, string title, /*string vendor, string buyer,*/ List<Goods> goods, 
+        public ActionResult AddInvoice(string date, string title, /*string vendor, string buyer,*/ List<GoodsList> goods, 
             double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany,
             string bfirstname, string blastname, string bcompany)
         {
@@ -109,21 +109,22 @@ namespace FakturyMVC.Controllers
             status.Add(new SelectListItem { Text = "Opłacona", Value = "paid", Selected = false });
             status.Add(new SelectListItem { Text = "Zarchiwizowana", Value = "archived", Selected = false });
 
-            List<Goods> goods = new List<Goods>();
+            List<GoodsList> goods = new List<GoodsList>();
 
-            Goods goods1 = new Goods();
+            GoodsList goods1 = new GoodsList();
             goods1.Name = "Banany";
-            goods1.Price = 14.2;
+            goods1.Amount = 3;
             goods1.Value = 13.1;
             goods1.Tax = 0.15;
-            goods1.Amount = 3;
+            goods1.Gross = 50.5;
+            
 
-            Goods goods2 = new Goods();
+            GoodsList goods2 = new GoodsList();
             goods2.Name = "Pierogi";
-            goods2.Price = 12.2;
-            goods2.Value = 9.1;
-            goods2.Tax = 0.2;
-            goods2.Amount = 5;
+            goods2.Amount = 3;
+            goods2.Value = 11.1;
+            goods2.Tax = 0.12;
+            goods2.Gross = 34.5;
 
             goods.Add(goods1);
             goods.Add(goods2);
@@ -147,7 +148,7 @@ namespace FakturyMVC.Controllers
             model.Title = "Faktura za zakupy";
             model.Vendor = vendor;
             model.Buyer = buyer;
-            model.Goods = goods;
+            model.GoodsList = goods;
             model.Netto = 15.5;
             model.Brutto = 19.0;
             model.Discount = 0;
