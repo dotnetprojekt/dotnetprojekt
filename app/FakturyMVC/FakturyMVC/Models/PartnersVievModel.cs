@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FakturyMVC.Models
 {
-    public class Partner
+    public class PartnerApp
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,6 +16,6 @@ namespace FakturyMVC.Models
 
     public class PartnersVievModel
     {
-        public List<Partner> Partners { get; set; }
+        public List<PartnerApp> Partners { get; set; }
     }
 }

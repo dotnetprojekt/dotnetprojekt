@@ -176,6 +176,7 @@
                     <th>Cena jednostkowa</th>
                     <th>Wartość netto</th>
                     <th>Podatek</th>
+                    <th>Wartość brutto</th>
                 </tr>
 
                 <tr id="row0" name="row0">
@@ -184,8 +185,9 @@
                     <th>@Html.TextBox("goods[0].name", "", new { @class = "input-sm form-control goods-data", @required = "true" })</th>
                     <th>@Html.TextBox("goods[0].amount", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0" })</th>
                     <th>@Html.TextBox("goods[0].price", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
-                    <th>@Html.TextBox("goods[0].value", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01", @disabled=true })</th>
+                    <th>@Html.TextBox("goods[0].value", 0, new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
                     <th>@Html.TextBox("goods[0].tax", "", new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
+                    <th>@Html.TextBox("goods[0].gross", 0, new { @class = "input-sm form-control goods-data", @type = "number", @required = "true", @min = "0", @step = "0.01" })</th>
                 </tr>
             </table>
             <button id="addRow" class="btn margin-top-10 margin-bottom-10">Dodaj produkt</button>

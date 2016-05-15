@@ -15,6 +15,7 @@
     ValidateMinValue();
     ValidateMaxValue();
     //CountPrice();
+    ChangeCommasToDot();
 
 });
 
@@ -319,17 +320,28 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
     var netto = 0;
     var brutto = 0;
     
+    
     while (i <= rowCount) {
         var name = $('#goods_' + i + '__name').val();
         var amount = $('#goods_' + i + '__amount').val();
         var price = $('#goods_' + i + '__price').val();
         var value = $('#goods_' + i + '__value').val();
         var tax = $('#goods_' + i + '__tax').val();
+        var gross = $('#goods_' + i + '__gross').val();
 
-        if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0 )
+        //var value = 0;
+        //var localBrutto = 0;
+
+        if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0 && gross.length > 0)
         {
-            netto = netto + parseInt(value);
-            brutto = brutto + parseInt(value) + parseInt(value) * parseFloat(tax);            
+            //var varvalue = parseInt(amount) * parseFloat(price);
+            //$('#goods_' + i + '__value').val(value);
+
+            //var localBrutto = parseFloat(value) + parseFloat(value) * parseFloat(tax);
+            //$('#goods_' + i + '__gross').val(localBrutto);
+
+            netto = netto + parseFloat(value);
+            brutto = brutto + parseFloat(value) + parseFloat(value) * parseFloat(tax);
         }        
         i++;
     }
@@ -344,7 +356,9 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
 
     var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);
 
+    // change dot to comma
     var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
+
     $('#value').val(correctedTotalValue);
 
 });
@@ -390,4 +404,15 @@ function ChangedDiscount() {
 
     })
 
+}
+
+
+function ChangeCommasToDot() {
+
+    $('#addButton').click(function () {
+        $('.goods-data').each(function (index) {
+            //alert( $(this).val() );
+            //$(this).val( $(this).val().toString().replace(/\,/g, '.') );
+        });
+    })
 }

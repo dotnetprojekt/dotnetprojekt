@@ -11,8 +11,8 @@ namespace FakturyMVC.Models
         public string Number { get; set; }
         public string Date { get; set; }
         public string Title { get; set; }
-        public Partner Vendor { get; set; }
-        public Partner Buyer { get; set; }
+        public PartnerApp Vendor { get; set; }
+        public PartnerApp Buyer { get; set; }
         public List<GoodsList> GoodsList { get; set; }
         public double Netto { get; set; }
         public double Brutto { get; set; }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FakturyMVC.Models
 {
-    public class Invoice
+    public class InvoiceApp
     {
         public string Number { get; set; }
         public string Vendor { get; set; }
@@ -15,6 +15,6 @@ namespace FakturyMVC.Models
 
     public class InvoicesViewModel
     {
-        public List<Invoice> Invoices { get; set; }
+        public List<InvoiceApp> Invoices { get; set; }
     }
 }

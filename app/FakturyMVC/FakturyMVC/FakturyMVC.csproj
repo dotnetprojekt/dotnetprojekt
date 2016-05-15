@@ -153,6 +153,9 @@
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceDAL.cs" />
+    <Compile Include="Controllers\PartnerDAL.cs" />
+    <Compile Include="Controllers\Utils.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +163,13 @@
     <Compile Include="Models\AppUserPrincipal.cs" />
     <Compile Include="Models\AppViewPage.cs" />
     <Compile Include="Models\BlockUnblockViewModel.cs" />
+    <Compile Include="Models\DALmodels\Goods.cs" />
+    <Compile Include="Models\DALmodels\Invoice.cs" />
+    <Compile Include="Models\DALmodels\InvoiceDetails.cs" />
+    <Compile Include="Models\DALmodels\InvoiceGenerals.cs" />
+    <Compile Include="Models\DALmodels\InvoiceState.cs" />
+    <Compile Include="Models\DALmodels\Partner.cs" />
+    <Compile Include="Models\DALmodels\Product.cs" />
     <Compile Include="Models\GoodsList.cs" />
     <Compile Include="Models\InvoiceDetailsViewModel.cs" />
     <Compile Include="Models\InvoicesViewModel.cs" />
@@ -167,6 +177,7 @@
     <Compile Include="Models\PartnersVievModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\StringProductList.cs" />
     <Compile Include="Models\UsersManagementViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
