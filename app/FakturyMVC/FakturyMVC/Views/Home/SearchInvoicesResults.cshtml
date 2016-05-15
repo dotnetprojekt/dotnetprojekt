@@ -5,20 +5,25 @@
     <table class="table table-striped table-hover margin-top-10" id="resultTable">
         <tr>
             <th>Numer</th>
-            <th>Sprzedawca</th>
+            <th>Tytuł</th>
+            <th>Data</th>
+            <th>Sprzedawca</th>   
             <th>Kupiec</th>
-            <th>Data</th>            
+            <th>Koszt</th>
+            <th>Status</th>          
         </tr>
-        @for (int i = 0; i < Model.Invoices.Count; i++)
+        @for (int i = 0; i < Model.InvoiceGeneralsList.Count; i++)
         {
-            <tr id=@Model.Invoices[i].Number name=@i title="@Model.Invoices[i].Number">
-                <th>@Model.Invoices[i].Number</th>
-                <th>@Model.Invoices[i].Vendor</th>
-                <th>@Model.Invoices[i].Buyer</th>
-                <th>@Model.Invoices[i].Date</th>
+            <tr id=@Model.InvoiceGeneralsList[i].Id name=@i title="@Model.InvoiceGeneralsList[i].Id">
+                <th>@Model.InvoiceGeneralsList[i].Number</th>
+                <th>@Model.InvoiceGeneralsList[i].Title</th>
+                <th>@Model.InvoiceGeneralsList[i].DateOfIssue</th>
+                <th>@Model.InvoiceGeneralsList[i].VendorData</th>
+                <th>@Model.InvoiceGeneralsList[i].BuyerData</th>                
+                <th>@Model.InvoiceGeneralsList[i].OverallCost</th>
+                <th>@Model.InvoiceGeneralsList[i].Status</th>
             </tr>
         }
-
 
     </table>
 </div>

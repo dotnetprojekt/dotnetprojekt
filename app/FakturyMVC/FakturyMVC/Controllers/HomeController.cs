@@ -18,7 +18,7 @@ namespace FakturyMVC.Controllers
             return View();
         }
 
-        //search invoices - DONE - parse date
+        //search invoices - DONE - not checked
         public ActionResult SearchInvoice(string invNumber, string title, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
             string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue)
         {
@@ -28,18 +28,21 @@ namespace FakturyMVC.Controllers
             if (title == "")
                 title = null;
 
+            DateTime tmpStart = new DateTime();
+            DateTime tmpEnd = new DateTime();
             DateTime? startDate = new DateTime();
             DateTime? endDate = new DateTime();
 
-            if (start == "")
+            if (!( DateTime.TryParseExact(start, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out tmpStart )))
                 startDate = null;
             else
-                startDate = DateTime.Parse(start);
-
-            if (end == "")
+                startDate = tmpStart;
+            
+            if (!( DateTime.TryParseExact(end, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out tmpEnd )))
                 endDate = null;
             else
-                endDate = DateTime.Parse(end);
+                endDate = tmpEnd;            
+
 
             long vendorVatin = -1;
             long buyerVatin = -1;
@@ -82,32 +85,6 @@ namespace FakturyMVC.Controllers
             InvoicesViewModel model = new InvoicesViewModel();
             model.InvoiceGeneralsList = invoiceGeneralsList;
 
-            /*
-            Id = id;
-            Number = number;
-            DateOfIssue = dateOfIssue;
-            VendorData = vendor;
-            BuyerData = buyer;
-            Title = title;
-            OverallCost = overallCost;
-            Status = status;
-             */
-
-            // search for invoices in database
-            //InvoicesViewModel model = new InvoicesViewModel();
-            //List<InvoiceApp> invoices = new List<InvoiceApp>();
-            //InvoiceApp invoice = new InvoiceApp();
-
-            // convert vvatin, bvatin, minValue, maxValue to numbers - TODO
-            // convert start and end to dates
-            /*
-            invoice.Number = "555";
-            invoice.Buyer = "Adam";
-            invoice.Vendor = "Krzysiek";
-            invoice.Date = "krolik";
-            invoices.Add(invoice);
-            model.Invoices = invoices;
-            */
             return PartialView("SearchInvoicesResults", model);
         }
 
