@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FakturyMVC.Models;
+using FakturyMVC.Models.DALmodels;
 
 namespace FakturyMVC.Controllers
 {
@@ -21,10 +22,11 @@ namespace FakturyMVC.Controllers
         {
             // search for invoices in database
             InvoicesViewModel model = new InvoicesViewModel();
-            List<Invoice> invoices = new List<Invoice>();
-            Invoice invoice = new Invoice();
+            List<InvoiceApp> invoices = new List<InvoiceApp>();
+            InvoiceApp invoice = new InvoiceApp();
 
             // convert vvatin, bvatin, minValue, maxValue to numbers - TODO
+            // convert start and end to dates
 
             invoice.Number = "555";
             invoice.Buyer = "Adam";
@@ -42,10 +44,12 @@ namespace FakturyMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddInvoice(string date, string title, /*string vendor, string buyer,*/ List<GoodsList> goods, 
+        public ActionResult AddInvoice(string date, string title, /*string vendor, string buyer,*/ List<StringProductList> goods, 
             double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany,
             string bfirstname, string blastname, string bcompany)
         {
+            Product product = new Product();
+            
             // convert string do date?? TODO
             return RedirectToAction("Index");
         }
@@ -58,6 +62,9 @@ namespace FakturyMVC.Controllers
         [HttpPost]
         public ActionResult AddPartner(string firstName, string lastName, string companyName, long VATIN, string address)
         {
+            Partner partner = new Partner(firstName, lastName, companyName, VATIN, address);
+            PartnerDAL.PartnerAdd(partner);
+
             // send to database (addPartner)
             return RedirectToAction("Index");
         }
@@ -68,17 +75,19 @@ namespace FakturyMVC.Controllers
         }
 
         //[HttpPost]
-        public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin/*string address*/)
+        public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin)
         {
             // search for invoices in database
             PartnersVievModel model = new PartnersVievModel();
-            List<Partner> partners = new List<Partner>();
-            Partner partner = new Partner();
+            List<PartnerApp> partners = new List<PartnerApp>();
+            PartnerApp partner = new PartnerApp();
 
-            long vatinInt;
+            long vatinInt = -1;
             if (vatin != "")
                 vatinInt = long.Parse(vatin);
 
+
+            
             partner.FirstName = "Kamil";
             partner.LastName = "Nowak";
             partner.CompanyName = "Biedronka";
@@ -129,14 +138,14 @@ namespace FakturyMVC.Controllers
             goods.Add(goods1);
             goods.Add(goods2);
 
-            Partner vendor = new Partner();
+            PartnerApp vendor = new PartnerApp();
             vendor.FirstName = "Adam";
             vendor.LastName = "Nowak";
             vendor.CompanyName = "Biedronka s.a.";
             vendor.Address = "ul. Mleczna 23, Kraków";
             vendor.Vatin = 325324534;
 
-            Partner buyer = new Partner();
+            PartnerApp buyer = new PartnerApp();
             buyer.FirstName = "Krystyna";
             buyer.LastName = "Krzak";
             buyer.CompanyName = "Kaufland s.a.";
@@ -167,16 +176,16 @@ namespace FakturyMVC.Controllers
         public ActionResult AddInvoiceSearchVendors(string firstName, string lastName, string companyName, string vatin)
         {
             PartnersVievModel model = new PartnersVievModel();
-            List<Partner> partnerList = new List<Partner>();
+            List<PartnerApp> partnerList = new List<PartnerApp>();
 
-            Partner partner1 = new Partner();
+            PartnerApp partner1 = new PartnerApp();
             partner1.FirstName = "Adam";
             partner1.LastName = "Żelazko";
             partner1.CompanyName = "Żabka";
             partner1.Vatin = 12423423;
             partner1.Address = "ul. Mokra 2 Kraków";
 
-            Partner partner2 = new Partner();
+            PartnerApp partner2 = new PartnerApp();
             partner2.FirstName = "Michał";
             partner2.LastName = "Żelazko";
             partner2.CompanyName = "Żabka";
@@ -194,16 +203,16 @@ namespace FakturyMVC.Controllers
         public ActionResult AddInvoiceSearchBuyers(string firstName, string lastName, string companyName, string vatin)
         {
             PartnersVievModel model = new PartnersVievModel();
-            List<Partner> partnerList = new List<Partner>();
+            List<PartnerApp> partnerList = new List<PartnerApp>();
 
-            Partner partner1 = new Partner();
+            PartnerApp partner1 = new PartnerApp();
             partner1.FirstName = "Adam";
             partner1.LastName = "Żelazko";
             partner1.CompanyName = "Żabka";
             partner1.Vatin = 12423423;
             partner1.Address = "ul. Mokra 2 Kraków";
 
-            Partner partner2 = new Partner();
+            PartnerApp partner2 = new PartnerApp();
             partner2.FirstName = "Michał";
             partner2.LastName = "Żelazko";
             partner2.CompanyName = "Żabka";
