@@ -247,7 +247,7 @@ fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
 
 			set @v_QueryBody = @v_QueryBody + @v_QueryConditions + @v_QueryEnd;
-			
+
 			insert into @v_InvoicesTmp
 			exec sp_executesql @v_QueryBody;
 
@@ -265,7 +265,7 @@ fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 					on v_Inv_VendorId = v.Part_Id
 					and ( exists (select top 1 1 from @v_VendorTab where v_Part_Id = v_Inv_VendorId) or @v_VendorSearch = 0 )
 				inner join inv.Partners b
-					on v_Inv_BuyerId = v.Part_Id
+					on v_Inv_BuyerId = b.Part_Id
 					and (exists (select top 1 1 from @v_BuyerTab where v_Part_Id = v_Inv_BuyerId) or @v_BuyerSearch = 0 )
 
 	end
