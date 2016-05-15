@@ -108,7 +108,7 @@ namespace FakturyMVC.Controllers
                         while (reader.Read())
                         {
                             int iId = reader.GetInt32(reader.GetOrdinal("v_Inv_Id"));
-                            string iNumber = reader.GetString(reader.GetOrdinal("v_Inv_DateOfIssue"));
+                            string iNumber = reader.GetString(reader.GetOrdinal("v_Inv_Number"));
                             DateTime iDateOfIssue = reader.GetDateTime(reader.GetOrdinal("v_Inv_DateOfIssue"));
                             string iVendor = reader.GetString(reader.GetOrdinal("v_Inv_Vendor"));
                             string iBuyer = reader.GetString(reader.GetOrdinal("v_Inv_Buyer"));
