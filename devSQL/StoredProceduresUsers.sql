@@ -2,6 +2,11 @@ use InvoiceSystem
 
 go
 
+	if not exists (SELECT * FROM sys.schemas WHERE name = 'inv')
+		EXEC('CREATE SCHEMA inv');
+
+go
+
 	if(object_id('inv.usp_UsersAdd') is not null)
 		drop procedure inv.usp_UsersAdd;
 
