@@ -5,8 +5,18 @@ app/FakturyMVC/FakturyMVC/bin/FakturyMVC.dll
 app/FakturyMVC/FakturyMVC/bin/FakturyMVC.pdb
 app/FakturyMVC/FakturyMVC/obj/Release/FakturyMVC.dll
 app/FakturyMVC/FakturyMVC/obj/Release/FakturyMVC.pdb
+app/FakturyMVC/FakturyMVC/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+app/FakturyMVC/FakturyMVC/obj/Debug/.*
+app/FakturyMVC/FakturyMVC/obj/Debug/
 
-*\.pdb
-*\.dll
+".\app\FakturyMVC\FakturyMVC.v12.suo"
+.\app\FakturyMVC\FakturyMVC\FakturyMVC.csproj
+.\app\FakturyMVC\FakturyMVC\bin\FakturyMVC.dll
+.\app\FakturyMVC\FakturyMVC\bin\FakturyMVC.pdb
+.\app\FakturyMVC\FakturyMVC\obj\Release\FakturyMVC.dll
+.\app\FakturyMVC\FakturyMVC\obj\Release\FakturyMVC.pdb
+
+*.pdb
+*.dll
 
 
