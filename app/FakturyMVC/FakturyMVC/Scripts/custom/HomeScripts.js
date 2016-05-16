@@ -21,9 +21,9 @@
 
 $('#invoiceSearchResults').on('click', '#resultTable tbody tr', function () {
 
-    var invoiceNumber = $(this).attr('title');
+    var invoiceId = $(this).attr('title');
     var url = "/Home/InvoiceDetails";
-    $.post(url, { invoiceNumber: invoiceNumber }, function (result) {
+    $.post(url, { invoiceId: invoiceId }, function (result) {
         $(".body-content").replaceWith(result)
     });
     

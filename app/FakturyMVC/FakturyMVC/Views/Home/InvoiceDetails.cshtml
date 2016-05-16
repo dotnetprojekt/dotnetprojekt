@@ -1,15 +1,15 @@
-﻿@model FakturyMVC.Models.InvoiceDetailsViewModel
+﻿@model FakturyMVC.Models.DALmodels.InvoiceDetails
 
 @{
     ViewBag.Title = "InvoiceDetails";
 }
 
-<h2>Faktura nr @Model.Number - szczegóły</h2>
+<h2>Faktura nr @Model.Invoice.Number - szczegóły</h2>
 
 <div>
-    Numer: <b>@Model.Number</b><br /><br />
-    Data: <b>@Model.Date</b><br /><br />
-    Tytuł: <b>@Model.Title</b><br /><br />
+    Numer: <b>@Model.Invoice.Number</b><br /><br />
+    Data: <b>@Model.Invoice.DateOfIssue</b><br /><br />
+    Tytuł: <b>@Model.Invoice.Title</b><br /><br />
     Sprzedawca:<br />
     <b>@Model.Vendor.FirstName @Model.Vendor.LastName</b><br />
     <b>@Model.Vendor.CompanyName</b><br />
@@ -32,14 +32,14 @@
                 <th>Podatek</th>
                 <th>Cena brutto</th>
             </tr>
-            @for (int i = 0; i < Model.GoodsList.Count; i++)
+            @for (int i = 0; i < Model.Invoice.GoodsList.ProductList.Count; i++)
             {
                 <tr>
-                    <th>@Model.GoodsList[i].Name</th>
-                    <th>@Model.GoodsList[i].Amount</th>
-                    <th>@Model.GoodsList[i].Value</th>
-                    <th>@Model.GoodsList[i].Tax</th>
-                    <th>@Model.GoodsList[i].Gross</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].Name</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].Amount</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].NetValue</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].Tax</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].GrossValue</th>
                 </tr>
             }
 
@@ -47,38 +47,20 @@
         </table>
     </div>
 
-    Wartość netto: <b>@Model.Netto</b><br /><br />
-    Wartość brutto: <b>@Model.Brutto</b><br /><br />
-    Zniżka: <b>@Model.Discount</b><br /><br />
-    Podliczona wartość: <b>@Model.Value</b><br /><br />
+    Wartość netto: <b>@Model.Invoice.OverallNet</b><br /><br />
+    Wartość brutto: <b>@Model.Invoice.OverallGross</b><br /><br />
+    Zniżka: <b>@Model.Invoice.Discount</b><br /><br />
+    Podliczona wartość: <b>@Model.Invoice.OverallCost</b><br /><br />
 
-    @using (Html.BeginForm("ChangeInvoiceStatus", "Home", FormMethod.Post, new { @id = "changeInvoiceStatus", @class = "form-inline" }))
+    @if (Model.Invoice.Status == FakturyMVC.Models.DALmodels.InvoiceState.New)
     {
-        <div>
-            Status: <br /> @Html.DropDownList("status", Model.Status, new { @id = "status", @class = "form-control margin-top-10", @style = "width: 100%;" })
-        </div>
-        @Html.Hidden("invoiceNumber", Model.Number)
-        <button type="submit" name="submitButton" id="changeStatus" class="btn margin-top-10 margin-bottom-10">Zmień status</button>
-
+        using (Html.BeginForm("ChangeInvoiceStatusToPaid", "Home", FormMethod.Post, new { @id = "changeInvoiceStatus", @class = "form-inline" }))
+        {
+            @Html.Hidden("id", Model.Invoice.Id)
+            <button type="submit" name="submitButton" id="changeStatus" class="btn margin-top-10 margin-bottom-10">Zmień status na opłaconą</button>
+        }
     }
 
     <br />
 
 </div>
-
-
-
-@*
-public int Number { get; set; }
-        public string Date { get; set; }
-        public string Title { get; set; }
-        public string Vendor { get; set; }
-        public string Buyer { get; set; }
-        public List<goods>
-    Goods { get; set; }
-    public double Netto { get; set; }
-    public double Brutto { get; set; }
-    public double Discount { get; set; }
-    public double Value { get; set; }
-    public List<selectlistitem> Status { get; set; }
-*@

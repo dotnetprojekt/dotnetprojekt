@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FakturyMVC.Models.DALmodels
 {
-    class InvoiceDetails
+    public class InvoiceDetails
     {
         public Invoice Invoice;
         public Partner Vendor;

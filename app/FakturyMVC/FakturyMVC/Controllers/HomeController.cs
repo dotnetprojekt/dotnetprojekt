@@ -14,7 +14,6 @@ namespace FakturyMVC.Controllers
         // get view for invoice search - DONE
         public ActionResult Index()
         {
-            // invoice search
             return View();
         }
 
@@ -85,6 +84,11 @@ namespace FakturyMVC.Controllers
             InvoicesViewModel model = new InvoicesViewModel();
             model.InvoiceGeneralsList = invoiceGeneralsList;
 
+            ///////////
+            InvoiceGenerals tmp = new InvoiceGenerals("numer", DateTime.Today, "Biedrona", "Lidl", "Zakupy", 0.25f, InvoiceState.New, 1);
+            model.InvoiceGeneralsList.Add(tmp);
+            ///////////
+
             return PartialView("SearchInvoicesResults", model);
         }
 
@@ -104,7 +108,6 @@ namespace FakturyMVC.Controllers
             string bfirstname, string blastname, string bcompany, long vvatin, long bvatin)
         {
             DateTime tmpDate = new DateTime();
-            //DateTime? parsedDate = new DateTime();
 
             if (!(DateTime.TryParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out tmpDate)))
                 tmpDate = DateTime.Today;
@@ -198,72 +201,14 @@ namespace FakturyMVC.Controllers
             int id = -1;
             Int32.TryParse(invoiceId, out id);
 
-
-
-
-
-
-
-            // get invoice details from database
-            InvoiceDetailsViewModel model = new InvoiceDetailsViewModel();
-
-            List<SelectListItem> status = new List<SelectListItem>();
-            status.Add(new SelectListItem { Text = "Nowa", Value = "new", Selected=true });
-            status.Add(new SelectListItem { Text = "Opłacona", Value = "paid", Selected = false });
-            status.Add(new SelectListItem { Text = "Zarchiwizowana", Value = "archived", Selected = false });
-
-            List<GoodsList> goods = new List<GoodsList>();
-
-            GoodsList goods1 = new GoodsList();
-            goods1.Name = "Banany";
-            goods1.Amount = id;
-            goods1.Value = 13.1;
-            goods1.Tax = 0.15;
-            goods1.Gross = 50.5;
-            
-
-            GoodsList goods2 = new GoodsList();
-            goods2.Name = "Pierogi";
-            goods2.Amount = id;
-            goods2.Value = 11.1;
-            goods2.Tax = 0.12;
-            goods2.Gross = 34.5;
-
-            goods.Add(goods1);
-            goods.Add(goods2);
-
-            PartnerApp vendor = new PartnerApp();
-            vendor.FirstName = "Adam";
-            vendor.LastName = "Nowak";
-            vendor.CompanyName = "Biedronka s.a.";
-            vendor.Address = "ul. Mleczna 23, Kraków";
-            vendor.Vatin = 325324534;
-
-            PartnerApp buyer = new PartnerApp();
-            buyer.FirstName = "Krystyna";
-            buyer.LastName = "Krzak";
-            buyer.CompanyName = "Kaufland s.a.";
-            buyer.Address = "ul. Dziwna 22, Warszawa";
-            buyer.Vatin = 43554855;
-
-            model.Number = "aaa";
-            model.Date = DateTime.Now.ToString("dd/MM/yyyy");
-            model.Title = "Faktura za zakupy";
-            model.Vendor = vendor;
-            model.Buyer = buyer;
-            model.GoodsList = goods;
-            model.Netto = 15.5;
-            model.Brutto = 19.0;
-            model.Discount = 0;
-            model.Value = 19.0;
-            model.Status = status;
-                        
+            InvoiceDetails model = InvoiceDAL.InvoiceGetDetails(id);
             return View(model);
         }
 
-        public ActionResult ChangeInvoiceStatus(long invoiceNumber, string status)
+        // set invoice status to paid - DONE - not checked
+        public ActionResult ChangeInvoiceStatusToPaid(int id)
         {
-            // get invoice details from database
+            InvoiceDAL.InvoiceSetPaid(id);
             return RedirectToAction("Index");
         }
 
@@ -282,7 +227,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong, 1, 5);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 
@@ -304,7 +249,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong, 1, 5);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 

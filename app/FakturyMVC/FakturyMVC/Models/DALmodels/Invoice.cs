@@ -8,7 +8,7 @@ using System.IO;
 
 namespace FakturyMVC.Models.DALmodels
 {
-    class Invoice
+    public class Invoice
     {
         private int _id;
         private string _number;
