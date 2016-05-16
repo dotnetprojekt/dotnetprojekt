@@ -12,6 +12,11 @@ namespace FakturyMVC.Models.DALmodels
         public Partner Vendor;
         public Partner Buyer;
 
+        private InvoiceDetails()
+        {
+
+        }
+
         public InvoiceDetails(Invoice invoice, Partner vendor, Partner buyer)
         {
             Invoice = invoice;

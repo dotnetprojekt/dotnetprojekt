@@ -10,9 +10,15 @@ using FakturyMVC.Models.DALmodels;
 
 namespace FakturyMVC.Controllers
 {
-    public class UserDAL
+    static class UserDAL
     {
-        private static string _connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["Developer"]].ConnectionString;
+        private static string _connectionString;
+
+        static UserDAL()
+        {
+            string machineName = System.Environment.MachineName.ToUpper();
+            _connectionString = ConfigurationManager.ConnectionStrings[machineName].ConnectionString;
+        }
 
         public static void UserAdd(User user, int userId = 5)
         {

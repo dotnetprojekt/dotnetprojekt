@@ -24,6 +24,11 @@ namespace FakturyMVC.Models.DALmodels
             Id = id;
         }
 
+        private Partner()
+        {
+
+        }
+
         public int Id
         {
             get { return _id; }

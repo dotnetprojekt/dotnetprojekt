@@ -13,7 +13,13 @@ namespace FakturyMVC.Controllers
 {
     static class PartnerDAL
     {
-        private static string _connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["Developer"]].ConnectionString;
+        private static string _connectionString;
+
+        static PartnerDAL()
+        {
+            string machineName = System.Environment.MachineName.ToUpper();
+            _connectionString = ConfigurationManager.ConnectionStrings[machineName].ConnectionString;
+        }
 
         public static void PartnerAdd(Partner partner, int userId = 5)
         {
@@ -146,7 +152,7 @@ namespace FakturyMVC.Controllers
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "inv.usp_PartnerSearch";
+                    cmd.CommandText = "inv.usp_PartnerGetById";
                     cmd.Parameters.Add("@p_PartnerId", SqlDbType.Int).Value = partnerId;
 
                     connection.Open();

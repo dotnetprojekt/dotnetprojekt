@@ -85,8 +85,8 @@ namespace FakturyMVC.Controllers
             model.InvoiceGeneralsList = invoiceGeneralsList;
 
             ///////////
-            InvoiceGenerals tmp = new InvoiceGenerals("numer", DateTime.Today, "Biedrona", "Lidl", "Zakupy", 0.25f, InvoiceState.New, 1);
-            model.InvoiceGeneralsList.Add(tmp);
+            //InvoiceGenerals tmp = new InvoiceGenerals("numer", DateTime.Today, "Biedrona", "Lidl", "Zakupy", 0.25f, InvoiceState.New, 1);
+            //model.InvoiceGeneralsList.Add(tmp);
             ///////////
 
             return PartialView("SearchInvoicesResults", model);
@@ -118,13 +118,13 @@ namespace FakturyMVC.Controllers
             {
                 if (goods[i].Name != null)
                 {
-                    Product product = new Product();
-                    product.Name = goods[i].Name;
-                    product.Amount = Int32.Parse(goods[i].Amount, CultureInfo.InvariantCulture);
-                    product.UnitPrice = float.Parse(goods[i].Price, CultureInfo.InvariantCulture);
-                    product.NetValue = float.Parse(goods[i].Value, CultureInfo.InvariantCulture);
-                    product.Tax = float.Parse(goods[i].Tax, CultureInfo.InvariantCulture);
-                    product.GrossValue = float.Parse(goods[i].Gross, CultureInfo.InvariantCulture);
+                    Product product = new Product
+                        (
+                            goods[i].Name, Int32.Parse(goods[i].Amount,
+                            CultureInfo.InvariantCulture),
+                            float.Parse(goods[i].Price, CultureInfo.InvariantCulture),
+                            float.Parse(goods[i].Tax, CultureInfo.InvariantCulture)
+                        );
                     productList.Add(product);
                 }
             }

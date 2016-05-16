@@ -26,13 +26,13 @@ namespace DataAccessLayer
                 UserDAL.UserAdd(usr);
             }
 
-            for (int i = 0; i < 5000; i++ )
+            for (int i = 0; i < 7000; i++ )
             {
                 Partner part = new Partner(fNamesList[rnd.Next(fNamesList.Count)], lNamesList[rnd.Next(lNamesList.Count)], companies[rnd.Next(companies.Count)], 10000000 + i, "Address " + i.ToString());
                 PartnerDAL.PartnerAdd(part);
             }
 
-            for (int i = 0; i < 2000; i++)
+            for (int i = 0; i < 4000; i++)
             {
                 string number = InvoiceDAL.GetInvoiceNumber();
                 List<Product> prods = new List<Product>();
@@ -41,12 +41,11 @@ namespace DataAccessLayer
                 {
                     prods.Add(new Product("Produkt" + j.ToString(), rnd.Next(100), (float)rnd.NextDouble() * 1000, ((float)rnd.Next(23)) / 100));
                 }
-
                 Invoice inv = new Invoice(number, DateTime.Now, "Faktura za towary " + i.ToString(), prods, ((float)rnd.Next(20)) / 100);
-                InvoiceDAL.InvoiceAdd(inv, 10000000 + rnd.Next(5000), 10000000 + rnd.Next(5000));
+                InvoiceDAL.InvoiceAdd(inv, 10000000 + rnd.Next(7000), 10000000 + rnd.Next(7000));
             }
 
-                Console.Read();
+            Console.Read();
         }
     }
 }

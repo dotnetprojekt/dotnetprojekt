@@ -28,6 +28,11 @@ namespace FakturyMVC.Models.DALmodels
             Status = status;
         }
 
+        private InvoiceGenerals()
+        {
+
+        }
+
         public int Id
         {
             get { return _id; }

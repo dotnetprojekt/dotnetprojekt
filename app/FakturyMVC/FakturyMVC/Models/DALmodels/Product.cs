@@ -16,7 +16,7 @@ namespace FakturyMVC.Models.DALmodels
         private float _netValue;
         private float _grossValue;
 
-        public Product()
+        private Product()
         {
 
         }

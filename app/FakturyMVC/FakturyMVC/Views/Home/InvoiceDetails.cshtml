@@ -10,16 +10,17 @@
     Numer: <b>@Model.Invoice.Number</b><br /><br />
     Data: <b>@Model.Invoice.DateOfIssue</b><br /><br />
     Tytuł: <b>@Model.Invoice.Title</b><br /><br />
-    Sprzedawca:<br />
-    <b>@Model.Vendor.FirstName @Model.Vendor.LastName</b><br />
-    <b>@Model.Vendor.CompanyName</b><br />
-    <b>@Model.Vendor.Address</b><br />
+
+    <b>Sprzedawca:</b><br />
+    Imie i nazwisko: <b>@Model.Vendor.FirstName @Model.Vendor.LastName</b><br />
+    Firma: <b>@Model.Vendor.CompanyName</b><br />
+    Adres: <b>@Model.Vendor.Address</b><br />
     VATIN: <b>@Model.Vendor.Vatin</b><br /><br />
 
-    Kupiec:<br />
-    <b>@Model.Buyer.FirstName @Model.Buyer.LastName</b><br />
-    <b>@Model.Buyer.CompanyName</b><br />
-    <b>@Model.Buyer.Address</b><br />
+    <b>Kupiec:</b><br />
+    Imie i nazwisko: <b>@Model.Buyer.FirstName @Model.Buyer.LastName</b><br />
+    Firma: <b>@Model.Buyer.CompanyName</b><br />
+    Adres: <b>@Model.Buyer.Address</b><br />
     VATIN: <b>@Model.Buyer.Vatin</b><br /><br />
 
     Produkty:<br /> 
@@ -28,6 +29,7 @@
             <tr>
                 <th>Nazwa</th>
                 <th>Ilość</th>
+                <th>Cena jednostkowa</th>
                 <th>Cena netto</th>
                 <th>Podatek</th>
                 <th>Cena brutto</th>
@@ -37,6 +39,7 @@
                 <tr>
                     <th>@Model.Invoice.GoodsList.ProductList[i].Name</th>
                     <th>@Model.Invoice.GoodsList.ProductList[i].Amount</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].UnitPrice</th>
                     <th>@Model.Invoice.GoodsList.ProductList[i].NetValue</th>
                     <th>@Model.Invoice.GoodsList.ProductList[i].Tax</th>
                     <th>@Model.Invoice.GoodsList.ProductList[i].GrossValue</th>
@@ -56,9 +59,18 @@
     {
         using (Html.BeginForm("ChangeInvoiceStatusToPaid", "Home", FormMethod.Post, new { @id = "changeInvoiceStatus", @class = "form-inline" }))
         {
+            <b>Faktura nieopłacona</b>
             @Html.Hidden("id", Model.Invoice.Id)
             <button type="submit" name="submitButton" id="changeStatus" class="btn margin-top-10 margin-bottom-10">Zmień status na opłaconą</button>
         }
+    }
+    else if (Model.Invoice.Status == FakturyMVC.Models.DALmodels.InvoiceState.Paid)
+    {
+        <b>Faktura opłacona</b>
+    }
+    else
+    {
+        <b>Faktura opłacona i zarchiwizowana</b>
     }
 
     <br />

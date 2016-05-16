@@ -19,7 +19,7 @@ go
 		set xact_abort on;
 
 		if(@p_Context is null or @p_Status is null or @p_Login is null)
-			raiserror (15600,-1,-1, 'inv.usp_PartnerAdd');
+			raiserror (15600,-1,-1, 'inv.usp_WriteLog');
 		else
 			insert into dbo.Logs with(rowlock)
 			(

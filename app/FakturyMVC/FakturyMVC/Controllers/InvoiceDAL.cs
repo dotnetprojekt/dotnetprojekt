@@ -10,9 +10,15 @@ using FakturyMVC.Models.DALmodels;
 
 namespace FakturyMVC.Controllers
 {
-    static class InvoiceDAL
+    public class InvoiceDAL
     {
-        private static string _connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["Developer"]].ConnectionString;
+        private static string _connectionString;
+
+        static InvoiceDAL()
+        {
+            string machineName = System.Environment.MachineName.ToUpper();
+            _connectionString = ConfigurationManager.ConnectionStrings[machineName].ConnectionString;
+        }
 
         public static string GetInvoiceNumber()
         {
@@ -78,7 +84,7 @@ namespace FakturyMVC.Controllers
         )
         {
             List<InvoiceGenerals> invoicesFound = new List<InvoiceGenerals>();
-
+            
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = connection.CreateCommand())

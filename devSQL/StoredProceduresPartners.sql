@@ -83,8 +83,8 @@ go
 		@p_LastName nvarchar(128),
 		@p_CompanyName nvarchar(256),
 		@p_Vatin decimal(24,0),
-		@p_pageNumber int,
-		@p_rowsPerPage int
+		@p_pageNumber int = 1,
+		@p_rowsPerPage int = 2147483647
 	as
 	begin
 		declare @v_QueryBody nvarchar(max) =

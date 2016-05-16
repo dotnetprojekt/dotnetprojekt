@@ -129,149 +129,6 @@ go
 
 go
 
-	create procedure inv.usp_InvoicesSearch -- InvoiceDAL.InvoiceSearch()
-		@p_Number nvarchar(16),
-		@p_DateStart nvarchar(16),
-		@p_DateEnd nvarchar(16),
-		@p_VendorFirstName nvarchar(128),
-		@p_VendorLastName nvarchar(128),
-		@p_VendorCompany nvarchar(256),
-		@p_VendorVatin decimal(24,0),
-		@p_BuyerFirstName nvarchar(128),
-		@p_BuyerLastName nvarchar(128),
-		@p_BuyerCompany nvarchar(256),
-		@p_BuyerVatin decimal(24,0),
-		@p_Title nvarchar(2048),
-		@p_CostMin decimal(9,2),
-		@p_CostMax decimal(9,2),
-		@p_pageNumber int,
-		@p_rowsPerPage int
-	as
-	begin
-		set nocount on;
-		set xact_abort on;
-
-		declare @v_dynamicList table
-		(
-			v_number int
-		);
-
-		declare @v_InvoicesTmp table
-		(
-			v_Inv_Id int,
-			v_Inv_Number nvarchar(16),
-			v_Inv_DateOfIssue datetime2(7),
-			v_Inv_VendorId int,
-			v_Inv_BuyerId int,
-			v_Inv_Title nvarchar(2048),
-			v_Inv_OverallCost decimal(9,2),
-			v_Inv_Status int
-		);
-
-		declare @v_VendorSearch bit = case when	(
-													@p_VendorFirstName is not null
-													and @p_VendorLastName is not null
-													and @p_VendorCompany is not null
-													and @p_VendorVatin is not null
-												) then 1
-											else 0 end;
-
-		declare @v_BuyerSearch bit = case when	(
-													@p_BuyerFirstName is not null
-													and @p_BuyerLastName is not null
-													and @p_BuyerCompany is not null
-													and @p_BuyerVatin is not null
-												) then 1
-											else 0 end;
-
-		if( @v_VendorSearch = 1)
-		begin
-			declare @v_VendorTab PartnerTable;
-
-			insert into @v_VendorTab
-			exec inv.usp_PartnerSearch
-				@p_VendorFirstName,
-				@p_VendorLastName,
-				@p_VendorCompany,
-				@p_VendorVatin;
-		end
-
-		if( @v_BuyerSearch = 1 )
-		begin
-			declare @v_BuyerTab PartnerTable;
-
-			insert into @v_BuyerTab
-			exec inv.usp_PartnerSearch
-				@p_BuyerFirstName,
-				@p_BuyerLastName,
-				@p_BuyerCompany,
-				@p_BuyerVatin;
-		end
-
-			declare @v_QueryBody nvarchar(max) = 
-'select
-	Inv_Id,
-	Inv_Number,
-	Inv_DateOfIssue,
-	Inv_VendorId,
-	Inv_BuyerId,
-	Inv_Title,
-	Inv_OverallCost,
-	Inv_Status
-from inv.Invoices with(nolock)
-where 1=1';
-
-			declare @v_QueryConditions nvarchar(max) = '';
-
-			declare @v_QueryEnd nvarchar(max) = 
-char(13)+char(10)+'order by Inv_Id
-offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
-fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
-
-			if(@p_Number is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Number like ''%'+ @p_Number + '%'''; --fulltextsearch?
-
-			if(@p_DateStart is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
-
-			if(@p_DateEnd is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
-
-			if(@p_Title is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Title like ''%'+ @p_Title + '%'''; --fulltextsearch?
-
-			if(@p_CostMin is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost >= ' + convert(nvarchar(16),@p_CostMin);
-
-			if(@p_CostMax is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
-
-			set @v_QueryBody = @v_QueryBody + @v_QueryConditions + @v_QueryEnd;
-
-			insert into @v_InvoicesTmp
-			exec sp_executesql @v_QueryBody;
-
-			select
-				v_Inv_Id,
-				v_Inv_Number,
-				v_Inv_DateOfIssue,
-				isnull(v.Part_FirstName,'') + ' ' + isnull(v.Part_LastName,'') + ' ' + isnull(v.Part_CompanyName,'') as v_Inv_Vendor,
-				isnull(b.Part_FirstName,'') + ' ' + isnull(b.Part_LastName,'') + ' ' + isnull(b.Part_CompanyName,'') as v_Inv_Buyer,
-				v_Inv_Title,
-				v_Inv_OverallCost,
-				v_Inv_Status
-			from @v_InvoicesTmp
-				inner join inv.Partners v
-					on v_Inv_VendorId = v.Part_Id
-					and ( exists (select top 1 1 from @v_VendorTab where v_Part_Id = v_Inv_VendorId) or @v_VendorSearch = 0 )
-				inner join inv.Partners b
-					on v_Inv_BuyerId = b.Part_Id
-					and (exists (select top 1 1 from @v_BuyerTab where v_Part_Id = v_Inv_BuyerId) or @v_BuyerSearch = 0 )
-
-	end
-
-go
-
 	create procedure inv.usp_InvoicesDetailsGet -- InvoiceDAL.InvoiceGetDetails()
 		@p_Inv_Id int
 	as
@@ -349,6 +206,147 @@ go
 
 			waitfor delay '00:00:02';
 		end
+	end
+
+go
+
+	create procedure inv.usp_InvoicesSearch -- InvoiceDAL.InvoiceSearch()
+		@p_Number nvarchar(16),
+		@p_DateStart nvarchar(16),
+		@p_DateEnd nvarchar(16),
+		@p_VendorFirstName nvarchar(128),
+		@p_VendorLastName nvarchar(128),
+		@p_VendorCompany nvarchar(256),
+		@p_VendorVatin decimal(24,0),
+		@p_BuyerFirstName nvarchar(128),
+		@p_BuyerLastName nvarchar(128),
+		@p_BuyerCompany nvarchar(256),
+		@p_BuyerVatin decimal(24,0),
+		@p_Title nvarchar(2048),
+		@p_CostMin decimal(9,2),
+		@p_CostMax decimal(9,2),
+		@p_pageNumber int = 1,
+		@p_rowsPerPage int = 2147483647
+	as
+	begin
+		set nocount on;
+		set xact_abort on;
+
+		declare @v_dynamicList table
+		(
+			v_number int
+		);
+
+		declare @v_InvoicesTmp table
+		(
+			v_Inv_Id int,
+			v_Inv_Number nvarchar(16),
+			v_Inv_DateOfIssue datetime2(7),
+			v_Inv_VendorId int,
+			v_Inv_BuyerId int,
+			v_Inv_Title nvarchar(2048),
+			v_Inv_OverallCost decimal(9,2),
+			v_Inv_Status int
+		);
+
+		declare @v_VendorSearch bit = case when	(
+													@p_VendorFirstName is not null
+													or @p_VendorLastName is not null
+													or @p_VendorCompany is not null
+													or @p_VendorVatin is not null
+												) then 1
+											else 0 end;
+
+		declare @v_BuyerSearch bit = case when	(
+													@p_BuyerFirstName is not null
+													or @p_BuyerLastName is not null
+													or @p_BuyerCompany is not null
+													or @p_BuyerVatin is not null
+												) then 1
+											else 0 end;
+
+		if( @v_VendorSearch = 1)
+		begin
+			declare @v_VendorTab PartnerTable;
+
+			insert into @v_VendorTab
+			exec inv.usp_PartnerSearch
+				@p_VendorFirstName,
+				@p_VendorLastName,
+				@p_VendorCompany,
+				@p_VendorVatin;
+		end
+
+		if( @v_BuyerSearch = 1 )
+		begin
+			declare @v_BuyerTab PartnerTable;
+
+			insert into @v_BuyerTab
+			exec inv.usp_PartnerSearch
+				@p_BuyerFirstName,
+				@p_BuyerLastName,
+				@p_BuyerCompany,
+				@p_BuyerVatin;
+		end
+
+			declare @v_QueryBody nvarchar(max) = 
+'select
+	Inv_Id,
+	Inv_Number,
+	Inv_DateOfIssue,
+	Inv_VendorId,
+	Inv_BuyerId,
+	Inv_Title,
+	Inv_OverallCost,
+	Inv_Status
+from inv.Invoices with(nolock)
+where 1=1';
+
+			declare @v_QueryConditions nvarchar(max) = '';
+
+			if(@p_Number is not null)
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Number like ''%'+ @p_Number + '%'''; --fulltextsearch?
+
+			if(@p_DateStart is not null)
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
+
+			if(@p_DateEnd is not null)
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
+
+			if(@p_Title is not null)
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Title like ''%'+ @p_Title + '%'''; --fulltextsearch?
+
+			if(@p_CostMin is not null)
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost >= ' + convert(nvarchar(16),@p_CostMin);
+
+			if(@p_CostMax is not null)
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
+
+			set @v_QueryBody = @v_QueryBody + @v_QueryConditions;
+
+			insert into @v_InvoicesTmp
+			exec sp_executesql @v_QueryBody;
+
+			select
+				v_Inv_Id,
+				v_Inv_Number,
+				v_Inv_DateOfIssue,
+				isnull(v.Part_FirstName,'') + ' ' + isnull(v.Part_LastName,'') + ' ' + isnull(v.Part_CompanyName,'') as v_Inv_Vendor,
+				isnull(b.Part_FirstName,'') + ' ' + isnull(b.Part_LastName,'') + ' ' + isnull(b.Part_CompanyName,'') as v_Inv_Buyer,
+				v_Inv_Title,
+				v_Inv_OverallCost,
+				v_Inv_Status
+			from @v_InvoicesTmp
+				inner join inv.Partners v
+					on v_Inv_VendorId = v.Part_Id
+				inner join inv.Partners b
+					on v_Inv_BuyerId = b.Part_Id
+			where (exists (select top 1 1 from @v_VendorTab vv where v_Part_Id = v_Inv_VendorId) or @v_VendorSearch = 0)
+				and (exists (select top 1 1 from @v_BuyerTab where v_Part_Id = v_Inv_BuyerId) or @v_BuyerSearch = 0)
+			order by v_Inv_Id
+			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
+			fetch next (@p_rowsPerPage) rows only;
+
 	end
 
 go
