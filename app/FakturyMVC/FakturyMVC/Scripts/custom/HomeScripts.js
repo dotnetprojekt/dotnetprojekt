@@ -42,12 +42,14 @@ $('#goodsTable').on('click', 'tbody tr .delete-button', function () {
     $('#goods_' + number + '__price').prop('required', false);
     $('#goods_' + number + '__value').prop('required', false);
     $('#goods_' + number + '__tax').prop('required', false);
+    $('#goods_' + number + '__gross').prop('required', false);
 
     $('#goods_' + number + '__name').val("");
     $('#goods_' + number + '__amount').val("");
     $('#goods_' + number + '__price').val("");
     $('#goods_' + number + '__value').val("");
     $('#goods_' + number + '__tax').val("");
+    $('#goods_' + number + '__gross').val("");
 
     /*
     $('#goods_' + number + '__name').removeAttr('required');​​​​​

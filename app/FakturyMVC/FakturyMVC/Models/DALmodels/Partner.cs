@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FakturyMVC.Models.DALmodels
 {
-    class Partner
+    public class Partner
     {
         private int _id = 0;
         private string _firstName = null;

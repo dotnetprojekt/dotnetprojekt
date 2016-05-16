@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FakturyMVC.Models.DALmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,6 @@ namespace FakturyMVC.Models
 
     public class PartnersVievModel
     {
-        public List<PartnerApp> Partners { get; set; }
+        public List<Partner> Partners { get; set; }
     }
 }

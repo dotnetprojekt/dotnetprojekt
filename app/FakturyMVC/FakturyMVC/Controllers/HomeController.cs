@@ -97,19 +97,23 @@ namespace FakturyMVC.Controllers
             return View("AddInvoice", model);
         }
 
-        // adding invoice - TODO - parse date and floats
+        // adding invoice - TODO - uncomment adding
         [HttpPost]
         public ActionResult AddInvoice(string date, string title, string invNumber, List<StringProductList> goods, 
             double? netto, double? brutto, double? discount, double? value, string vfirstname, string vlastname, string vcompany,
-            string bfirstname, string blastname, string bcompany)
+            string bfirstname, string blastname, string bcompany, long vvatin, long bvatin)
         {
-            //DateTime? todayDate = new DateTime();
-            //todayDate = DateTime.Parse(date);
+            DateTime tmpDate = new DateTime();
+            //DateTime? parsedDate = new DateTime();
+
+            if (!(DateTime.TryParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out tmpDate)))
+                tmpDate = DateTime.Today;
+
             List<Product> productList = new List<Product>();
 
             for (int i = 0; i < goods.Count; i++ )
             {
-                if (goods[i].Name != "")
+                if (goods[i].Name != null)
                 {
                     Product product = new Product();
                     product.Name = goods[i].Name;
@@ -122,17 +126,20 @@ namespace FakturyMVC.Controllers
                 }
             }
 
+            float notNullDiscount;
+            
+            if (discount == null)
+                notNullDiscount = 0;
+            else
+                notNullDiscount = (float)discount;
 
+            Invoice invoice = new Invoice(invNumber, tmpDate, title, productList, notNullDiscount);
+            InvoiceDAL.InvoiceAdd(invoice, vvatin, bvatin);
 
-
-                //Invoice invoice = new Invoice(invNumber, todayDate, title
-
-                //InvoiceDAL.InvoiceAdd
-
-                // convert string do date?? TODO
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
+        // view for adding partner - DONE
         public ActionResult AddPartner()
         {
             return View();
@@ -148,38 +155,36 @@ namespace FakturyMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // view for searching partners - DONE
         public ActionResult SearchPartner()
         {
             return View();
         }
 
-        //[HttpPost]
+        // searching partners - DONE
         public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin)
         {
-            // search for invoices in database
-            PartnersVievModel model = new PartnersVievModel();
-            List<PartnerApp> partners = new List<PartnerApp>();
-            PartnerApp partner = new PartnerApp();
+            if (firstName == "")
+                firstName = null;
+            if (lastName == "")
+                lastName = null;
+            if (companyName == "")
+                companyName = null;
 
-            long vatinInt = -1;
+            long vatinLong = -1;
             if (vatin != "")
-                vatinInt = long.Parse(vatin);
+                long.TryParse(vatin, out vatinLong);
 
-
-            
-            partner.FirstName = "Kamil";
-            partner.LastName = "Nowak";
-            partner.CompanyName = "Biedronka";
-            partner.Vatin = 123;
-            partner.Address = "asdada";
-
-            partners.Add(partner);
-            model.Partners = partners;
+            List<Partner> partnerList = new List<Partner>();
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            PartnersVievModel model = new PartnersVievModel();
+            model.Partners = partnerList;
 
             return PartialView("SearchPartnersResults", model);
 
         }
 
+        // adding product row - DONE
         public ActionResult AddRow(int count)
         {
             Row model = new Row();
@@ -187,8 +192,18 @@ namespace FakturyMVC.Controllers
             return PartialView("TableRow", model);
         }
 
-        public ActionResult InvoiceDetails(string invoiceNumber)
+        // return invoice deatils - TODO
+        public ActionResult InvoiceDetails(string invoiceId)
         {
+            int id = -1;
+            Int32.TryParse(invoiceId, out id);
+
+
+
+
+
+
+
             // get invoice details from database
             InvoiceDetailsViewModel model = new InvoiceDetailsViewModel();
 
@@ -201,7 +216,7 @@ namespace FakturyMVC.Controllers
 
             GoodsList goods1 = new GoodsList();
             goods1.Name = "Banany";
-            goods1.Amount = 3;
+            goods1.Amount = id;
             goods1.Value = 13.1;
             goods1.Tax = 0.15;
             goods1.Gross = 50.5;
@@ -209,7 +224,7 @@ namespace FakturyMVC.Controllers
 
             GoodsList goods2 = new GoodsList();
             goods2.Name = "Pierogi";
-            goods2.Amount = 3;
+            goods2.Amount = id;
             goods2.Value = 11.1;
             goods2.Tax = 0.12;
             goods2.Gross = 34.5;
@@ -231,7 +246,7 @@ namespace FakturyMVC.Controllers
             buyer.Address = "ul. Dziwna 22, Warszawa";
             buyer.Vatin = 43554855;
 
-            model.Number = invoiceNumber;
+            model.Number = "aaa";
             model.Date = DateTime.Now.ToString("dd/MM/yyyy");
             model.Title = "Faktura za zakupy";
             model.Vendor = vendor;
@@ -252,55 +267,45 @@ namespace FakturyMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // searching vendors for adding invoice - DONE
         public ActionResult AddInvoiceSearchVendors(string firstName, string lastName, string companyName, string vatin)
         {
+            if (firstName == "")
+                firstName = null;
+            if (lastName == "")
+                lastName = null;
+            if (companyName == "")
+                companyName = null;
+
+            long vatinLong = -1;
+            if (vatin != "")
+                long.TryParse(vatin, out vatinLong);
+
+            List<Partner> partnerList = new List<Partner>();
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
-            List<PartnerApp> partnerList = new List<PartnerApp>();
-
-            PartnerApp partner1 = new PartnerApp();
-            partner1.FirstName = "Adam";
-            partner1.LastName = "Żelazko";
-            partner1.CompanyName = "Żabka";
-            partner1.Vatin = 12423423;
-            partner1.Address = "ul. Mokra 2 Kraków";
-
-            PartnerApp partner2 = new PartnerApp();
-            partner2.FirstName = "Michał";
-            partner2.LastName = "Żelazko";
-            partner2.CompanyName = "Żabka";
-            partner2.Vatin = 12423423;
-            partner2.Address = "ul. Mokra 2 Kraków";
-
-            partnerList.Add(partner1);
-            partnerList.Add(partner2);
-
             model.Partners = partnerList;
 
             return PartialView("AddInvoiceSearchVendors", model);
         }
 
+        // searching buyers for adding invoice - DONE
         public ActionResult AddInvoiceSearchBuyers(string firstName, string lastName, string companyName, string vatin)
         {
+            if (firstName == "")
+                firstName = null;
+            if (lastName == "")
+                lastName = null;
+            if (companyName == "")
+                companyName = null;
+
+            long vatinLong = -1;
+            if (vatin != "")
+                long.TryParse(vatin, out vatinLong);
+
+            List<Partner> partnerList = new List<Partner>();
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
-            List<PartnerApp> partnerList = new List<PartnerApp>();
-
-            PartnerApp partner1 = new PartnerApp();
-            partner1.FirstName = "Adam";
-            partner1.LastName = "Żelazko";
-            partner1.CompanyName = "Żabka";
-            partner1.Vatin = 12423423;
-            partner1.Address = "ul. Mokra 2 Kraków";
-
-            PartnerApp partner2 = new PartnerApp();
-            partner2.FirstName = "Michał";
-            partner2.LastName = "Żelazko";
-            partner2.CompanyName = "Żabka";
-            partner2.Vatin = 12423423;
-            partner2.Address = "ul. Mokra 2 Kraków";
-
-            partnerList.Add(partner1);
-            partnerList.Add(partner2);
-
             model.Partners = partnerList;
 
             return PartialView("AddInvoiceSearchBuyers", model);
