@@ -22,6 +22,8 @@
 $('#invoiceSearchResults').on('click', '#resultTable tbody tr', function () {
 
     var invoiceId = $(this).attr('title');
+    if (invoiceId == "title")
+        return;
     var url = "/Home/InvoiceDetails";
     $.post(url, { invoiceId: invoiceId }, function (result) {
         $(".body-content").replaceWith(result)
@@ -329,15 +331,21 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
         var name = $('#goods_' + i + '__name').val();
         var amount = $('#goods_' + i + '__amount').val();
         var price = $('#goods_' + i + '__price').val();
-        var value = $('#goods_' + i + '__value').val();
         var tax = $('#goods_' + i + '__tax').val();
-        var gross = $('#goods_' + i + '__gross').val();
+        //var value = $('#goods_' + i + '__value').val();
+        //var gross = $('#goods_' + i + '__gross').val();
 
         //var value = 0;
         //var localBrutto = 0;
 
-        if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0 && gross.length > 0)
+        if (name.length > 0 && amount.length > 0 && price.length > 0 && tax.length > 0)
         {
+            var gross = parseFloat(amount) * parseFloat(price);
+            $('#goods_' + i + '__gross').val(gross);
+
+            var value = parseFloat(gross) * (1 - parseFloat(tax));
+            $('#goods_' + i + '__value').val(value);
+
             //var varvalue = parseInt(amount) * parseFloat(price);
             //$('#goods_' + i + '__value').val(value);
 
@@ -345,25 +353,27 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
             //$('#goods_' + i + '__gross').val(localBrutto);
 
             netto = netto + parseFloat(value);
-            brutto = brutto + parseFloat(value) + parseFloat(value) * parseFloat(tax);
+            brutto = brutto + parseFloat(gross);
         }        
         i++;
     }
 
-    $('#netto').val(netto);
-    $('#brutto').val(brutto);
+    $('#netto').val(netto.toFixed(2));
+    $('#brutto').val(brutto.toFixed(2));
 
     var discount = $('#discount').val();
 
     // change comma do dot
     var discountCorrect = discount.toString().replace(/\,/g, '.');
+    alert(discountCorrect);
+    alert(brutto);
 
     var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);
 
     // change dot to comma
     var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
 
-    $('#value').val(correctedTotalValue);
+    $('#value').val(Number(correctedTotalValue).toFixed(2));
 
 });
 
@@ -383,18 +393,19 @@ function ChangedDiscount() {
             var name = $('#goods_' + i + '__name').val();
             var amount = $('#goods_' + i + '__amount').val();
             var price = $('#goods_' + i + '__price').val();
-            var value = $('#goods_' + i + '__value').val();
             var tax = $('#goods_' + i + '__tax').val();
+            var value = $('#goods_' + i + '__value').val();
+            var gross = $('#goods_' + i + '__gross').val();
 
-            if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0) {
-                netto = netto + parseInt(value);
-                brutto = brutto + parseInt(value) + parseInt(value) * parseFloat(tax);
+            if (name.length > 0 && amount.length > 0 && price.length > 0 && value.length > 0 && tax.length > 0 && gross.length > 0) {
+                netto = netto + parseFloat(value);
+                brutto = brutto + parseFloat(gross);
             }
             i++;
         }
 
-        $('#netto').val(netto);
-        $('#brutto').val(brutto);
+        $('#netto').val(netto.toFixed(2));
+        $('#brutto').val(brutto.toFixed(2));
         var discount = $(this).val();
 
         var bruttoCorrect = brutto.toString().replace(/\,/g, '.');
@@ -403,7 +414,7 @@ function ChangedDiscount() {
         var totalValue = bruttoCorrect - parseFloat(discountCorrect) * parseFloat(bruttoCorrect);
 
         var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
-        $('#value').val(correctedTotalValue);
+        $('#value').val(Number(correctedTotalValue).toFixed(2));
 
 
     })

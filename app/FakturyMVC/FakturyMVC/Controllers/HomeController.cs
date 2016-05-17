@@ -120,8 +120,8 @@ namespace FakturyMVC.Controllers
                 {
                     Product product = new Product
                         (
-                            goods[i].Name, Int32.Parse(goods[i].Amount,
-                            CultureInfo.InvariantCulture),
+                            goods[i].Name, 
+                            Int32.Parse(goods[i].Amount, CultureInfo.InvariantCulture),
                             float.Parse(goods[i].Price, CultureInfo.InvariantCulture),
                             float.Parse(goods[i].Tax, CultureInfo.InvariantCulture)
                         );
@@ -227,7 +227,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong, 1, 5);
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 
@@ -249,7 +249,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong, 1, 5);
+            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 

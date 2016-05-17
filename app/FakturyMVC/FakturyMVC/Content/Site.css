@@ -186,6 +186,12 @@ tr.highlighted td {
     background: #B9C3C6 !important;
 }
 
+#vendorTableDiv {
+    max-height: 270px;
+    min-width: 550px;
+    overflow-y: scroll;
+}
+
 #vendorTable {
     min-width: 500px;
 }
@@ -193,6 +199,12 @@ tr.highlighted td {
 #vendorTable td {
     height: 40px;
     width: 250px;
+}
+
+#buyerTableDiv {
+    max-height: 270px;
+    min-width: 550px;
+    overflow-y: scroll;
 }
 
 #buyerTable {
@@ -215,3 +227,4 @@ tr.highlighted td {
 #goodsTable {
     min-width: 700px;
 }
+
