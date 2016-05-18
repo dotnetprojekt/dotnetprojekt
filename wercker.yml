@@ -1,4 +1,7 @@
-box: default
+box: wercker-labs/windows
 build:
   steps:
-    - validate-wercker-step
+    - wercker-labs/msbuild
+    - script:
+        name: Copy to output
+        code: rsync -avz app/FakturyMVC/FakturyMVC/ $WERCKER_OUTPUT_DIR/
