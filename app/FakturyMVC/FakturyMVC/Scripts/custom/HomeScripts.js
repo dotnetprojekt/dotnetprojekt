@@ -365,8 +365,8 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
 
     // change comma do dot
     var discountCorrect = discount.toString().replace(/\,/g, '.');
-    alert(discountCorrect);
-    alert(brutto);
+    //alert(discountCorrect);
+    //alert(brutto);
 
     var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);
 

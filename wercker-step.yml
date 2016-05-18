@@ -1,6 +1,6 @@
 name: msbuild
 version: 0.0.6
-description: Builds a .net solution
+description: Builds a .net solution project
 keywords:
   - msbuild
   - .net
