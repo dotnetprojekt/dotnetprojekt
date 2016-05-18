@@ -1,0 +1,5 @@
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\bin\Debug\UserFunctionalTests.dll
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\bin\Debug\UserFunctionalTests.pdb
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\obj\Debug\UserFunctionalTests.csprojResolveAssemblyReference.cache
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\obj\Debug\UserFunctionalTests.dll
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\obj\Debug\UserFunctionalTests.pdb
