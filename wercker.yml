@@ -3,8 +3,7 @@ build:
   steps:
     - validate-wercker-step
 deploy:
-  steps:
-    - heroku-deploy:
-        key: $HEROKU_KEY
-        user: $HEROKU_USER
-        app-name: $HEROKU_APP_NAME
+    steps:
+        - script:
+            name: my deploy script
+            code: echo my-deploy-script.sh
