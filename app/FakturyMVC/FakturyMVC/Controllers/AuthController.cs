@@ -38,14 +38,16 @@ namespace FakturyMVC.Controllers
             {
                 return View();
             }
-
-            List<User> tmp = UserDAL.UserSearch(null, null, null, model.Email, null, true);
-            if (tmp.Any())
+            
+           
+            if (UserDAL.UserLogin(model.Login, model.Password))
             {
+                List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);
                 var identity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, tmp.First().FirstName),
-                new Claim(ClaimTypes.Role, tmp.First().IsAdmin ? "Admin" : "User")
-            },
+                new Claim(ClaimTypes.Role, tmp.First().IsAdmin ? "Admin" : "User"),
+                 new Claim(ClaimTypes.NameIdentifier, tmp.First().Login)
+                },
                     "ApplicationCookie");
 
                 var ctx = Request.GetOwinContext();
@@ -55,6 +57,11 @@ namespace FakturyMVC.Controllers
 
                 return Redirect(GetRedirectUrl(model.ReturnUrl));
 
+            } 
+            else
+            {
+                ModelState.AddModelError("", "Błędny email lub hasło.");
+                return View();
             }
             // Don't do this in production!
             /*if (model.Email == "admin@admin.com" && model.Password == "password")
@@ -78,8 +85,7 @@ namespace FakturyMVC.Controllers
             }*/
 
             // user authN failed
-            ModelState.AddModelError("", "Błędny email lub hasło.");
-            return View();
+
         }
 
         private IAuthenticationManager GetAuthenticationManager()
@@ -138,6 +144,8 @@ namespace FakturyMVC.Controllers
 
         public ActionResult LogOut()
         {
+
+            //UserDAL.UserLogout();
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
 
