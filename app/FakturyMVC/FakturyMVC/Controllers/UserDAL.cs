@@ -89,7 +89,7 @@ namespace FakturyMVC.Controllers
                                 uEmail = reader.GetString(reader.GetOrdinal("Usr_Email"));
                             }
                             bool uIsAdmin = reader.GetBoolean(reader.GetOrdinal("Usr_IsAdmin"));
-                            UserStatus uStatus = (UserStatus)reader.GetInt16(reader.GetOrdinal("Usr_Status"));
+                            UserStatus uStatus = (UserStatus)Int32.Parse(reader["Usr_Status"].ToString());
                             bool uIsLogged = reader.GetBoolean(reader.GetOrdinal("Usr_IsLogged"));
 
                             usersFound.Add(new User(uFirstName, uLastName, uLogin, null, uEmail, uStatus, uIsAdmin, uIsLogged, uId));
