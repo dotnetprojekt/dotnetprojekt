@@ -29,16 +29,11 @@ namespace UserFunctionalTests
             BrowserWindow browser = testInit();
 
             string vatin = this.UIMap.fillAddPartnerParameters();
-
             this.UIMap.addPartnerParameterAssertions();
             this.UIMap.addPartnerSubmitAction();
-
             Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
-
             this.UIMap.listPartnersAction();
-
             this.UIMap.vatinAssertion(vatin);
-
         }
 
         [TestMethod]
@@ -47,11 +42,27 @@ namespace UserFunctionalTests
             /** Partner biznesowy już istnieje */
             BrowserWindow browser = testInit();
 
-            string vatin = this.UIMap.fillAddPartnerParameters();
+            this.UIMap.addPartnersToSearch();
             this.UIMap.addPartnerSubmitAction();
-            this.UIMap.fillTheSecondPartner(vatin);
+            this.UIMap.addSecondPartnerToSearch();
             this.UIMap.addPartnerSubmitAction();
         }
+
+        [TestMethod]
+        public void TC_USER_PARTNER_003()
+        {
+            /** Test widoku wyświetlającego partnerów biznesowych zalogowanego użytkownika. */
+            BrowserWindow browser = testInit();
+
+            string v1 = this.UIMap.addPartnersToSearch();
+            this.UIMap.addPartnerSubmitAction();
+            string v2 = this.UIMap.addSecondPartnerToSearch();
+            this.UIMap.addPartnerSubmitAction();
+            this.UIMap.findPartnersInTheSameCompanyAction();
+            this.UIMap.companyAssertion(v1, v2);
+        }
+
+
         private BrowserWindow testInit()
         {
             Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.Disabled;

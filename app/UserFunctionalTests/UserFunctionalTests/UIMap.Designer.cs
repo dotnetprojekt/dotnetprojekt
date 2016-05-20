@@ -92,6 +92,96 @@ namespace UserFunctionalTests
             return vatin;
         }
 
+        public string addPartnersToSearch()
+        {
+            #region Variable Declarations
+            HtmlEdit uILoginEdit = this.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UILoginEdit;
+            HtmlEdit uIPasswordEdit = this.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UIPasswordEdit;
+            HtmlButton uILogInButton = this.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UILogInFormCustom.UILogInButton;
+            HtmlHyperlink uIDodajpartneraHyperlink = this.UILogowanieSystemzarząWindow.UIWyszukiwarkafakturSyDocument.UIDodajpartneraHyperlink;
+            HtmlEdit uIFirstNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIFirstNameEdit;
+            HtmlEdit uILastNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UILastNameEdit;
+            HtmlEdit uICompanyNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UICompanyNameEdit;
+            HtmlEdit uIVATINEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIVATINEdit;
+            HtmlEdit uIAddressEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIAddressEdit;
+            #endregion
+
+            uILoginEdit.Text = this.fillAddPartnerParametersParams.UIEmailEditText;
+            Keyboard.SendKeys(uILoginEdit, this.fillAddPartnerParametersParams.UIEmailEditSendKeys, ModifierKeys.None);
+            uIPasswordEdit.Password = this.fillAddPartnerParametersParams.UIPasswordEditPassword;
+            Mouse.Click(uILogInButton, new Point(21, 16));
+            Mouse.Click(uIDodajpartneraHyperlink, new Point(79, 24));
+            uIFirstNameEdit.Text = "Name_1";
+            Keyboard.SendKeys(uIFirstNameEdit, this.fillAddPartnerParametersParams.UIFirstNameEditSendKeys, ModifierKeys.None);
+            uILastNameEdit.Text = "LastName_1";
+            Keyboard.SendKeys(uILastNameEdit, this.fillAddPartnerParametersParams.UILastNameEditSendKeys, ModifierKeys.None);
+            uICompanyNameEdit.Text = "Company_ToSearch";
+            Keyboard.SendKeys(uICompanyNameEdit, this.fillAddPartnerParametersParams.UICompanyNameEditSendKeys, ModifierKeys.None);
+            string vatin = "1234567890" + new Random().Next(9999999).ToString();
+            uIVATINEdit.Text = vatin;
+            Keyboard.SendKeys(uIVATINEdit, this.fillAddPartnerParametersParams.UIVATINEditSendKeys, ModifierKeys.None);
+            uIAddressEdit.Text = "Address_1";
+
+            return vatin;
+        }
+
+        public string addSecondPartnerToSearch()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uIDodajpartneraHyperlink = this.UILogowanieSystemzarząWindow.UIWyszukiwarkafakturSyDocument.UIDodajpartneraHyperlink;
+            HtmlEdit uIFirstNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIFirstNameEdit;
+            HtmlEdit uILastNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UILastNameEdit;
+            HtmlEdit uICompanyNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UICompanyNameEdit;
+            HtmlEdit uIVATINEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIVATINEdit;
+            HtmlEdit uIAddressEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIAddressEdit;
+            #endregion
+
+            // Click 'Dodaj partnera' link
+            Mouse.Click(uIDodajpartneraHyperlink, new Point(89, 26));
+
+            // Type 'testName' in 'firstName' text box
+            uIFirstNameEdit.Text = "Name_2";
+            Keyboard.SendKeys(uIFirstNameEdit, this.fillTheSecondPartnerParams.UIFirstNameEditSendKeys, ModifierKeys.None);
+            uILastNameEdit.Text = "LastName_2";
+            Keyboard.SendKeys(uILastNameEdit, this.fillTheSecondPartnerParams.UILastNameEditSendKeys, ModifierKeys.None);
+            uICompanyNameEdit.Text = "Company_ToSearch";
+            Keyboard.SendKeys(uICompanyNameEdit, this.fillTheSecondPartnerParams.UICompanyNameEditSendKeys, ModifierKeys.None);
+            string vatin = "1234567890" + new Random().Next(9999999).ToString();
+            uIVATINEdit.Text = vatin;
+            Keyboard.SendKeys(uIVATINEdit, this.fillTheSecondPartnerParams.UIVATINEditSendKeys, ModifierKeys.None);
+            uIAddressEdit.Text = "Address_2";
+
+            return vatin;
+        }
+
+        public void findPartnersInTheSameCompanyAction()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uISzukajpartneraHyperlink = this.UILogowanieSystemzarząWindow.UIWyszukiwarkafakturSyDocument.UISzukajpartneraHyperlink;
+            HtmlEdit uICompanyNameEdit = this.UILogowanieSystemzarząWindow.UISearchInvoiceSystemzDocument.UICompanyNameEdit;
+            HtmlButton uISzukajButton = this.UILogowanieSystemzarząWindow.UISearchInvoiceSystemzDocument.UISzukajButton;
+            #endregion
+
+            // Click 'Szukaj partnera' link
+            Mouse.Click(uISzukajpartneraHyperlink, new Point(42, 28));
+
+            // Type 'Company_ToSearch' in 'companyName' text box
+            uICompanyNameEdit.Text = "Company_ToSearch";
+
+            // Click 'Szukaj' button
+            Mouse.Click(uISzukajButton, new Point(42, 10));
+        }
+
+        public void companyAssertion(string v1, string v2)
+        {
+            #region Variable Declarations
+            HtmlDocument uISearchInvoiceSystemzDocument = this.UILogowanieSystemzarząWindow.UISearchInvoiceSystemzDocument;
+            #endregion
+
+            StringAssert.Contains(uISearchInvoiceSystemzDocument.InnerText, v1);
+            StringAssert.Contains(uISearchInvoiceSystemzDocument.InnerText, v2);
+        }
+
         /// <summary>
         /// addPartnerParameterAssertions
         /// </summary>
@@ -160,87 +250,6 @@ namespace UserFunctionalTests
             HtmlDocument uISearchInvoiceSystemzDocument = this.UILogowanieSystemzarząWindow.UISearchInvoiceSystemzDocument;
             #endregion
 
-            // Verify that the 'InnerText' property of 'SearchInvoice - System zarządzania fakturami' document contains 'ASDASDASD
-            //
-            //
-            //
-            //
-            // Faktury 
-            //
-            //Dodaj fakturę
-            //
-            //
-            //Dodaj partnera
-            //
-            //
-            //Szukaj partnera
-            //
-            //
-            //Rejestracja
-            //
-            //
-            //Dodaj użytkownika
-            //
-            //
-            //Zarządzanie użytkownikami
-            //
-            //
-            //Wyloguj się
-            //
-            //
-            //
-            //
-            //Szukaj partnerów
-            //
-            //
-            //
-            //Imię  
-            //Nazwisko  
-            //Firma  
-            //VATIN  
-            //
-            //
-            //Szukaj 
-            //
-            //
-            //
-            //Imię
-            //
-            //Nazwisko
-            //
-            //Firma
-            //
-            //VATIN
-            //
-            //Adres
-            //
-            //
-            //TestFirstName
-            //
-            //TestLastName
-            //
-            //TestCompanyName
-            //
-            //1234567890
-            //
-            //TestAddress
-            //
-            //
-            //TestFirstName
-            //
-            //TestLastName
-            //
-            //TestCompanyName
-            //
-            //123456789054907346
-            //
-            //TestAddress
-            //
-            //
-            //
-            //
-            //© 2016 - System zarządzania fakturami
-            //        {"appName":"Internet Explorer","requestId":"f5b2d638161b48cc86da171dd64b9451"}    '
             StringAssert.Contains(uISearchInvoiceSystemzDocument.InnerText, vatin);
         }
 
@@ -1158,10 +1167,34 @@ TestAddress
                 return this.mUISzukajButton;
             }
         }
+        public HtmlEdit UICompanyNameEdit
+        {
+            get
+            {
+                if ((this.mUICompanyNameEdit == null))
+                {
+                    this.mUICompanyNameEdit = new HtmlEdit(this);
+                    #region Search Criteria
+                    this.mUICompanyNameEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "companyName";
+                    this.mUICompanyNameEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "companyName";
+                    this.mUICompanyNameEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
+                    this.mUICompanyNameEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    this.mUICompanyNameEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
+                    this.mUICompanyNameEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "input-sm form-control margin-right-10 margin-left-20";
+                    this.mUICompanyNameEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"companyName\" class=\"input-sm form-";
+                    this.mUICompanyNameEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "3";
+                    this.mUICompanyNameEdit.WindowTitles.Add("SearchInvoice - System zarządzania fakturami");
+                    #endregion
+                }
+                return this.mUICompanyNameEdit;
+            }
+        }
         #endregion
 
         #region Fields
         private HtmlButton mUISzukajButton;
+
+        private HtmlEdit mUICompanyNameEdit;
         #endregion
     }
 }
