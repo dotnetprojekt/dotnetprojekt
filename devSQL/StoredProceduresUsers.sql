@@ -102,7 +102,7 @@ where 1=1'
 		declare @v_QueryConditions nvarchar(max) = '';
 
 		declare @v_QueryEnd nvarchar(max) = 
-char(13)+char(10)+'order by Part_Id
+char(13)+char(10)+'order by Usr_Id
 offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
 fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 
