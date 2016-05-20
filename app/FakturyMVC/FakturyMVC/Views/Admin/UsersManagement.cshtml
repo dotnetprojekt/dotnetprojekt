@@ -28,11 +28,11 @@
                 { 
                     if(Model.Users[i].Status == 1)
                     {
-                        <th>@Html.ActionLink("Zablokuj", "BlockUser", "Admin", new { UserId = Model.Users[i].Id }, null)</th>
+                        <th>@Html.ActionLink("Zablokuj", "BlockUser", "Admin", new { UserLogin = Model.Users[i].Login }, null)</th>
                     }
                     else
                     {
-                        <th>@Html.ActionLink("Odblokuj", "UnblockUser", "Admin", new { UserId = Model.Users[i].Id}, null)</th>
+                        <th>@Html.ActionLink("Odblokuj", "UnblockUser", "Admin", new { UserLogin = Model.Users[i].Login }, null)</th>
                     }
                 }
                 else

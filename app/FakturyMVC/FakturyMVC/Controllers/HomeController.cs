@@ -13,7 +13,7 @@ namespace FakturyMVC.Controllers
     {
         // get view for invoice search - DONE
         public ActionResult Index()
-        {
+        {       
             return View();
         }
 
