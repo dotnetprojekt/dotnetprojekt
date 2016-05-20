@@ -55,41 +55,13 @@ namespace FakturyMVC.Controllers
                 user = new AppUser();
                 user.Id = usersList[i].Id;
                 user.FirstName = usersList[i].FirstName;
+                user.LastName = usersList[i].LastName;
                 user.Email = usersList[i].Email;
                 user.IsAdmin = usersList[i].IsAdmin;
                 user.Login = usersList[i].Login;
-                user.Status = usersList[i].Status == UserStatus.Blocked ? 0 : 1; 
+                user.Status = usersList[i].Status == UserStatus.Blocked ? 0 : 1;
+                users.Add(user);
             }
-
-           /*user = new AppUser();
-            user.Id = 1;
-            user.FirstName = "Antek";
-            user.Email = "email1@email.com";
-            user.IsAdmin = false;
-            user.LastName = "Antalski";
-            user.Login = "Antkowiak";
-            user.Status = 1;
-            users.Add(user);
-
-            user = new AppUser();
-            user.Id = 2;
-            user.FirstName = "Mietek";
-            user.Email = "email2@email.com";
-            user.IsAdmin = false;
-            user.LastName = "Mietkowski";
-            user.Login = "Mieciu";
-            user.Status = 0;
-            users.Add(user);
-
-            user = new AppUser();
-            user.Id = 3;
-            user.FirstName = "Paweł";
-            user.Email = "email3@email.com";
-            user.IsAdmin = true;
-            user.LastName = "Kowalski";
-            user.Login = "Jasiek";
-            user.Status = 1;
-            users.Add(user);*/
 
             model.Users = users;
             return View(model);

@@ -38,11 +38,12 @@ namespace FakturyMVC.Controllers
             {
                 return View();
             }
-            
-           
-            if (UserDAL.UserLogin(model.Login, model.Password))
+
+            List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);
+            //if (UserDAL.UserLogin(model.Login, model.Password))
+            if(tmp.Any())
             {
-                List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);
+               // List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);
                 var identity = new ClaimsIdentity(new[] {
                 new Claim(ClaimTypes.Name, tmp.First().FirstName),
                 new Claim(ClaimTypes.Role, tmp.First().IsAdmin ? "Admin" : "User"),
@@ -60,31 +61,9 @@ namespace FakturyMVC.Controllers
             } 
             else
             {
-                ModelState.AddModelError("", "Błędny email lub hasło.");
+                ModelState.AddModelError("", "Błędny login lub hasło.");
                 return View();
             }
-            // Don't do this in production!
-            /*if (model.Email == "admin@admin.com" && model.Password == "password")
-            {
-                var identity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Name, "Waldek"),
-                new Claim(ClaimTypes.Email, "a@a.com"),
-                new Claim(ClaimTypes.Country, "Polska"),
-                new Claim(ClaimTypes.Role, "Admin")
-            },
-                    "ApplicationCookie");
-
-
-
-                var ctx = Request.GetOwinContext();
-                var authManager = ctx.Authentication;
-
-                authManager.SignIn(identity);
-
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
-            }*/
-
-            // user authN failed
 
         }
 
@@ -109,43 +88,39 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, true);
+            List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null);
             if (tmp.Any())
             {
+                ModelState.AddModelError("", "Błędny login.");
                 return View();
             }
-            tmp = UserDAL.UserSearch(null, null, null, model.Email, null, true);
+            tmp = UserDAL.UserSearch(null, null, null, model.Email, null, null);
             if (tmp.Any())
             {
+                ModelState.AddModelError("", "Błędny email.");
                 return View();
             }
 
             User tmpUser = new User(model.FirstName, model.LastName, model.Login, model.Password, model.Email, UserStatus.User);
             UserDAL.UserAdd(tmpUser);
 
-            //TODO
-            //var result = await userManager.CreateAsync(user, model.Password);
-
-            //if (result.Succeeded)
-            // {
-            //     await SignIn(user);
-            //     
-            //  }
-
-            // foreach (var error in result.Errors)
-            // {
-            //     ModelState.AddModelError("", error);
-            // }
+            
             return RedirectToAction("index", "home");
-          //  return View();
         }
 
 
 
         public ActionResult LogOut()
         {
-
-            //UserDAL.UserLogout();
+            var identity = (ClaimsIdentity)User.Identity;
+            foreach (var claim in identity.Claims)
+            {
+                if (claim.Type == "NameIdentifier")
+                {
+                    UserDAL.UserLogout(claim.Value);
+                    break; 
+                }
+            }
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
 

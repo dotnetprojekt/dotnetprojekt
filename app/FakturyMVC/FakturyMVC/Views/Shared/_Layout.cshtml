@@ -26,7 +26,6 @@
                         <li>@Html.ActionLink("Dodaj fakturę", "AddInvoice", "Home")</li>
                         <li>@Html.ActionLink("Dodaj partnera", "AddPartner", "Home")</li>
                         <li>@Html.ActionLink("Szukaj partnera", "SearchPartner", "Home")</li>
-                        <li>@Html.ActionLink("Rejestracja", "Register", "Auth")</li>
                         if (CurrentUser.Role == "Admin")
                         {
                             <li>@Html.ActionLink("Dodaj użytkownika", "AddUser", "Admin")</li>
