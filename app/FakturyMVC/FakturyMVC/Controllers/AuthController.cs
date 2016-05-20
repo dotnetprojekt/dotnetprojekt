@@ -1,5 +1,6 @@
 ﻿using FakturyMVC.App_Start;
 using FakturyMVC.Models;
+using FakturyMVC.Models.DALmodels;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
@@ -38,14 +39,12 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            // Don't do this in production!
-            if (model.Email == "admin@admin.com" && model.Password == "password")
+            List<User> tmp = UserDAL.UserSearch(null, null, null, model.Email, null, true);
+            if (tmp.Any())
             {
                 var identity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Name, "Waldek"),
-                new Claim(ClaimTypes.Email, "a@a.com"),
-                new Claim(ClaimTypes.Country, "Polska"),
-                new Claim(ClaimTypes.Role, "Admin")
+                new Claim(ClaimTypes.Name, tmp.First().FirstName),
+                new Claim(ClaimTypes.Role, tmp.First().IsAdmin ? "Admin" : "User")
             },
                     "ApplicationCookie");
 
@@ -55,7 +54,28 @@ namespace FakturyMVC.Controllers
                 authManager.SignIn(identity);
 
                 return Redirect(GetRedirectUrl(model.ReturnUrl));
+
             }
+            // Don't do this in production!
+            /*if (model.Email == "admin@admin.com" && model.Password == "password")
+            {
+                var identity = new ClaimsIdentity(new[] {
+                new Claim(ClaimTypes.Name, "Waldek"),
+                new Claim(ClaimTypes.Email, "a@a.com"),
+                new Claim(ClaimTypes.Country, "Polska"),
+                new Claim(ClaimTypes.Role, "Admin")
+            },
+                    "ApplicationCookie");
+
+
+
+                var ctx = Request.GetOwinContext();
+                var authManager = ctx.Authentication;
+
+                authManager.SignIn(identity);
+
+                return Redirect(GetRedirectUrl(model.ReturnUrl));
+            }*/
 
             // user authN failed
             ModelState.AddModelError("", "Błędny email lub hasło.");
@@ -75,34 +95,43 @@ namespace FakturyMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(RegistrationModel model)
+        public ActionResult Register(RegistrationModel model)
         {
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-          //  var user = new AppUser
-          //  {
-          //      UserName = model.Email,
-         //       Country = model.Country
-         //   };
+            List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, true);
+            if (tmp.Any())
+            {
+                return View();
+            }
+            tmp = UserDAL.UserSearch(null, null, null, model.Email, null, true);
+            if (tmp.Any())
+            {
+                return View();
+            }
+
+            User tmpUser = new User(model.FirstName, model.LastName, model.Login, model.Password, model.Email, UserStatus.User);
+            UserDAL.UserAdd(tmpUser);
 
             //TODO
             //var result = await userManager.CreateAsync(user, model.Password);
 
             //if (result.Succeeded)
-           // {
-           //     await SignIn(user);
-           //     return RedirectToAction("index", "home");
-          //  }
+            // {
+            //     await SignIn(user);
+            //     
+            //  }
 
-           // foreach (var error in result.Errors)
-           // {
-           //     ModelState.AddModelError("", error);
-           // }
-
-            return View();
+            // foreach (var error in result.Errors)
+            // {
+            //     ModelState.AddModelError("", error);
+            // }
+            return RedirectToAction("index", "home");
+          //  return View();
         }
 
 
