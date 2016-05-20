@@ -71,6 +71,12 @@
     <Compile Include="UIMapLogin.Designer.cs">
       <DependentUpon>UIMapLogin.uitest</DependentUpon>
     </Compile>
+    <Compile Include="UIMapRegistration.cs">
+      <DependentUpon>UIMapRegistration.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMapRegistration.Designer.cs">
+      <DependentUpon>UIMapRegistration.uitest</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="UIMap.uitest" />

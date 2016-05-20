@@ -42,9 +42,9 @@ namespace UserFunctionalTests
             /** Partner biznesowy już istnieje */
             BrowserWindow browser = testInit();
 
-            this.UIMap.addPartnersToSearch();
+            string vatin = this.UIMap.fillAddPartnerParameters();
             this.UIMap.addPartnerSubmitAction();
-            this.UIMap.addSecondPartnerToSearch();
+            this.UIMap.fillTheSecondPartner(vatin);
             this.UIMap.addPartnerSubmitAction();
         }
 
