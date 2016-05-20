@@ -51,8 +51,6 @@ namespace UserFunctionalTests
             this.UIMap.addPartnerSubmitAction();
             this.UIMap.fillTheSecondPartner(vatin);
             this.UIMap.addPartnerSubmitAction();
-            /*BrowserWindow browser2 = testInit();
-            this.UIMap.fillAddPartnerParameters(vatin);*/
         }
         private BrowserWindow testInit()
         {
