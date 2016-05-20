@@ -12,7 +12,7 @@ namespace DataAccessLayer
     {
         static void Main(string[] args)
         {
-            Random rnd = new Random();
+           /* Random rnd = new Random();
             List<string> fNamesList = System.IO.File.ReadAllLines("names.txt").ToList();
             List<string> lNamesList = System.IO.File.ReadAllLines("surnames.txt").ToList();
             List<string> companies = new List<string>() {"Comarch","Google","Ericpol","BMW","JP","Kamis","Tesco","Fiat","Wedel","Coca Cola", "Pepsico", "Sabre", "Sabatier", "Ikea", "Adidas", "Nike", "Rebook", "Zelmer", "Amino", "Amica", "Sony", "Microsoft", "KrzychuSoftware"};
@@ -43,6 +43,14 @@ namespace DataAccessLayer
                 }
                 Invoice inv = new Invoice(number, DateTime.Now, "Faktura za towary " + i.ToString(), prods, ((float)rnd.Next(20)) / 100);
                 InvoiceDAL.InvoiceAdd(inv, 10000000 + rnd.Next(7000), 10000000 + rnd.Next(7000));
+            }*/
+
+            List<User> tmp = UserDAL.UserSearch();
+            
+            foreach(User u in tmp)
+            {
+                Console.WriteLine(u.FirstName);
+                Console.WriteLine(u.Status);
             }
 
             Console.Read();
