@@ -54,9 +54,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodedUITest1.cs" />
-    <Compile Include="CodedUITest2.cs" />
-    <Compile Include="CodedUITest3.cs" />
     <Compile Include="TC_USER_REGISTER.cs" />
     <Compile Include="TC_USER_LOGIN.cs" />
     <Compile Include="TC_USER_INVOICES.cs" />

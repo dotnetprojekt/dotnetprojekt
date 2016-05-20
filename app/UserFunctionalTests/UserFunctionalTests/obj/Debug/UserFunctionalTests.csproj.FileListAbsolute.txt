@@ -3,3 +3,5 @@ F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\bin\De
 F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\obj\Debug\UserFunctionalTests.csprojResolveAssemblyReference.cache
 F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\obj\Debug\UserFunctionalTests.dll
 F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\obj\Debug\UserFunctionalTests.pdb
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.dll
+F:\.Net Projekt\dotnetprojekt\app\UserFunctionalTests\UserFunctionalTests\bin\Debug\Microsoft.VisualStudio.QualityTools.WebTestFramework.xml
