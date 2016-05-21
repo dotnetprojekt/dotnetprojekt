@@ -79,7 +79,7 @@ go
 		Usr_PasswordHash nvarchar(128) not null,
 		Usr_Email nvarchar(128),
 		Usr_IsAdmin bit not null constraint DF_IsAdmin default 0,
-		Usr_Status tinyint not null constraint DF_UsrStatus default 1,
+		Usr_Status tinyint not null constraint DF_UsrStatus default 2,
 		Usr_IsLogged bit not null constraint DF_IsLogged default 0,
 
 		constraint PK_Users primary key (Usr_Id),

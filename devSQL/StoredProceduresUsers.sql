@@ -146,7 +146,8 @@ go
 		set Usr_Status = 3,
 			Usr_IsLogged = 0
 		where Usr_Login = @p_Login
-			and Usr_Status = 3;
+			and Usr_Status != 3
+			and Usr_IsAdmin = 0;
 
 		if(@@ROWCOUNT > 0)
 			return 1;
@@ -235,7 +236,8 @@ go
 
 		update inv.Users with(rowlock)
 		set Usr_IsLogged = 0
-		where Usr_Login = @p_Login;
+		where Usr_Login = @p_Login
+			and Usr_IsLogged = 1;
 
 		if(@@ROWCOUNT > 0)
 			return 1;
