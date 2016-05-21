@@ -340,11 +340,14 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
 
         if (name.length > 0 && amount.length > 0 && price.length > 0 && tax.length > 0)
         {
+            var tempPrice = parseFloat(price).toFixed(2);
+            $('#goods_' + i + '__price').val(tempPrice);
+
             var gross = parseFloat(amount) * parseFloat(price);
-            $('#goods_' + i + '__gross').val(gross);
+            $('#goods_' + i + '__gross').val(gross.toFixed(2));
 
             var value = parseFloat(gross) * (1 - parseFloat(tax));
-            $('#goods_' + i + '__value').val(value);
+            $('#goods_' + i + '__value').val(value.toFixed(2));
 
             //var varvalue = parseInt(amount) * parseFloat(price);
             //$('#goods_' + i + '__value').val(value);
@@ -369,11 +372,11 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
     //alert(brutto);
 
     var totalValue = brutto - parseFloat(discountCorrect) * parseFloat(brutto);
+    $('#value').val(Number(totalValue).toFixed(2));
 
     // change dot to comma
-    var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
-
-    $('#value').val(Number(correctedTotalValue).toFixed(2));
+    //var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
+    //$('#value').val(Number(correctedTotalValue).toFixed(2));
 
 });
 
@@ -411,11 +414,11 @@ function ChangedDiscount() {
         var bruttoCorrect = brutto.toString().replace(/\,/g, '.');
         var discountCorrect = discount.toString().replace(/\,/g, '.');
 
-        var totalValue = bruttoCorrect - parseFloat(discountCorrect) * parseFloat(bruttoCorrect);
+        var totalValue = parseFloat(bruttoCorrect) - parseFloat(discountCorrect) * parseFloat(bruttoCorrect);
+        $('#value').val(Number(totalValue).toFixed(2));
 
-        var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
-        $('#value').val(Number(correctedTotalValue).toFixed(2));
-
+        //var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
+        //$('#value').val(Number(correctedTotalValue).toFixed(2));       
 
     })
 

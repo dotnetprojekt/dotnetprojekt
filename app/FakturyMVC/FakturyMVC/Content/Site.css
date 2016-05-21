@@ -228,3 +228,6 @@ tr.highlighted td {
     min-width: 700px;
 }
 
+#invoiceDetailsgoodsTable th {
+    width: 150px;
+}

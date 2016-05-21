@@ -65,6 +65,12 @@
     <Compile Include="UIMap.Designer.cs">
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>
+    <Compile Include="UIMapInvoices.cs">
+      <DependentUpon>UIMapInvoices.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMapInvoices.Designer.cs">
+      <DependentUpon>UIMapInvoices.uitest</DependentUpon>
+    </Compile>
     <Compile Include="UIMapLogin.cs">
       <DependentUpon>UIMapLogin.uitest</DependentUpon>
     </Compile>

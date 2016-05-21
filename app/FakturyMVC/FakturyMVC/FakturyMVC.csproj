@@ -181,6 +181,7 @@
     <Compile Include="Models\PartnersVievModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\SqlExceptionViewModel.cs" />
     <Compile Include="Models\StringProductList.cs" />
     <Compile Include="Models\UsersManagementViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Views\Admin\AddUser.cshtml" />
     <Content Include="Views\Admin\BlockUser.cshtml" />
     <Content Include="Views\Admin\UnblockUser.cshtml" />
+    <Content Include="Views\Home\SqlExceptionMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

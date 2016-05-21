@@ -139,14 +139,14 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
 		set Usr_Status = 3,
 			Usr_IsLogged = 0
 		where Usr_Login = @p_Login
-			and Usr_Status = 3;
+			and Usr_Status != 3
+			and Usr_IsAdmin = 0;
 
 		if(@@ROWCOUNT > 0)
 			return 1;
@@ -160,7 +160,6 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
@@ -180,7 +179,6 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
@@ -201,7 +199,6 @@ go
 		@p_PasswordHash nvarchar(128)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 		declare @v_loginStatus bit = 0;
 
@@ -230,12 +227,12 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
 		set Usr_IsLogged = 0
-		where Usr_Login = @p_Login;
+		where Usr_Login = @p_Login
+			and Usr_IsLogged = 1;
 
 		if(@@ROWCOUNT > 0)
 			return 1;
