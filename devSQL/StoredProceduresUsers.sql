@@ -139,7 +139,6 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
@@ -161,7 +160,6 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
@@ -181,7 +179,6 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
@@ -202,7 +199,6 @@ go
 		@p_PasswordHash nvarchar(128)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 		declare @v_loginStatus bit = 0;
 
@@ -231,7 +227,6 @@ go
 		@p_Login nvarchar(32)
 	as
 	begin
-		set nocount on;
 		set xact_abort on;
 
 		update inv.Users with(rowlock)
