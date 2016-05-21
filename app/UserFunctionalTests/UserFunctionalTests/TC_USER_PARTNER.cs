@@ -46,6 +46,7 @@ namespace UserFunctionalTests
             this.UIMap.addPartnerSubmitAction();
             this.UIMap.fillTheSecondPartner(vatin);
             this.UIMap.addPartnerSubmitAction();
+            this.UIMap.sqlExceptionAssertion();
         }
 
         [TestMethod]
