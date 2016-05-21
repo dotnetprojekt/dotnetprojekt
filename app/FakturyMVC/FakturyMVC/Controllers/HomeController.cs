@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using FakturyMVC.Models;
 using FakturyMVC.Models.DALmodels;
 using System.Globalization;
+using System.Data.SqlClient;
 
 namespace FakturyMVC.Controllers
 {
@@ -137,7 +138,18 @@ namespace FakturyMVC.Controllers
                 notNullDiscount = (float)discount;
 
             Invoice invoice = new Invoice(invNumber, tmpDate, title, productList, notNullDiscount);
-            InvoiceDAL.InvoiceAdd(invoice, vvatin, bvatin);
+
+            try
+            {
+                InvoiceDAL.InvoiceAdd(invoice, vvatin, bvatin);
+            }
+            catch (SqlException e)
+            {
+                string exc = e.ToString();
+                SqlExceptionViewModel model = new SqlExceptionViewModel();
+                model.Exc = exc;
+                return View("SqlExceptionMessage", model);
+            }            
 
             return RedirectToAction("Index");
         }
@@ -153,7 +165,19 @@ namespace FakturyMVC.Controllers
         public ActionResult AddPartner(string firstName, string lastName, string companyName, long VATIN, string address)
         {
             Partner partner = new Partner(firstName, lastName, companyName, VATIN, address);
-            PartnerDAL.PartnerAdd(partner);
+
+            try
+            {
+                PartnerDAL.PartnerAdd(partner);
+            }
+            catch (SqlException e)
+            {
+                string exc = e.ToString();
+                SqlExceptionViewModel model = new SqlExceptionViewModel();
+                model.Exc = exc;
+                return View("SqlExceptionMessage", model);
+            }
+            
 
             return RedirectToAction("Index");
         }
