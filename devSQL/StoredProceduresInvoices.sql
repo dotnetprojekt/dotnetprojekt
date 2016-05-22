@@ -326,7 +326,7 @@ where 1=1';
 
 			insert into @v_InvoicesTmp
 			exec sp_executesql @v_QueryBody;
-
+		
 			select
 				v_Inv_Id,
 				v_Inv_Number,

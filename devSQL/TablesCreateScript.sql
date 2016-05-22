@@ -26,7 +26,7 @@ go
 	(
 		Inv_Id int identity(1,1) not null,
 		Inv_Number nvarchar(16) not null,
-		Inv_DateOfIssue datetime2 not null constraint DF_DateOfIssue default getutcdate(),
+		Inv_DateOfIssue datetime2 not null constraint DF_DateOfIssue default convert(date,getutcdate()),
 		Inv_VendorId int not null,
 		Inv_BuyerId int not null,
 		Inv_Title nvarchar(2048) not null,

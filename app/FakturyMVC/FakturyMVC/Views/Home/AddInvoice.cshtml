@@ -172,7 +172,7 @@
                     <th>Nazwa</th>
                     <th>Ilość</th>
                     <th>Cena jednostkowa</th>
-                    <th>Podatek</th>
+                    <th>Podatek [%]</th>
                     <th>Wartość netto</th>
                     <th>Wartość brutto</th>
                 </tr>
@@ -201,7 +201,7 @@
         @Html.Label("Wartość brutto", new { @class = "margin-top-10" })
         @Html.TextBox("brutto", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
-        @Html.Label("Zniżka", new { @class = "margin-top-10" })
+        @Html.Label("Zniżka [%]", new { @class = "margin-top-10" })
         @Html.TextBox("discount", 0, new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
         @Html.Label("Podliczona wartość", new { @class = "margin-top-10" })

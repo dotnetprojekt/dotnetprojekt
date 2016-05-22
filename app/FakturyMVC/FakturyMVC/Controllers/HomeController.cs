@@ -126,7 +126,7 @@ namespace FakturyMVC.Controllers
                             goods[i].Name, 
                             Int32.Parse(goods[i].Amount, CultureInfo.InvariantCulture),
                             float.Parse(goods[i].Price, CultureInfo.InvariantCulture),
-                            float.Parse(goods[i].Tax, CultureInfo.InvariantCulture)
+                            float.Parse(goods[i].Tax, CultureInfo.InvariantCulture)/100
                         );
                     productList.Add(product);
                 }
@@ -139,7 +139,7 @@ namespace FakturyMVC.Controllers
             else
                 notNullDiscount = (float)discount;
 
-            Invoice invoice = new Invoice(invNumber, tmpDate, title, productList, notNullDiscount);
+            Invoice invoice = new Invoice(invNumber, tmpDate, title, productList, notNullDiscount/100);
 
             try
             {

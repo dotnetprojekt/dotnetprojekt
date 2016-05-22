@@ -7,3 +7,6 @@ C:\Users\Mirek\repo\dotnetprojekt\app\DALs\DataAccessLayer\DataAccessLayer\obj\R
 D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.exe.config
 D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.exe
 D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.exe
+D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\DotNetProject\app\DALs\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.csprojResolveAssemblyReference.cache

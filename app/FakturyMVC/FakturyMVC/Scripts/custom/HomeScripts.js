@@ -346,7 +346,7 @@ $('#goodsTable').on('focusout', 'tbody tr th .goods-data', function () {
             var gross = parseFloat(amount) * parseFloat(price);
             $('#goods_' + i + '__gross').val(gross.toFixed(2));
 
-            var value = parseFloat(gross) * (1 - parseFloat(tax));
+            var value = parseFloat(gross) / (1 + (parseFloat(tax)/100));
             $('#goods_' + i + '__value').val(value.toFixed(2));
 
             //var varvalue = parseInt(amount) * parseFloat(price);
@@ -414,7 +414,7 @@ function ChangedDiscount() {
         var bruttoCorrect = brutto.toString().replace(/\,/g, '.');
         var discountCorrect = discount.toString().replace(/\,/g, '.');
 
-        var totalValue = parseFloat(bruttoCorrect) - parseFloat(discountCorrect) * parseFloat(bruttoCorrect);
+        var totalValue = parseFloat(bruttoCorrect) - (parseFloat(discountCorrect)/100) * parseFloat(bruttoCorrect);
         $('#value').val(Number(totalValue).toFixed(2));
 
         //var correctedTotalValue = totalValue.toString().replace(/\./g, ',');
