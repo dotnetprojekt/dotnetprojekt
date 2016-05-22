@@ -6,6 +6,8 @@
 <h2>Dodaj partnerów</h2>
 <hr />
 
+@Html.Raw(TempData["msg"])
+
 @using (Html.BeginForm("AddPartner", "Home", FormMethod.Post, new { @id = "addPartnerForm", @class = "form-inline" }))
 {
 

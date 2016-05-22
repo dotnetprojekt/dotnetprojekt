@@ -178,7 +178,9 @@ namespace FakturyMVC.Controllers
                 string exc = e.ToString();
                 SqlExceptionViewModel model = new SqlExceptionViewModel();
                 model.Exc = exc;
-                return View("SqlExceptionMessage", model);
+                TempData["msg"] = "<script>alert('Co to kurwa jest? Wypierdalaj mi z tym!');</script>";
+                return View("AddPartner");
+                //return View("SqlExceptionMessage", model);
             }
             
 
