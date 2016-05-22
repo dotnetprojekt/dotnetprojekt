@@ -19,15 +19,58 @@ namespace UserFunctionalTests
     using Microsoft.VisualStudio.TestTools.UITest.Extension;
     using Microsoft.VisualStudio.TestTools.UITesting;
     using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
+    using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
     using Mouse = Microsoft.VisualStudio.TestTools.UITesting.Mouse;
     using MouseButtons = System.Windows.Forms.MouseButtons;
-
-
+    
+    
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public partial class UIMap
     {
+        
+        /// <summary>
+        /// addPartnerParameterAssertions
+        /// </summary>
+        public void addPartnerParameterAssertions()
+        {
+            #region Variable Declarations
+            HtmlEdit uIFirstNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIFirstNameEdit;
+            HtmlEdit uILastNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UILastNameEdit;
+            HtmlEdit uICompanyNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UICompanyNameEdit;
+            HtmlEdit uIVATINEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIVATINEdit;
+            HtmlEdit uIAddressEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIAddressEdit;
+            #endregion
+
+            // Verify that the 'Text' property of 'firstName' text box is not equal to 'null'
+            Assert.IsNotNull(uIFirstNameEdit.Text);
+
+            // Verify that the 'Text' property of 'lastName' text box is not equal to 'null'
+            Assert.IsNotNull(uILastNameEdit.Text);
+
+            // Verify that the 'Text' property of 'companyName' text box is not equal to 'null'
+            Assert.IsNotNull(uICompanyNameEdit.Text);
+
+            // Verify that the 'Text' property of 'VATIN' text box is not equal to 'null'
+            Assert.IsNotNull(uIVATINEdit.Text);
+
+            // Verify that the 'Text' property of 'address' text box is not equal to 'null'
+            Assert.IsNotNull(uIAddressEdit.Text);
+        }
+        
+        /// <summary>
+        /// addPartnerSubmitAction
+        /// </summary>
+        public void addPartnerSubmitAction()
+        {
+            #region Variable Declarations
+            HtmlButton uIDodajButton = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIDodajButton;
+            #endregion
+
+            // Click 'Dodaj' button
+            Mouse.Click(uIDodajButton, new Point(46, 12));
+        }
 
         /// <summary>
         /// fillAddPartnerParameters - Use 'fillAddPartnerParametersParams' to pass parameters into this method.
@@ -182,46 +225,15 @@ namespace UserFunctionalTests
             StringAssert.Contains(uISearchInvoiceSystemzDocument.InnerText, v2);
         }
 
-        /// <summary>
-        /// addPartnerParameterAssertions
-        /// </summary>
-        public void addPartnerParameterAssertions()
+        public void sqlExceptionAssertion()
         {
             #region Variable Declarations
-            HtmlEdit uIFirstNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIFirstNameEdit;
-            HtmlEdit uILastNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UILastNameEdit;
-            HtmlEdit uICompanyNameEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UICompanyNameEdit;
-            HtmlEdit uIVATINEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIVATINEdit;
-            HtmlEdit uIAddressEdit = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIAddressEdit;
+
+            HtmlDocument uISqlExceptionMessage =
+                this.UISqlExceptionMessageSWindow.UISqlExceptionMessageSDocument;
             #endregion
 
-            // Verify that the 'Text' property of 'firstName' text box is not equal to 'null'
-            Assert.IsNotNull(uIFirstNameEdit.Text);
-
-            // Verify that the 'Text' property of 'lastName' text box is not equal to 'null'
-            Assert.IsNotNull(uILastNameEdit.Text);
-
-            // Verify that the 'Text' property of 'companyName' text box is not equal to 'null'
-            Assert.IsNotNull(uICompanyNameEdit.Text);
-
-            // Verify that the 'Text' property of 'VATIN' text box is not equal to 'null'
-            Assert.IsNotNull(uIVATINEdit.Text);
-
-            // Verify that the 'Text' property of 'address' text box is not equal to 'null'
-            Assert.IsNotNull(uIAddressEdit.Text);
-        }
-
-        /// <summary>
-        /// addPartnerSubmitAction
-        /// </summary>
-        public void addPartnerSubmitAction()
-        {
-            #region Variable Declarations
-            HtmlButton uIDodajButton = this.UILogowanieSystemzarząWindow.UIAddPartnerSystemzarzDocument.UIDodajButton;
-            #endregion
-
-            // Click 'Dodaj' button
-            Mouse.Click(uIDodajButton, new Point(46, 12));
+            StringAssert.Contains(uISqlExceptionMessage.InnerText, "Błąd operacji bazy danych");
         }
 
         /// <summary>
@@ -310,19 +322,7 @@ namespace UserFunctionalTests
                 return this.mfillAddPartnerParametersParams;
             }
         }
-
-        public virtual vatinAssertionExpectedValues vatinAssertionExpectedValues
-        {
-            get
-            {
-                if ((this.mvatinAssertionExpectedValues == null))
-                {
-                    this.mvatinAssertionExpectedValues = new vatinAssertionExpectedValues();
-                }
-                return this.mvatinAssertionExpectedValues;
-            }
-        }
-
+        
         public virtual fillTheSecondPartnerParams fillTheSecondPartnerParams
         {
             get
@@ -334,7 +334,79 @@ namespace UserFunctionalTests
                 return this.mfillTheSecondPartnerParams;
             }
         }
-
+        
+        public virtual vatinAssertionExpectedValues vatinAssertionExpectedValues
+        {
+            get
+            {
+                if ((this.mvatinAssertionExpectedValues == null))
+                {
+                    this.mvatinAssertionExpectedValues = new vatinAssertionExpectedValues();
+                }
+                return this.mvatinAssertionExpectedValues;
+            }
+        }
+        
+        public virtual adminLoginParams adminLoginParams
+        {
+            get
+            {
+                if ((this.madminLoginParams == null))
+                {
+                    this.madminLoginParams = new adminLoginParams();
+                }
+                return this.madminLoginParams;
+            }
+        }
+        
+        public virtual adminAddUserParams adminAddUserParams
+        {
+            get
+            {
+                if ((this.madminAddUserParams == null))
+                {
+                    this.madminAddUserParams = new adminAddUserParams();
+                }
+                return this.madminAddUserParams;
+            }
+        }
+        
+        public virtual adminAddUserExistsParams adminAddUserExistsParams
+        {
+            get
+            {
+                if ((this.madminAddUserExistsParams == null))
+                {
+                    this.madminAddUserExistsParams = new adminAddUserExistsParams();
+                }
+                return this.madminAddUserExistsParams;
+            }
+        }
+        
+        public virtual findPartnersInTheSameCompanyActionParams findPartnersInTheSameCompanyActionParams
+        {
+            get
+            {
+                if ((this.mfindPartnersInTheSameCompanyActionParams == null))
+                {
+                    this.mfindPartnersInTheSameCompanyActionParams = new findPartnersInTheSameCompanyActionParams();
+                }
+                return this.mfindPartnersInTheSameCompanyActionParams;
+            }
+        }
+        
+        public virtual sqlExceptionAssertionExpectedValues sqlExceptionAssertionExpectedValues
+        {
+            get
+            {
+                if ((this.msqlExceptionAssertionExpectedValues == null))
+                {
+                    this.msqlExceptionAssertionExpectedValues = new sqlExceptionAssertionExpectedValues();
+                }
+                return this.msqlExceptionAssertionExpectedValues;
+            }
+        }
+        
         public UILogowanieSystemzarząWindow UILogowanieSystemzarząWindow
         {
             get
@@ -346,96 +418,203 @@ namespace UserFunctionalTests
                 return this.mUILogowanieSystemzarząWindow;
             }
         }
+        
+        public UILogowanieSystemzarząWindow1 UILogowanieSystemzarząWindow1
+        {
+            get
+            {
+                if ((this.mUILogowanieSystemzarząWindow1 == null))
+                {
+                    this.mUILogowanieSystemzarząWindow1 = new UILogowanieSystemzarząWindow1();
+                }
+                return this.mUILogowanieSystemzarząWindow1;
+            }
+        }
+        
+        public UIWyszukiwarkafakturSyWindow UIWyszukiwarkafakturSyWindow
+        {
+            get
+            {
+                if ((this.mUIWyszukiwarkafakturSyWindow == null))
+                {
+                    this.mUIWyszukiwarkafakturSyWindow = new UIWyszukiwarkafakturSyWindow();
+                }
+                return this.mUIWyszukiwarkafakturSyWindow;
+            }
+        }
+        
+        public UISqlExceptionMessageSWindow UISqlExceptionMessageSWindow
+        {
+            get
+            {
+                if ((this.mUISqlExceptionMessageSWindow == null))
+                {
+                    this.mUISqlExceptionMessageSWindow = new UISqlExceptionMessageSWindow();
+                }
+                return this.mUISqlExceptionMessageSWindow;
+            }
+        }
         #endregion
-
+        
         #region Fields
         private fillAddPartnerParametersParams mfillAddPartnerParametersParams;
-
-        private vatinAssertionExpectedValues mvatinAssertionExpectedValues;
-
+        
         private fillTheSecondPartnerParams mfillTheSecondPartnerParams;
-
+        
+        private vatinAssertionExpectedValues mvatinAssertionExpectedValues;
+        
+        private adminLoginParams madminLoginParams;
+        
+        private adminAddUserParams madminAddUserParams;
+        
+        private adminAddUserExistsParams madminAddUserExistsParams;
+        
+        private findPartnersInTheSameCompanyActionParams mfindPartnersInTheSameCompanyActionParams;
+        
+        private sqlExceptionAssertionExpectedValues msqlExceptionAssertionExpectedValues;
+        
         private UILogowanieSystemzarząWindow mUILogowanieSystemzarząWindow;
+        
+        private UILogowanieSystemzarząWindow1 mUILogowanieSystemzarząWindow1;
+        
+        private UIWyszukiwarkafakturSyWindow mUIWyszukiwarkafakturSyWindow;
+        
+        private UISqlExceptionMessageSWindow mUISqlExceptionMessageSWindow;
         #endregion
     }
-
+    
     /// <summary>
     /// Parameters to be passed into 'fillAddPartnerParameters'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class fillAddPartnerParametersParams
     {
-
+        
         #region Fields
         /// <summary>
         /// Type 'admin@admin.com' in 'email' text box
         /// </summary>
         public string UIEmailEditText = "admin@admin.com";
-
+        
         /// <summary>
         /// Type '{Tab}' in 'email' text box
         /// </summary>
         public string UIEmailEditSendKeys = "{Tab}";
-
+        
         /// <summary>
         /// Type '********' in 'Password' text box
         /// </summary>
         public string UIPasswordEditPassword = "QWwOodIXpSM441BCNCWNvH9k+8fhegdI";
-
+        
         /// <summary>
         /// Type 'TestFirstName' in 'firstName' text box
         /// </summary>
         public string UIFirstNameEditText = "TestFirstName";
-
+        
         /// <summary>
         /// Type '{Tab}' in 'firstName' text box
         /// </summary>
         public string UIFirstNameEditSendKeys = "{Tab}";
-
+        
         /// <summary>
         /// Type 'TestLastName' in 'lastName' text box
         /// </summary>
         public string UILastNameEditText = "TestLastName";
-
+        
         /// <summary>
         /// Type '{Tab}' in 'lastName' text box
         /// </summary>
         public string UILastNameEditSendKeys = "{Tab}";
-
+        
         /// <summary>
         /// Type 'TestCompanyName' in 'companyName' text box
         /// </summary>
         public string UICompanyNameEditText = "TestCompanyName";
-
+        
         /// <summary>
         /// Type '{Tab}' in 'companyName' text box
         /// </summary>
         public string UICompanyNameEditSendKeys = "{Tab}";
-
+        
         /// <summary>
         /// Type '1234567890' in 'VATIN' text box
         /// </summary>
         public string UIVATINEditText = "1234567890";
-
+        
         /// <summary>
         /// Type '{Tab}' in 'VATIN' text box
         /// </summary>
         public string UIVATINEditSendKeys = "{Tab}";
-
+        
         /// <summary>
         /// Type 'TestAddress' in 'address' text box
         /// </summary>
         public string UIAddressEditText = "TestAddress";
         #endregion
     }
-
+    
+    /// <summary>
+    /// Parameters to be passed into 'fillTheSecondPartner'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class fillTheSecondPartnerParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'testName' in 'firstName' text box
+        /// </summary>
+        public string UIFirstNameEditText = "testName";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'firstName' text box
+        /// </summary>
+        public string UIFirstNameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'testLastName' in 'lastName' text box
+        /// </summary>
+        public string UILastNameEditText = "testLastName";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'lastName' text box
+        /// </summary>
+        public string UILastNameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'testCompanyName' in 'companyName' text box
+        /// </summary>
+        public string UICompanyNameEditText = "testCompanyName";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'companyName' text box
+        /// </summary>
+        public string UICompanyNameEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '1' in 'VATIN' text box
+        /// </summary>
+        public string UIVATINEditText = "1";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'VATIN' text box
+        /// </summary>
+        public string UIVATINEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'address' in 'address' text box
+        /// </summary>
+        public string UIAddressEditText = "address";
+        #endregion
+    }
+    
     /// <summary>
     /// Parameters to be passed into 'vatinAssertion'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class vatinAssertionExpectedValues
     {
-
+        
         #region Fields
         /// <summary>
         /// Verify that the 'InnerText' property of 'SearchInvoice - System zarządzania fakturami' document contains 'ASDASDASD
@@ -603,66 +782,168 @@ TestAddress
         {""appName"":""Internet Explorer"",""requestId"":""f5b2d638161b48cc86da171dd64b9451""}    ";
         #endregion
     }
-
+    
     /// <summary>
-    /// Parameters to be passed into 'fillTheSecondPartner'
+    /// Parameters to be passed into 'adminLogin'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
-    public class fillTheSecondPartnerParams
+    public class adminLoginParams
     {
-
+        
         #region Fields
         /// <summary>
-        /// Type 'testName' in 'firstName' text box
+        /// Type 'admin' in 'Chrome Legacy Window' document
         /// </summary>
-        public string UIFirstNameEditText = "testName";
-
+        public string UIChromeLegacyWindowDocumentSendKeys = "admin";
+        
         /// <summary>
-        /// Type '{Tab}' in 'firstName' text box
+        /// Type 'admin1234' in 'Chrome Legacy Window' document
         /// </summary>
-        public string UIFirstNameEditSendKeys = "{Tab}";
-
-        /// <summary>
-        /// Type 'testLastName' in 'lastName' text box
-        /// </summary>
-        public string UILastNameEditText = "testLastName";
-
-        /// <summary>
-        /// Type '{Tab}' in 'lastName' text box
-        /// </summary>
-        public string UILastNameEditSendKeys = "{Tab}";
-
-        /// <summary>
-        /// Type 'testCompanyName' in 'companyName' text box
-        /// </summary>
-        public string UICompanyNameEditText = "testCompanyName";
-
-        /// <summary>
-        /// Type '{Tab}' in 'companyName' text box
-        /// </summary>
-        public string UICompanyNameEditSendKeys = "{Tab}";
-
-        /// <summary>
-        /// Type '1' in 'VATIN' text box
-        /// </summary>
-        public string UIVATINEditText = "1";
-
-        /// <summary>
-        /// Type '{Tab}' in 'VATIN' text box
-        /// </summary>
-        public string UIVATINEditSendKeys = "{Tab}";
-
-        /// <summary>
-        /// Type 'address' in 'address' text box
-        /// </summary>
-        public string UIAddressEditText = "address";
+        public string UIChromeLegacyWindowDocumentSendKeys1 = "admin1234";
         #endregion
     }
-
+    
+    /// <summary>
+    /// Parameters to be passed into 'adminAddUser'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class adminAddUserParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test{Down}{Right}{Tab}' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys = "test{Down}{Right}{Tab}";
+        
+        /// <summary>
+        /// Type '{Back}1' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys1 = "{Back}1";
+        
+        /// <summary>
+        /// Type 'Auto{Tab}test@email.op{Back}{Back}pl{Tab}' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys2 = "Auto{Tab}test@email.op{Back}{Back}pl{Tab}";
+        
+        /// <summary>
+        /// Type 'test1234{Tab}' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys3 = "test1234{Tab}";
+        
+        /// <summary>
+        /// Type 'test1234' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys4 = "test1234";
+        
+        /// <summary>
+        /// Type 'TestFname{Tab}testLname' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys5 = "TestFname{Tab}testLname";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'adminAddUserExists'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class adminAddUserExistsParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'adm{Back}{Back}{Back}testtest{Tab}test@test.pll{Tab}a{Back}test1234{Tab}test1234{Tab}imi' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys = "adm{Back}{Back}{Back}testtest{Tab}test@test.pll{Tab}a{Back}test1234{Tab}test1234{" +
+            "Tab}imi";
+        
+        /// <summary>
+        /// Type 'Alt, Control + e' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys1 = "e";
+        
+        /// <summary>
+        /// Type '{Tab}nazwisko' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys2 = "{Tab}nazwisko";
+        
+        /// <summary>
+        /// Type 'testtest{Tab}test@test.pll' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys3 = "testtest{Tab}test@test.pll";
+        
+        /// <summary>
+        /// Type '{Back}test@test.pll' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys4 = "{Back}test@test.pll";
+        
+        /// <summary>
+        /// Type 'haslo1234{Tab}haslo12324{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}haslo1234' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys5 = "haslo1234{Tab}haslo12324{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Ba" +
+            "ck}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}{Back}haslo1234";
+        
+        /// <summary>
+        /// Type 'elo{Tab}elo' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys6 = "elo{Tab}elo";
+        
+        /// <summary>
+        /// Type '1' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys7 = "1";
+        
+        /// <summary>
+        /// Type 'ha{Tab}ha' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys8 = "ha{Tab}ha";
+        
+        /// <summary>
+        /// Type '{Back}{Back}{Back}{Back}{Back}{Back}{Back}kaka' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys9 = "{Back}{Back}{Back}{Back}{Back}{Back}{Back}kaka";
+        
+        /// <summary>
+        /// Type '{Back}{Back}{Back}{Back}kaka' in 'Chrome Legacy Window' document
+        /// </summary>
+        public string UIChromeLegacyWindowDocumentSendKeys10 = "{Back}{Back}{Back}{Back}kaka";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'findPartnersInTheSameCompanyAction'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class findPartnersInTheSameCompanyActionParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'Company_ToSearch' in 'companyName' text box
+        /// </summary>
+        public string UICompanyNameEditText = "Company_ToSearch";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'sqlExceptionAssertion'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class sqlExceptionAssertionExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of 'Błąd operacji bazy danych Violation' pane contains 'Błąd operacji bazy danych'
+        /// </summary>
+        public string UIBłądoperacjibazydanyPaneInnerText = "Błąd operacji bazy danych";
+        #endregion
+    }
+    
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class UILogowanieSystemzarząWindow : BrowserWindow
     {
-
+        
         public UILogowanieSystemzarząWindow()
         {
             #region Search Criteria
@@ -674,12 +955,12 @@ TestAddress
             this.WindowTitles.Add("SearchInvoice - System zarządzania fakturami");
             #endregion
         }
-
+        
         public void LaunchUrl(System.Uri url)
         {
             this.CopyFrom(BrowserWindow.Launch(url));
         }
-
+        
         #region Properties
         public UILogowanieSystemzarząDocument UILogowanieSystemzarząDocument
         {
@@ -692,7 +973,7 @@ TestAddress
                 return this.mUILogowanieSystemzarząDocument;
             }
         }
-
+        
         public UIWyszukiwarkafakturSyDocument UIWyszukiwarkafakturSyDocument
         {
             get
@@ -704,7 +985,7 @@ TestAddress
                 return this.mUIWyszukiwarkafakturSyDocument;
             }
         }
-
+        
         public UIAddPartnerSystemzarzDocument UIAddPartnerSystemzarzDocument
         {
             get
@@ -716,7 +997,7 @@ TestAddress
                 return this.mUIAddPartnerSystemzarzDocument;
             }
         }
-
+        
         public UISearchInvoiceSystemzDocument UISearchInvoiceSystemzDocument
         {
             get
@@ -729,14 +1010,14 @@ TestAddress
             }
         }
         #endregion
-
+        
         #region Fields
         private UILogowanieSystemzarząDocument mUILogowanieSystemzarząDocument;
-
+        
         private UIWyszukiwarkafakturSyDocument mUIWyszukiwarkafakturSyDocument;
-
+        
         private UIAddPartnerSystemzarzDocument mUIAddPartnerSystemzarzDocument;
-
+        
         private UISearchInvoiceSystemzDocument mUISearchInvoiceSystemzDocument;
         #endregion
     }
@@ -746,40 +1027,49 @@ TestAddress
     {
 
         public UILogowanieSystemzarząDocument(UITestControl searchLimitContainer) :
-                base(searchLimitContainer)
+            base(searchLimitContainer)
         {
             #region Search Criteria
+
             this.SearchProperties[HtmlDocument.PropertyNames.Id] = null;
             this.SearchProperties[HtmlDocument.PropertyNames.RedirectingPage] = "False";
             this.SearchProperties[HtmlDocument.PropertyNames.FrameDocument] = "False";
             this.FilterProperties[HtmlDocument.PropertyNames.Title] = "Logowanie - System zarządzania fakturami";
             this.FilterProperties[HtmlDocument.PropertyNames.AbsolutePath] = "/auth/login";
-            this.FilterProperties[HtmlDocument.PropertyNames.PageUrl] = "http://localhost:56133/auth/login?ReturnUrl=%2F";
+            this.FilterProperties[HtmlDocument.PropertyNames.PageUrl] =
+                "http://localhost:56133/auth/login?ReturnUrl=%2F";
             this.WindowTitles.Add("Logowanie - System zarządzania fakturami");
+
             #endregion
         }
 
         #region Properties
-        public HtmlEdit UILoginEdit
+
+        public HtmlEdit UIEmailEdit
         {
             get
             {
-                if ((this.mUILoginEdit == null))
+                if ((this.mUIEmailEdit == null))
                 {
-                    this.mUILoginEdit = new HtmlEdit(this);
+                    this.mUIEmailEdit = new HtmlEdit(this);
+
                     #region Search Criteria
-                    this.mUILoginEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "login";
-                    this.mUILoginEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "login";
-                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
-                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
-                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
-                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "input-sm form-control margin-right-10 margin-left-20";
-                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"login\" class=\"input-sm form-contro";
-                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "1";
-                    this.mUILoginEdit.WindowTitles.Add("Logowanie - System zarządzania fakturami");
+
+                    this.mUIEmailEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "email";
+                    this.mUIEmailEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "email";
+                    this.mUIEmailEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
+                    this.mUIEmailEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    this.mUIEmailEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
+                    this.mUIEmailEdit.FilterProperties[HtmlEdit.PropertyNames.Class] =
+                        "input-sm form-control margin-right-10 margin-left-20";
+                    this.mUIEmailEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] =
+                        "name=\"email\" class=\"input-sm form-contro";
+                    this.mUIEmailEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "1";
+                    this.mUIEmailEdit.WindowTitles.Add("Logowanie - System zarządzania fakturami");
+
                     #endregion
                 }
-                return this.mUILoginEdit;
+                return this.mUIEmailEdit;
             }
         }
 
@@ -790,21 +1080,55 @@ TestAddress
                 if ((this.mUIPasswordEdit == null))
                 {
                     this.mUIPasswordEdit = new HtmlEdit(this);
+
                     #region Search Criteria
+
                     this.mUIPasswordEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "Password";
                     this.mUIPasswordEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "Password";
                     this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
                     this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "PASSWORD";
                     this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
-                    this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "input-sm form-control margin-right-10 margin-left-20";
-                    this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"Password\" class=\"input-sm form-con";
+                    this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.Class] =
+                        "input-sm form-control margin-right-10 margin-left-20";
+                    this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] =
+                        "name=\"Password\" class=\"input-sm form-con";
                     this.mUIPasswordEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "2";
                     this.mUIPasswordEdit.WindowTitles.Add("Logowanie - System zarządzania fakturami");
+
                     #endregion
                 }
                 return this.mUIPasswordEdit;
             }
         }
+
+        public HtmlEdit UILoginEdit
+        {
+            get
+            {
+                if ((this.mUILoginEdit == null))
+                {
+                    this.mUILoginEdit = new HtmlEdit(this);
+
+                    #region Search Criteria
+
+                    this.mUILoginEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "login";
+                    this.mUILoginEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "login";
+                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
+                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
+                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.Class] =
+                        "input-sm form-control margin-right-10 margin-left-20";
+                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] =
+                        "name=\"login\" class=\"input-sm form-contro";
+                    this.mUILoginEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "1";
+                    this.mUILoginEdit.WindowTitles.Add("Logowanie - System zarządzania fakturami");
+
+                    #endregion
+                }
+                return this.mUILoginEdit;
+            }
+        }
+
 
         public UILogInFormCustom UILogInFormCustom
         {
@@ -817,22 +1141,28 @@ TestAddress
                 return this.mUILogInFormCustom;
             }
         }
+
         #endregion
 
+
         #region Fields
-        private HtmlEdit mUILoginEdit;
+
+        private HtmlEdit mUIEmailEdit;
 
         private HtmlEdit mUIPasswordEdit;
 
         private UILogInFormCustom mUILogInFormCustom;
+
+        private HtmlEdit mUILoginEdit;
+
         #endregion
     }
 
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class UILogInFormCustom : HtmlCustom
     {
-
-        public UILogInFormCustom(UITestControl searchLimitContainer) :
+        
+        public UILogInFormCustom(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Search Criteria
@@ -845,7 +1175,7 @@ TestAddress
             this.WindowTitles.Add("Logowanie - System zarządzania fakturami");
             #endregion
         }
-
+        
         #region Properties
         public HtmlButton UILogInButton
         {
@@ -870,17 +1200,17 @@ TestAddress
             }
         }
         #endregion
-
+        
         #region Fields
         private HtmlButton mUILogInButton;
         #endregion
     }
-
+    
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class UIWyszukiwarkafakturSyDocument : HtmlDocument
     {
-
-        public UIWyszukiwarkafakturSyDocument(UITestControl searchLimitContainer) :
+        
+        public UIWyszukiwarkafakturSyDocument(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Search Criteria
@@ -893,7 +1223,7 @@ TestAddress
             this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami");
             #endregion
         }
-
+        
         #region Properties
         public HtmlHyperlink UIDodajpartneraHyperlink
         {
@@ -919,7 +1249,7 @@ TestAddress
                 return this.mUIDodajpartneraHyperlink;
             }
         }
-
+        
         public HtmlHyperlink UISzukajpartneraHyperlink
         {
             get
@@ -945,19 +1275,19 @@ TestAddress
             }
         }
         #endregion
-
+        
         #region Fields
         private HtmlHyperlink mUIDodajpartneraHyperlink;
-
+        
         private HtmlHyperlink mUISzukajpartneraHyperlink;
         #endregion
     }
-
+    
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class UIAddPartnerSystemzarzDocument : HtmlDocument
     {
-
-        public UIAddPartnerSystemzarzDocument(UITestControl searchLimitContainer) :
+        
+        public UIAddPartnerSystemzarzDocument(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Search Criteria
@@ -970,7 +1300,7 @@ TestAddress
             this.WindowTitles.Add("AddPartner - System zarządzania fakturami");
             #endregion
         }
-
+        
         #region Properties
         public HtmlEdit UIFirstNameEdit
         {
@@ -994,7 +1324,7 @@ TestAddress
                 return this.mUIFirstNameEdit;
             }
         }
-
+        
         public HtmlEdit UILastNameEdit
         {
             get
@@ -1017,7 +1347,7 @@ TestAddress
                 return this.mUILastNameEdit;
             }
         }
-
+        
         public HtmlEdit UICompanyNameEdit
         {
             get
@@ -1040,7 +1370,7 @@ TestAddress
                 return this.mUICompanyNameEdit;
             }
         }
-
+        
         public HtmlEdit UIVATINEdit
         {
             get
@@ -1063,7 +1393,7 @@ TestAddress
                 return this.mUIVATINEdit;
             }
         }
-
+        
         public HtmlEdit UIAddressEdit
         {
             get
@@ -1086,7 +1416,7 @@ TestAddress
                 return this.mUIAddressEdit;
             }
         }
-
+        
         public HtmlButton UIDodajButton
         {
             get
@@ -1110,27 +1440,27 @@ TestAddress
             }
         }
         #endregion
-
+        
         #region Fields
         private HtmlEdit mUIFirstNameEdit;
-
+        
         private HtmlEdit mUILastNameEdit;
-
+        
         private HtmlEdit mUICompanyNameEdit;
-
+        
         private HtmlEdit mUIVATINEdit;
-
+        
         private HtmlEdit mUIAddressEdit;
-
+        
         private HtmlButton mUIDodajButton;
         #endregion
     }
-
+    
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class UISearchInvoiceSystemzDocument : HtmlDocument
     {
-
-        public UISearchInvoiceSystemzDocument(UITestControl searchLimitContainer) :
+        
+        public UISearchInvoiceSystemzDocument(UITestControl searchLimitContainer) : 
                 base(searchLimitContainer)
         {
             #region Search Criteria
@@ -1143,7 +1473,7 @@ TestAddress
             this.WindowTitles.Add("SearchInvoice - System zarządzania fakturami");
             #endregion
         }
-
+        
         #region Properties
         public HtmlButton UISzukajButton
         {
@@ -1167,6 +1497,7 @@ TestAddress
                 return this.mUISzukajButton;
             }
         }
+        
         public HtmlEdit UICompanyNameEdit
         {
             get
@@ -1190,11 +1521,2125 @@ TestAddress
             }
         }
         #endregion
-
+        
         #region Fields
         private HtmlButton mUISzukajButton;
-
+        
         private HtmlEdit mUICompanyNameEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UILogowanieSystemzarząWindow1 : WinWindow
+    {
+        
+        public UILogowanieSystemzarząWindow1()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Logowanie - System zarządzania fakturami - Google Chrome";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "Chrome_WidgetWin_1";
+            this.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public UIChromeLegacyWindowWindow UIChromeLegacyWindowWindow
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow == null))
+                {
+                    this.mUIChromeLegacyWindowWindow = new UIChromeLegacyWindowWindow(this);
+                }
+                return this.mUIChromeLegacyWindowWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIChromeLegacyWindowWindow mUIChromeLegacyWindowWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "343747608";
+            this.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIWyszukiwarkafakturSyWindow : WinWindow
+    {
+        
+        public UIWyszukiwarkafakturSyWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "Chrome_WidgetWin_1";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public UIChromeLegacyWindowWindow1 UIChromeLegacyWindowWindow
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow == null))
+                {
+                    this.mUIChromeLegacyWindowWindow = new UIChromeLegacyWindowWindow1(this);
+                }
+                return this.mUIChromeLegacyWindowWindow;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow11 UIChromeLegacyWindowWindow1
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow1 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow1 = new UIChromeLegacyWindowWindow11(this);
+                }
+                return this.mUIChromeLegacyWindowWindow1;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow2 UIChromeLegacyWindowWindow2
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow2 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow2 = new UIChromeLegacyWindowWindow2(this);
+                }
+                return this.mUIChromeLegacyWindowWindow2;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow3 UIChromeLegacyWindowWindow3
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow3 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow3 = new UIChromeLegacyWindowWindow3(this);
+                }
+                return this.mUIChromeLegacyWindowWindow3;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow4 UIChromeLegacyWindowWindow4
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow4 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow4 = new UIChromeLegacyWindowWindow4(this);
+                }
+                return this.mUIChromeLegacyWindowWindow4;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow5 UIChromeLegacyWindowWindow5
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow5 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow5 = new UIChromeLegacyWindowWindow5(this);
+                }
+                return this.mUIChromeLegacyWindowWindow5;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow6 UIChromeLegacyWindowWindow6
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow6 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow6 = new UIChromeLegacyWindowWindow6(this);
+                }
+                return this.mUIChromeLegacyWindowWindow6;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow7 UIChromeLegacyWindowWindow7
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow7 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow7 = new UIChromeLegacyWindowWindow7(this);
+                }
+                return this.mUIChromeLegacyWindowWindow7;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow8 UIChromeLegacyWindowWindow8
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow8 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow8 = new UIChromeLegacyWindowWindow8(this);
+                }
+                return this.mUIChromeLegacyWindowWindow8;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow9 UIChromeLegacyWindowWindow9
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow9 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow9 = new UIChromeLegacyWindowWindow9(this);
+                }
+                return this.mUIChromeLegacyWindowWindow9;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow10 UIChromeLegacyWindowWindow10
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow10 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow10 = new UIChromeLegacyWindowWindow10(this);
+                }
+                return this.mUIChromeLegacyWindowWindow10;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow111 UIChromeLegacyWindowWindow11
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow11 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow11 = new UIChromeLegacyWindowWindow111(this);
+                }
+                return this.mUIChromeLegacyWindowWindow11;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow12 UIChromeLegacyWindowWindow12
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow12 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow12 = new UIChromeLegacyWindowWindow12(this);
+                }
+                return this.mUIChromeLegacyWindowWindow12;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow13 UIChromeLegacyWindowWindow13
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow13 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow13 = new UIChromeLegacyWindowWindow13(this);
+                }
+                return this.mUIChromeLegacyWindowWindow13;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow14 UIChromeLegacyWindowWindow14
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow14 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow14 = new UIChromeLegacyWindowWindow14(this);
+                }
+                return this.mUIChromeLegacyWindowWindow14;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow15 UIChromeLegacyWindowWindow15
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow15 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow15 = new UIChromeLegacyWindowWindow15(this);
+                }
+                return this.mUIChromeLegacyWindowWindow15;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow16 UIChromeLegacyWindowWindow16
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow16 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow16 = new UIChromeLegacyWindowWindow16(this);
+                }
+                return this.mUIChromeLegacyWindowWindow16;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow17 UIChromeLegacyWindowWindow17
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow17 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow17 = new UIChromeLegacyWindowWindow17(this);
+                }
+                return this.mUIChromeLegacyWindowWindow17;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow18 UIChromeLegacyWindowWindow18
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow18 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow18 = new UIChromeLegacyWindowWindow18(this);
+                }
+                return this.mUIChromeLegacyWindowWindow18;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow19 UIChromeLegacyWindowWindow19
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow19 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow19 = new UIChromeLegacyWindowWindow19(this);
+                }
+                return this.mUIChromeLegacyWindowWindow19;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow20 UIChromeLegacyWindowWindow20
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow20 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow20 = new UIChromeLegacyWindowWindow20(this);
+                }
+                return this.mUIChromeLegacyWindowWindow20;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow21 UIChromeLegacyWindowWindow21
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow21 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow21 = new UIChromeLegacyWindowWindow21(this);
+                }
+                return this.mUIChromeLegacyWindowWindow21;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow22 UIChromeLegacyWindowWindow22
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow22 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow22 = new UIChromeLegacyWindowWindow22(this);
+                }
+                return this.mUIChromeLegacyWindowWindow22;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow23 UIChromeLegacyWindowWindow23
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow23 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow23 = new UIChromeLegacyWindowWindow23(this);
+                }
+                return this.mUIChromeLegacyWindowWindow23;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow24 UIChromeLegacyWindowWindow24
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow24 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow24 = new UIChromeLegacyWindowWindow24(this);
+                }
+                return this.mUIChromeLegacyWindowWindow24;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow25 UIChromeLegacyWindowWindow25
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow25 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow25 = new UIChromeLegacyWindowWindow25(this);
+                }
+                return this.mUIChromeLegacyWindowWindow25;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow26 UIChromeLegacyWindowWindow26
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow26 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow26 = new UIChromeLegacyWindowWindow26(this);
+                }
+                return this.mUIChromeLegacyWindowWindow26;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow27 UIChromeLegacyWindowWindow27
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow27 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow27 = new UIChromeLegacyWindowWindow27(this);
+                }
+                return this.mUIChromeLegacyWindowWindow27;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow28 UIChromeLegacyWindowWindow28
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow28 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow28 = new UIChromeLegacyWindowWindow28(this);
+                }
+                return this.mUIChromeLegacyWindowWindow28;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow29 UIChromeLegacyWindowWindow29
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow29 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow29 = new UIChromeLegacyWindowWindow29(this);
+                }
+                return this.mUIChromeLegacyWindowWindow29;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow30 UIChromeLegacyWindowWindow30
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow30 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow30 = new UIChromeLegacyWindowWindow30(this);
+                }
+                return this.mUIChromeLegacyWindowWindow30;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow31 UIChromeLegacyWindowWindow31
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow31 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow31 = new UIChromeLegacyWindowWindow31(this);
+                }
+                return this.mUIChromeLegacyWindowWindow31;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow32 UIChromeLegacyWindowWindow32
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow32 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow32 = new UIChromeLegacyWindowWindow32(this);
+                }
+                return this.mUIChromeLegacyWindowWindow32;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow33 UIChromeLegacyWindowWindow33
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow33 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow33 = new UIChromeLegacyWindowWindow33(this);
+                }
+                return this.mUIChromeLegacyWindowWindow33;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow34 UIChromeLegacyWindowWindow34
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow34 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow34 = new UIChromeLegacyWindowWindow34(this);
+                }
+                return this.mUIChromeLegacyWindowWindow34;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow35 UIChromeLegacyWindowWindow35
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow35 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow35 = new UIChromeLegacyWindowWindow35(this);
+                }
+                return this.mUIChromeLegacyWindowWindow35;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow36 UIChromeLegacyWindowWindow36
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow36 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow36 = new UIChromeLegacyWindowWindow36(this);
+                }
+                return this.mUIChromeLegacyWindowWindow36;
+            }
+        }
+        
+        public UIChromeLegacyWindowWindow37 UIChromeLegacyWindowWindow37
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowWindow37 == null))
+                {
+                    this.mUIChromeLegacyWindowWindow37 = new UIChromeLegacyWindowWindow37(this);
+                }
+                return this.mUIChromeLegacyWindowWindow37;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIChromeLegacyWindowWindow1 mUIChromeLegacyWindowWindow;
+        
+        private UIChromeLegacyWindowWindow11 mUIChromeLegacyWindowWindow1;
+        
+        private UIChromeLegacyWindowWindow2 mUIChromeLegacyWindowWindow2;
+        
+        private UIChromeLegacyWindowWindow3 mUIChromeLegacyWindowWindow3;
+        
+        private UIChromeLegacyWindowWindow4 mUIChromeLegacyWindowWindow4;
+        
+        private UIChromeLegacyWindowWindow5 mUIChromeLegacyWindowWindow5;
+        
+        private UIChromeLegacyWindowWindow6 mUIChromeLegacyWindowWindow6;
+        
+        private UIChromeLegacyWindowWindow7 mUIChromeLegacyWindowWindow7;
+        
+        private UIChromeLegacyWindowWindow8 mUIChromeLegacyWindowWindow8;
+        
+        private UIChromeLegacyWindowWindow9 mUIChromeLegacyWindowWindow9;
+        
+        private UIChromeLegacyWindowWindow10 mUIChromeLegacyWindowWindow10;
+        
+        private UIChromeLegacyWindowWindow111 mUIChromeLegacyWindowWindow11;
+        
+        private UIChromeLegacyWindowWindow12 mUIChromeLegacyWindowWindow12;
+        
+        private UIChromeLegacyWindowWindow13 mUIChromeLegacyWindowWindow13;
+        
+        private UIChromeLegacyWindowWindow14 mUIChromeLegacyWindowWindow14;
+        
+        private UIChromeLegacyWindowWindow15 mUIChromeLegacyWindowWindow15;
+        
+        private UIChromeLegacyWindowWindow16 mUIChromeLegacyWindowWindow16;
+        
+        private UIChromeLegacyWindowWindow17 mUIChromeLegacyWindowWindow17;
+        
+        private UIChromeLegacyWindowWindow18 mUIChromeLegacyWindowWindow18;
+        
+        private UIChromeLegacyWindowWindow19 mUIChromeLegacyWindowWindow19;
+        
+        private UIChromeLegacyWindowWindow20 mUIChromeLegacyWindowWindow20;
+        
+        private UIChromeLegacyWindowWindow21 mUIChromeLegacyWindowWindow21;
+        
+        private UIChromeLegacyWindowWindow22 mUIChromeLegacyWindowWindow22;
+        
+        private UIChromeLegacyWindowWindow23 mUIChromeLegacyWindowWindow23;
+        
+        private UIChromeLegacyWindowWindow24 mUIChromeLegacyWindowWindow24;
+        
+        private UIChromeLegacyWindowWindow25 mUIChromeLegacyWindowWindow25;
+        
+        private UIChromeLegacyWindowWindow26 mUIChromeLegacyWindowWindow26;
+        
+        private UIChromeLegacyWindowWindow27 mUIChromeLegacyWindowWindow27;
+        
+        private UIChromeLegacyWindowWindow28 mUIChromeLegacyWindowWindow28;
+        
+        private UIChromeLegacyWindowWindow29 mUIChromeLegacyWindowWindow29;
+        
+        private UIChromeLegacyWindowWindow30 mUIChromeLegacyWindowWindow30;
+        
+        private UIChromeLegacyWindowWindow31 mUIChromeLegacyWindowWindow31;
+        
+        private UIChromeLegacyWindowWindow32 mUIChromeLegacyWindowWindow32;
+        
+        private UIChromeLegacyWindowWindow33 mUIChromeLegacyWindowWindow33;
+        
+        private UIChromeLegacyWindowWindow34 mUIChromeLegacyWindowWindow34;
+        
+        private UIChromeLegacyWindowWindow35 mUIChromeLegacyWindowWindow35;
+        
+        private UIChromeLegacyWindowWindow36 mUIChromeLegacyWindowWindow36;
+        
+        private UIChromeLegacyWindowWindow37 mUIChromeLegacyWindowWindow37;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow1 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "343747608";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome");
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow11 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow11(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIChromeLegacyWindowClient
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowClient == null))
+                {
+                    this.mUIChromeLegacyWindowClient = new WinClient(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowClient.SearchProperties[WinControl.PropertyNames.Name] = "Chrome Legacy Window";
+                    this.mUIChromeLegacyWindowClient.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIChromeLegacyWindowClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow2 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow3 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow3(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow4 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow4(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow5 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow5(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow6 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow6(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow7 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow7(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow8 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow8(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow9 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow9(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow10 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow10(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow111 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow111(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow12 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow12(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow13 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow13(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow14 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow14(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow15 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow15(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow16 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow16(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow17 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow17(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow18 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow18(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow19 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow19(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow20 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow20(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow21 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow21(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow22 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow22(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow23 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow23(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow24 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow24(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow25 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow25(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow26 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow26(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow27 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow27(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow28 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow28(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow29 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow29(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow30 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow30(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow31 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow31(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow32 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow32(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow33 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow33(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow34 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow34(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow35 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow35(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow36 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow36(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIChromeLegacyWindowWindow37 : WinWindow
+    {
+        
+        public UIChromeLegacyWindowWindow37(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "344526952";
+            this.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome");
+            this.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinControl UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new WinControl(this);
+                    #region Search Criteria
+                    this.mUIChromeLegacyWindowDocument.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+                    this.mUIChromeLegacyWindowDocument.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome");
+                    #endregion
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinControl mUIChromeLegacyWindowDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UISqlExceptionMessageSWindow : BrowserWindow
+    {
+        
+        public UISqlExceptionMessageSWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[UITestControl.PropertyNames.Name] = "SqlExceptionMessage - System zarządzania fakturami";
+            this.SearchProperties[UITestControl.PropertyNames.ClassName] = "IEFrame";
+            this.WindowTitles.Add("SqlExceptionMessage - System zarządzania fakturami");
+            #endregion
+        }
+        
+        public void LaunchUrl(System.Uri url)
+        {
+            this.CopyFrom(BrowserWindow.Launch(url));
+        }
+        
+        #region Properties
+        public UISqlExceptionMessageSDocument UISqlExceptionMessageSDocument
+        {
+            get
+            {
+                if ((this.mUISqlExceptionMessageSDocument == null))
+                {
+                    this.mUISqlExceptionMessageSDocument = new UISqlExceptionMessageSDocument(this);
+                }
+                return this.mUISqlExceptionMessageSDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UISqlExceptionMessageSDocument mUISqlExceptionMessageSDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UISqlExceptionMessageSDocument : HtmlDocument
+    {
+        
+        public UISqlExceptionMessageSDocument(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[HtmlDocument.PropertyNames.Id] = null;
+            this.SearchProperties[HtmlDocument.PropertyNames.RedirectingPage] = "False";
+            this.SearchProperties[HtmlDocument.PropertyNames.FrameDocument] = "False";
+            this.FilterProperties[HtmlDocument.PropertyNames.Title] = "SqlExceptionMessage - System zarządzania fakturami";
+            this.FilterProperties[HtmlDocument.PropertyNames.AbsolutePath] = "/Home/AddPartner";
+            this.FilterProperties[HtmlDocument.PropertyNames.PageUrl] = "http://localhost:56133/Home/AddPartner";
+            this.WindowTitles.Add("SqlExceptionMessage - System zarządzania fakturami");
+            #endregion
+        }
+        
+        #region Properties
+        public HtmlDiv UIBłądoperacjibazydanyPane
+        {
+            get
+            {
+                if ((this.mUIBłądoperacjibazydanyPane == null))
+                {
+                    this.mUIBłądoperacjibazydanyPane = new HtmlDiv(this);
+                    #region Search Criteria
+                    this.mUIBłądoperacjibazydanyPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
+                    this.mUIBłądoperacjibazydanyPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    this.mUIBłądoperacjibazydanyPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "Błąd operacji bazy danych\r\n\r\n Violation ";
+                    this.mUIBłądoperacjibazydanyPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+                    this.mUIBłądoperacjibazydanyPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "container body-content";
+                    this.mUIBłądoperacjibazydanyPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"container body-content\"";
+                    this.mUIBłądoperacjibazydanyPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "5";
+                    this.mUIBłądoperacjibazydanyPane.WindowTitles.Add("SqlExceptionMessage - System zarządzania fakturami");
+                    #endregion
+                }
+                return this.mUIBłądoperacjibazydanyPane;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private HtmlDiv mUIBłądoperacjibazydanyPane;
         #endregion
     }
 }

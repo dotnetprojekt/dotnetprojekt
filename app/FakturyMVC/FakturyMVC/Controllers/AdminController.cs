@@ -18,8 +18,8 @@ namespace FakturyMVC.Controllers
         public ActionResult BlockUser(string UserLogin)
         {
             BlockUnblockViewModel model = new BlockUnblockViewModel();
-            UserDAL.Instance.UserBlock(UserLogin);
-            List<User> tmp = UserDAL.Instance.UserSearch(null, null, UserLogin, null, null, null, null);
+            UserDAL.UserBlock(UserLogin);
+            List<User> tmp = UserDAL.UserSearch(null, null, UserLogin, null, null, null, null);
 
             model.FirstName = tmp.First().FirstName;
             model.LastName = tmp.First().LastName;
@@ -32,8 +32,8 @@ namespace FakturyMVC.Controllers
         public ActionResult UnblockUser(string UserLogin)
         {
             BlockUnblockViewModel model = new BlockUnblockViewModel();
-            UserDAL.Instance.UserUnblock(UserLogin);
-            List<User> tmp = UserDAL.Instance.UserSearch(null, null, UserLogin, null, null, null, null);
+            UserDAL.UserUnblock(UserLogin);
+            List<User> tmp = UserDAL.UserSearch(null, null, UserLogin, null, null, null, null);
 
             model.FirstName = tmp.First().FirstName;
             model.LastName = tmp.First().LastName;
@@ -46,7 +46,7 @@ namespace FakturyMVC.Controllers
         public ActionResult UsersManagement()
         {
             UsersManagementViewModel model = new UsersManagementViewModel();
-            List<User> usersList = UserDAL.Instance.UserSearch(null, null, null, null, null, null);
+            List<User> usersList = UserDAL.UserSearch(null, null, null, null, null, null);
 
             List<AppUser> users = new List<AppUser>();
             AppUser user;

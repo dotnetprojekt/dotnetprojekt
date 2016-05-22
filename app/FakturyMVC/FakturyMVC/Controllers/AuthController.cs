@@ -39,7 +39,7 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null, null);
+            List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);
             //if (UserDAL.UserLogin(model.Login, model.Password))
             if(tmp.Any())
             {
@@ -88,13 +88,13 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null);
+            List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null);
             if (tmp.Any())
             {
                 ModelState.AddModelError("", "Błędny login.");
                 return View();
             }
-            tmp = UserDAL.Instance.UserSearch(null, null, null, model.Email, null, null);
+            tmp = UserDAL.UserSearch(null, null, null, model.Email, null, null);
             if (tmp.Any())
             {
                 ModelState.AddModelError("", "Błędny email.");
@@ -102,7 +102,7 @@ namespace FakturyMVC.Controllers
             }
 
             User tmpUser = new User(model.FirstName, model.LastName, model.Login, model.Password, model.Email, UserStatus.User);
-            UserDAL.Instance.UserAdd(tmpUser);
+            UserDAL.UserAdd(tmpUser);
 
             
             return RedirectToAction("index", "home");
@@ -117,7 +117,7 @@ namespace FakturyMVC.Controllers
             {
                 if (claim.Type == "NameIdentifier")
                 {
-                    UserDAL.Instance.UserLogout(claim.Value);
+                    UserDAL.UserLogout(claim.Value);
                     break; 
                 }
             }
