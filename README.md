@@ -5,7 +5,6 @@
 
 ##### Skład grupy:
 * Bobak Mateusz
-* Brańka Paweł
 * Drożdż Michał
 * Grzyb Krzysztof
 * Kołdarz Klaudia
@@ -23,7 +22,6 @@ Dokumentacja:
 * Klaudia Kołdarz
 
 Programiści:
-* Paweł Brańka
 * Mirosław Małek
 
 Testerzy:
