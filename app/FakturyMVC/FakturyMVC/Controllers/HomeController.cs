@@ -81,7 +81,8 @@ namespace FakturyMVC.Controllers
                        
 
             List<InvoiceGenerals> invoiceGeneralsList = new List<InvoiceGenerals>();
-            invoiceGeneralsList = InvoiceDAL.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
+            //invoiceGeneralsList = InvoiceDAL.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
+            invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
             InvoicesViewModel model = new InvoicesViewModel();
             model.InvoiceGeneralsList = invoiceGeneralsList;
 
@@ -96,7 +97,8 @@ namespace FakturyMVC.Controllers
         // return view for adding invoice - DONE
         public ActionResult AddInvoice()
         {
-            string invNumber = InvoiceDAL.GetInvoiceNumber();
+            //string invNumber = InvoiceDAL.GetInvoiceNumber();
+            string invNumber = InvoiceDAL.Instance.GetInvoiceNumber();
             AddInvoiceViewModel model = new AddInvoiceViewModel();
             model.InvNumber = invNumber;
             return View("AddInvoice", model);
@@ -141,7 +143,8 @@ namespace FakturyMVC.Controllers
 
             try
             {
-                InvoiceDAL.InvoiceAdd(invoice, vvatin, bvatin);
+                //InvoiceDAL.InvoiceAdd(invoice, vvatin, bvatin);
+                InvoiceDAL.Instance.InvoiceAdd(invoice, vvatin, bvatin);
             }
             catch (SqlException e)
             {
@@ -168,7 +171,7 @@ namespace FakturyMVC.Controllers
 
             try
             {
-                PartnerDAL.PartnerAdd(partner);
+                PartnerDAL.Instance.PartnerAdd(partner);
             }
             catch (SqlException e)
             {
@@ -203,7 +206,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 
@@ -225,14 +228,16 @@ namespace FakturyMVC.Controllers
             int id = -1;
             Int32.TryParse(invoiceId, out id);
 
-            InvoiceDetails model = InvoiceDAL.InvoiceGetDetails(id);
+            //InvoiceDetails model = InvoiceDAL.InvoiceGetDetails(id);
+            InvoiceDetails model = InvoiceDAL.Instance.InvoiceGetDetails(id);
             return View(model);
         }
 
         // set invoice status to paid - DONE - not checked
         public ActionResult ChangeInvoiceStatusToPaid(int id)
         {
-            InvoiceDAL.InvoiceSetPaid(id);
+            //InvoiceDAL.InvoiceSetPaid(id);
+            InvoiceDAL.Instance.InvoiceSetPaid(id);
             return RedirectToAction("Index");
         }
 
@@ -251,7 +256,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 
@@ -273,7 +278,7 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
 
