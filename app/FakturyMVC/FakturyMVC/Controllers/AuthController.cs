@@ -11,6 +11,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 
 namespace FakturyMVC.Controllers
 {
@@ -88,7 +89,7 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null);
+            /*List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null);
             if (tmp.Any())
             {
                 ModelState.AddModelError("", "Błędny login.");
@@ -99,10 +100,28 @@ namespace FakturyMVC.Controllers
             {
                 ModelState.AddModelError("", "Błędny email.");
                 return View();
-            }
+            }*/
 
             User tmpUser = new User(model.FirstName, model.LastName, model.Login, model.Password, model.Email, UserStatus.User);
-            UserDAL.Instance.UserAdd(tmpUser);
+            try
+            {
+                UserDAL.Instance.UserAdd(tmpUser);
+            }
+            catch(SqlException e)
+            {
+                if (e.Number != 2627)
+                {
+                    string exc = e.Message;
+                    SqlExceptionViewModel modelsql = new SqlExceptionViewModel();
+                    modelsql.Exc = exc;
+                    return View("SqlExceptionMessage", modelsql);
+                }
+                else
+                {
+                    TempData["msg"] = "<script>alert('Podany login istnieje w bazie!');</script>";
+                    return View("Register");
+                }
+            }
 
             
             return RedirectToAction("index", "home");

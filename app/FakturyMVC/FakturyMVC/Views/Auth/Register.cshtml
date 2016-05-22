@@ -6,6 +6,7 @@
 <h2>Zarejestruj się</h2>
 
 @Html.ValidationSummary(false)
+@Html.Raw(TempData["msg"])
 
 @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @id = "registerForm", @class = "form-inline" }))
 {

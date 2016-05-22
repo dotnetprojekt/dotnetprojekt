@@ -175,12 +175,18 @@ namespace FakturyMVC.Controllers
             }
             catch (SqlException e)
             {
-                string exc = e.ToString();
-                SqlExceptionViewModel model = new SqlExceptionViewModel();
-                model.Exc = exc;
-                TempData["msg"] = "<script>alert('Co to kurwa jest? Wypierdalaj mi z tym!');</script>";
-                return View("AddPartner");
-                //return View("SqlExceptionMessage", model);
+                if(e.Number!=2627)
+                {
+                    string exc = e.Message;
+                    SqlExceptionViewModel model = new SqlExceptionViewModel();
+                    model.Exc = exc;
+                    return View("SqlExceptionMessage", model);
+                }
+                else
+                {
+                    TempData["msg"] = "<script>alert('Partner o podanym VATIN już istnieje!');</script>";
+                    return View("AddPartner");
+                }
             }
             
 

@@ -202,7 +202,7 @@
         @Html.TextBox("brutto", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly" })
         <br />
         @Html.Label("Zniżka [%]", new { @class = "margin-top-10" })
-        @Html.TextBox("discount", 0, new { @class = "input-sm form-control margin-right-10 margin-left-20" })
+        @Html.TextBox("discount", 0, new { @class = "input-sm form-control margin-right-10 margin-left-20", @type = "number", @min = "0", @max = "100", @step = "1" })
         <br />
         @Html.Label("Podliczona wartość", new { @class = "margin-top-10" })
         @Html.TextBox("value", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @readonly = "readonly"})
