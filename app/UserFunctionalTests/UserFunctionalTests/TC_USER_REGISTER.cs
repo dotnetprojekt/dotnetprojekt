@@ -1,61 +1,50 @@
-﻿using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using UserFunctionalTests.UIMapRegistrationClasses;
 
 
 namespace UserFunctionalTests
 {
     /// <summary>
-    /// Summary description for TC_USER_PARTNER
+    /// Summary description for TC_USER_REGISTER
     /// </summary>
     [CodedUITest]
-    public class TC_USER_PARTNER
+    public class TC_USER_REGISTER
     {
-        public TC_USER_PARTNER()
+        public TC_USER_REGISTER()
         {
         }
 
         [TestMethod]
-        public void TC_USER_PARTNER_001()
+        public void TC_USER_REGISTER_001()
         {
-            /** Dodanie partnera biznesowego */
+            /** Poprawna i kompletna rejestracja użytkownika do Systemu Zarządzania Fakturami **/
             BrowserWindow browser = testInit();
-
-            string vatin = this.UIMap.fillAddPartnerParameters();
-            this.UIMap.addPartnerParameterAssertions();
-            this.UIMap.addPartnerSubmitAction();
-            Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
-            this.UIMap.listPartnersAction();
-            this.UIMap.vatinAssertion(vatin);
+            this.UIMapRegistration.clickRegisterAction();
+            string uniqueNum = new Random().Next(100000000).ToString();
+            this.UIMapRegistration.fillRegisterFormAction(uniqueNum);
+            this.UIMapRegistration.registerAssertions();
+            this.UIMapRegistration.registerSubmitAction();
+            this.UIMapRegistration.loginWithCreatedUserAction(uniqueNum);
+            //Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
         }
-
-        /*[TestMethod]
-        public void TC_USER_PARTNER_002()
-        {*/
-            /** Partner biznesowy już istnieje */
-            /*BrowserWindow browser = testInit();
-
-            string vatin = this.UIMap.fillAddPartnerParameters();
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.fillTheSecondPartner(vatin);
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.sqlExceptionAssertion();
-        }*/
 
         [TestMethod]
-        public void TC_USER_PARTNER_003()
+        public void TC_USER_REGISTER_002()
         {
-            /** Test widoku wyświetlającego partnerów biznesowych zalogowanego użytkownika. */
+            /** Niepowodzenie operacji rejestracji użytkownika do Systemu Zarządzania Fakturami - użytkownik już istnieje */
             BrowserWindow browser = testInit();
-
-            string v1 = this.UIMap.addPartnersToSearch();
-            this.UIMap.addPartnerSubmitAction();
-            string v2 = this.UIMap.addSecondPartnerToSearch();
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.findPartnersInTheSameCompanyAction();
-            this.UIMap.companyAssertion(v1, v2);
+            this.UIMapRegistration.clickRegisterAction();
+            string uniqueNum = new Random().Next(100000000).ToString();
+            this.UIMapRegistration.fillRegisterFormAction(uniqueNum);
+            this.UIMapRegistration.registerSubmitAction();
+            this.UIMapRegistration.clickRegisterAction();
+            this.UIMapRegistration.fillRegisterFormAction(uniqueNum);
+            this.UIMapRegistration.registerSubmitAction();
+            this.UIMapRegistration.incorrectUserAssertion();
         }
-
 
         private BrowserWindow testInit()
         {
@@ -66,8 +55,9 @@ namespace UserFunctionalTests
             Playback.PlaybackSettings.SearchTimeout = 1000;
 
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-            return BrowserWindow.Launch(new System.Uri("http://localhost:56133/"));
+            return BrowserWindow.Launch(new System.Uri("http://localhost:56133/auth/login?ReturnUrl=%2F"));
         }
+
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:
@@ -94,25 +84,30 @@ namespace UserFunctionalTests
         ///</summary>
         public TestContext TestContext
         {
-            get { return testContextInstance; }
-            set { testContextInstance = value; }
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
         }
-
         private TestContext testContextInstance;
 
-        public UIMap UIMap
+        public UIMapRegistration UIMapRegistration
         {
             get
             {
                 if ((this.map == null))
                 {
-                    this.map = new UIMap();
+                    this.map = new UIMapRegistration();
                 }
 
                 return this.map;
             }
         }
 
-        private UIMap map;
+        private UIMapRegistration map;
     }
 }
