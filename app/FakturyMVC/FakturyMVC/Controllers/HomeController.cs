@@ -12,6 +12,12 @@ namespace FakturyMVC.Controllers
 {
     public class HomeController : Controller
     {
+        // to add paging:
+        // 1. uncomment two buttons in SearchInvoicesResults/SearchPartnersResults
+        // 2. uncomment in javascript SearchInvoices() and SearchPartners() functions methods show()
+        // 3. uncomment functions InvoiceSearch/PartnerSearch methods with pageNumber and rowsPerPage
+
+
         // get view for invoice search - DONE
         public ActionResult Index()
         {       
@@ -20,8 +26,69 @@ namespace FakturyMVC.Controllers
 
         //search invoices - DONE - not checked
         public ActionResult SearchInvoice(string invNumber, string title, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
-            string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue)
+            string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue, string page, int rowsPerPage)
         {
+            int pgNumber = 0;
+            if (page == "none")
+                pgNumber = 1;
+            else if (page == "prev")
+            {
+                pgNumber = (int)TempData["pageNumber"] - 1;
+                invNumber = (string)TempData["invNumber"];
+                title = (string)TempData["title"];
+                start = (string)TempData["start"];
+                end = (string)TempData["end"];
+                vname = (string)TempData["vname"];
+                vlastname = (string)TempData["vlastname"];
+                vcompany = (string)TempData["vcompany"];
+                vvatin = (string)TempData["vvatin"];
+                bname = (string)TempData["bname"];
+                blastname = (string)TempData["blastname"];
+                bcompany = (string)TempData["bcompany"];
+                bvatin = (string)TempData["bvatin"];
+                minValue = (string)TempData["minValue"];
+                maxValue = (string)TempData["maxValue"];
+                rowsPerPage = (int)TempData["rowsPerPage"];
+            }
+            else if (page == "next")
+            {
+                pgNumber = (int)TempData["pageNumber"] + 1;
+                invNumber = (string)TempData["invNumber"];
+                title = (string)TempData["title"];
+                start = (string)TempData["start"];
+                end = (string)TempData["end"];
+                vname = (string)TempData["vname"];
+                vlastname = (string)TempData["vlastname"];
+                vcompany = (string)TempData["vcompany"];
+                vvatin = (string)TempData["vvatin"];
+                bname = (string)TempData["bname"];
+                blastname = (string)TempData["blastname"];
+                bcompany = (string)TempData["bcompany"];
+                bvatin = (string)TempData["bvatin"];
+                minValue = (string)TempData["minValue"];
+                maxValue = (string)TempData["maxValue"];
+                rowsPerPage = (int)TempData["rowsPerPage"];
+            }
+
+            TempData["pageNumber"] = pgNumber;
+            TempData["rowsPerPage"] = rowsPerPage;
+
+            TempData["title"] = title;
+            TempData["start"] = start;
+            TempData["end"] = end;
+            TempData["vname"] = vname;
+            TempData["vlastname"] = vlastname;
+            TempData["vcompany"] = vcompany;
+            TempData["vvatin"] = vvatin;
+            TempData["bname"] = bname;
+            TempData["blastname"] = blastname;
+            TempData["bcompany"] = bcompany;
+            TempData["bvatin"] = bvatin;
+            TempData["minValue"] = minValue;
+            TempData["maxValue"] = maxValue;
+
+
+
             if (invNumber == "")
                 invNumber = null;
 
@@ -81,15 +148,18 @@ namespace FakturyMVC.Controllers
                        
 
             List<InvoiceGenerals> invoiceGeneralsList = new List<InvoiceGenerals>();
-            //invoiceGeneralsList = InvoiceDAL.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
+            // UNCOMMENT FOR PAGING
+            //invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer, pgNumber, rowsPerPage);
             invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
             InvoicesViewModel model = new InvoicesViewModel();
             model.InvoiceGeneralsList = invoiceGeneralsList;
+            model.FirstPage = false;
+            model.LastPage = false;
 
-            ///////////
-            //InvoiceGenerals tmp = new InvoiceGenerals("numer", DateTime.Today, "Biedrona", "Lidl", "Zakupy", 0.25f, InvoiceState.New, 1);
-            //model.InvoiceGeneralsList.Add(tmp);
-            ///////////
+            if (pgNumber == 1)
+                model.FirstPage = true;
+            if (pgNumber == 2) // hardcoded for now
+                model.LastPage = true;
 
             return PartialView("SearchInvoicesResults", model);
         }

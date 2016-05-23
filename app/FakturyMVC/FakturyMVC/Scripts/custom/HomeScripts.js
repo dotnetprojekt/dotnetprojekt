@@ -99,6 +99,10 @@ function SearchInvoices() {
     $('#searchForInvoicesButton').click(function (e) {
         e.preventDefault();
 
+        // UNCOMMENT FOR PAGING
+        //$('#rowsPerPageField').show();
+        //$('#rowsPerPageFieldLabel').show();
+
         var invNumber = $('#invNumber').val();
         var title = $('#title').val();
 
@@ -121,27 +125,16 @@ function SearchInvoices() {
         var minValueCorrect = minValue.toString().replace(/\,/g, '.');
         var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
 
+        var rowsPerPage = $('#rowsPerPageField').val();
+
         $('#invoiceSearchResults').load(url, {
             invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
             vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
-            minValue: minValueCorrect, maxValue: maxValueCorrect
+            minValue: minValueCorrect, maxValue: maxValueCorrect, page: "none", rowsPerPage: rowsPerPage
         });
 
     })
 }
-
-/*
-function ValidateInvNumber() {
-
-    $('#invNumber').focusout(function () {
-
-        var invNumber = $('#invNumber').val();
-        if (!(/^\d+$/.test(invNumber)))
-            $('#invNumber').val("");
-
-    })
-}
-*/
 
 function ValidateVatin() {
 
@@ -479,3 +472,72 @@ $('#partnerSearchResults').on('click', '#nextPageButton', function () {
     });
 })
 
+
+
+
+
+
+$('#invoiceSearchResults').on('click', '#prevPageButton', function () {
+
+    var url = "/Home/SearchInvoice";
+
+    var invNumber = "";
+    var title = "";
+
+    var start = "";
+    var end = "";
+
+    var vname = "";
+    var vlastname = "";
+    var vcompany = "";
+    var vvatin = "";
+
+    var bname = "";
+    var blastname = "";
+    var bcompany = "";
+    var bvatin = "";
+
+    var minValueCorrect = "";
+    var maxValueCorrect = "";
+
+    var rowsPerPage = 0
+
+    $('#invoiceSearchResults').load(url, {
+        invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
+        vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
+        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "prev", rowsPerPage: rowsPerPage
+    });
+
+})
+
+$('#invoiceSearchResults').on('click', '#nextPageButton', function () {
+
+    var url = "/Home/SearchInvoice";
+
+    var invNumber = "";
+    var title = "";
+
+    var start = "";
+    var end = "";
+
+    var vname = "";
+    var vlastname = "";
+    var vcompany = "";
+    var vvatin = "";
+
+    var bname = "";
+    var blastname = "";
+    var bcompany = "";
+    var bvatin = "";
+
+    var minValueCorrect = "";
+    var maxValueCorrect = "";
+
+    var rowsPerPage = 0
+
+    $('#invoiceSearchResults').load(url, {
+        invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
+        vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
+        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "next", rowsPerPage: rowsPerPage
+    });
+})
