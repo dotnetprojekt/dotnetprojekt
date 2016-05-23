@@ -1,0 +1,2340 @@
+<?xml version="1.0"?>
+<UITest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Id="3efe829a-76df-439e-af0d-8d5c62727a1e" AssemblyVersion="10.0.21008.0" Version="1.0" xmlns="http://schemas.microsoft.com/VisualStudio/TeamTest/UITest/2010">
+  <Configuration>
+    <Group Name="IE">
+      <Setting Name="Version" Value="9.11.9600.18321" WarningLevel="1" />
+      <Setting Name="InformationBar" WarningLevel="1" />
+      <Setting Name="AutoCompletePassword" WarningLevel="1" />
+      <Setting Name="AutoCompleteForm" Value="no" WarningLevel="1" />
+      <Setting Name="DefaultBrowser" Value="IEXPLORE.EXE" WarningLevel="1" />
+      <Setting Name="PopupBlocker" Value="yes" WarningLevel="1" />
+      <Setting Name="TabbedBrowsing" WarningLevel="2" />
+      <Setting Name="InternetZoneSecurity" Value="66816" WarningLevel="2" />
+      <Setting Name="IntranetZoneSecurity" Value="69632" WarningLevel="2" />
+      <Setting Name="TrustedZoneSecurity" Value="70912" WarningLevel="2" />
+      <Setting Name="RestrictedZoneSecurity" Value="73728" WarningLevel="2" />
+      <Setting Name="PhishingFilter" WarningLevel="1" />
+      <Setting Name="EnhancedSecurityConfiguration" WarningLevel="1" />
+    </Group>
+    <Group Name="OS">
+      <Setting Name="Name" Value="Microsoft Windows 8.1 Pro" WarningLevel="2" />
+      <Setting Name="Version" Value="Microsoft Windows NT 6.3.9600.0" WarningLevel="2" />
+      <Setting Name="IsUserAdmin" Value="False" WarningLevel="2" />
+      <Setting Name="Is64BitOperatingSystem" Value="True" WarningLevel="2" />
+      <Setting Name="IsTerminalServerSession" Value="False" WarningLevel="2" />
+      <Setting Name="OSLanguage" Value="1045" WarningLevel="1" />
+      <Setting Name="UserLocale" Value="1045" WarningLevel="1" />
+      <Setting Name="DragFullWindows" Value="True" WarningLevel="2" />
+      <Setting Name="ScreenResolutionWidth" Value="1366" WarningLevel="2" />
+      <Setting Name="ScreenResolutionHeight" Value="768" WarningLevel="2" />
+      <Setting Name="SystemDPIX" Value="96" WarningLevel="2" />
+      <Setting Name="SystemDPIY" Value="96" WarningLevel="2" />
+      <Setting Name="Aero" Value="1" WarningLevel="1" />
+      <Setting Name="UACEnabled" Value="1" WarningLevel="2" />
+      <Setting Name="UACPromptEnabled" Value="0" WarningLevel="1" />
+    </Group>
+    <Group Name="TechnologyManagers" />
+  </Configuration>
+  <InitializeActions />
+  <ExecuteActions>
+    <SetValueAction UIObjectName="UIMapInvoices.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UILoginEdit">
+      <ParameterName />
+      <Value Encoded="false">admin@admin.com</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMapInvoices.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UILoginEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UIPasswordEdit">
+      <ParameterName />
+      <Value Encoded="true">QWwOodIXpSM441BCNCWNvH9k+8fhegdI</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UILogowanieSystemzarząWindow.UILogowanieSystemzarząDocument.UILogInFormCustom.UILogInButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="39" Y="21" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="invoicesLoginAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIDodajfakturęHyperlink">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="62" Y="23" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="addInvoiceAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIDodajpartneraHyperlink">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="41" Y="17" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIAddPartnerSystemzarzDocument.UIFirstNameEdit">
+      <ParameterName />
+      <Value Encoded="false">PartnerName - Invoice test</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIAddPartnerSystemzarzDocument.UILastNameEdit">
+      <ParameterName />
+      <Value Encoded="false">PartnerLastName - Invoice test</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIAddPartnerSystemzarzDocument.UICompanyNameEdit">
+      <ParameterName />
+      <Value Encoded="false">Company - Invoice test</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIAddPartnerSystemzarzDocument.UIVATINEdit">
+      <ParameterName />
+      <Value Encoded="false">1234567890</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIAddPartnerSystemzarzDocument.UIAddressEdit">
+      <ParameterName />
+      <Value Encoded="false">Address - InvoiceTest</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIAddPartnerSystemzarzDocument.UIDodajButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="48" Y="19" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="addPartnerInvoiceAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UITitleEdit">
+      <ParameterName />
+      <Value Encoded="false">TestInvoiceTitle</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIVfirstnameEdit">
+      <ParameterName />
+      <Value Encoded="false">PartnerName - Invoice test</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UISzukajButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="24" Y="18" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIPartnerNameInvoiceteCell">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="72" Y="24" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIBfirstnameEdit">
+      <ParameterName />
+      <Value Encoded="false">PartnerName - Invoice test</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UISzukajButton1">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="20" Y="15" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIPartnerNameInvoiceteCell1">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="53" Y="28" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0nameEdit">
+      <ParameterName />
+      <Value Encoded="false">Product1</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0amountEdit">
+      <ParameterName />
+      <Value Encoded="false">1</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0priceEdit">
+      <ParameterName />
+      <Value Encoded="false">10</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0taxEdit">
+      <ParameterName />
+      <Value Encoded="false">0.23</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UISearchInvoiceFormCustom.UINazwaIlośćCenajednosPane">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="508" Y="126" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIDodajproduktButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="78" Y="15" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1nameEdit">
+      <ParameterName />
+      <Value Encoded="false">Product2</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1amountEdit">
+      <ParameterName />
+      <Value Encoded="false">2</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1priceEdit">
+      <ParameterName />
+      <Value Encoded="false">15</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1taxEdit">
+      <ParameterName />
+      <Value Encoded="false">0.13</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UISearchInvoiceFormCustom.UINazwaIlośćCenajednosPane">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="534" Y="191" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIDodajproduktButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="45" Y="14" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2nameEdit">
+      <ParameterName />
+      <Value Encoded="false">Product3</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2amountEdit">
+      <ParameterName />
+      <Value Encoded="false">10</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2priceEdit">
+      <ParameterName />
+      <Value Encoded="false">8</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2taxEdit">
+      <ParameterName />
+      <Value Encoded="false">0.08</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UISearchInvoiceFormCustom.UINazwaIlośćCenajednosPane">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="527" Y="221" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIDiscountEdit">
+      <ParameterName />
+      <Value Encoded="false">0.1</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UISearchInvoiceFormCustom.UIProduktyNazwaIlośćCePane">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="673" Y="417" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="fillInvoiceFieldsAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UITitleEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIVfirstnameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIBfirstnameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0nameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0amountEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0priceEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0taxEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1nameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1amountEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1priceEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1taxEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2nameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2amountEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2priceEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2taxEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIDiscountEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIInvNumberEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIDateEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIVcompanyEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIVlastnameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIVvatinEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIBlastnameEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIBcompanyEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIBvatinEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0valueEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods0grossEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1valueEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods1grossEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2valueEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIGoods2grossEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UINettoEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIBruttoEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <AssertAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIValueEdit">
+      <ParameterName />
+      <PropertyName>Text</PropertyName>
+      <MessageOnValidationFailure />
+      <PropertyCondition>IsNotNull</PropertyCondition>
+    </AssertAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="invoiceAssertions">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIAddInvoiceSystemzarzWindow.UIAddInvoiceSystemzarzDocument.UIDodajButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="47" Y="10" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="invoiceSubmitAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIInvNumberEdit">
+      <ParameterName />
+      <Value Encoded="false">INV_123</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UISzukajButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="39" Y="22" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="searchInvoiceAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <StringAssertAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument">
+      <ParameterName />
+      <PropertyName>InnerText</PropertyName>
+      <ExpectedValue>INV</ExpectedValue>
+      <MessageOnValidationFailure />
+      <Comparison>CurrentCulture</Comparison>
+      <PropertyCondition>Contains</PropertyCondition>
+    </StringAssertAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="findInvoiceAssertion">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIResultTableTable.UIINV20160000015Cell">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="32" Y="31" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="openInvoiceDetailsAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <StringAssertAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UINumerINV20160000015DPane">
+      <ParameterName />
+      <PropertyName>InnerText</PropertyName>
+      <ExpectedValue>Numer: INV-2016/0000015</ExpectedValue>
+      <MessageOnValidationFailure />
+      <Comparison>CurrentCulture</Comparison>
+      <PropertyCondition>Contains</PropertyCondition>
+    </StringAssertAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="invoiceDetailsAssertion">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <StringAssertAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIChangeInvoiceStatusCustom">
+      <ParameterName />
+      <PropertyName>InnerText</PropertyName>
+      <ExpectedValue>Faktura nieopłacona</ExpectedValue>
+      <MessageOnValidationFailure />
+      <Comparison>CurrentCulture</Comparison>
+      <PropertyCondition>Contains</PropertyCondition>
+    </StringAssertAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="invoiceStatusAssertion">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIZmieństatusnaopłaconButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="79" Y="8" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="changeStatusAction">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <StringAssertAction UIObjectName="UIMapInvoices.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UINumerINV20160000030DPane">
+      <ParameterName />
+      <PropertyName>InnerText</PropertyName>
+      <ExpectedValue>Faktura opłacona</ExpectedValue>
+      <MessageOnValidationFailure />
+      <Comparison>CurrentCulture</Comparison>
+      <PropertyCondition>Contains</PropertyCondition>
+    </StringAssertAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="invoicePaidStatusAssertion">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Assertion</MarkerRegionType>
+    </TestStepMarkerAction>
+  </ExecuteActions>
+  <CleanupActions />
+  <OnErrorActions />
+  <Maps>
+    <UIMap Id="UIMapInvoices">
+      <TopLevelWindows>
+        <TopLevelWindow ControlType="Window" Id="UILogowanieSystemzarząWindow" FriendlyName="Logowanie - System zarządzania fakturami - Interne..." SpecialControlType="BrowserWindow" SessionId="66850">
+          <TechnologyName>MSAA</TechnologyName>
+          <WindowTitles>
+            <WindowTitle>Logowanie - System zarządzania fakturami</WindowTitle>
+          </WindowTitles>
+          <SearchConfigurations>
+            <SearchConfiguration>VisibleOnly</SearchConfiguration>
+          </SearchConfigurations>
+          <AndCondition Id="SearchCondition">
+            <PropertyCondition Name="Name">Logowanie - System zarządzania fakturami</PropertyCondition>
+            <PropertyCondition Name="ClassName">IEFrame</PropertyCondition>
+            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+          </AndCondition>
+          <SupportLevel>0</SupportLevel>
+          <Descendants>
+            <UIObject ControlType="Document" Id="UILogowanieSystemzarząDocument" FriendlyName="Logowanie - System zarządzania fakturami" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Logowanie - System zarządzania fakturami</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="Id" />
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">Logowanie - System zarządzania fakturami</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/auth/login</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://localhost:56133/auth/login?ReturnUrl=%2F</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Edit" Id="UILoginEdit" FriendlyName="login" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Logowanie - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">login</PropertyCondition>
+                      <PropertyCondition Name="Name">login</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="login" class="input-sm form-contro</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIPasswordEdit" FriendlyName="Password" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Logowanie - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">Password</PropertyCondition>
+                      <PropertyCondition Name="Name">Password</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">PASSWORD</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="Password" class="input-sm form-con</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Custom" Id="UILogInFormCustom" FriendlyName="logInForm" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Logowanie - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Custom</PropertyCondition>
+                      <PropertyCondition Name="TagName">FORM</PropertyCondition>
+                      <PropertyCondition Name="Id">logInForm</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Class">form-inline</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="form-inline" id="logInForm" actio</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants>
+                    <UIObject ControlType="Button" Id="UILogInButton" FriendlyName="Log In" SpecialControlType="None">
+                      <TechnologyName>Web</TechnologyName>
+                      <WindowTitles>
+                        <WindowTitle>Logowanie - System zarządzania fakturami</WindowTitle>
+                      </WindowTitles>
+                      <AndCondition Id="SearchCondition">
+                        <AndCondition Id="Primary">
+                          <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                          <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                          <PropertyCondition Name="Id" />
+                          <PropertyCondition Name="Name" />
+                          <PropertyCondition Name="DisplayText">Log In</PropertyCondition>
+                          <PropertyCondition Name="Type">submit</PropertyCondition>
+                        </AndCondition>
+                        <FilterCondition Id="Secondary">
+                          <PropertyCondition Name="Title" />
+                          <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                          <PropertyCondition Name="ControlDefinition">class="btn margin-top-10 margin-bottom-1</PropertyCondition>
+                          <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                        </FilterCondition>
+                      </AndCondition>
+                      <SupportLevel>0</SupportLevel>
+                      <Descendants />
+                    </UIObject>
+                  </Descendants>
+                </UIObject>
+              </Descendants>
+            </UIObject>
+          </Descendants>
+        </TopLevelWindow>
+        <TopLevelWindow ControlType="Window" Id="UIWyszukiwarkafakturSyWindow" FriendlyName="Wyszukiwarka faktur - System zarządzania fakturami..." SpecialControlType="BrowserWindow" SessionId="66850">
+          <TechnologyName>MSAA</TechnologyName>
+          <WindowTitles>
+            <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+            <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+          </WindowTitles>
+          <SearchConfigurations>
+            <SearchConfiguration>VisibleOnly</SearchConfiguration>
+          </SearchConfigurations>
+          <AndCondition Id="SearchCondition">
+            <PropertyCondition Name="Name">Wyszukiwarka faktur - System zarządzania fakturami</PropertyCondition>
+            <PropertyCondition Name="ClassName">IEFrame</PropertyCondition>
+            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+          </AndCondition>
+          <SupportLevel>0</SupportLevel>
+          <Descendants>
+            <UIObject ControlType="Document" Id="UIWyszukiwarkafakturSyDocument" FriendlyName="Wyszukiwarka faktur - System zarządzania fakturami" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="Id" />
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">Wyszukiwarka faktur - System zarządzania fakturami</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://localhost:56133/</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Hyperlink" Id="UIDodajfakturęHyperlink" FriendlyName="Dodaj fakturę" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Hyperlink</PropertyCondition>
+                      <PropertyCondition Name="TagName">A</PropertyCondition>
+                      <PropertyCondition Name="Id" />
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="Target" />
+                      <PropertyCondition Name="InnerText">Dodaj fakturę</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="AbsolutePath">/Home/AddInvoice</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Href">http://localhost:56133/Home/AddInvoice</PropertyCondition>
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">href="/Home/AddInvoice"</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Hyperlink" Id="UIDodajpartneraHyperlink" FriendlyName="Dodaj partnera" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Hyperlink</PropertyCondition>
+                      <PropertyCondition Name="TagName">A</PropertyCondition>
+                      <PropertyCondition Name="Id" />
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="Target" />
+                      <PropertyCondition Name="InnerText">Dodaj partnera</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="AbsolutePath">/Home/AddPartner</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Href">http://localhost:56133/Home/AddPartner</PropertyCondition>
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">href="/Home/AddPartner"</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">3</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIInvNumberEdit" FriendlyName="invNumber" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">invNumber</PropertyCondition>
+                      <PropertyCondition Name="Name">invNumber</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="invNumber" class="input-sm form-co</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="UISzukajButton" FriendlyName="Szukaj" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">searchForInvoicesButton</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="DisplayText">Szukaj</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="btn margin-top-10 margin-bottom-1</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Table" Id="UIResultTableTable" FriendlyName="resultTable" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Table</PropertyCondition>
+                      <PropertyCondition Name="TagName">TABLE</PropertyCondition>
+                      <PropertyCondition Name="Id">resultTable</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="InnerText">Numer
+
+Tytuł
+
+Data
+
+Sprzedawca
+
+</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="table table-striped table-hover margin-top-10" id="resultTable"</PropertyCondition>
+                      <PropertyCondition Name="RowCount">2</PropertyCondition>
+                      <PropertyCondition Name="ColumnCount">7</PropertyCondition>
+                      <PropertyCondition Name="Class">table table-striped table-hover margin-top-10</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants>
+                    <UIObject ControlType="Cell" Id="UIINV20160000015Cell" FriendlyName="INV-2016/0000015" SpecialControlType="None">
+                      <TechnologyName>Web</TechnologyName>
+                      <WindowTitles>
+                        <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                      </WindowTitles>
+                      <AndCondition Id="SearchCondition">
+                        <AndCondition Id="Primary">
+                          <PropertyCondition Name="ControlType">Cell</PropertyCondition>
+                          <PropertyCondition Name="TagName">TH</PropertyCondition>
+                          <PropertyCondition Name="Id" />
+                          <PropertyCondition Name="Name" />
+                          <PropertyCondition Name="MaxDepth">3</PropertyCondition>
+                          <PropertyCondition Name="InnerText">INV-2016/0000015</PropertyCondition>
+                        </AndCondition>
+                        <FilterCondition Id="Secondary">
+                          <PropertyCondition Name="ControlDefinition" />
+                          <PropertyCondition Name="RowIndex">1</PropertyCondition>
+                          <PropertyCondition Name="ColumnIndex">0</PropertyCondition>
+                          <PropertyCondition Name="Class" />
+                          <PropertyCondition Name="TagInstance">8</PropertyCondition>
+                        </FilterCondition>
+                      </AndCondition>
+                      <SupportLevel>0</SupportLevel>
+                      <Descendants />
+                    </UIObject>
+                  </Descendants>
+                </UIObject>
+                <UIObject ControlType="Pane" Id="UINumerINV20160000015DPane" FriendlyName="Numer: INV-2016/0000015 Data: 2016-0" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Pane</PropertyCondition>
+                      <PropertyCondition Name="TagName">DIV</PropertyCondition>
+                      <PropertyCondition Name="Id" />
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="InnerText">Numer: INV-2016/0000015
+
+ Data: 2016-0</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition" />
+                      <PropertyCondition Name="TagInstance">10</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Custom" Id="UIChangeInvoiceStatusCustom" FriendlyName="changeInvoiceStatus" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Custom</PropertyCondition>
+                      <PropertyCondition Name="TagName">FORM</PropertyCondition>
+                      <PropertyCondition Name="Id">changeInvoiceStatus</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Class">form-inline</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="form-inline" id="changeInvoiceSta</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="UIZmieństatusnaopłaconButton" FriendlyName="Zmień status na opłaconą" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">changeStatus</PropertyCondition>
+                      <PropertyCondition Name="Name">submitButton</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText">Zmień status na opłaconą</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="submitButton" class="btn margin-to</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">3</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Pane" Id="UINumerINV20160000030DPane" FriendlyName="Numer: INV-2016/0000030 Data: 2016-0" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Pane</PropertyCondition>
+                      <PropertyCondition Name="TagName">DIV</PropertyCondition>
+                      <PropertyCondition Name="Id" />
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="InnerText">Numer: INV-2016/0000030
+
+ Data: 2016-0</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition" />
+                      <PropertyCondition Name="TagInstance">10</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Document" Id="UIAddPartnerSystemzarzDocument" FriendlyName="AddPartner - System zarządzania fakturami" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="Id" />
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">AddPartner - System zarządzania fakturami</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/Home/AddPartner</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://localhost:56133/Home/AddPartner</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Edit" Id="UIFirstNameEdit" FriendlyName="firstName" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">firstName</PropertyCondition>
+                      <PropertyCondition Name="Name">firstName</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="firstName" class="input-sm form-co</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UILastNameEdit" FriendlyName="lastName" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">lastName</PropertyCondition>
+                      <PropertyCondition Name="Name">lastName</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="lastName" class="input-sm form-con</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UICompanyNameEdit" FriendlyName="companyName" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">companyName</PropertyCondition>
+                      <PropertyCondition Name="Name">companyName</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="companyName" class="input-sm form-</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">3</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIVATINEdit" FriendlyName="VATIN" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">vatin</PropertyCondition>
+                      <PropertyCondition Name="Name">vatin</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy">VATIN</PropertyCondition>
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="vatin" class="input-sm form-contro</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">4</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIAddressEdit" FriendlyName="address" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">address</PropertyCondition>
+                      <PropertyCondition Name="Name">address</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="address" class="input-sm form-cont</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">5</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="UIDodajButton" FriendlyName="Dodaj" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddPartner - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">searchButton</PropertyCondition>
+                      <PropertyCondition Name="Name">searchButton</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText">Dodaj</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="searchButton" class="btn margin-to</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+          </Descendants>
+        </TopLevelWindow>
+        <TopLevelWindow ControlType="Window" Id="UIAddInvoiceSystemzarzWindow" FriendlyName="AddInvoice - System zarządzania fakturami - Intern..." SpecialControlType="BrowserWindow" SessionId="66850">
+          <TechnologyName>MSAA</TechnologyName>
+          <WindowTitles>
+            <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+          </WindowTitles>
+          <SearchConfigurations>
+            <SearchConfiguration>VisibleOnly</SearchConfiguration>
+          </SearchConfigurations>
+          <AndCondition Id="SearchCondition">
+            <PropertyCondition Name="Name">AddInvoice - System zarządzania fakturami</PropertyCondition>
+            <PropertyCondition Name="ClassName">IEFrame</PropertyCondition>
+            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+          </AndCondition>
+          <SupportLevel>0</SupportLevel>
+          <Descendants>
+            <UIObject ControlType="Document" Id="UIAddInvoiceSystemzarzDocument" FriendlyName="AddInvoice - System zarządzania fakturami" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="Id" />
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">AddInvoice - System zarządzania fakturami</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/Home/AddInvoice</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://localhost:56133/Home/AddInvoice</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Edit" Id="UITitleEdit" FriendlyName="title" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">title</PropertyCondition>
+                      <PropertyCondition Name="Name">title</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="title" class="input-sm form-contro</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">3</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIVfirstnameEdit" FriendlyName="vfirstname" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">vfirstname</PropertyCondition>
+                      <PropertyCondition Name="Name">vfirstname</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="vfirstname" class="input-sm form-c</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">4</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="UISzukajButton" FriendlyName="Szukaj" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">getVendors</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="DisplayText">Szukaj</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="btn margin-top-10 margin-bottom-1</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Cell" Id="UIPartnerNameInvoiceteCell" FriendlyName="PartnerName - Invoice test" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Cell</PropertyCondition>
+                      <PropertyCondition Name="TagName">TD</PropertyCondition>
+                      <PropertyCondition Name="Id">vfirstname_0</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="InnerText">PartnerName - Invoice test</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="ControlDefinition">id="vfirstname_0"</PropertyCondition>
+                      <PropertyCondition Name="RowIndex">1</PropertyCondition>
+                      <PropertyCondition Name="ColumnIndex">0</PropertyCondition>
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="TagInstance">5</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIBfirstnameEdit" FriendlyName="bfirstname" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">bfirstname</PropertyCondition>
+                      <PropertyCondition Name="Name">bfirstname</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="bfirstname" class="input-sm form-c</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">8</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="UISzukajButton1" FriendlyName="Szukaj" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">getBuyers</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="DisplayText">Szukaj</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="btn margin-top-10 margin-bottom-1</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">3</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Cell" Id="UIPartnerNameInvoiceteCell1" FriendlyName="PartnerName - Invoice test" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Cell</PropertyCondition>
+                      <PropertyCondition Name="TagName">TD</PropertyCondition>
+                      <PropertyCondition Name="Id">bfirstname_1</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="InnerText">PartnerName - Invoice test</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="ControlDefinition">id="bfirstname_1"</PropertyCondition>
+                      <PropertyCondition Name="RowIndex">2</PropertyCondition>
+                      <PropertyCondition Name="ColumnIndex">0</PropertyCondition>
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="TagInstance">33</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods0nameEdit" FriendlyName="goods[0].name" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_0__name</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[0].name</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[0].name" class="input-sm for</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">12</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods0amountEdit" FriendlyName="goods[0].amount" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_0__amount</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[0].amount</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[0].amount" class="input-sm f</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">13</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods0priceEdit" FriendlyName="goods[0].price" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_0__price</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[0].price</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[0].price" class="input-sm fo</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">14</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods0taxEdit" FriendlyName="goods[0].tax" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_0__tax</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[0].tax</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[0].tax" class="input-sm form</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">15</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Custom" Id="UISearchInvoiceFormCustom" FriendlyName="searchInvoiceForm" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Custom</PropertyCondition>
+                      <PropertyCondition Name="TagName">FORM</PropertyCondition>
+                      <PropertyCondition Name="Id">searchInvoiceForm</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Class">form-inline</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="form-inline" id="searchInvoiceFor</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants>
+                    <UIObject ControlType="Pane" Id="UINazwaIlośćCenajednosPane" FriendlyName="Nazwa Ilość Cena jednostkowa Po" SpecialControlType="None">
+                      <TechnologyName>Web</TechnologyName>
+                      <WindowTitles>
+                        <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                      </WindowTitles>
+                      <AndCondition Id="SearchCondition">
+                        <AndCondition Id="Primary">
+                          <PropertyCondition Name="ControlType">Pane</PropertyCondition>
+                          <PropertyCondition Name="TagName">DIV</PropertyCondition>
+                          <PropertyCondition Name="Id" />
+                          <PropertyCondition Name="Name" />
+                        </AndCondition>
+                        <FilterCondition Id="Secondary">
+                          <PropertyCondition Name="InnerText">Nazwa
+
+Ilość
+
+Cena jednostkowa
+
+Po</PropertyCondition>
+                          <PropertyCondition Name="Title" />
+                          <PropertyCondition Name="Class" />
+                          <PropertyCondition Name="ControlDefinition" />
+                          <PropertyCondition Name="TagInstance">17</PropertyCondition>
+                        </FilterCondition>
+                      </AndCondition>
+                      <SupportLevel>0</SupportLevel>
+                      <Descendants />
+                    </UIObject>
+                    <UIObject ControlType="Pane" Id="UIProduktyNazwaIlośćCePane" FriendlyName="Produkty Nazwa Ilość Cena " SpecialControlType="None">
+                      <TechnologyName>Web</TechnologyName>
+                      <WindowTitles>
+                        <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                      </WindowTitles>
+                      <AndCondition Id="SearchCondition">
+                        <AndCondition Id="Primary">
+                          <PropertyCondition Name="ControlType">Pane</PropertyCondition>
+                          <PropertyCondition Name="TagName">DIV</PropertyCondition>
+                          <PropertyCondition Name="Id" />
+                          <PropertyCondition Name="Name" />
+                        </AndCondition>
+                        <FilterCondition Id="Secondary">
+                          <PropertyCondition Name="InnerText">Produkty 
+
+
+
+Nazwa
+
+Ilość
+
+Cena </PropertyCondition>
+                          <PropertyCondition Name="Title" />
+                          <PropertyCondition Name="Class">col-xs-8 pull-left margin-top-40</PropertyCondition>
+                          <PropertyCondition Name="ControlDefinition">class="col-xs-8 pull-left margin-top-40"</PropertyCondition>
+                          <PropertyCondition Name="TagInstance">16</PropertyCondition>
+                        </FilterCondition>
+                      </AndCondition>
+                      <SupportLevel>0</SupportLevel>
+                      <Descendants />
+                    </UIObject>
+                  </Descendants>
+                </UIObject>
+                <UIObject ControlType="Button" Id="UIDodajproduktButton" FriendlyName="Dodaj produkt" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">addRow</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="DisplayText">Dodaj produkt</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">class="btn margin-top-10 margin-bottom-1</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">4</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods1nameEdit" FriendlyName="goods[1].name" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_1__name</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[1].name</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[1].name" class="input-sm for</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">18</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods1amountEdit" FriendlyName="goods[1].amount" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_1__amount</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[1].amount</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[1].amount" class="input-sm f</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">19</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods1priceEdit" FriendlyName="goods[1].price" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_1__price</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[1].price</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[1].price" class="input-sm fo</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">20</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods1taxEdit" FriendlyName="goods[1].tax" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_1__tax</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[1].tax</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[1].tax" class="input-sm form</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">21</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods2nameEdit" FriendlyName="goods[2].name" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_2__name</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[2].name</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[2].name" class="input-sm for</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">24</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods2amountEdit" FriendlyName="goods[2].amount" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_2__amount</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[2].amount</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[2].amount" class="input-sm f</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">25</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods2priceEdit" FriendlyName="goods[2].price" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_2__price</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[2].price</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[2].price" class="input-sm fo</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">26</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods2taxEdit" FriendlyName="goods[2].tax" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_2__tax</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[2].tax</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[2].tax" class="input-sm form</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">27</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIDiscountEdit" FriendlyName="discount" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">discount</PropertyCondition>
+                      <PropertyCondition Name="Name">discount</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="discount" class="input-sm form-con</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">32</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIInvNumberEdit" FriendlyName="invNumber" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">invNumber</PropertyCondition>
+                      <PropertyCondition Name="Name">invNumber</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="invNumber" class="input-sm form-co</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIDateEdit" FriendlyName="date" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">date</PropertyCondition>
+                      <PropertyCondition Name="Name">date</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="date" class="input-sm form-control</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">2</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIVlastnameEdit" FriendlyName="vlastname" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">vlastname</PropertyCondition>
+                      <PropertyCondition Name="Name">vlastname</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="vlastname" class="input-sm form-co</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">5</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIVcompanyEdit" FriendlyName="vcompany" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">vcompany</PropertyCondition>
+                      <PropertyCondition Name="Name">vcompany</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="vcompany" class="input-sm form-con</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">6</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIVvatinEdit" FriendlyName="vvatin" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">vvatin</PropertyCondition>
+                      <PropertyCondition Name="Name">vvatin</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="vvatin" class="input-sm form-contr</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">7</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIBlastnameEdit" FriendlyName="blastname" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">blastname</PropertyCondition>
+                      <PropertyCondition Name="Name">blastname</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="blastname" class="input-sm form-co</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">9</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIBcompanyEdit" FriendlyName="bcompany" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">bcompany</PropertyCondition>
+                      <PropertyCondition Name="Name">bcompany</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="bcompany" class="input-sm form-con</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">10</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIBvatinEdit" FriendlyName="bvatin" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">bvatin</PropertyCondition>
+                      <PropertyCondition Name="Name">bvatin</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="bvatin" class="input-sm form-contr</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">11</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods0valueEdit" FriendlyName="goods[0].value" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_0__value</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[0].value</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[0].value" disabled="True" cl</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">16</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods0grossEdit" FriendlyName="goods[0].gross" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_0__gross</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[0].gross</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[0].gross" disabled="True" cl</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">17</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods1valueEdit" FriendlyName="goods[1].value" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_1__value</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[1].value</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[1].value" disabled="True" cl</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">22</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods1grossEdit" FriendlyName="goods[1].gross" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_1__gross</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[1].gross</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[1].gross" disabled="True" cl</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">23</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods2valueEdit" FriendlyName="goods[2].value" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_2__value</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[2].value</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[2].value" disabled="True" cl</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">28</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIGoods2grossEdit" FriendlyName="goods[2].gross" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">goods_2__gross</PropertyCondition>
+                      <PropertyCondition Name="Name">goods[2].gross</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control goods-data</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="goods[2].gross" disabled="True" cl</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">29</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UINettoEdit" FriendlyName="netto" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">netto</PropertyCondition>
+                      <PropertyCondition Name="Name">netto</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="netto" class="input-sm form-contro</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">30</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIBruttoEdit" FriendlyName="brutto" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">brutto</PropertyCondition>
+                      <PropertyCondition Name="Name">brutto</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="brutto" class="input-sm form-contr</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">31</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="UIValueEdit" FriendlyName="value" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                      <PropertyCondition Name="Id">value</PropertyCondition>
+                      <PropertyCondition Name="Name">value</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">input-sm form-control margin-right-10 margin-left-20</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="value" class="input-sm form-contro</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">33</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="UIDodajButton" FriendlyName="Dodaj" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>AddInvoice - System zarządzania fakturami</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="TagName">BUTTON</PropertyCondition>
+                      <PropertyCondition Name="Id">addButton</PropertyCondition>
+                      <PropertyCondition Name="Name">addButton</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText">Dodaj</PropertyCondition>
+                      <PropertyCondition Name="Type">submit</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">btn margin-top-10 margin-bottom-10</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">name="addButton" class="btn margin-top-1</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">7</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+          </Descendants>
+        </TopLevelWindow>
+      </TopLevelWindows>
+    </UIMap>
+  </Maps>
+  <ValueMap>
+    <ParameterList />
+  </ValueMap>
+</UITest>

@@ -1,61 +1,52 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using UserFunctionalTests.UIMapLoginClasses;
 
 
 namespace UserFunctionalTests
 {
     /// <summary>
-    /// Summary description for TC_USER_PARTNER
+    /// Summary description for TC_USER_LOGIN
     /// </summary>
     [CodedUITest]
-    public class TC_USER_PARTNER
+    public class TC_USER_LOGIN
     {
-        public TC_USER_PARTNER()
+        public TC_USER_LOGIN()
         {
         }
 
         [TestMethod]
-        public void TC_USER_PARTNER_001()
+        public void TC_USER_LOGIN_001()
         {
-            /** Dodanie partnera biznesowego */
+            /** Poprawne logowanie użytkownika do Systemu Zarządzania Fakturami */
             BrowserWindow browser = testInit();
-
-            string vatin = this.UIMap.fillAddPartnerParameters();
-            this.UIMap.addPartnerParameterAssertions();
-            this.UIMap.addPartnerSubmitAction();
+            this.UIMapLogin.loginAction();
+            this.UIMapLogin.loginAssertions();
+            this.UIMapLogin.loginSubmitAction();
             Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
-            this.UIMap.listPartnersAction();
-            this.UIMap.vatinAssertion(vatin);
         }
-
-        /*[TestMethod]
-        public void TC_USER_PARTNER_002()
-        {*/
-            /** Partner biznesowy już istnieje */
-            /*BrowserWindow browser = testInit();
-
-            string vatin = this.UIMap.fillAddPartnerParameters();
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.fillTheSecondPartner(vatin);
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.sqlExceptionAssertion();
-        }*/
 
         [TestMethod]
-        public void TC_USER_PARTNER_003()
+        public void TC_USER_LOGIN_002()
         {
-            /** Test widoku wyświetlającego partnerów biznesowych zalogowanego użytkownika. */
+            /** Niepoprawne logowanie użytkownika do Systemu Zarządzania Fakturami - błędny login lub hasło. */
             BrowserWindow browser = testInit();
-
-            string v1 = this.UIMap.addPartnersToSearch();
-            this.UIMap.addPartnerSubmitAction();
-            string v2 = this.UIMap.addSecondPartnerToSearch();
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.findPartnersInTheSameCompanyAction();
-            this.UIMap.companyAssertion(v1, v2);
+            this.UIMapLogin.incorrectLoginAction();
+            this.UIMapLogin.incorrectLoginAssertion();
         }
 
+        [TestMethod]
+        public void TC_USER_LOGIN_003()
+        {
+            /** Wylogowanie się użytkownika z Systemu Zarządzania Fakturami */
+            BrowserWindow browser = testInit();
+            this.UIMapLogin.loginAction();
+            this.UIMapLogin.loginSubmitAction();
+            this.UIMapLogin.logoutAction();
+            this.UIMapLogin.logoutAssertion();
+
+        }
 
         private BrowserWindow testInit()
         {
@@ -66,8 +57,9 @@ namespace UserFunctionalTests
             Playback.PlaybackSettings.SearchTimeout = 1000;
 
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-            return BrowserWindow.Launch(new System.Uri("http://localhost:56133/"));
+            return BrowserWindow.Launch(new System.Uri("http://localhost:56133/auth/login?ReturnUrl=%2F"));
         }
+
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:
@@ -100,19 +92,19 @@ namespace UserFunctionalTests
 
         private TestContext testContextInstance;
 
-        public UIMap UIMap
+        public UIMapLogin UIMapLogin
         {
             get
             {
                 if ((this.map == null))
                 {
-                    this.map = new UIMap();
+                    this.map = new UIMapLogin();
                 }
 
                 return this.map;
             }
         }
 
-        private UIMap map;
+        private UIMapLogin map;
     }
 }
