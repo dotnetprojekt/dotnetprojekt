@@ -1,0 +1,7 @@
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\bin\Debug\AdminAndAuthTest.dll
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\bin\Debug\AdminAndAuthTest.pdb
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\bin\Debug\AdminAndAuthTest.xml
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\obj\Debug\AdminAndAuthTest.vbprojResolveAssemblyReference.cache
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\obj\Debug\AdminAndAuthTest.dll
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\obj\Debug\AdminAndAuthTest.xml
+H:\Programy\dotNet\projekt\dotnetprojekt\app\AdminAndAuthTest\AdminAndAuthTest\obj\Debug\AdminAndAuthTest.pdb

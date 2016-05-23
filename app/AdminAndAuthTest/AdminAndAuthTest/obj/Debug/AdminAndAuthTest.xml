@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AdminAndAuthTest
+</name>
+</assembly>
+<members>
+<member name="P:AdminAndAuthTest.CodedUITest1.TestContext">
+<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member>
+<member name="P:AdminAndAuthTest.CodedUITest2.TestContext">
+<summary>
+Gets or sets the test context which provides
+information about and functionality for the current test run.
+</summary>
+</member>
+</members>
+</doc>
