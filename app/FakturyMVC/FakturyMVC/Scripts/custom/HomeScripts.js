@@ -17,8 +17,8 @@
     //CountPrice();
     ChangeCommasToDot();
 
-    PrevPageButtonClicked();
-    NextPageButtonClicked();
+    //PrevPageButtonClicked();
+    //NextPageButtonClicked();
 
 });
 
@@ -207,8 +207,9 @@ function SearchPartners() {
     var url = "/Home/SearchPartnerResults";
     
     $('#searchForPartnersButton').click(function () {
-        $('#rowsPerPageField').show();
-        $('#rowsPerPageFieldLabel').show();
+        // UNCOMMENT FOR PAGING
+        //$('#rowsPerPageField').show();
+        //$('#rowsPerPageFieldLabel').show();
 
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();
@@ -448,38 +449,33 @@ function ChangeCommasToDot() {
 
 //////////////////////
 
-function PrevPageButtonClicked() {
+$('#partnerSearchResults').on('click', '#prevPageButton', function () {
 
     var url = "/Home/SearchPartnerResults";
-    
-    $('#prevPageButton').click(function () {
-        var firstName = "";
-        var lastName = "";
-        var companyName = "";
-        var vatin = "";
-        var rowsPerPage = 0;
-        $('#partnerSearchResults').load(url, {
-            firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
-            page: "prev", rowsPerPage: rowsPerPage
-        });
-    })
+    var firstName = "";
+    var lastName = "";
+    var companyName = "";
+    var vatin = "";
+    var rowsPerPage = 0;
+    $('#partnerSearchResults').load(url, {
+        firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
+        page: "prev", rowsPerPage: rowsPerPage
+    });
+})
 
-}
 
-function NextPageButtonClicked() {
+//function NextPageButtonClicked() {
+$('#partnerSearchResults').on('click', '#nextPageButton', function () {
 
     var url = "/Home/SearchPartnerResults";
+    var firstName = "";
+    var lastName = "";
+    var companyName = "";
+    var vatin = "";
+    var rowsPerPage = 0;
+    $('#partnerSearchResults').load(url, {
+        firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
+        page: "next", rowsPerPage: rowsPerPage
+    });
+})
 
-    $('#nextPageButton').click(function () {
-        var firstName = "";
-        var lastName = "";
-        var companyName = "";
-        var vatin = "";
-        var rowsPerPage = 0;
-        $('#partnerSearchResults').load(url, {
-            firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
-            page: "next", rowsPerPage: rowsPerPage
-        });
-    })
-
-}

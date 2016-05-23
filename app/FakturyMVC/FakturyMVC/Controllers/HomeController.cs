@@ -245,10 +245,17 @@ namespace FakturyMVC.Controllers
 
             List<Partner> partnerList = new List<Partner>();
             partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            // UNCOMMENT FOR PAGING
+            //partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong, pgNumber, rowsPerPage);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
-            model.FirstPage = true;
-            model.LastPage = true;
+            model.FirstPage = false;
+            model.LastPage = false;
+
+            if (pgNumber == 1)
+                model.FirstPage = true;
+            if (pgNumber == 2)
+                model.LastPage = true;
 
             return PartialView("SearchPartnersResults", model);
 
