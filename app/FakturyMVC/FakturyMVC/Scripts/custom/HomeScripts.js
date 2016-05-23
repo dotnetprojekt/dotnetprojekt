@@ -141,8 +141,12 @@ function ValidateVatin() {
     $('#vatin').focusout(function () {
 
         var vatin = $('#vatin').val();
-        if (!(/^\d+$/.test(vatin)))
+        if ( (!(/^\d+$/.test(vatin)) || Number(vatin) < 0) && vatin.toString().length > 0)
+        {
             $('#vatin').val("");
+            alert("Wartość pola musi być liczbą całkowitą większą od 0");
+        }
+            
 
     })
 }
@@ -152,8 +156,12 @@ function ValidateVendorVatin() {
     $('#vvatin').focusout(function () {
 
         var vatin = $('#vvatin').val();
-        if (!(/^\d+$/.test(vatin)))
+        if ( (!(/^\d+$/.test(vatin)) || Number(vatin) < 0) && vatin.toString().length > 0)
+        {
             $('#vvatin').val("");
+            alert("Wartość pola musi być liczbą całkowitą większą od 0");
+        }
+            
 
     })
 }
@@ -163,9 +171,12 @@ function ValidateBuyerVatin() {
     $('#bvatin').focusout(function () {
 
         var vatin = $('#bvatin').val();
-        if (!(/^\d+$/.test(vatin)))
+        if ( (!(/^\d+$/.test(vatin)) || Number(vatin) < 0) && vatin.toString().length > 0)
+        {
             $('#bvatin').val("");
-
+            alert("Wartość pola musi być liczbą całkowitą większą od 0");
+        }
+            
     })
 }
 
@@ -173,10 +184,15 @@ function ValidateMinValue() {
 
     $('#minValue').focusout(function () {
 
-        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var float = /^\s*(\+|-)?((\d+(\,\d+)?)|(\,\d+))\s*$/;
         var vatin = $('#minValue').val();
-        if (!(float.test(vatin)))
+        var tmpVatin = vatin.toString().replace(/\,/g, '.');
+        if ((!(float.test(vatin)) || Number(tmpVatin) < 0) && vatin.length > 0)
+        {
             $('#minValue').val("");
+            alert("Wartość pola musi być liczbą większą od 0");
+        }
+            
 
     })
 }
@@ -185,10 +201,15 @@ function ValidateMaxValue() {
 
     $('#maxValue').focusout(function () {
 
-        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var float = /^\s*(\+|-)?((\d+(\,\d+)?)|(\,\d+))\s*$/;
         var vatin = $('#maxValue').val();
-        if (!(float.test(vatin)))
+        var tmpVatin = vatin.toString().replace(/\,/g, '.');
+        if ((!(float.test(vatin)) || Number(tmpVatin) < 0) && vatin.length > 0)
+        {
             $('#maxValue').val("");
+            alert("Wartość pola musi być liczbą większą od 0");
+        }
+            
 
     })
 }

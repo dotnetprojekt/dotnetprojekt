@@ -31,7 +31,7 @@
             @Html.TextBox("vcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
             <br />
             @Html.Label("Vatin", new { @class = "margin-top-10" })
-            @Html.TextBox("vvatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @type = "number", @min = "0" })
+            @Html.TextBox("vvatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
             <br />
         </div>
 
@@ -47,7 +47,7 @@
             @Html.TextBox("bcompany", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
             <br />
             @Html.Label("Vatin", new { @class = "margin-top-10" })
-            @Html.TextBox("bvatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @type = "number", @min = "0" })
+            @Html.TextBox("bvatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
             <br />
         </div>
 
@@ -60,10 +60,10 @@
         @Html.TextBox("end", "", new { @class = "my-date input-sm form-control margin-right-10 margin-left-20", @placeholder = "End date" })
         <br />
         @Html.Label("Wartość minimalna", new { @class = "margin-top-10" })
-        @Html.TextBox("minValue", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @type = "number", @min = "0", @step = "0.01" })
+        @Html.TextBox("minValue", "", new { @class = "input-sm form-control margin-right-10 margin-left-20"@*, @type = "number", @min = "0", @step = "0.01"*@ })
         <br />
         @Html.Label("Wartość maksymalna", new { @class = "margin-top-10" })
-        @Html.TextBox("maxValue", "", new { @class = "input-sm form-control margin-right-10 margin-left-20", @type = "number", @min = "0", @step="0.01" })
+        @Html.TextBox("maxValue", "", new { @class = "input-sm form-control margin-right-10 margin-left-20"@*, @type = "number", @min = "0", @step="0.01"*@ })
         <br />
         @Html.Label("Ilość wyników na stronie", new { @class = "margin-top-10", @id = "rowsPerPageFieldLabel" })
         @Html.TextBox("rowsPerPageField", 2, new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true", @type = "number", @min = "0" })

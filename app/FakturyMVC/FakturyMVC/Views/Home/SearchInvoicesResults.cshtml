@@ -17,7 +17,7 @@
             <tr id=@Model.InvoiceGeneralsList[i].Id name=@i title="@Model.InvoiceGeneralsList[i].Id">
                 <th>@Model.InvoiceGeneralsList[i].Number</th>
                 <th>@Model.InvoiceGeneralsList[i].Title</th>
-                <th>@Model.InvoiceGeneralsList[i].DateOfIssue</th>
+                <th>@Model.InvoiceGeneralsList[i].DateOfIssue.ToString("dd/MM/yyyy")</th>
                 <th>@Model.InvoiceGeneralsList[i].VendorData</th>
                 <th>@Model.InvoiceGeneralsList[i].BuyerData</th>                
                 <th>@Model.InvoiceGeneralsList[i].OverallCost</th>
