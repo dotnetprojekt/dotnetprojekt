@@ -12,12 +12,24 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
+using System.Web.Security;
 
 namespace FakturyMVC.Controllers
+
 {
     [AllowAnonymous]
     public class AuthController : Controller
     {
+        public AppUserPrincipal CurrentUser
+        {
+            get
+            {
+                return new AppUserPrincipal(this.User as ClaimsPrincipal);
+            }
+        }
 
 
         [HttpGet]
@@ -41,8 +53,7 @@ namespace FakturyMVC.Controllers
             }
 
             List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null, null);
-            //if (UserDAL.UserLogin(model.Login, model.Password))
-            if(tmp.Any())
+            if (UserDAL.Instance.UserLogin(model.Login, model.Password))
             {
                // List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);
                 var identity = new ClaimsIdentity(new[] {
@@ -89,19 +100,6 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            /*List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null);
-            if (tmp.Any())
-            {
-                ModelState.AddModelError("", "Błędny login.");
-                return View();
-            }
-            tmp = UserDAL.Instance.UserSearch(null, null, null, model.Email, null, null);
-            if (tmp.Any())
-            {
-                ModelState.AddModelError("", "Błędny email.");
-                return View();
-            }*/
-
             User tmpUser = new User(model.FirstName, model.LastName, model.Login, model.Password, model.Email, UserStatus.User);
             try
             {
@@ -132,14 +130,8 @@ namespace FakturyMVC.Controllers
         public ActionResult LogOut()
         {
             var identity = (ClaimsIdentity)User.Identity;
-            foreach (var claim in identity.Claims)
-            {
-                if (claim.Type == "NameIdentifier")
-                {
-                    UserDAL.Instance.UserLogout(claim.Value);
-                    break; 
-                }
-            }
+            UserDAL.Instance.UserLogout(CurrentUser.Login);               
+                            
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
 

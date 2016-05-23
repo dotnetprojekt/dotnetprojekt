@@ -17,6 +17,9 @@
     //CountPrice();
     ChangeCommasToDot();
 
+    //PrevPageButtonClicked();
+    //NextPageButtonClicked();
+
 });
 
 $('#invoiceSearchResults').on('click', '#resultTable tbody tr', function () {
@@ -96,6 +99,10 @@ function SearchInvoices() {
     $('#searchForInvoicesButton').click(function (e) {
         e.preventDefault();
 
+        // UNCOMMENT FOR PAGING
+        //$('#rowsPerPageField').show();
+        //$('#rowsPerPageFieldLabel').show();
+
         var invNumber = $('#invNumber').val();
         var title = $('#title').val();
 
@@ -118,35 +125,28 @@ function SearchInvoices() {
         var minValueCorrect = minValue.toString().replace(/\,/g, '.');
         var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
 
+        var rowsPerPage = $('#rowsPerPageField').val();
+
         $('#invoiceSearchResults').load(url, {
             invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
             vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
-            minValue: minValueCorrect, maxValue: maxValueCorrect
+            minValue: minValueCorrect, maxValue: maxValueCorrect, page: "none", rowsPerPage: rowsPerPage
         });
 
     })
 }
-
-/*
-function ValidateInvNumber() {
-
-    $('#invNumber').focusout(function () {
-
-        var invNumber = $('#invNumber').val();
-        if (!(/^\d+$/.test(invNumber)))
-            $('#invNumber').val("");
-
-    })
-}
-*/
 
 function ValidateVatin() {
 
     $('#vatin').focusout(function () {
 
         var vatin = $('#vatin').val();
-        if (!(/^\d+$/.test(vatin)))
+        if ( (!(/^\d+$/.test(vatin)) || Number(vatin) < 0) && vatin.toString().length > 0)
+        {
             $('#vatin').val("");
+            alert("Wartość pola musi być liczbą całkowitą większą od 0");
+        }
+            
 
     })
 }
@@ -156,8 +156,12 @@ function ValidateVendorVatin() {
     $('#vvatin').focusout(function () {
 
         var vatin = $('#vvatin').val();
-        if (!(/^\d+$/.test(vatin)))
+        if ( (!(/^\d+$/.test(vatin)) || Number(vatin) < 0) && vatin.toString().length > 0)
+        {
             $('#vvatin').val("");
+            alert("Wartość pola musi być liczbą całkowitą większą od 0");
+        }
+            
 
     })
 }
@@ -167,9 +171,12 @@ function ValidateBuyerVatin() {
     $('#bvatin').focusout(function () {
 
         var vatin = $('#bvatin').val();
-        if (!(/^\d+$/.test(vatin)))
+        if ( (!(/^\d+$/.test(vatin)) || Number(vatin) < 0) && vatin.toString().length > 0)
+        {
             $('#bvatin').val("");
-
+            alert("Wartość pola musi być liczbą całkowitą większą od 0");
+        }
+            
     })
 }
 
@@ -177,10 +184,15 @@ function ValidateMinValue() {
 
     $('#minValue').focusout(function () {
 
-        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var float = /^\s*(\+|-)?((\d+(\,\d+)?)|(\,\d+))\s*$/;
         var vatin = $('#minValue').val();
-        if (!(float.test(vatin)))
+        var tmpVatin = vatin.toString().replace(/\,/g, '.');
+        if ((!(float.test(vatin)) || Number(tmpVatin) < 0) && vatin.length > 0)
+        {
             $('#minValue').val("");
+            alert("Wartość pola musi być liczbą większą od 0");
+        }
+            
 
     })
 }
@@ -189,10 +201,15 @@ function ValidateMaxValue() {
 
     $('#maxValue').focusout(function () {
 
-        var float = /^\s*(\+|-)?((\d+(\.\d+)?)|(\.\d+))\s*$/;
+        var float = /^\s*(\+|-)?((\d+(\,\d+)?)|(\,\d+))\s*$/;
         var vatin = $('#maxValue').val();
-        if (!(float.test(vatin)))
+        var tmpVatin = vatin.toString().replace(/\,/g, '.');
+        if ((!(float.test(vatin)) || Number(tmpVatin) < 0) && vatin.length > 0)
+        {
             $('#maxValue').val("");
+            alert("Wartość pola musi być liczbą większą od 0");
+        }
+            
 
     })
 }
@@ -202,13 +219,22 @@ function ValidateMaxValue() {
 function SearchPartners() {
 
     var url = "/Home/SearchPartnerResults";
+    
     $('#searchForPartnersButton').click(function () {
+        // UNCOMMENT FOR PAGING
+        //$('#rowsPerPageField').show();
+        //$('#rowsPerPageFieldLabel').show();
+
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();
         var companyName = $('#companyName').val();
         var vatin = $('#vatin').val();
         var address = $('#address').val();
-        $('#partnerSearchResults').load(url, { firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, address: address });
+        var rowsPerPage = $('#rowsPerPageField').val();
+        $('#partnerSearchResults').load(url, {
+            firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, address: address,
+            page: "none", rowsPerPage: rowsPerPage
+        });
     })
 }
 
@@ -434,3 +460,105 @@ function ChangeCommasToDot() {
         });
     })
 }
+
+//////////////////////
+
+$('#partnerSearchResults').on('click', '#prevPageButton', function () {
+
+    var url = "/Home/SearchPartnerResults";
+    var firstName = "";
+    var lastName = "";
+    var companyName = "";
+    var vatin = "";
+    var rowsPerPage = 0;
+    $('#partnerSearchResults').load(url, {
+        firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
+        page: "prev", rowsPerPage: rowsPerPage
+    });
+})
+
+
+//function NextPageButtonClicked() {
+$('#partnerSearchResults').on('click', '#nextPageButton', function () {
+
+    var url = "/Home/SearchPartnerResults";
+    var firstName = "";
+    var lastName = "";
+    var companyName = "";
+    var vatin = "";
+    var rowsPerPage = 0;
+    $('#partnerSearchResults').load(url, {
+        firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
+        page: "next", rowsPerPage: rowsPerPage
+    });
+})
+
+
+
+
+
+
+$('#invoiceSearchResults').on('click', '#prevPageButton', function () {
+
+    var url = "/Home/SearchInvoice";
+
+    var invNumber = "";
+    var title = "";
+
+    var start = "";
+    var end = "";
+
+    var vname = "";
+    var vlastname = "";
+    var vcompany = "";
+    var vvatin = "";
+
+    var bname = "";
+    var blastname = "";
+    var bcompany = "";
+    var bvatin = "";
+
+    var minValueCorrect = "";
+    var maxValueCorrect = "";
+
+    var rowsPerPage = 0
+
+    $('#invoiceSearchResults').load(url, {
+        invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
+        vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
+        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "prev", rowsPerPage: rowsPerPage
+    });
+
+})
+
+$('#invoiceSearchResults').on('click', '#nextPageButton', function () {
+
+    var url = "/Home/SearchInvoice";
+
+    var invNumber = "";
+    var title = "";
+
+    var start = "";
+    var end = "";
+
+    var vname = "";
+    var vlastname = "";
+    var vcompany = "";
+    var vvatin = "";
+
+    var bname = "";
+    var blastname = "";
+    var bcompany = "";
+    var bvatin = "";
+
+    var minValueCorrect = "";
+    var maxValueCorrect = "";
+
+    var rowsPerPage = 0
+
+    $('#invoiceSearchResults').load(url, {
+        invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
+        vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
+        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "next", rowsPerPage: rowsPerPage
+    });
+})

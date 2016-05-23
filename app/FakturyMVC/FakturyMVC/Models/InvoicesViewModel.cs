@@ -18,5 +18,7 @@ namespace FakturyMVC.Models
     {
         //public List<InvoiceApp> Invoices { get; set; }
         public List<InvoiceGenerals> InvoiceGeneralsList { get; set; }
+        public bool FirstPage { get; set; }
+        public bool LastPage { get; set; }
     }
 }

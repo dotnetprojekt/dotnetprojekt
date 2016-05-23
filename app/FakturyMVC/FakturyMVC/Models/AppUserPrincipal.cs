@@ -20,11 +20,11 @@ namespace FakturyMVC.Models
             }
         }
 
-        public string Country
+        public string Login
         {
             get
             {
-                return this.FindFirst(ClaimTypes.Country).Value;
+                return this.FindFirst(ClaimTypes.NameIdentifier).Value;
             }
         }
 

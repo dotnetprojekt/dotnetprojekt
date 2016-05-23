@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Security.Claims;
 
 namespace FakturyMVC.Models
 {
     public class AppUser
     {
+        private ClaimsPrincipal claimsPrincipal;
+
         public int Id { get; set; }
 
         public string Email { get; set; }

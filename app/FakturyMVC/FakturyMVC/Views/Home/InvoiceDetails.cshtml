@@ -8,7 +8,7 @@
 
 <div>
     Numer: <b>@Model.Invoice.Number</b><br /><br />
-    Data: <b>@Model.Invoice.DateOfIssue</b><br /><br />
+    Data: <b>@Model.Invoice.DateOfIssue.ToString("dd/MM/yyyy")</b><br /><br />
     Tytuł: <b>@Model.Invoice.Title</b><br /><br />
 
     <b>Sprzedawca:</b><br />
@@ -39,10 +39,10 @@
                 <tr>
                     <th>@Model.Invoice.GoodsList.ProductList[i].Name</th>
                     <th>@Model.Invoice.GoodsList.ProductList[i].Amount</th>
-                    <th>@Model.Invoice.GoodsList.ProductList[i].UnitPrice</th>
-                    <th>@Model.Invoice.GoodsList.ProductList[i].NetValue</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].UnitPrice.ToString("0.00")</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].NetValue.ToString("0.00")</th>
                     <th>@(Model.Invoice.GoodsList.ProductList[i].Tax*100)%</th>
-                    <th>@Model.Invoice.GoodsList.ProductList[i].GrossValue</th>
+                    <th>@Model.Invoice.GoodsList.ProductList[i].GrossValue.ToString("0.00")</th>
                 </tr>
             }
 
@@ -50,10 +50,10 @@
         </table>
     </div>
 
-    Wartość netto: <b>@Model.Invoice.OverallNet</b><br /><br />
-    Wartość brutto: <b>@Model.Invoice.OverallGross</b><br /><br />
+    Wartość netto: <b>@Model.Invoice.OverallNet.ToString("0.00")</b><br /><br />
+    Wartość brutto: <b>@Model.Invoice.OverallGross.ToString("0.00")</b><br /><br />
     Zniżka: <b>@(Model.Invoice.Discount*100)%</b><br /><br />
-    Podliczona wartość: <b>@Model.Invoice.OverallCost</b><br /><br />
+    Podliczona wartość: <b>@Model.Invoice.OverallCost.ToString("0.00")</b><br /><br />
 
     @if (Model.Invoice.Status == FakturyMVC.Models.DALmodels.InvoiceState.New)
     {
