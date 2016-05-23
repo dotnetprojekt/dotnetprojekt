@@ -200,8 +200,38 @@ namespace FakturyMVC.Controllers
         }
 
         // searching partners - DONE
-        public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin)
+        public ActionResult SearchPartnerResults(string firstName, string lastName, string companyName, string vatin, string page, int rowsPerPage = 0)
         {
+            int pgNumber = 0;
+            if (page == "none")
+                pgNumber = 1;
+            else if (page == "prev")
+            {
+                pgNumber = (int)TempData["pageNumber"] - 1;
+                firstName = (string)TempData["firstName"];
+                lastName = (string)TempData["lastName"];
+                companyName = (string)TempData["companyName"];
+                vatin = (string)TempData["vatin"];
+                rowsPerPage = (int)TempData["rowsPerPage"];
+            }                
+            else if (page == "next")
+            {
+                pgNumber = (int)TempData["pageNumber"] + 1;
+                firstName = (string)TempData["firstName"];
+                lastName = (string)TempData["lastName"];
+                companyName = (string)TempData["companyName"];
+                vatin = (string)TempData["vatin"];
+                rowsPerPage = (int)TempData["rowsPerPage"];
+            }
+
+            TempData["pageNumber"] = pgNumber;
+            TempData["rowsPerPage"] = rowsPerPage;
+
+            TempData["firstName"] = firstName;
+            TempData["lastName"] = lastName;
+            TempData["companyName"] = companyName;
+            TempData["vatin"] = vatin;
+
             if (firstName == "")
                 firstName = null;
             if (lastName == "")
@@ -217,6 +247,8 @@ namespace FakturyMVC.Controllers
             partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList;
+            model.FirstPage = true;
+            model.LastPage = true;
 
             return PartialView("SearchPartnersResults", model);
 

@@ -22,6 +22,9 @@
         @Html.Label("VATIN", new { @class = "margin-top-10" })
         @Html.TextBox("vatin", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })
         <br />
+        @Html.Label("Ilość wyników na stronie", new { @class = "margin-top-10", @id = "rowsPerPageFieldLabel" })
+        @Html.TextBox("rowsPerPageField", 10, new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true", @type = "number", @min = "0" })
+        <br />  
         @*
         @Html.Label("Adres", new { @class = "margin-top-10" })
         @Html.TextBox("address", "", new { @class = "input-sm form-control margin-right-10 margin-left-20" })

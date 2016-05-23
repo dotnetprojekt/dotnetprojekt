@@ -17,6 +17,9 @@
     //CountPrice();
     ChangeCommasToDot();
 
+    PrevPageButtonClicked();
+    NextPageButtonClicked();
+
 });
 
 $('#invoiceSearchResults').on('click', '#resultTable tbody tr', function () {
@@ -202,13 +205,21 @@ function ValidateMaxValue() {
 function SearchPartners() {
 
     var url = "/Home/SearchPartnerResults";
+    
     $('#searchForPartnersButton').click(function () {
+        $('#rowsPerPageField').show();
+        $('#rowsPerPageFieldLabel').show();
+
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();
         var companyName = $('#companyName').val();
         var vatin = $('#vatin').val();
         var address = $('#address').val();
-        $('#partnerSearchResults').load(url, { firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, address: address });
+        var rowsPerPage = $('#rowsPerPageField').val();
+        $('#partnerSearchResults').load(url, {
+            firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, address: address,
+            page: "none", rowsPerPage: rowsPerPage
+        });
     })
 }
 
@@ -433,4 +444,42 @@ function ChangeCommasToDot() {
             //$(this).val( $(this).val().toString().replace(/\,/g, '.') );
         });
     })
+}
+
+//////////////////////
+
+function PrevPageButtonClicked() {
+
+    var url = "/Home/SearchPartnerResults";
+    
+    $('#prevPageButton').click(function () {
+        var firstName = "";
+        var lastName = "";
+        var companyName = "";
+        var vatin = "";
+        var rowsPerPage = 0;
+        $('#partnerSearchResults').load(url, {
+            firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
+            page: "prev", rowsPerPage: rowsPerPage
+        });
+    })
+
+}
+
+function NextPageButtonClicked() {
+
+    var url = "/Home/SearchPartnerResults";
+
+    $('#nextPageButton').click(function () {
+        var firstName = "";
+        var lastName = "";
+        var companyName = "";
+        var vatin = "";
+        var rowsPerPage = 0;
+        $('#partnerSearchResults').load(url, {
+            firstName: firstName, lastName: lastName, companyName: companyName, vatin: vatin, 
+            page: "next", rowsPerPage: rowsPerPage
+        });
+    })
+
 }
