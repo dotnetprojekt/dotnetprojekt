@@ -185,6 +185,88 @@ Namespace AdminAndAuthTest
             Mouse.Click(uIChromeLegacyWindowDocument, New Point(253, 356))
         End Sub
         
+        '''<summary>
+        '''adminBlockUser - Use 'adminBlockUserParams' to pass parameters into this method.
+        '''</summary>
+        Public Sub adminBlockUser()
+            Dim uIChromeLegacyWindowClient As WinClient = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowClient
+            Dim uIChromeLegacyWindowDocument As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow2.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument1 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow3.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument2 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow4.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument3 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow5.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument4 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow6.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument5 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow7.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument6 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow8.UIChromeLegacyWindowDocument
+
+            'Click 'Chrome Legacy Window' client
+            Mouse.Click(uIChromeLegacyWindowClient, New Point(822, 40))
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument, New Point(1155, 206))
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument1, New Point(973, 27))
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument2, New Point(339, 120))
+
+            'Type 'test1' in 'Chrome Legacy Window' document
+            Keyboard.SendKeys(uIChromeLegacyWindowDocument3, Me.adminBlockUserParams.UIChromeLegacyWindowDocumentSendKeys, ModifierKeys.None)
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument4, New Point(226, 182))
+
+            'Type 'test1{Enter}' in 'Chrome Legacy Window' document
+            Keyboard.SendKeys(uIChromeLegacyWindowDocument5, Me.adminBlockUserParams.UIChromeLegacyWindowDocumentSendKeys1, ModifierKeys.None)
+
+            'Move 'Chrome Legacy Window' document
+            Mouse.StartDragging(uIChromeLegacyWindowDocument6, New Point(256, 166))
+            Mouse.StopDragging(uIChromeLegacyWindowDocument6, -79, -11)
+        End Sub
+        
+        '''<summary>
+        '''adminUnblockUser - Use 'adminUnblockUserParams' to pass parameters into this method.
+        '''</summary>
+        Public Sub adminUnblockUser()
+            Dim uIChromeLegacyWindowDocument As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument
+            Dim uIChromeLegacyWindowDocument1 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument1
+            Dim uIChromeLegacyWindowDocument2 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument2
+            Dim uIChromeLegacyWindowDocument3 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument3
+            Dim uILogowanieSystemzarząDocument As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UILogowanieSystemzarząDocument
+            Dim uIChromeLegacyWindowDocument4 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument4
+            Dim uIChromeLegacyWindowDocument5 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument5
+            Dim uILogowanieSystemzarząDocument1 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UILogowanieSystemzarząDocument1
+            Dim uIChromeLegacyWindowDocument6 As WinControl = Me.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument6
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument, New Point(816, 27))
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument1, New Point(1112, 210))
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument2, New Point(978, 23))
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument3, New Point(327, 138))
+
+            'Type 'ad{Back}{Back}test1' in 'Logowanie - System zarządzania fakturami - Google ...' document
+            Keyboard.SendKeys(uILogowanieSystemzarząDocument, Me.adminUnblockUserParams.UILogowanieSystemzarząDocumentSendKeys, ModifierKeys.None)
+
+            'Move 'Chrome Legacy Window' document
+            Mouse.StartDragging(uIChromeLegacyWindowDocument4, New Point(332, 247))
+            Mouse.StopDragging(uIChromeLegacyWindowDocument4, -3, -5)
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument5, New Point(277, 176))
+
+            'Type 'test1' in 'Logowanie - System zarządzania fakturami - Google ...' document
+            Keyboard.SendKeys(uILogowanieSystemzarząDocument1, Me.adminUnblockUserParams.UILogowanieSystemzarząDocument1SendKeys, ModifierKeys.None)
+
+            'Click 'Chrome Legacy Window' document
+            Mouse.Click(uIChromeLegacyWindowDocument6, New Point(144, 203))
+        End Sub
+        
         #Region "Properties"
         Public Overridable ReadOnly Property adminLoginParams() As adminLoginParams
             Get
@@ -213,6 +295,24 @@ Namespace AdminAndAuthTest
             End Get
         End Property
         
+        Public Overridable ReadOnly Property adminBlockUserParams() As adminBlockUserParams
+            Get
+                If (Me.madminBlockUserParams Is Nothing) Then
+                    Me.madminBlockUserParams = New adminBlockUserParams()
+                End If
+                Return Me.madminBlockUserParams
+            End Get
+        End Property
+        
+        Public Overridable ReadOnly Property adminUnblockUserParams() As adminUnblockUserParams
+            Get
+                If (Me.madminUnblockUserParams Is Nothing) Then
+                    Me.madminUnblockUserParams = New adminUnblockUserParams()
+                End If
+                Return Me.madminUnblockUserParams
+            End Get
+        End Property
+        
         Public ReadOnly Property UILogowanieSystemzarząWindow() As UILogowanieSystemzarząWindow
             Get
                 If (Me.mUILogowanieSystemzarząWindow Is Nothing) Then
@@ -229,6 +329,10 @@ Namespace AdminAndAuthTest
         Private madminAddUserParams As adminAddUserParams
         
         Private madminAddUserExistParams As adminAddUserExistParams
+        
+        Private madminBlockUserParams As adminBlockUserParams
+        
+        Private madminUnblockUserParams As adminUnblockUserParams
         
         Private mUILogowanieSystemzarząWindow As UILogowanieSystemzarząWindow
         #End Region
@@ -336,6 +440,44 @@ Namespace AdminAndAuthTest
         #End Region
     End Class
     
+    '''<summary>
+    '''Parameters to be passed into 'adminBlockUser'
+    '''</summary>
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class adminBlockUserParams
+        
+        #Region "Fields"
+        '''<summary>
+        '''Type 'test1' in 'Chrome Legacy Window' document
+        '''</summary>
+        Public UIChromeLegacyWindowDocumentSendKeys As String = "test1"
+        
+        '''<summary>
+        '''Type 'test1{Enter}' in 'Chrome Legacy Window' document
+        '''</summary>
+        Public UIChromeLegacyWindowDocumentSendKeys1 As String = "test1{Enter}"
+        #End Region
+    End Class
+    
+    '''<summary>
+    '''Parameters to be passed into 'adminUnblockUser'
+    '''</summary>
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class adminUnblockUserParams
+        
+        #Region "Fields"
+        '''<summary>
+        '''Type 'ad{Back}{Back}test1' in 'Logowanie - System zarządzania fakturami - Google ...' document
+        '''</summary>
+        Public UILogowanieSystemzarząDocumentSendKeys As String = "ad{Back}{Back}test1"
+        
+        '''<summary>
+        '''Type 'test1' in 'Logowanie - System zarządzania fakturami - Google ...' document
+        '''</summary>
+        Public UILogowanieSystemzarząDocument1SendKeys As String = "test1"
+        #End Region
+    End Class
+    
     <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
     Public Class UILogowanieSystemzarząWindow
         Inherits WinWindow
@@ -348,6 +490,7 @@ Namespace AdminAndAuthTest
             Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
             Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
             Me.WindowTitles.Add("Dodaj użytkownika - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
         End Sub
         
         #Region "Properties"
@@ -359,10 +502,98 @@ Namespace AdminAndAuthTest
                 Return Me.mUIChromeLegacyWindowWindow
             End Get
         End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow1() As UIChromeLegacyWindowWindow1
+            Get
+                If (Me.mUIChromeLegacyWindowWindow1 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow1 = New UIChromeLegacyWindowWindow1(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow1
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow2() As UIChromeLegacyWindowWindow2
+            Get
+                If (Me.mUIChromeLegacyWindowWindow2 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow2 = New UIChromeLegacyWindowWindow2(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow2
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow3() As UIChromeLegacyWindowWindow3
+            Get
+                If (Me.mUIChromeLegacyWindowWindow3 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow3 = New UIChromeLegacyWindowWindow3(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow3
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow4() As UIChromeLegacyWindowWindow4
+            Get
+                If (Me.mUIChromeLegacyWindowWindow4 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow4 = New UIChromeLegacyWindowWindow4(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow4
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow5() As UIChromeLegacyWindowWindow5
+            Get
+                If (Me.mUIChromeLegacyWindowWindow5 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow5 = New UIChromeLegacyWindowWindow5(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow5
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow6() As UIChromeLegacyWindowWindow6
+            Get
+                If (Me.mUIChromeLegacyWindowWindow6 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow6 = New UIChromeLegacyWindowWindow6(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow6
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow7() As UIChromeLegacyWindowWindow7
+            Get
+                If (Me.mUIChromeLegacyWindowWindow7 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow7 = New UIChromeLegacyWindowWindow7(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow7
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowWindow8() As UIChromeLegacyWindowWindow8
+            Get
+                If (Me.mUIChromeLegacyWindowWindow8 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowWindow8 = New UIChromeLegacyWindowWindow8(Me)
+                End If
+                Return Me.mUIChromeLegacyWindowWindow8
+            End Get
+        End Property
         #End Region
         
         #Region "Fields"
         Private mUIChromeLegacyWindowWindow As UIChromeLegacyWindowWindow
+        
+        Private mUIChromeLegacyWindowWindow1 As UIChromeLegacyWindowWindow1
+        
+        Private mUIChromeLegacyWindowWindow2 As UIChromeLegacyWindowWindow2
+        
+        Private mUIChromeLegacyWindowWindow3 As UIChromeLegacyWindowWindow3
+        
+        Private mUIChromeLegacyWindowWindow4 As UIChromeLegacyWindowWindow4
+        
+        Private mUIChromeLegacyWindowWindow5 As UIChromeLegacyWindowWindow5
+        
+        Private mUIChromeLegacyWindowWindow6 As UIChromeLegacyWindowWindow6
+        
+        Private mUIChromeLegacyWindowWindow7 As UIChromeLegacyWindowWindow7
+        
+        Private mUIChromeLegacyWindowWindow8 As UIChromeLegacyWindowWindow8
         #End Region
     End Class
     
@@ -409,6 +640,406 @@ Namespace AdminAndAuthTest
         Private mUIChromeLegacyWindowDocument As WinControl
         
         Private mUIDodajużytkownikaSystDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow1
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowClient() As WinClient
+            Get
+                If (Me.mUIChromeLegacyWindowClient Is Nothing) Then
+                    Me.mUIChromeLegacyWindowClient = New WinClient(Me)
+                    Me.mUIChromeLegacyWindowClient.SearchProperties(WinControl.PropertyNames.Name) = "Chrome Legacy Window"
+                    Me.mUIChromeLegacyWindowClient.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowClient
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument1() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument1 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument1 = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument1.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument1.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument1.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument1.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument1.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument1
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument2() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument2 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument2 = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument2.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument2.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument2.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument2.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument2.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument2
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument3() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument3 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument3 = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument3.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument3.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument3.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument3.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument3.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument3
+            End Get
+        End Property
+        
+        Public ReadOnly Property UILogowanieSystemzarząDocument() As WinControl
+            Get
+                If (Me.mUILogowanieSystemzarząDocument Is Nothing) Then
+                    Me.mUILogowanieSystemzarząDocument = New WinControl(Me)
+                    Me.mUILogowanieSystemzarząDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUILogowanieSystemzarząDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUILogowanieSystemzarząDocument
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument4() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument4 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument4 = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument4.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument4.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument4.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument4.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument4.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument4
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument5() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument5 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument5 = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument5.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument5.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument5.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument5.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument5.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument5
+            End Get
+        End Property
+        
+        Public ReadOnly Property UILogowanieSystemzarząDocument1() As WinControl
+            Get
+                If (Me.mUILogowanieSystemzarząDocument1 Is Nothing) Then
+                    Me.mUILogowanieSystemzarząDocument1 = New WinControl(Me)
+                    Me.mUILogowanieSystemzarząDocument1.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUILogowanieSystemzarząDocument1.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUILogowanieSystemzarząDocument1
+            End Get
+        End Property
+        
+        Public ReadOnly Property UIChromeLegacyWindowDocument6() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument6 Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument6 = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument6.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument6.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument6.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument6.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument6.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument6
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowClient As WinClient
+        
+        Private mUIChromeLegacyWindowDocument As WinControl
+        
+        Private mUIChromeLegacyWindowDocument1 As WinControl
+        
+        Private mUIChromeLegacyWindowDocument2 As WinControl
+        
+        Private mUIChromeLegacyWindowDocument3 As WinControl
+        
+        Private mUILogowanieSystemzarząDocument As WinControl
+        
+        Private mUIChromeLegacyWindowDocument4 As WinControl
+        
+        Private mUIChromeLegacyWindowDocument5 As WinControl
+        
+        Private mUILogowanieSystemzarząDocument1 As WinControl
+        
+        Private mUIChromeLegacyWindowDocument6 As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow2
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow3
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow4
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow5
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow6
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow7
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
+        #End Region
+    End Class
+    
+    <GeneratedCode("Coded UITest Builder", "14.0.23107.0")>  _
+    Public Class UIChromeLegacyWindowWindow8
+        Inherits WinWindow
+        
+        Public Sub New(ByVal searchLimitContainer As UITestControl)
+            MyBase.New(searchLimitContainer)
+            Me.SearchProperties(WinWindow.PropertyNames.ControlId) = "390303392"
+            Me.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+            Me.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+        End Sub
+        
+        #Region "Properties"
+        Public ReadOnly Property UIChromeLegacyWindowDocument() As WinControl
+            Get
+                If (Me.mUIChromeLegacyWindowDocument Is Nothing) Then
+                    Me.mUIChromeLegacyWindowDocument = New WinControl(Me)
+                    Me.mUIChromeLegacyWindowDocument.SearchProperties(UITestControl.PropertyNames.ControlType) = "Document"
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Użytkownik zablokowany - System zarządzania fakturami - Google Chrome")
+                    Me.mUIChromeLegacyWindowDocument.WindowTitles.Add("Logowanie - System zarządzania fakturami - Google Chrome")
+                End If
+                Return Me.mUIChromeLegacyWindowDocument
+            End Get
+        End Property
+        #End Region
+        
+        #Region "Fields"
+        Private mUIChromeLegacyWindowDocument As WinControl
         #End Region
     End Class
 End Namespace

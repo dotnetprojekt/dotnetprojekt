@@ -12,10 +12,109 @@ Gets or sets the test context which provides
 information about and functionality for the current test run.
 </summary>
 </member>
-<member name="P:AdminAndAuthTest.CodedUITest2.TestContext">
+<member name="M:AdminAndAuthTest.AdminAndAuthTest.UIMap.adminLogin">
 <summary>
-Gets or sets the test context which provides
-information about and functionality for the current test run.
+adminLogin - Use 'adminLoginParams' to pass parameters into this method.
+</summary>
+</member>
+<member name="M:AdminAndAuthTest.AdminAndAuthTest.UIMap.adminAddUser">
+<summary>
+adminAddUser - Use 'adminAddUserParams' to pass parameters into this method.
+</summary>
+</member>
+<member name="M:AdminAndAuthTest.AdminAndAuthTest.UIMap.adminAddUserExist">
+<summary>
+adminAddUserExist - Use 'adminAddUserExistParams' to pass parameters into this method.
+</summary>
+</member>
+<member name="T:AdminAndAuthTest.AdminAndAuthTest.adminLoginParams">
+<summary>
+Parameters to be passed into 'adminLogin'
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminLoginParams.UIChromeLegacyWindowDocumentSendKeys">
+<summary>
+Type '{Back}{Back}{Back}{Back}{Back}admin' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminLoginParams.UIChromeLegacyWindowDocumentSendKeys1">
+<summary>
+Type 'admin' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="T:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams">
+<summary>
+Parameters to be passed into 'adminAddUser'
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams.UIChromeLegacyWindowDocumentSendKeys">
+<summary>
+Type 'newUser' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams.UIChromeLegacyWindowDocumentSendKeys1">
+<summary>
+Type 's{Delete}{Back}new@user.pl' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams.UIChromeLegacyWindowDocumentSendKeys2">
+<summary>
+Type 'hh1234' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams.UIChromeLegacyWindowDocumentSendKeys3">
+<summary>
+Type 'hh1234' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams.UIChromeLegacyWindowDocumentSendKeys4">
+<summary>
+Type 'username' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserParams.UIChromeLegacyWindowDocumentSendKeys5">
+<summary>
+Type 'userlname' in 'Chrome Legacy Window' document
+</summary>
+</member>
+<member name="T:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams">
+<summary>
+Parameters to be passed into 'adminAddUserExist'
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys">
+<summary>
+Type 'newUser' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys1">
+<summary>
+Type 'new' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys2">
+<summary>
+Type '{LShiftKey}@user.pl' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys3">
+<summary>
+Type 'kakakak' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys4">
+<summary>
+Type 'kakakak' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys5">
+<summary>
+Type '{LShiftKey}im' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
+</summary>
+</member>
+<member name="F:AdminAndAuthTest.AdminAndAuthTest.adminAddUserExistParams.UIDodajużytkownikaSystDocumentSendKeys6">
+<summary>
+Type 'naz' in 'Dodaj użytkownika - System zarządzania fakturami -...' document
 </summary>
 </member>
 </members>

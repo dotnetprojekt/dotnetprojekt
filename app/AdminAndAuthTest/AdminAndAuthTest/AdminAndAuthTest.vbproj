@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodedUITest1.vb" />
+    <Compile Include="CodedUITest2.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="UIMap.Designer.vb">
       <DependentUpon>UIMap.uitest</DependentUpon>

@@ -427,6 +427,163 @@
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Action</MarkerRegionType>
     </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowClient">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="822" Y="40" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow2.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="1155" Y="206" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow3.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="973" Y="27" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow4.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="339" Y="120" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow5.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">test1</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow6.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="226" Y="182" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow7.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">test1{Enter}</Text>
+    </SendKeysAction>
+    <DragAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow8.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <MouseButton>Left</MouseButton>
+      <StartLocation X="256" Y="166" />
+      <MoveBy X="-79" Y="-11" />
+    </DragAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="adminBlockUser">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="816" Y="27" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument1">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="1112" Y="210" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument2">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="978" Y="23" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument3">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="327" Y="138" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UILogowanieSystemzarząDocument">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">ad{Back}{Back}test1</Text>
+    </SendKeysAction>
+    <DragAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument4">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <MouseButton>Left</MouseButton>
+      <StartLocation X="332" Y="247" />
+      <MoveBy X="-3" Y="-5" />
+    </DragAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument5">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="277" Y="176" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UILogowanieSystemzarząDocument1">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">test1</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UILogowanieSystemzarząWindow.UIChromeLegacyWindowWindow1.UIChromeLegacyWindowDocument6">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="144" Y="203" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="adminUnblockUser">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
   </ExecuteActions>
   <CleanupActions />
   <OnErrorActions />
@@ -440,6 +597,7 @@
             <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
             <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
             <WindowTitle>Dodaj użytkownika - System zarządzania fakturami - Google Chrome</WindowTitle>
+            <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
           </WindowTitles>
           <SearchConfigurations>
             <SearchConfiguration>VisibleOnly</SearchConfiguration>
@@ -488,6 +646,432 @@
                   <TechnologyName>MSAA</TechnologyName>
                   <WindowTitles>
                     <WindowTitle>Dodaj użytkownika - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow1" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Client" Id="UIChromeLegacyWindowClient" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="Name">Chrome Legacy Window</PropertyCondition>
+                    <PropertyCondition Name="ControlType">Client</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument1" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument2" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument3" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UILogowanieSystemzarząDocument" FriendlyName="Logowanie - System zarządzania fakturami - Google ..." SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument4" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument5" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UILogowanieSystemzarząDocument1" FriendlyName="Logowanie - System zarządzania fakturami - Google ..." SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument6" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow2" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow3" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow4" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow5" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow6" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow7" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UIChromeLegacyWindowWindow8" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Wyszukiwarka faktur - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">390303392</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Document" Id="UIChromeLegacyWindowDocument" FriendlyName="Chrome Legacy Window" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Zarządzanie użytkownikami - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Użytkownik zablokowany - System zarządzania fakturami - Google Chrome</WindowTitle>
+                    <WindowTitle>Logowanie - System zarządzania fakturami - Google Chrome</WindowTitle>
                   </WindowTitles>
                   <SearchConfigurations>
                     <SearchConfiguration>VisibleOnly</SearchConfiguration>
