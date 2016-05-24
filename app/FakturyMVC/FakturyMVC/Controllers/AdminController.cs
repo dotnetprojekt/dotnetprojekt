@@ -26,7 +26,7 @@ namespace FakturyMVC.Controllers
             model.Id = tmp.First().Id;
             model.Login = tmp.First().Login;
             model.Email = tmp.First().Email;
-            return View(model);
+            return RedirectToAction("UsersManagement", model);
         }
 
         public ActionResult UnblockUser(string UserLogin)
@@ -40,7 +40,7 @@ namespace FakturyMVC.Controllers
             model.Id = tmp.First().Id;
             model.Login = tmp.First().Login;
             model.Email = tmp.First().Email;
-            return View(model);
+            return RedirectToAction("UsersManagement", model);
         }
 
         public ActionResult UsersManagement()
