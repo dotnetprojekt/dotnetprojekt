@@ -26,6 +26,7 @@ namespace FakturyMVC.Controllers
             model.Id = tmp.First().Id;
             model.Login = tmp.First().Login;
             model.Email = tmp.First().Email;
+            return RedirectToAction("UsersManagement", model);
             return View(model);
         }
 
@@ -40,6 +41,7 @@ namespace FakturyMVC.Controllers
             model.Id = tmp.First().Id;
             model.Login = tmp.First().Login;
             model.Email = tmp.First().Email;
+            return RedirectToAction("UsersManagement", model);
             return View(model);
         }
 
