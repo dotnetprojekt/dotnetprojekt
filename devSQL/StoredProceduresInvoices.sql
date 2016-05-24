@@ -331,8 +331,8 @@ where 1=1';
 				v_Inv_Id,
 				v_Inv_Number,
 				v_Inv_DateOfIssue,
-				isnull(v.Part_FirstName,'') + ' ' + isnull(v.Part_LastName,'') + ' ' + isnull(v.Part_CompanyName,'') as v_Inv_Vendor,
-				isnull(b.Part_FirstName,'') + ' ' + isnull(b.Part_LastName,'') + ' ' + isnull(b.Part_CompanyName,'') as v_Inv_Buyer,
+				isnull(v.Part_FirstName,'') + ' ' + isnull(v.Part_LastName,'') + ' (' + isnull(v.Part_CompanyName,')') as v_Inv_Vendor,
+				isnull(b.Part_FirstName,'') + ' ' + isnull(b.Part_LastName,'') + ' (' + isnull(b.Part_CompanyName,')') as v_Inv_Buyer,
 				v_Inv_Title,
 				v_Inv_OverallCost,
 				v_Inv_Status
