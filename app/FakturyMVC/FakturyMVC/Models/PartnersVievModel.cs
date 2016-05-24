@@ -17,6 +17,8 @@ namespace FakturyMVC.Models
 
     public class PartnersVievModel
     {
+        public bool FirstPage { get; set; }
+        public bool LastPage { get; set; }
         public List<Partner> Partners { get; set; }
     }
 }

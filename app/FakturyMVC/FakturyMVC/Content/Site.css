@@ -231,3 +231,11 @@ tr.highlighted td {
 #invoiceDetailsgoodsTable th {
     width: 150px;
 }
+
+#rowsPerPageField {
+    display: none;
+}
+
+#rowsPerPageFieldLabel {
+    display: none;
+}

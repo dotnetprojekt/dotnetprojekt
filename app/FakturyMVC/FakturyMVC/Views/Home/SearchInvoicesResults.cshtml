@@ -17,7 +17,7 @@
             <tr id=@Model.InvoiceGeneralsList[i].Id name=@i title="@Model.InvoiceGeneralsList[i].Id">
                 <th>@Model.InvoiceGeneralsList[i].Number</th>
                 <th>@Model.InvoiceGeneralsList[i].Title</th>
-                <th>@Model.InvoiceGeneralsList[i].DateOfIssue</th>
+                <th>@Model.InvoiceGeneralsList[i].DateOfIssue.ToString("dd/MM/yyyy")</th>
                 <th>@Model.InvoiceGeneralsList[i].VendorData</th>
                 <th>@Model.InvoiceGeneralsList[i].BuyerData</th>                
                 <th>@Model.InvoiceGeneralsList[i].OverallCost</th>
@@ -27,6 +27,11 @@
 
     </table>
 </div>
+
+@* UNCOMMET FOR PAGING 
+    <button type="submit" name="prevPageButton" id="prevPageButton" value="Wyślij" class="btn prev-next-button margin-top-10" disabled=@Model.FirstPage>Poprzednia strona</button>
+    <button type="submit" name="nextPageButton" id="nextPageButton" value="Wyślij" class="btn prev-next-button margin-top-10" disabled=@Model.LastPage>Następna strona</button>
+*@
 
 
 @section Scripts {
