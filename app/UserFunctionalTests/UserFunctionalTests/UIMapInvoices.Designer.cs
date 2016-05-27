@@ -203,7 +203,7 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
             uIGoods0priceEdit.Text = this.fillInvoiceFieldsActionParams.UIGoods0priceEditText;
 
             // Type '0.23' in 'goods[0].tax' text box
-            uIGoods0taxEdit.Text = "0.23";
+            uIGoods0taxEdit.Text = "23";
 
             // Click 'Nazwa Ilość Cena jednostkowa Po' pane
             Mouse.Click(uINazwaIlośćCenajednosPane, new Point(508, 126));
@@ -221,7 +221,7 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
             uIGoods1priceEdit.Text = this.fillInvoiceFieldsActionParams.UIGoods1priceEditText;
 
             // Type '0.13' in 'goods[1].tax' text box
-            uIGoods1taxEdit.Text = "0.13";
+            uIGoods1taxEdit.Text = "13";
 
             // Click 'Nazwa Ilość Cena jednostkowa Po' pane
             Mouse.Click(uINazwaIlośćCenajednosPane, new Point(534, 191));
@@ -239,13 +239,13 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
             uIGoods2priceEdit.Text = this.fillInvoiceFieldsActionParams.UIGoods2priceEditText;
 
             // Type '0.08' in 'goods[2].tax' text box
-            uIGoods2taxEdit.Text = "0.08";
+            uIGoods2taxEdit.Text = "8";
 
             // Click 'Nazwa Ilość Cena jednostkowa Po' pane
             Mouse.Click(uINazwaIlośćCenajednosPane, new Point(527, 221));
 
             // Type '0.1' in 'discount' text box
-            uIDiscountEdit.Text = "0,1";
+            uIDiscountEdit.Text = "10";
 
             // Click 'Produkty Nazwa Ilość Cena' pane
             Mouse.Click(uIProduktyNazwaIlośćCePane, new Point(673, 417));
@@ -313,13 +313,13 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
             uIGoods0priceEdit.Text = this.fillInvoiceFieldsActionParams.UIGoods0priceEditText;
 
             // Type '0.23' in 'goods[0].tax' text box
-            uIGoods0taxEdit.Text = "0.23";
+            uIGoods0taxEdit.Text = "23";
 
             // Click 'Nazwa Ilość Cena jednostkowa Po' pane
             Mouse.Click(uINazwaIlośćCenajednosPane, new Point(508, 126));
 
             // Type '0.1' in 'discount' text box
-            uIDiscountEdit.Text = "0,1";
+            uIDiscountEdit.Text = "10";
 
             // Click 'Produkty Nazwa Ilość Cena' pane
             Mouse.Click(uIProduktyNazwaIlośćCePane, new Point(673, 417));
@@ -399,13 +399,13 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
             uIGoods0priceEdit.Text = this.fillInvoiceFieldsActionParams.UIGoods0priceEditText;
 
             // Type '0.23' in 'goods[0].tax' text box
-            uIGoods0taxEdit.Text = "0.23";
+            uIGoods0taxEdit.Text = "23";
 
             // Click 'Nazwa Ilość Cena jednostkowa Po' pane
             Mouse.Click(uINazwaIlośćCenajednosPane, new Point(508, 126));
 
             // Type '0.1' in 'discount' text box
-            uIDiscountEdit.Text = "0,1";
+            uIDiscountEdit.Text = "10";
 
             // Click 'Produkty Nazwa Ilość Cena' pane
             Mouse.Click(uIProduktyNazwaIlośćCePane, new Point(673, 417));
@@ -850,14 +850,14 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
             // Verify that the 'Text' property of 'value' text box is not equal to 'null'
             Assert.IsNotNull(uIValueEdit.Text);
 
-            Assert.AreEqual("7.70", uIGoods0valueEdit.Text);
+            Assert.AreEqual("8.13", uIGoods0valueEdit.Text);
             Assert.AreEqual("10.00", uIGoods0grossEdit.Text);
-            Assert.AreEqual("26.10", uIGoods1valueEdit.Text);
+            Assert.AreEqual("26.55", uIGoods1valueEdit.Text);
             Assert.AreEqual("30.00", uIGoods1grossEdit.Text);
-            Assert.AreEqual("73.60", uIGoods2valueEdit.Text);
+            Assert.AreEqual("74.07", uIGoods2valueEdit.Text);
             Assert.AreEqual("80.00", uIGoods2grossEdit.Text);
 
-            Assert.AreEqual("107.40", uINettoEdit.Text);
+            Assert.AreEqual("108.75", uINettoEdit.Text);
             Assert.AreEqual("120.00", uIBruttoEdit.Text);
             Assert.AreEqual("108.00", uIValueEdit.Text);
         }
@@ -939,6 +939,16 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
 
             // Click 'Dodaj' button
             Mouse.Click(uIDodajButton, new Point(47, 10));
+        }
+
+        public void logoutAction()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uIWylogujsięHyperlink = this.UIWyszukiwarkafakturSyWindow.UIWyszukiwarkafakturSyDocument.UIWylogujsięHyperlink;
+            #endregion
+
+            // Click 'Wyloguj się' link
+            Mouse.Click(uIWylogujsięHyperlink, new Point(46, 29));
         }
 
         /// <summary>
@@ -1869,8 +1879,34 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
                 return this.mUINumerINV20160000030DPane;
             }
         }
+       
+        public HtmlHyperlink UIWylogujsięHyperlink
+        {
+            get
+            {
+                if ((this.mUIWylogujsięHyperlink == null))
+                {
+                    this.mUIWylogujsięHyperlink = new HtmlHyperlink(this);
+                    #region Search Criteria
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Id] = null;
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Name] = null;
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Target] = null;
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "Wyloguj się";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.AbsolutePath] = "/Auth/Logout";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = null;
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Href] = "http://localhost:56133/Auth/Logout";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Class] = null;
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.ControlDefinition] = "href=\"/Auth/Logout\"";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.TagInstance] = "5";
+                    this.mUIWylogujsięHyperlink.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami");
+                    #endregion
+                }
+                return this.mUIWylogujsięHyperlink;
+            }
+        }
         #endregion
         
+
         #region Fields
         private HtmlHyperlink mUIDodajfakturęHyperlink;
         
@@ -1889,9 +1925,12 @@ namespace UserFunctionalTests.UIMapInvoicesClasses
         private HtmlButton mUIZmieństatusnaopłaconButton;
         
         private HtmlDiv mUINumerINV20160000030DPane;
+
+        private HtmlHyperlink mUIWylogujsięHyperlink;
+
         #endregion
     }
-    
+
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
     public class UIResultTableTable : HtmlTable
     {

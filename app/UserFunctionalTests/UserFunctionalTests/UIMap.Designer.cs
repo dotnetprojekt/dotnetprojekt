@@ -135,6 +135,16 @@ namespace UserFunctionalTests
             return vatin;
         }
 
+        public void logoutAction()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uIWylogujsięHyperlink = this.UILogowanieSystemzarząWindow.UIWyszukiwarkafakturSyDocument.UIWylogujsięHyperlink;
+            #endregion
+
+            // Click 'Wyloguj się' link
+            Mouse.Click(uIWylogujsięHyperlink, new Point(46, 29));
+        }
+
         public string addPartnersToSearch()
         {
             #region Variable Declarations
@@ -1274,11 +1284,36 @@ TestAddress
                 return this.mUISzukajpartneraHyperlink;
             }
         }
+
+        public HtmlHyperlink UIWylogujsięHyperlink
+        {
+            get
+            {
+                if ((this.mUIWylogujsięHyperlink == null))
+                {
+                    this.mUIWylogujsięHyperlink = new HtmlHyperlink(this);
+                    #region Search Criteria
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Id] = null;
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Name] = null;
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Target] = null;
+                    this.mUIWylogujsięHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "Wyloguj się";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.AbsolutePath] = "/Auth/Logout";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = null;
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Href] = "http://localhost:56133/Auth/Logout";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Class] = null;
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.ControlDefinition] = "href=\"/Auth/Logout\"";
+                    this.mUIWylogujsięHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.TagInstance] = "5";
+                    this.mUIWylogujsięHyperlink.WindowTitles.Add("Wyszukiwarka faktur - System zarządzania fakturami");
+                    #endregion
+                }
+                return this.mUIWylogujsięHyperlink;
+            }
+        }
         #endregion
-        
+
         #region Fields
         private HtmlHyperlink mUIDodajpartneraHyperlink;
-        
+        private HtmlHyperlink mUIWylogujsięHyperlink;
         private HtmlHyperlink mUISzukajpartneraHyperlink;
         #endregion
     }

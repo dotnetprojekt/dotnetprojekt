@@ -22,6 +22,7 @@ namespace UserFunctionalTests
         {
             /** Poprawne dodanie nowej faktury przez użytkownika w Systemie Zarządzania Fakturami */
             BrowserWindow browser = testInit();
+            browser.Refresh();
             this.UIMapInvoices.invoicesLoginAction();
             this.UIMapInvoices.addPartnerInvoiceAction();
             this.UIMapInvoices.addPartnerInvoiceAction();
@@ -30,6 +31,7 @@ namespace UserFunctionalTests
             string invNum = this.UIMapInvoices.fillInvoiceWithOneProduct();
             this.UIMapInvoices.invoiceFieldsWithOneProductAssertion();
             this.UIMapInvoices.invoiceSubmitAction();
+            this.UIMapInvoices.logoutAction();
         }
 
         [TestMethod]
@@ -44,6 +46,7 @@ namespace UserFunctionalTests
             string invNum = this.UIMapInvoices.fillInvoiceFieldsAction();
             this.UIMapInvoices.invoiceVerificationAssetion();
             this.UIMapInvoices.invoiceSubmitAction();
+            this.UIMapInvoices.logoutAction();
         }
 
         [TestMethod]
@@ -57,6 +60,7 @@ namespace UserFunctionalTests
             this.UIMapInvoices.addInvoiceAction();
             this.UIMapInvoices.fillInvoiceForSearchPartnersAction(v1, v2);
             this.UIMapInvoices.findPartnerAssertion(v1, v2);
+            this.UIMapInvoices.logoutAction();
         }
 
         [TestMethod]
@@ -73,32 +77,28 @@ namespace UserFunctionalTests
             this.UIMapInvoices.invoiceSubmitAction();
             this.UIMapInvoices.searchInvoiceAction("");
             this.UIMapInvoices.listAllInvoicesAssertion();
+            this.UIMapInvoices.logoutAction();
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void TC_USER_INVOICES_006()
         {
-            /** Test wyświetlania zaznaczonej faktury. */
             BrowserWindow browser = testInit();
             this.UIMapInvoices.invoicesLoginAction();
-            /*this.UIMapInvoices.addPartnerInvoiceAction();
-            this.UIMapInvoices.addPartnerInvoiceAction();*/
             this.UIMapInvoices.addInvoiceAction();
             List<string> details = this.UIMapInvoices.fillInvoiceToCheckDetails();
             this.UIMapInvoices.invoiceSubmitAction();
             this.UIMapInvoices.searchInvoiceAction(details[0]);
             this.UIMapInvoices.openInvoiceDetailsAction();
             this.UIMapInvoices.invoiceDetailsAssertion(details);
+            //this.UIMapInvoices.logoutAction();
         }
 
         [TestMethod]
         public void TC_USER_INVOICES_007()
         {
-            /** Test wyświetlania zaznaczonej faktury. */
             BrowserWindow browser = testInit();
             this.UIMapInvoices.invoicesLoginAction();
-            /*this.UIMapInvoices.addPartnerInvoiceAction();
-            this.UIMapInvoices.addPartnerInvoiceAction();*/
             this.UIMapInvoices.addInvoiceAction();
             string invNum = this.UIMapInvoices.fillInvoiceWithOneProduct();
             this.UIMapInvoices.invoiceSubmitAction();
@@ -109,7 +109,8 @@ namespace UserFunctionalTests
             this.UIMapInvoices.searchInvoiceAction(invNum);
             this.UIMapInvoices.openInvoiceDetailsAction();
             this.UIMapInvoices.invoicePaidStatusAssertion();
-        }
+            this.UIMapInvoices.logoutAction();
+        }*/
 
         private BrowserWindow testInit()
         {

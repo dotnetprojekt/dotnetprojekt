@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
 
@@ -19,41 +20,74 @@ namespace UserFunctionalTests
         public void TC_USER_PARTNER_001()
         {
             /** Dodanie partnera biznesowego */
-            BrowserWindow browser = testInit();
+            try
+            {
+                BrowserWindow browser = testInit();
 
-            string vatin = this.UIMap.fillAddPartnerParameters();
-            this.UIMap.addPartnerParameterAssertions();
-            this.UIMap.addPartnerSubmitAction();
-            Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
-            this.UIMap.listPartnersAction();
-            this.UIMap.vatinAssertion(vatin);
+                string vatin = this.UIMap.fillAddPartnerParameters();
+                this.UIMap.addPartnerParameterAssertions();
+                this.UIMap.addPartnerSubmitAction();
+                Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
+                this.UIMap.listPartnersAction();
+                this.UIMap.vatinAssertion(vatin);
+                //this.UIMap.logoutAction();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                this.UIMap.logoutAction();
+            }
         }
 
         /*[TestMethod]
         public void TC_USER_PARTNER_002()
-        {*/
-            /** Partner biznesowy już istnieje */
-            /*BrowserWindow browser = testInit();
+        {
+            try
+            {
+                BrowserWindow browser = testInit();
 
-            string vatin = this.UIMap.fillAddPartnerParameters();
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.fillTheSecondPartner(vatin);
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.sqlExceptionAssertion();
+                string vatin = this.UIMap.fillAddPartnerParameters();
+                this.UIMap.addPartnerSubmitAction();
+                this.UIMap.fillTheSecondPartner(vatin);
+                this.UIMap.addPartnerSubmitAction();
+                this.UIMap.sqlExceptionAssertion();
+                //this.UIMap.logoutAction();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                this.UIMap.logoutAction();
+            }
         }*/
 
         [TestMethod]
         public void TC_USER_PARTNER_003()
         {
             /** Test widoku wyświetlającego partnerów biznesowych zalogowanego użytkownika. */
-            BrowserWindow browser = testInit();
 
-            string v1 = this.UIMap.addPartnersToSearch();
-            this.UIMap.addPartnerSubmitAction();
-            string v2 = this.UIMap.addSecondPartnerToSearch();
-            this.UIMap.addPartnerSubmitAction();
-            this.UIMap.findPartnersInTheSameCompanyAction();
-            this.UIMap.companyAssertion(v1, v2);
+            try
+            {
+                BrowserWindow browser = testInit();
+
+                string v1 = this.UIMap.addPartnersToSearch();
+                this.UIMap.addPartnerSubmitAction();
+                string v2 = this.UIMap.addSecondPartnerToSearch();
+                this.UIMap.addPartnerSubmitAction();
+                this.UIMap.findPartnersInTheSameCompanyAction();
+                this.UIMap.companyAssertion(v1, v2);
+                //this.UIMap.logoutAction();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                this.UIMap.logoutAction();
+            }
         }
 
 
@@ -68,6 +102,7 @@ namespace UserFunctionalTests
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             return BrowserWindow.Launch(new System.Uri("http://localhost:56133/"));
         }
+
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:

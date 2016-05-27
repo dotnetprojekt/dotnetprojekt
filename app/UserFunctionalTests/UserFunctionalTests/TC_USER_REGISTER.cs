@@ -27,14 +27,13 @@ namespace UserFunctionalTests
             this.UIMapRegistration.fillRegisterFormAction(uniqueNum);
             this.UIMapRegistration.registerAssertions();
             this.UIMapRegistration.registerSubmitAction();
-            this.UIMapRegistration.loginWithCreatedUserAction(uniqueNum);
+            //this.UIMapRegistration.loginWithCreatedUserAction(uniqueNum);
             //Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void TC_USER_REGISTER_002()
         {
-            /** Niepowodzenie operacji rejestracji użytkownika do Systemu Zarządzania Fakturami - użytkownik już istnieje */
             BrowserWindow browser = testInit();
             this.UIMapRegistration.clickRegisterAction();
             string uniqueNum = new Random().Next(100000000).ToString();
@@ -44,7 +43,7 @@ namespace UserFunctionalTests
             this.UIMapRegistration.fillRegisterFormAction(uniqueNum);
             this.UIMapRegistration.registerSubmitAction();
             this.UIMapRegistration.incorrectUserAssertion();
-        }
+        }*/
 
         private BrowserWindow testInit()
         {

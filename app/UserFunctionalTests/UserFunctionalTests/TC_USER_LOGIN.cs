@@ -25,6 +25,7 @@ namespace UserFunctionalTests
             this.UIMapLogin.loginAssertions();
             this.UIMapLogin.loginSubmitAction();
             Assert.AreEqual("http://localhost:56133/", browser.Uri.ToString());
+            this.UIMapLogin.logoutAction();
         }
 
         [TestMethod]

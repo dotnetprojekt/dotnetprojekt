@@ -161,7 +161,7 @@ namespace UserFunctionalTests.UIMapRegistrationClasses
             HtmlDocument uIRejestracjaSystemzarDocument = this.UIRejestracjaSystemzarWindow.UIRejestracjaSystemzarDocument;
             #endregion
            
-            StringAssert.Contains(uIRejestracjaSystemzarDocument.InnerText, "Błędny login");
+            StringAssert.Contains(uIRejestracjaSystemzarDocument.InnerText, "Podany login istnieje w bazie!");
         }
         
         #region Properties
