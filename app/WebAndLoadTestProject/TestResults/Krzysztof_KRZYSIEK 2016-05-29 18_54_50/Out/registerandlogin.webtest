@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="RegisterAndLogin" Id="2e2ecdcb-5b03-4c42-9dd7-5584e14d86fb" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="RegisterAndLogin.31e9bd58-71f8-4b58-83fe-cb084e36cde3.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="3fb10a84-1409-440e-9e43-eaf4f91e5bb6" Version="1.1" Url="http://localhost:56133/Auth/Register" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="0b2ae0f6-ec7c-475e-b03b-4d0e719cfc02" Version="1.1" Url="http://localhost:56133/Auth/Register" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/auth/login?ReturnUrl=%2F" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/Auth/Register" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="login" Value="{{logins.test#csv.login}}" RecordedValue="test1" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="email" Value="test@test.com" RecordedValue="test@test.com" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Password" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="PasswordConfirmation" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="firstName" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="lastName" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Loop UniqueStringId="7f1b4f6e-5600-41b5-a8ff-ae489093c5bb">
+      <ConditionalRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.CountingLoopRule, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Counting Loop" Description="Executes the requests contained in the loop a specified number of times." MaxIterations="-1" AdvanceDataCursors="False">
+        <RuleParameters>
+          <RuleParameter Name="ContextParameterName" Value="Loop Counter" />
+          <RuleParameter Name="IterationsCount" Value="3" />
+        </RuleParameters>
+      </ConditionalRule>
+      <Items>
+        <Request Method="POST" Guid="c99fb5f7-521a-4b22-8c01-9411ae816792" Version="1.1" Url="http://localhost:56133/Auth/LogIn" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+          </Headers>
+          <FormPostHttpBody>
+            <FormPostParameter Name="login" Value="{{logins.test#csv.login}}" RecordedValue="test1" CorrelationBinding="" UrlEncode="True" />
+            <FormPostParameter Name="Password" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+          </FormPostHttpBody>
+        </Request>
+        <Request Method="GET" Guid="e817882d-67c7-4f2c-9333-8f7d8adeae6b" Version="1.1" Url="http://localhost:56133/Auth/Logout" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/auth/login?ReturnUrl=%2F" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://localhost:56133/" />
+          </Headers>
+        </Request>
+      </Items>
+    </Loop>
+    <Request Method="GET" Guid="49cc129e-d077-4705-b423-854c1467451f" Version="1.1" Url="http://api.bing.com/qsml.aspx" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="query" Value="loca" RecordedValue="loca" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="maxwidth" Value="32765" RecordedValue="32765" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="rowheight" Value="20" RecordedValue="20" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="sectionHeight" Value="160" RecordedValue="160" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="FORM" Value="IESS02" RecordedValue="IESS02" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="market" Value="pl-PL" RecordedValue="pl-PL" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="pc" Value="EUPP_" RecordedValue="EUPP_" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="bfcb79ad-1cc1-4178-a0ac-5a5da699dd8d" Version="1.1" Url="http://localhost:56133/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/auth/login?ReturnUrl=%2F" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="POST" Guid="06a792ee-fb7f-4cf4-be5a-d56ad6fd428e" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/negotiate" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Content-Type" Value="application/x-www-form-urlencoded; charset=UTF-8" />
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1464540786687" RecordedValue="1464540786687" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="d4a9a419-db7f-4b89-a35a-8a2ac7d2d701" Version="1.1" Url="http://localhost:56133/Auth/LogIn" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="login" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Password" Value="test" RecordedValue="test" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="b19bb348-db3f-4950-a1ad-6b6d901656b6" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACjFtoZ8hTfBAogFOjT8%2FjfhUeZXbGEvTACu%2FyZNQ2NyAAAAAAOgAAAAAIAACAAAADFs2lIdg0xa6Sar6DFOeHwptcNiFNoL5nz1gxC%2Ffoj8zAAAADiIZQ6t%2Fcgu8nwL%2FYVCBZ2p5nCN%2FNkbmreNuWP5rUiu9rwyle9gPZzHWd8dMuLTOJAAAAAGjSCZO9Uw06VC8asLDtYKe49tT3GS7OxbtwSSb70sdR9torc2%2Ffyl06%2BY3RcBvysdFZNL98g6pRV2KzFxoJUFg%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACjFtoZ8hTfBAogFOjT8%2FjfhUeZXbGEvTACu%2FyZNQ2NyAAAAAAOgAAAAAIAACAAAADFs2lIdg0xa6Sar6DFOeHwptcNiFNoL5nz1gxC%2Ffoj8zAAAADiIZQ6t%2Fcgu8nwL%2FYVCBZ2p5nCN%2FNkbmreNuWP5rUiu9rwyle9gPZzHWd8dMuLTOJAAAAAGjSCZO9Uw06VC8asLDtYKe49tT3GS7OxbtwSSb70sdR9torc2%2Ffyl06%2BY3RcBvysdFZNL98g6pRV2KzFxoJUFg%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="7" RecordedValue="7" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="36b986ac-e3d6-4a67-b7cd-0d6aa447eed4" Version="1.1" Url="http://localhost:56133/__browserLink/requestData/9b16a75719b14e4dbf27a131d19e0640" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="version" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="3fb4c46b-5459-4087-b5b3-1583ecb68fa7" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/abort" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACjFtoZ8hTfBAogFOjT8%2FjfhUeZXbGEvTACu%2FyZNQ2NyAAAAAAOgAAAAAIAACAAAADFs2lIdg0xa6Sar6DFOeHwptcNiFNoL5nz1gxC%2Ffoj8zAAAADiIZQ6t%2Fcgu8nwL%2FYVCBZ2p5nCN%2FNkbmreNuWP5rUiu9rwyle9gPZzHWd8dMuLTOJAAAAAGjSCZO9Uw06VC8asLDtYKe49tT3GS7OxbtwSSb70sdR9torc2%2Ffyl06%2BY3RcBvysdFZNL98g6pRV2KzFxoJUFg%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACjFtoZ8hTfBAogFOjT8%2FjfhUeZXbGEvTACu%2FyZNQ2NyAAAAAAOgAAAAAIAACAAAADFs2lIdg0xa6Sar6DFOeHwptcNiFNoL5nz1gxC%2Ffoj8zAAAADiIZQ6t%2Fcgu8nwL%2FYVCBZ2p5nCN%2FNkbmreNuWP5rUiu9rwyle9gPZzHWd8dMuLTOJAAAAAGjSCZO9Uw06VC8asLDtYKe49tT3GS7OxbtwSSb70sdR9torc2%2Ffyl06%2BY3RcBvysdFZNL98g6pRV2KzFxoJUFg%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="575ac735-c7ff-4e28-b0a8-54e0b427e030" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/negotiate" ThinkTime="10" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Content-Type" Value="application/x-www-form-urlencoded; charset=UTF-8" />
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1464540793343" RecordedValue="1464540793343" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="GET" Guid="59a2bf4e-468f-4335-a6dc-fdf745ac7123" Version="1.1" Url="http://localhost:56133/Home/AddPartner" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam1.searchButton" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="lue=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; cla" />
+            <RuleParameter Name="Index" Value="5" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="d80222df-801a-4977-9e49-844f0d3fca6e" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAA50MePy913eDkcgwCrQ05XqHoG%2BWdn8C7EdtMXrWoJmwAAAAAOgAAAAAIAACAAAADDVqDW%2Brf1jL6azPYdaPwB%2Bii%2FVz2M%2BhW5pRgRRgX8SzAAAAC5fhZ2tSVpN8NZ9im6vUSFmxi0uYuYYthAfbfdB%2FWoIaFKdDp7YWSpQWkGGhdUUABAAAAAsUaEV%2Fz674BWfzd%2BQlcK9owO1omZrY2rtxxSC6l%2Ff24W4ln4bJ32GRgCuqNNgywOA6hBWs53EEmHAogM9YYwcg%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAA50MePy913eDkcgwCrQ05XqHoG%2BWdn8C7EdtMXrWoJmwAAAAAOgAAAAAIAACAAAADDVqDW%2Brf1jL6azPYdaPwB%2Bii%2FVz2M%2BhW5pRgRRgX8SzAAAAC5fhZ2tSVpN8NZ9im6vUSFmxi0uYuYYthAfbfdB%2FWoIaFKdDp7YWSpQWkGGhdUUABAAAAAsUaEV%2Fz674BWfzd%2BQlcK9owO1omZrY2rtxxSC6l%2Ff24W4ln4bJ32GRgCuqNNgywOA6hBWs53EEmHAogM9YYwcg%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="4" RecordedValue="4" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="bfeed66c-bf25-4bcb-9fe1-01c965a3a077" Version="1.1" Url="http://localhost:56133/__browserLink/requestData/43faeb62941a4b53baafd4921ee922ef" ThinkTime="10" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="version" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="42cc1e15-effe-4751-8c64-5ace5704b860" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/abort" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAA50MePy913eDkcgwCrQ05XqHoG%2BWdn8C7EdtMXrWoJmwAAAAAOgAAAAAIAACAAAADDVqDW%2Brf1jL6azPYdaPwB%2Bii%2FVz2M%2BhW5pRgRRgX8SzAAAAC5fhZ2tSVpN8NZ9im6vUSFmxi0uYuYYthAfbfdB%2FWoIaFKdDp7YWSpQWkGGhdUUABAAAAAsUaEV%2Fz674BWfzd%2BQlcK9owO1omZrY2rtxxSC6l%2Ff24W4ln4bJ32GRgCuqNNgywOA6hBWs53EEmHAogM9YYwcg%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAA50MePy913eDkcgwCrQ05XqHoG%2BWdn8C7EdtMXrWoJmwAAAAAOgAAAAAIAACAAAADDVqDW%2Brf1jL6azPYdaPwB%2Bii%2FVz2M%2BhW5pRgRRgX8SzAAAAC5fhZ2tSVpN8NZ9im6vUSFmxi0uYuYYthAfbfdB%2FWoIaFKdDp7YWSpQWkGGhdUUABAAAAAsUaEV%2Fz674BWfzd%2BQlcK9owO1omZrY2rtxxSC6l%2Ff24W4ln4bJ32GRgCuqNNgywOA6hBWs53EEmHAogM9YYwcg%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="7e06876f-5534-4cf9-9001-0c668982cfb7" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/negotiate" ThinkTime="29" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Content-Type" Value="application/x-www-form-urlencoded; charset=UTF-8" />
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/AddPartner" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2FHome%2FAddPartner" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2FHome%2FAddPartner" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1464540803945" RecordedValue="1464540803945" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="45a48efe-56ff-48d9-9ab3-eea95425fda9" Version="1.1" Url="http://localhost:56133/Home/AddPartner" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/Home/AddPartner" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="firstName" Value="Partner" RecordedValue="Partner" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="lastName" Value="PartnerLastName" RecordedValue="PartnerLastName" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="companyName" Value="Company" RecordedValue="Company" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="vatin" Value="1234567890" RecordedValue="1234567890" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="address" Value="Address" RecordedValue="Address" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="searchButton" Value="Send" RecordedValue="Send" CorrelationBinding="{{FormPostParam1.searchButton}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="3a792d4c-a425-4519-8883-4d643d817396" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACr801IUDmRfksDKdcPP0k9yrlk3uayTygpCBopg2IeeAAAAAAOgAAAAAIAACAAAACgf8EvIJYRpgqgL6NCMwWBApyE0Gstc24evXwmItT9LTAAAACWMsBBAico7X5y%2BW6Nw%2Bw19bR%2F%2BUsZLrqSpDVVuXiP3EIdQNUjFhh6yjbdzB4fYKpAAAAAdFhCL9kp5g%2FXS4ocM6tPwLgKIrRX1TcCMcVnDfOnHqiVSYgywBkKDlzQzzeYHou9L5VNVtRn1bLkB4gBRf49EQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACr801IUDmRfksDKdcPP0k9yrlk3uayTygpCBopg2IeeAAAAAAOgAAAAAIAACAAAACgf8EvIJYRpgqgL6NCMwWBApyE0Gstc24evXwmItT9LTAAAACWMsBBAico7X5y%2BW6Nw%2Bw19bR%2F%2BUsZLrqSpDVVuXiP3EIdQNUjFhh6yjbdzB4fYKpAAAAAdFhCL9kp5g%2FXS4ocM6tPwLgKIrRX1TcCMcVnDfOnHqiVSYgywBkKDlzQzzeYHou9L5VNVtRn1bLkB4gBRf49EQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2FHome%2FAddPartner" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2FHome%2FAddPartner" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="4" RecordedValue="4" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="48e43c1c-70ab-4590-bb6d-1cb5b57548dc" Version="1.1" Url="http://localhost:56133/__browserLink/requestData/505db9b1edd14884b74f08035af8e06f" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/AddPartner" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="version" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="adff52a2-00ab-4a1b-ac5b-e3e4eda3ca46" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/abort" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/AddPartner" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACr801IUDmRfksDKdcPP0k9yrlk3uayTygpCBopg2IeeAAAAAAOgAAAAAIAACAAAACgf8EvIJYRpgqgL6NCMwWBApyE0Gstc24evXwmItT9LTAAAACWMsBBAico7X5y%2BW6Nw%2Bw19bR%2F%2BUsZLrqSpDVVuXiP3EIdQNUjFhh6yjbdzB4fYKpAAAAAdFhCL9kp5g%2FXS4ocM6tPwLgKIrRX1TcCMcVnDfOnHqiVSYgywBkKDlzQzzeYHou9L5VNVtRn1bLkB4gBRf49EQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAACr801IUDmRfksDKdcPP0k9yrlk3uayTygpCBopg2IeeAAAAAAOgAAAAAIAACAAAACgf8EvIJYRpgqgL6NCMwWBApyE0Gstc24evXwmItT9LTAAAACWMsBBAico7X5y%2BW6Nw%2Bw19bR%2F%2BUsZLrqSpDVVuXiP3EIdQNUjFhh6yjbdzB4fYKpAAAAAdFhCL9kp5g%2FXS4ocM6tPwLgKIrRX1TcCMcVnDfOnHqiVSYgywBkKDlzQzzeYHou9L5VNVtRn1bLkB4gBRf49EQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2FHome%2FAddPartner" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2FHome%2FAddPartner" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="0dd9a7fc-6023-43c1-bd21-6585af8678b6" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/negotiate" ThinkTime="3" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Content-Type" Value="application/x-www-form-urlencoded; charset=UTF-8" />
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1464540833707" RecordedValue="1464540833707" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="GET" Guid="f52add91-62e4-4eee-b27c-bd04e3d36ac1" Version="1.1" Url="http://localhost:56133/Home/SearchPartner" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam2.rowsPerPage" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="lue=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; /&gt;&#xD;" />
+            <RuleParameter Name="Index" Value="4" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam3.rowsPerPage" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="lue=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; /&gt;&#xD;" />
+            <RuleParameter Name="Index" Value="4" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="60cdf73d-0eb4-4c8b-863e-f6cea9a9d5b6" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAADAkfy9yaeH4Y7Qkc4q%2F9H8lhHDz5BAMnZRPpkxDjII3wAAAAAOgAAAAAIAACAAAACOTbINfcBZXxTOrTa3csCROEoQEgAQlByNkCjp%2BzWufjAAAACyNisLJg51pzApY0OT8jCdNZkP9W4edHu%2BylU9D8IXIUlE1%2FkDMSwOSbFGC3SMB2dAAAAAdMh%2FbEe64clxEYP1rc8W7ud7P26%2FAHX5aTk2GJ9dbf6CeNpSBgLGKFEQpW%2F6rn4rY0UKHyBuci%2BfpKsF32iwIQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAADAkfy9yaeH4Y7Qkc4q%2F9H8lhHDz5BAMnZRPpkxDjII3wAAAAAOgAAAAAIAACAAAACOTbINfcBZXxTOrTa3csCROEoQEgAQlByNkCjp%2BzWufjAAAACyNisLJg51pzApY0OT8jCdNZkP9W4edHu%2BylU9D8IXIUlE1%2FkDMSwOSbFGC3SMB2dAAAAAdMh%2FbEe64clxEYP1rc8W7ud7P26%2FAHX5aTk2GJ9dbf6CeNpSBgLGKFEQpW%2F6rn4rY0UKHyBuci%2BfpKsF32iwIQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="6" RecordedValue="6" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="13615261-e6ea-45bb-bbc1-c5475ee1316f" Version="1.1" Url="http://localhost:56133/__browserLink/requestData/23924ee7d9bb406d9c12d4afa92b502c" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="version" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="26f41a28-2e94-4069-87b6-dd2d3d9aa8fc" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/abort" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAADAkfy9yaeH4Y7Qkc4q%2F9H8lhHDz5BAMnZRPpkxDjII3wAAAAAOgAAAAAIAACAAAACOTbINfcBZXxTOrTa3csCROEoQEgAQlByNkCjp%2BzWufjAAAACyNisLJg51pzApY0OT8jCdNZkP9W4edHu%2BylU9D8IXIUlE1%2FkDMSwOSbFGC3SMB2dAAAAAdMh%2FbEe64clxEYP1rc8W7ud7P26%2FAHX5aTk2GJ9dbf6CeNpSBgLGKFEQpW%2F6rn4rY0UKHyBuci%2BfpKsF32iwIQ%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAADAkfy9yaeH4Y7Qkc4q%2F9H8lhHDz5BAMnZRPpkxDjII3wAAAAAOgAAAAAIAACAAAACOTbINfcBZXxTOrTa3csCROEoQEgAQlByNkCjp%2BzWufjAAAACyNisLJg51pzApY0OT8jCdNZkP9W4edHu%2BylU9D8IXIUlE1%2FkDMSwOSbFGC3SMB2dAAAAAdMh%2FbEe64clxEYP1rc8W7ud7P26%2FAHX5aTk2GJ9dbf6CeNpSBgLGKFEQpW%2F6rn4rY0UKHyBuci%2BfpKsF32iwIQ%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="b77d2d87-b415-4bf8-bad0-7b1f9869a994" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/negotiate" ThinkTime="44" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Content-Type" Value="application/x-www-form-urlencoded; charset=UTF-8" />
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/SearchPartner" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2FHome%2FSearchPartner" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2FHome%2FSearchPartner" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1464540836496" RecordedValue="1464540836496" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="GET" Guid="66f88b02-40fa-4cf9-af6d-58a5ffb9fb91" Version="1.1" Url="http://localhost:56133/Auth/Logout" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://localhost:56133/auth/login?ReturnUrl=%2F" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost:56133/Home/SearchPartner" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="8bdd1b7f-7287-440f-8cd9-8d27a1be0cbb" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/connect" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAD%2FB0EYQVLbF6OX6rVaxhIj3D57NuhDMqZFgtjEpYmEtAAAAAAOgAAAAAIAACAAAADsvwEe4mmzjkBu9hrvtyp%2FmbiqS7xmW50xCiwaVLZeFDAAAAAyIK8D4xjBxdh0aERdWTCG8D69RAZ%2BdSpbgoTiLplREw1m53Nh89jXELp5E4J3ORdAAAAAyXBRdkB5%2F9gQjRNsNSa1sqDMGpvtJdJ%2BUVO5nZCcoLdiGzChBB8Xz0Skvy5sMKXrXbWkVGeeJSZZ%2BeOV8xLl9Q%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAD%2FB0EYQVLbF6OX6rVaxhIj3D57NuhDMqZFgtjEpYmEtAAAAAAOgAAAAAIAACAAAADsvwEe4mmzjkBu9hrvtyp%2FmbiqS7xmW50xCiwaVLZeFDAAAAAyIK8D4xjBxdh0aERdWTCG8D69RAZ%2BdSpbgoTiLplREw1m53Nh89jXELp5E4J3ORdAAAAAyXBRdkB5%2F9gQjRNsNSa1sqDMGpvtJdJ%2BUVO5nZCcoLdiGzChBB8Xz0Skvy5sMKXrXbWkVGeeJSZZ%2BeOV8xLl9Q%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2FHome%2FSearchPartner" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2FHome%2FSearchPartner" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="tid" Value="3" RecordedValue="3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="7af3efd7-e28b-4e68-8934-ea67a2701d5b" Version="1.1" Url="http://localhost:56133/__browserLink/requestData/feb86a3bdada49fb80cf1499acc58252" ThinkTime="8" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/SearchPartner" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="version" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="2f67b9c2-b006-4e38-bb3a-302da36b1b7b" Version="1.1" Url="http://localhost:56133/Home/SearchPartnerResults" ThinkTime="24" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/html, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/SearchPartner" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="firstName" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="lastName" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="companyName" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="vatin" Value="1234567890" RecordedValue="1234567890" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="page" Value="none" RecordedValue="none" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="rowsPerPage" Value="2" RecordedValue="2" CorrelationBinding="{{FormPostParam2.rowsPerPage}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="e7e118b6-c40f-4c1b-85a5-77bd2991d32b" Version="1.1" Url="http://localhost:56133/Home/SearchPartnerResults" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/html, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/SearchPartner" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="firstName" Value="Partner" RecordedValue="Partner" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="lastName" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="companyName" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="vatin" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="page" Value="none" RecordedValue="none" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="rowsPerPage" Value="2" RecordedValue="2" CorrelationBinding="{{FormPostParam3.rowsPerPage}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="7dcbe021-f4d5-49e5-834f-07c7d52c7084" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/abort" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/Home/SearchPartner" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="transport" Value="webSockets" RecordedValue="webSockets" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="connectionToken" Value="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAD%2FB0EYQVLbF6OX6rVaxhIj3D57NuhDMqZFgtjEpYmEtAAAAAAOgAAAAAIAACAAAADsvwEe4mmzjkBu9hrvtyp%2FmbiqS7xmW50xCiwaVLZeFDAAAAAyIK8D4xjBxdh0aERdWTCG8D69RAZ%2BdSpbgoTiLplREw1m53Nh89jXELp5E4J3ORdAAAAAyXBRdkB5%2F9gQjRNsNSa1sqDMGpvtJdJ%2BUVO5nZCcoLdiGzChBB8Xz0Skvy5sMKXrXbWkVGeeJSZZ%2BeOV8xLl9Q%3D%3D" RecordedValue="AQAAANCMnd8BFdERjHoAwE%2FCl%2BsBAAAAFaDzlM%2FfTEG3GMOMN6HCqwAAAAACAAAAAAAQZgAAAAEAACAAAAD%2FB0EYQVLbF6OX6rVaxhIj3D57NuhDMqZFgtjEpYmEtAAAAAAOgAAAAAIAACAAAADsvwEe4mmzjkBu9hrvtyp%2FmbiqS7xmW50xCiwaVLZeFDAAAAAyIK8D4xjBxdh0aERdWTCG8D69RAZ%2BdSpbgoTiLplREw1m53Nh89jXELp5E4J3ORdAAAAAyXBRdkB5%2F9gQjRNsNSa1sqDMGpvtJdJ%2BUVO5nZCcoLdiGzChBB8Xz0Skvy5sMKXrXbWkVGeeJSZZ%2BeOV8xLl9Q%3D%3D" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2FHome%2FSearchPartner" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2FHome%2FSearchPartner" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="POST" Guid="931572e6-a226-40b0-9d98-0ef430b834af" Version="1.1" Url="http://localhost:25611/6460befef4ff404e90b6a58e846464a3/browserLinkSignalR/negotiate" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Content-Type" Value="application/x-www-form-urlencoded; charset=UTF-8" />
+        <Header Name="Accept" Value="text/plain, */*; q=0.01" />
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="requestUrl" Value="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" RecordedValue="http%3A%2F%2Flocalhost%3A56133%2Fauth%2Flogin%3FReturnUrl%3D%252F" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="browserName" Value="Internet+Explorer" RecordedValue="Internet+Explorer" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="userAgent" Value="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" RecordedValue="Mozilla%2F5.0+(Windows+NT+6.3%3B+WOW64%3B+Trident%2F7.0%3B+.NET4.0E%3B+.NET4.0C%3B+.NET+CLR+3.5.30729%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.0.30729%3B+GWX%3ADOWNLOADED%3B+GWX%3AQUALIFIED%3B+rv%3A11.0)+like+Gecko" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="clientProtocol" Value="1.3" RecordedValue="1.3" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="_" Value="1464540880654" RecordedValue="1464540880654" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+      <FormPostHttpBody />
+    </Request>
+    <Request Method="GET" Guid="c2e1d77d-3da3-4b4f-9019-a04d60dedd3f" Version="1.1" Url="http://localhost:56133/__browserLink/requestData/e44e36dda50240da9ab527fe8fd0fb4d" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json, text/javascript, */*; q=0.01" />
+        <Header Name="X-Requested-With" Value="XMLHttpRequest" />
+        <Header Name="Referer" Value="http://localhost:56133/auth/login?ReturnUrl=%2F" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="version" Value="2" RecordedValue="2" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+  </Items>
+  <DataSources>
+    <DataSource Name="logins" Provider="Microsoft.VisualStudio.TestTools.DataSource.CSV" Connection="|DataDirectory|\test.csv">
+      <Tables>
+        <DataSourceTable Name="test#csv" SelectColumns="SelectOnlyBoundColumns" AccessMethod="Sequential" />
+      </Tables>
+    </DataSource>
+  </DataSources>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>

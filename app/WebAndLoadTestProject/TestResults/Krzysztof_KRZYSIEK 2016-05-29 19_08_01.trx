@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f7bbc2be-de46-48a8-bb2c-d690f975948f" name="Krzysztof@KRZYSIEK 2016-05-29 19:08:01" runUser="KRZYSIEK\Krzysztof" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="1d0f59d5-4167-4481-826a-602c2777ce60">
+    <Description>These are default test settings for a local test run.</Description>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207" runUntilDataExhausted="true">
+          <Browser name="Internet Explorer 11.0" MaxConnections="6">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Krzysztof_KRZYSIEK 2016-05-29 19_08_01" />
+    <Properties>
+      <Property name="TestSettingsUIType" value="UnitTest" />
+    </Properties>
+  </TestSettings>
+  <Times creation="2016-05-29T19:08:01.8400566+02:00" queuing="2016-05-29T19:08:03.5588407+02:00" start="2016-05-29T19:08:03.6682009+02:00" finish="2016-05-29T19:08:14.8245597+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <CodedWebTest name="AddAndSearchPartnerCoded" storage="f:\.net projekt\dotnetprojekt\app\webandloadtestproject\webandloadtestproject\bin\debug\webandloadtestproject.dll" id="801340b8-6a0b-bdcb-71f7-25b27fb5f0dc">
+      <Execution id="2d8603b0-9b20-4c80-85ad-de52f3378933" />
+      <WebTestClass assembly="WebAndLoadTestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="WebAndLoadTestProject" class="AddAndSearchPartnerCoded" />
+    </CodedWebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="801340b8-6a0b-bdcb-71f7-25b27fb5f0dc" executionId="2d8603b0-9b20-4c80-85ad-de52f3378933" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <WebTestResult executionId="2d8603b0-9b20-4c80-85ad-de52f3378933" testId="801340b8-6a0b-bdcb-71f7-25b27fb5f0dc" testName="AddAndSearchPartnerCoded" computerName="KRZYSIEK" duration="00:00:00.5137947" startTime="2016-05-29T19:08:03.6994497+02:00" endTime="2016-05-29T19:08:14.7933664+02:00" testType="37e36796-fb51-4610-8d5c-e00ceaa68b9f" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d8603b0-9b20-4c80-85ad-de52f3378933">
+      <ResultFiles>
+        <ResultFile path="AddAndSearchPartnerCoded.webtestResult" />
+      </ResultFiles>
+      <TestSettings name="Local" id="1d0f59d5-4167-4481-826a-602c2777ce60">
+        <Description>These are default test settings for a local test run.</Description>
+        <Execution>
+          <TestTypeSpecific>
+            <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+              <AssemblyResolution>
+                <TestDirectory useLoadContext="true" />
+              </AssemblyResolution>
+            </UnitTestRunConfig>
+            <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207" runUntilDataExhausted="true">
+              <Browser name="Internet Explorer 11.0" MaxConnections="6">
+                <Headers>
+                  <Header name="User-Agent" value="Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko" />
+                  <Header name="Accept" value="*/*" />
+                  <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+                  <Header name="Accept-Encoding" value="GZIP" />
+                </Headers>
+              </Browser>
+            </WebTestRunConfiguration>
+          </TestTypeSpecific>
+          <AgentRule name="LocalMachineDefaultRole">
+          </AgentRule>
+        </Execution>
+        <Deployment runDeploymentRoot="Krzysztof_KRZYSIEK 2016-05-29 19_08_01" />
+        <Properties>
+          <Property name="TestSettingsUIType" value="UnitTest" />
+        </Properties>
+      </TestSettings>
+      <WebTestResultFilePath>Krzysztof_KRZYSIEK 2016-05-29 19_08_01\In\2d8603b0-9b20-4c80-85ad-de52f3378933\AddAndSearchPartnerCoded.webtestResult</WebTestResultFilePath>
+    </WebTestResult>
+  </Results>
+</TestRun>
