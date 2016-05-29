@@ -225,6 +225,7 @@ go
 		@p_Title nvarchar(2048),
 		@p_CostMin decimal(9,2),
 		@p_CostMax decimal(9,2),
+		@p_StatusFilter nvarchar(3),
 		@p_pageNumber int = 1,
 		@p_rowsPerPage int = 2147483647
 	as
@@ -321,6 +322,18 @@ where 1=1';
 
 			if(@p_CostMax is not null)
 				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
+
+			if( @p_StatusFilter is not null and @p_StatusFilter != '111' )
+			begin
+				if( substring(@p_StatusFilter,1,1) = '1' )
+					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 1';
+
+				if( substring(@p_StatusFilter,2,1) = '1')
+					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 2';
+
+				if( SUBSTRING(@p_StatusFilter,3,1) = '1')
+					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 3';
+			end
 
 			set @v_QueryBody = @v_QueryBody + @v_QueryConditions;
 
