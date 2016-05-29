@@ -172,6 +172,7 @@
     <Compile Include="Models\DALmodels\InvoiceState.cs" />
     <Compile Include="Models\DALmodels\Partner.cs" />
     <Compile Include="Models\DALmodels\Product.cs" />
+    <Compile Include="Models\DALmodels\ResultSet.cs" />
     <Compile Include="Models\DALmodels\User.cs" />
     <Compile Include="Models\DALmodels\UserStatus.cs" />
     <Compile Include="Models\GoodsList.cs" />
