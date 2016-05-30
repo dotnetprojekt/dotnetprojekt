@@ -5,8 +5,10 @@ F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bi
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.csprojResolveAssemblyReference.cache
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.dll
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\obj\Debug\WebAndLoadTestProject.pdb
-F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\RegisterAndLogin.webtest
-F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\logins.csv
-F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\AddAndSearchPartner.webtest
-F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\users.loadtest
-F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\partners.loadtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebRegisterAndLogin.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebAddAndSearchPartner.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebAddInvoiceWithCreatedPartners.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadInvoices.loadtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadMixed.loadtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadPartners.loadtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadUsers.loadtest
