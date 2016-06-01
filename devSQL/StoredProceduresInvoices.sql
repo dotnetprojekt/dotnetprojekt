@@ -67,7 +67,7 @@ go
 				update dbo.CurrentNumber
 				set number = number + 1;
 			
-			set @p_InvoiceNumber = convert(nvarchar(16),(select 'INV-' + convert(nvarchar(4),year(getutcdate())) + '/' + right('000000'+convert(nvarchar(5),@v_Number),7)));
+			set @p_InvoiceNumber = convert(nvarchar(16),(select 'INV-' + convert(nvarchar(4),year(getutcdate())) + '/' + right('000000'+convert(nvarchar(6),@v_Number),7)));
 
 		commit transaction
 
@@ -325,14 +325,22 @@ where 1=1';
 
 			if( @p_StatusFilter is not null and @p_StatusFilter != '111' )
 			begin
+				declare @tmp nvarchar(128) = '(0';
+
 				if( substring(@p_StatusFilter,1,1) = '1' )
-					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 1';
+					set @tmp = @tmp + ',1';
+					--set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 1';
 
 				if( substring(@p_StatusFilter,2,1) = '1')
-					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 2';
+					set @tmp = @tmp + ',2';
+					--set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	or Inv_Status = 2';
 
 				if( SUBSTRING(@p_StatusFilter,3,1) = '1')
-					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 3';
+					set @tmp = @tmp + ',3';
+					--set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	or Inv_Status = 3';
+
+				set @tmp = @tmp + ')';
+				set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status in ' + @tmp;
 			end
 
 			set @v_QueryBody = @v_QueryBody + @v_QueryConditions;
@@ -344,8 +352,8 @@ where 1=1';
 				v_Inv_Id,
 				v_Inv_Number,
 				v_Inv_DateOfIssue,
-				isnull(v.Part_FirstName,'') + ' ' + isnull(v.Part_LastName,'') + ' (' + isnull(v.Part_CompanyName,')') as v_Inv_Vendor,
-				isnull(b.Part_FirstName,'') + ' ' + isnull(b.Part_LastName,'') + ' (' + isnull(b.Part_CompanyName,')') as v_Inv_Buyer,
+				isnull(v.Part_FirstName,'') + ' ' + isnull(v.Part_LastName,'') + ' (' + isnull(v.Part_CompanyName,'') + ')' as v_Inv_Vendor,
+				isnull(b.Part_FirstName,'') + ' ' + isnull(b.Part_LastName,'') + ' (' + isnull(b.Part_CompanyName,'') + ')' as v_Inv_Buyer,
 				v_Inv_Title,
 				v_Inv_OverallCost,
 				v_Inv_Status

@@ -15,7 +15,7 @@ namespace DataAccessLayer
             Random rnd = new Random();
             List<string> fNamesList = System.IO.File.ReadAllLines("names.txt").ToList();
             List<string> lNamesList = System.IO.File.ReadAllLines("surnames.txt").ToList();
-            List<string> companies = new List<string>() {"Comarch","Google","Ericpol","BMW","JP","Kamis","Tesco","Fiat","Wedel","Coca Cola", "Pepsico", "Sabre", "Sabatier", "Ikea", "Adidas", "Nike", "Rebook", "Zelmer", "Amino", "Amica", "Sony", "Microsoft", "KrzychuSoftware"};
+            List<string> companies = new List<string>() { "Microsoft", "Oracle", "Comarch", "Sabre", "Ericpol", "Google", "Alegro", "BMW", "Audi", "Fiat", "Honda", "Skoda", "Volkswagen", "Volvo", "Nissan", "Łada", "Scania", "Renault", "Nike", "Rebook", "Adidas", "Ikea", "Pepsico", "Lidl", "Orlen", "R8", "Statoil", "Lotos", "Sabatier", "Posti", "Sony", "Panasonic", "Samsung", "Apple", "Nokia", "Iiyama", "Lenovo", "Asus", "MSI" };
             
 
             for (int i = 0; i < 10; i++ )
@@ -26,13 +26,13 @@ namespace DataAccessLayer
                 UserDAL.UserAdd(usr);
             }
 
-            for (int i = 0; i < 7000; i++ )
+            for (int i = 0; i < 20000; i++ )
             {
                 Partner part = new Partner(fNamesList[rnd.Next(fNamesList.Count)], lNamesList[rnd.Next(lNamesList.Count)], companies[rnd.Next(companies.Count)], 10000000 + i, "Address " + i.ToString());
                 PartnerDAL.PartnerAdd(part);
             }
 
-            for (int i = 0; i < 4000; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 string number = InvoiceDAL.GetInvoiceNumber();
                 List<Product> prods = new List<Product>();

@@ -145,14 +145,14 @@ namespace FakturyMVC.Controllers
 
             if (!(maxValue == ""))
                 maxValueFloat = float.Parse(maxValue);
-                       
 
-            List<InvoiceGenerals> invoiceGeneralsList = new List<InvoiceGenerals>();
+
+            ResultSet<InvoiceGenerals> invoiceGeneralsList = new ResultSet<InvoiceGenerals>();
             // UNCOMMENT FOR PAGING
             //invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer, pgNumber, rowsPerPage);
             invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
             InvoicesViewModel model = new InvoicesViewModel();
-            model.InvoiceGeneralsList = invoiceGeneralsList;
+            model.InvoiceGeneralsList = invoiceGeneralsList.Items;
             model.FirstPage = false;
             model.LastPage = false;
 
@@ -313,12 +313,12 @@ namespace FakturyMVC.Controllers
             if (vatin != "")
                 long.TryParse(vatin, out vatinLong);
 
-            List<Partner> partnerList = new List<Partner>();
+            ResultSet<Partner> partnerList = new ResultSet<Partner>();
             partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             // UNCOMMENT FOR PAGING
             //partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong, pgNumber, rowsPerPage);
             PartnersVievModel model = new PartnersVievModel();
-            model.Partners = partnerList;
+            model.Partners = partnerList.Items;
             model.FirstPage = false;
             model.LastPage = false;
 
@@ -372,10 +372,9 @@ namespace FakturyMVC.Controllers
             if (vatin != "")
                 long.TryParse(vatin, out vatinLong);
 
-            List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            ResultSet<Partner> partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
-            model.Partners = partnerList;
+            model.Partners = partnerList.Items;
 
             return PartialView("AddInvoiceSearchVendors", model);
         }
@@ -394,10 +393,9 @@ namespace FakturyMVC.Controllers
             if (vatin != "")
                 long.TryParse(vatin, out vatinLong);
 
-            List<Partner> partnerList = new List<Partner>();
-            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            ResultSet<Partner> partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             PartnersVievModel model = new PartnersVievModel();
-            model.Partners = partnerList;
+            model.Partners = partnerList.Items;
 
             return PartialView("AddInvoiceSearchBuyers", model);
         }

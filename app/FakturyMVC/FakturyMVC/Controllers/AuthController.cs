@@ -52,7 +52,7 @@ namespace FakturyMVC.Controllers
                 return View();
             }
 
-            List<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null, null);
+            ResultSet<User> tmp = UserDAL.Instance.UserSearch(null, null, model.Login, null, null, null, null);
             if (UserDAL.Instance.UserLogin(model.Login, model.Password))
             {
                // List<User> tmp = UserDAL.UserSearch(null, null, model.Login, null, null, null, null);

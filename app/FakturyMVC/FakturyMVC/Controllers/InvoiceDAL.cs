@@ -105,11 +105,19 @@ namespace FakturyMVC.Controllers
             float costMax = -1,
             Partner vendor = null,
             Partner buyer = null,
+            bool newest = true,
+            bool paid = true,
+            bool archived = true,
             int pageNumber = 1,
             int rowsPerPage = (Int32.MaxValue-1)
         )
         {
             ResultSet<InvoiceGenerals> invoicesFound = new ResultSet<InvoiceGenerals>();
+
+            string statusFilter = String.Empty;
+            statusFilter += (newest == true ? "1" : "0");
+            statusFilter += (paid == true ? "1" : "0");
+            statusFilter += (archived == true ? "1" : "0");
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -131,6 +139,7 @@ namespace FakturyMVC.Controllers
                     cmd.Parameters.Add("@p_Title", SqlDbType.NVarChar, 2048).Value = title ?? (object)DBNull.Value;
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_CostMin", 9, 2, costMin > 0 ? costMin : (object)DBNull.Value));
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_CostMax", 9, 2, costMax > 0 ? costMax : (object)DBNull.Value));
+                    cmd.Parameters.Add("@p_StatusFilter", SqlDbType.NVarChar, 3).Value = statusFilter;
                     cmd.Parameters.Add("@p_pageNumber", SqlDbType.Int).Value = pageNumber;
                     cmd.Parameters.Add("@p_rowsPerPage", SqlDbType.Int).Value = rowsPerPage+1;
 

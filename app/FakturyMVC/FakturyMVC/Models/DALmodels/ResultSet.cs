@@ -43,6 +43,12 @@ namespace FakturyMVC.Models.DALmodels
             _items.RemoveAt(index);
         }
 
+        public void Clear()
+        {
+            _items.Clear();
+            _isLastPage = false;
+        }
+
         public T this[int key]
         {
             get { return _items[key]; }
