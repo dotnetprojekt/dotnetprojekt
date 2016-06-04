@@ -222,8 +222,8 @@ function SearchPartners() {
     
     $('#searchForPartnersButton').click(function () {
         // UNCOMMENT FOR PAGING
-        //$('#rowsPerPageField').show();
-        //$('#rowsPerPageFieldLabel').show();
+        $('#rowsPerPageField').show();
+        $('#rowsPerPageFieldLabel').show();
 
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();

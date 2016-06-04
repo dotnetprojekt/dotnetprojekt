@@ -314,9 +314,9 @@ namespace FakturyMVC.Controllers
                 long.TryParse(vatin, out vatinLong);
 
             ResultSet<Partner> partnerList = new ResultSet<Partner>();
-            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
+            //partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong);
             // UNCOMMENT FOR PAGING
-            //partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong, pgNumber, rowsPerPage);
+            partnerList = PartnerDAL.Instance.PartnerSearch(firstName, lastName, companyName, vatinLong, pgNumber, rowsPerPage);
             PartnersVievModel model = new PartnersVievModel();
             model.Partners = partnerList.Items;
             model.FirstPage = false;
@@ -324,7 +324,7 @@ namespace FakturyMVC.Controllers
 
             if (pgNumber == 1)
                 model.FirstPage = true;
-            if (pgNumber == 2)
+            if (partnerList.IsLastPage == true)
                 model.LastPage = true;
 
             return PartialView("SearchPartnersResults", model);
