@@ -169,7 +169,7 @@ go
 	begin
 		set nocount on;
 
-		declare @p_Date datetime2 = dateadd(year,-1,getutcdate());
+		declare @p_Date datetime2 = dateadd(month,-6,getutcdate());
 
 		while(1=1)
 		begin
@@ -192,7 +192,7 @@ go
 	begin
 		set nocount on;
 
-		declare @p_Date datetime2 = dateadd(year,-1,getutcdate());
+		declare @p_Date datetime2 = dateadd(year,-6,getutcdate());
 
 		while(1=1)
 		begin
