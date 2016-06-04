@@ -83,8 +83,9 @@ go
 		@p_LastName nvarchar(128),
 		@p_CompanyName nvarchar(256),
 		@p_Vatin decimal(24,0),
-		@p_pageNumber int = 1,
-		@p_rowsPerPage int = 2147483647
+		@p_pageNumber int,
+		@p_rowsOffset int,
+		@p_rowsPerPage int
 	as
 	begin
 		declare @v_QueryBody nvarchar(max) =
@@ -102,7 +103,7 @@ where 1 = 1';
 
 	declare @v_QueryEnd nvarchar(max) = 
 char(13)+char(10)+'order by Part_Id
-offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
+offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsOffset) +') rows
 fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 
 		if(@p_vatin is not null)

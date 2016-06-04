@@ -145,6 +145,7 @@ namespace FakturyMVC.Controllers
                     cmd.Parameters.Add("@p_CompanyName", SqlDbType.NVarChar, 256).Value = companyName ?? (object)DBNull.Value;
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_Vatin", 24, 0, vatin < 0 ? (object)DBNull.Value : vatin));
                     cmd.Parameters.Add("@p_pageNumber", SqlDbType.Int).Value = pageNumber;
+                    cmd.Parameters.Add("@p_rowsOffset", SqlDbType.Int).Value = rowsPerPage;
                     cmd.Parameters.Add("@p_rowsPerPage", SqlDbType.Int).Value = rowsPerPage+1;
 
                     connection.Open();

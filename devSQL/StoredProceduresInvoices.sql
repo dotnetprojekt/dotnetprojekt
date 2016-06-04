@@ -226,8 +226,9 @@ go
 		@p_CostMin decimal(9,2),
 		@p_CostMax decimal(9,2),
 		@p_StatusFilter nvarchar(3),
-		@p_pageNumber int = 1,
-		@p_rowsPerPage int = 2147483647
+		@p_pageNumber int,
+		@p_rowsOffset int,
+		@p_rowsPerPage int
 	as
 	begin
 		set nocount on;
@@ -365,7 +366,7 @@ where 1=1';
 			where (exists (select top 1 1 from @v_VendorTab vv where v_Part_Id = v_Inv_VendorId) or @v_VendorSearch = 0)
 				and (exists (select top 1 1 from @v_BuyerTab where v_Part_Id = v_Inv_BuyerId) or @v_BuyerSearch = 0)
 			order by v_Inv_Id
-			offset ((@p_pageNumber-1)*@p_rowsPerPage) rows
+			offset ((@p_pageNumber-1)*@p_rowsOffset) rows
 			fetch next (@p_rowsPerPage) rows only;
 
 	end

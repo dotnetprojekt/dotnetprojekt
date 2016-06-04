@@ -80,6 +80,7 @@ go
 		@p_Status tinyint,
 		@p_IsLogged bit,
 		@p_pageNumber int,
+		@p_rowsOffset int,
 		@p_rowsPerPage int
 	as
 	begin
@@ -103,7 +104,7 @@ where 1=1'
 
 		declare @v_QueryEnd nvarchar(max) = 
 char(13)+char(10)+'order by Usr_Id
-offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsPerPage) +') rows
+offset ('+ convert(nvarchar(32),(@p_pageNumber-1)*@p_rowsOffset) +') rows
 fetch next ('+ convert(nvarchar(32),@p_rowsPerPage)+') rows only';
 
 		if( @p_Login is not null )

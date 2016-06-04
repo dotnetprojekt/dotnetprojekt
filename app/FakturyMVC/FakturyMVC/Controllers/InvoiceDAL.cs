@@ -141,6 +141,7 @@ namespace FakturyMVC.Controllers
                     cmd.Parameters.Add(Utils.GetDecimalParam("@p_CostMax", 9, 2, costMax > 0 ? costMax : (object)DBNull.Value));
                     cmd.Parameters.Add("@p_StatusFilter", SqlDbType.NVarChar, 3).Value = statusFilter;
                     cmd.Parameters.Add("@p_pageNumber", SqlDbType.Int).Value = pageNumber;
+                    cmd.Parameters.Add("@p_rowsOffset", SqlDbType.Int).Value = rowsPerPage;
                     cmd.Parameters.Add("@p_rowsPerPage", SqlDbType.Int).Value = rowsPerPage+1;
 
                     connection.Open();

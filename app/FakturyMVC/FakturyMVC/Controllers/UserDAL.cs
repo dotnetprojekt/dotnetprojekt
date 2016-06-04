@@ -98,6 +98,7 @@ namespace FakturyMVC.Controllers
                     cmd.Parameters.Add("@p_IsLogged", SqlDbType.Bit).Value = isLogged.HasValue ? isLogged.Value : (object)DBNull.Value;
                     cmd.Parameters.Add("@p_Status", SqlDbType.TinyInt).Value = status.HasValue ? status.Value : (object)DBNull.Value;
                     cmd.Parameters.Add("@p_pageNumber", SqlDbType.Int).Value = pageNumber;
+                    cmd.Parameters.Add("@p_rowsOffset", SqlDbType.Int).Value = rowsPerPage;
                     cmd.Parameters.Add("@p_rowsPerPage", SqlDbType.Int).Value = rowsPerPage+1;
 
                     connection.Open();
