@@ -26,7 +26,8 @@ namespace FakturyMVC.Controllers
 
         //search invoices - DONE - not checked
         public ActionResult SearchInvoice(string invNumber, string title, string start, string end, string vname, string vlastname, string vcompany, string vvatin,
-            string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue, string page, int rowsPerPage)
+            string bname, string blastname, string bcompany, string bvatin, string minValue, string maxValue, string page, int rowsPerPage,
+            bool newF, bool paid, bool archived)
         {
             int pgNumber = 0;
             if (page == "none")
@@ -49,6 +50,9 @@ namespace FakturyMVC.Controllers
                 minValue = (string)TempData["minValue"];
                 maxValue = (string)TempData["maxValue"];
                 rowsPerPage = (int)TempData["rowsPerPage"];
+                newF = (bool)TempData["newF"];
+                paid = (bool)TempData["paid"];
+                archived = (bool)TempData["archived"];
             }
             else if (page == "next")
             {
@@ -68,6 +72,9 @@ namespace FakturyMVC.Controllers
                 minValue = (string)TempData["minValue"];
                 maxValue = (string)TempData["maxValue"];
                 rowsPerPage = (int)TempData["rowsPerPage"];
+                newF = (bool)TempData["newF"];
+                paid = (bool)TempData["paid"];
+                archived = (bool)TempData["archived"];
             }
 
             TempData["pageNumber"] = pgNumber;
@@ -86,7 +93,9 @@ namespace FakturyMVC.Controllers
             TempData["bvatin"] = bvatin;
             TempData["minValue"] = minValue;
             TempData["maxValue"] = maxValue;
-
+            TempData["newF"] = newF;
+            TempData["paid"] = paid;
+            TempData["archived"] = archived;
 
 
             if (invNumber == "")

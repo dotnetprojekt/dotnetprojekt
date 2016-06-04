@@ -65,6 +65,15 @@
         @Html.Label("Wartość maksymalna", new { @class = "margin-top-10" })
         @Html.TextBox("maxValue", "", new { @class = "input-sm form-control margin-right-10 margin-left-20"@*, @type = "number", @min = "0", @step="0.01"*@ })
         <br />
+        @Html.Label("Nowe", new { @class = "margin-top-10" })
+        @Html.CheckBox("newF", true, new { @class = ""})
+        <br />
+        @Html.Label("Zapłacone", new { @class = "margin-top-10" })
+        @Html.CheckBox("paid", true, new { @class = "" })
+        <br />
+        @Html.Label("Zarchiwizowane", new { @class = "margin-top-10" })
+        @Html.CheckBox("archived", true, new { @class = "" })
+        <br />
         @Html.Label("Ilość wyników na stronie", new { @class = "margin-top-10", @id = "rowsPerPageFieldLabel" })
         @Html.TextBox("rowsPerPageField", 2, new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true", @type = "number", @min = "0" })
         <br /> 

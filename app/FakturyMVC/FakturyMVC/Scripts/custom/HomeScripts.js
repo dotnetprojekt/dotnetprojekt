@@ -99,6 +99,14 @@ function SearchInvoices() {
     $('#searchForInvoicesButton').click(function (e) {
         e.preventDefault();
 
+        if (!document.getElementById('newF').checked
+            && !document.getElementById('paid').checked
+            && !document.getElementById('archived').checked)
+        {
+            alert("Wybierz co najmniej jeden typ faktur");
+            return;
+        }
+
         // UNCOMMENT FOR PAGING
         //$('#rowsPerPageField').show();
         //$('#rowsPerPageFieldLabel').show();
@@ -122,6 +130,10 @@ function SearchInvoices() {
         var minValue = $('#minValue').val();
         var maxValue = $('#maxValue').val();
 
+        var newF = $('#newF').val();
+        var paid = $('#paid').val();
+        var archived = $('#archived').val();
+
         var minValueCorrect = minValue.toString().replace(/\,/g, '.');
         var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
 
@@ -130,7 +142,8 @@ function SearchInvoices() {
         $('#invoiceSearchResults').load(url, {
             invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
             vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
-            minValue: minValueCorrect, maxValue: maxValueCorrect, page: "none", rowsPerPage: rowsPerPage
+            minValue: minValueCorrect, maxValue: maxValueCorrect, page: "none", rowsPerPage: rowsPerPage,
+            newF: newF, paid: paid, archived: archived
         });
 
     })
