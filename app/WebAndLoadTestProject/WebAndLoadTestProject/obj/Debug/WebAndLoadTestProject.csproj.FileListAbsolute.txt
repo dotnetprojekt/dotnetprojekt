@@ -12,3 +12,6 @@ F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bi
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadMixed.loadtest
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadPartners.loadtest
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadUsers.loadtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebSearchPartner.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebAddPartner.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadPartnersMixed.loadtest
