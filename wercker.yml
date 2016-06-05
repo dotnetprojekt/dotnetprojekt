@@ -1,7 +1,7 @@
 box: wercker/default
 build:
   steps:
-    - wercker-labs/msbuild
+    - validate-wercker-step
     - wercker-labs/dotnet-test
     - script:
         name: Copy to output
