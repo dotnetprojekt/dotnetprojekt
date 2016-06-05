@@ -83,9 +83,9 @@ go
 		@p_LastName nvarchar(128),
 		@p_CompanyName nvarchar(256),
 		@p_Vatin decimal(24,0),
-		@p_pageNumber int,
-		@p_rowsOffset int,
-		@p_rowsPerPage int
+		@p_pageNumber int = 1,
+		@p_rowsOffset int = 2147483646,
+		@p_rowsPerPage int = 2147483646
 	as
 	begin
 		declare @v_QueryBody nvarchar(max) =
@@ -96,7 +96,7 @@ go
 	Part_CompanyName,
 	Part_Vatin,
 	Part_Address
-	from inv.Partners
+	from inv.Partners with(nolock)
 where 1 = 1';
 
 	declare @v_QueryConditions nvarchar(max) = '';
