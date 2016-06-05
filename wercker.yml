@@ -2,7 +2,7 @@ box: wercker/default
 build:
   steps:
     - validate-wercker-step
-    - wercker-labs/dotnet-test
+    - validate-wercker-step2
     - script:
         name: Copy to output
         code: rsync -avz SimpleApp.Web/ $WERCKER_OUTPUT_DIR/
