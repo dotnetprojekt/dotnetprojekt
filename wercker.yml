@@ -2,8 +2,8 @@ box: wercker/default
 build:
   steps:
     - wercker-labs/msbuild
-	- wercker-labs/dotnet-WebAndLoadTestProject
-	- script:
+    - wercker-labs/dotnet-WebAndLoadTestProject
+    - script:
         name: Copy to output
         code: rsync -avz SimpleApp.Web/ $WERCKER_OUTPUT_DIR/
 deploy:
