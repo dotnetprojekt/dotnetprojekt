@@ -6,8 +6,3 @@ build:
     - script:
         name: Copy to output
         code: rsync -avz SimpleApp.Web/ $WERCKER_OUTPUT_DIR/
-deploy:
-    steps:
-        - script:
-            name: my deploy script
-            code: echo my-deploy-script.sh
