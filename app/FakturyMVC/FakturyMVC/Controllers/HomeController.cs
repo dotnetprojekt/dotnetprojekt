@@ -157,9 +157,9 @@ namespace FakturyMVC.Controllers
 
 
             ResultSet<InvoiceGenerals> invoiceGeneralsList = new ResultSet<InvoiceGenerals>();
-            // UNCOMMENT FOR PAGING
-            //invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer, pgNumber, rowsPerPage);
-            invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer);
+            // UNCOMMENT FOR PAGING            
+            //invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer, newF, paid, archived);
+            invoiceGeneralsList = InvoiceDAL.Instance.InvoiceSearch(invNumber, startDate, endDate, title, minValueFloat, maxValueFloat, vendor, buyer, newF, paid, archived, pgNumber, rowsPerPage);
             InvoicesViewModel model = new InvoicesViewModel();
             model.InvoiceGeneralsList = invoiceGeneralsList.Items;
             model.FirstPage = false;
@@ -167,7 +167,7 @@ namespace FakturyMVC.Controllers
 
             if (pgNumber == 1)
                 model.FirstPage = true;
-            if (pgNumber == 2) // hardcoded for now
+            if (invoiceGeneralsList.IsLastPage == true) 
                 model.LastPage = true;
 
             return PartialView("SearchInvoicesResults", model);

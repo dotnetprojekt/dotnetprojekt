@@ -107,9 +107,21 @@ function SearchInvoices() {
             return;
         }
 
+        var newF = false;
+        var paid = false;
+        var archived = false;
+
+        if (document.getElementById('newF').checked)
+            newF = true;
+        if (document.getElementById('paid').checked)
+            paid = true;
+        if (document.getElementById('archived').checked)
+            archived = true;
+
+
         // UNCOMMENT FOR PAGING
-        //$('#rowsPerPageField').show();
-        //$('#rowsPerPageFieldLabel').show();
+        $('#rowsPerPageField').show();
+        $('#rowsPerPageFieldLabel').show();
 
         var invNumber = $('#invNumber').val();
         var title = $('#title').val();
@@ -130,9 +142,13 @@ function SearchInvoices() {
         var minValue = $('#minValue').val();
         var maxValue = $('#maxValue').val();
 
-        var newF = $('#newF').val();
-        var paid = $('#paid').val();
-        var archived = $('#archived').val();
+        //var newF = $('#newF').val();
+        //var paid = $('#paid').val();
+        //var archived = $('#archived').val();
+
+        //alert(newF);
+        //alert(paid);
+        //alert(archived);
 
         var minValueCorrect = minValue.toString().replace(/\,/g, '.');
         var maxValueCorrect = maxValue.toString().replace(/\,/g, '.');
@@ -534,18 +550,23 @@ $('#invoiceSearchResults').on('click', '#prevPageButton', function () {
     var minValueCorrect = "";
     var maxValueCorrect = "";
 
+    var newF = false;
+    var paid = false;
+    var archived = false;
+
     var rowsPerPage = 0
 
     $('#invoiceSearchResults').load(url, {
         invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
         vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
-        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "prev", rowsPerPage: rowsPerPage
+        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "prev", rowsPerPage: rowsPerPage,
+        newF: newF, paid: paid, archived: archived
     });
 
 })
 
 $('#invoiceSearchResults').on('click', '#nextPageButton', function () {
-
+    //alert("aaa");
     var url = "/Home/SearchInvoice";
 
     var invNumber = "";
@@ -567,11 +588,16 @@ $('#invoiceSearchResults').on('click', '#nextPageButton', function () {
     var minValueCorrect = "";
     var maxValueCorrect = "";
 
+    var newF = false;
+    var paid = false;
+    var archived = false;
+
     var rowsPerPage = 0
 
     $('#invoiceSearchResults').load(url, {
         invNumber: invNumber, start: start, end: end, vname: vname, vlastname: vlastname, title: title,
         vcompany: vcompany, vvatin: vvatin, bname: bname, blastname: blastname, bcompany: bcompany, bvatin: bvatin,
-        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "next", rowsPerPage: rowsPerPage
+        minValue: minValueCorrect, maxValue: maxValueCorrect, page: "next", rowsPerPage: rowsPerPage,
+        newF: newF, paid: paid, archived: archived
     });
 })
