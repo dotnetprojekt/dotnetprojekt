@@ -26,13 +26,13 @@ namespace DataAccessLayer
                 UserDAL.UserAdd(usr);
             }
 
-            for (int i = 0; i < 20000; i++ )
+            for (int i = 0; i < 10000; i++ )
             {
                 Partner part = new Partner(fNamesList[rnd.Next(fNamesList.Count)], lNamesList[rnd.Next(lNamesList.Count)], companies[rnd.Next(companies.Count)], 10000000 + i, "Address " + i.ToString());
                 PartnerDAL.PartnerAdd(part);
             }
 
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 150000; i++)
             {
                 string number = InvoiceDAL.GetInvoiceNumber();
                 List<Product> prods = new List<Product>();

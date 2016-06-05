@@ -57,14 +57,14 @@ go
 
 			if( year(getutcdate()) > @v_MaxYear )
 			begin
-				update dbo.CurrentNumber
+				update dbo.CurrentNumber with(rowlock)
 				set number = 2,
 					yearLast = year(getutcdate());
 
 				set @v_Number = 1;
 			end
 			else
-				update dbo.CurrentNumber
+				update dbo.CurrentNumber with(rowlock)
 				set number = number + 1;
 			
 			set @p_InvoiceNumber = convert(nvarchar(16),(select 'INV-' + convert(nvarchar(4),year(getutcdate())) + '/' + right('000000'+convert(nvarchar(6),@v_Number),7)));
@@ -96,10 +96,10 @@ go
 		begin
 			begin transaction
 				
-				declare @v_VendorId int = (select Part_Id from inv.Partners where Part_Vatin = @p_VendorVatin);
-				declare @v_BuyerId int = (select Part_Id from inv.Partners where Part_Vatin = @p_BuyerVatin);
+				declare @v_VendorId int = (select Part_Id from inv.Partners with(nolock) where Part_Vatin = @p_VendorVatin);
+				declare @v_BuyerId int = (select Part_Id from inv.Partners with(nolock) where Part_Vatin = @p_BuyerVatin);
 
-				insert into inv.Invoices
+				insert into inv.Invoices with(rowlock)
 				(
 					Inv_Number,
 					Inv_VendorId,
@@ -173,7 +173,7 @@ go
 
 		while(1=1)
 		begin
-			update top (1000) inv.Invoices with(rowlock)
+			update top (2000) inv.Invoices with(rowlock)
 			set Inv_Status = 3
 			where Inv_Status != 3
 				and Inv_DateOfIssue < @p_Date
@@ -192,11 +192,11 @@ go
 	begin
 		set nocount on;
 
-		declare @p_Date datetime2 = dateadd(year,-6,getutcdate());
+		declare @p_Date datetime2 = dateadd(year,-5,getutcdate());
 
 		while(1=1)
 		begin
-			delete top (1000)
+			delete top (2000)
 			from inv.Invoices
 			where Inv_Status = 3
 				and Inv_DateOfIssue < @p_Date
@@ -226,9 +226,9 @@ go
 		@p_CostMin decimal(9,2),
 		@p_CostMax decimal(9,2),
 		@p_StatusFilter nvarchar(3),
-		@p_pageNumber int,
-		@p_rowsOffset int,
-		@p_rowsPerPage int
+		@p_pageNumber int = 1,
+		@p_rowsOffset int = 2147483646,
+		@p_rowsPerPage int = 2147483646
 	as
 	begin
 		set nocount on;

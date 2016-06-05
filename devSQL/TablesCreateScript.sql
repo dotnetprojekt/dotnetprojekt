@@ -39,7 +39,7 @@ go
 		--Inv_Creator int not null,
 	
 		constraint PK_Invoices primary key (Inv_Id),
-		constraint CK_Status check ((Inv_Status=0) or (Inv_Status=1) or (Inv_Status=2)),
+		constraint CK_Status check (Inv_Status=0 or Inv_Status=1 or Inv_Status=2 or Inv_Status=3),
 	);
 
 go

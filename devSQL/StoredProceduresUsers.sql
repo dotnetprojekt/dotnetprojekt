@@ -79,9 +79,9 @@ go
 		@p_IsAdmin bit,
 		@p_Status tinyint,
 		@p_IsLogged bit,
-		@p_pageNumber int,
-		@p_rowsOffset int,
-		@p_rowsPerPage int
+		@p_pageNumber int = 1,
+		@p_rowsOffset int = 2147483646,
+		@p_rowsPerPage int = 2147483646
 	as
 	begin
 		set nocount on;
