@@ -2,6 +2,7 @@ box: wercker/default
 build:
   steps:
     - validate-wercker-step
+	- wercker-labs/dotnet-WebAndLoadTestProject
 deploy:
     steps:
         - script:
