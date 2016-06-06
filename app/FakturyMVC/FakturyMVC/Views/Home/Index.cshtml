@@ -69,13 +69,13 @@
         @Html.CheckBox("newF", true, new { @class = ""})
         <br />
         @Html.Label("Zapłacone", new { @class = "margin-top-10" })
-        @Html.CheckBox("paid", true, new { @class = "" })
+        @Html.CheckBox("paid", false, new { @class = "" })
         <br />
         @Html.Label("Zarchiwizowane", new { @class = "margin-top-10" })
-        @Html.CheckBox("archived", true, new { @class = "" })
+        @Html.CheckBox("archived", false, new { @class = "" })
         <br />
         @Html.Label("Ilość wyników na stronie", new { @class = "margin-top-10", @id = "rowsPerPageFieldLabel" })
-        @Html.TextBox("rowsPerPageField", 2, new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true", @type = "number", @min = "0" })
+        @Html.TextBox("rowsPerPageField", 50, new { @class = "input-sm form-control margin-right-10 margin-left-20", @required = "true", @type = "number", @min = "0" })
         <br /> 
         @*<button type="submit" name="searchButton" id="searchButton" value="Send" class="btn margin-top-10 margin-bottom-10">Szukaj</button>*@
     </div>
