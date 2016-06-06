@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:56133/" />
+<title>registerUser</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">registerUser</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/auth/login?ReturnUrl=%2F</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rejestracja</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>javascript{&quot;nazwisko+&quot; + Math.floor(Math.random()*11111)+&quot;@gmail.com&quot;;}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Password</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PasswordConfirmation</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>imie</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>nazwisko</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>The Login field is required.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rejestracja</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login</td>
+	<td>javascript{&quot;login+&quot; + Math.floor(Math.random()*11111);}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Password</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PasswordConfirmation</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>imie</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>nazwisko</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>The Email field is required.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rejestracja</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login</td>
+	<td>javascript{&quot;login+&quot; + Math.floor(Math.random()*11111);}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>javascript{&quot;nazwisko+&quot; + Math.floor(Math.random()*11111)+&quot;@gmail.com&quot;;}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PasswordConfirmation</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>imie</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>nazwisko</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>The Password field is required.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rejestracja</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login</td>
+	<td>javascript{&quot;login+&quot; + Math.floor(Math.random()*11111);}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>javascript{&quot;nazwisko+&quot; + Math.floor(Math.random()*11111)+&quot;@gmail.com&quot;;}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Password</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>imie</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>nazwisko</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>The PasswordConfirmation field is required.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rejestracja</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login</td>
+	<td>javascript{&quot;login+&quot; + Math.floor(Math.random()*11111);}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>javascript{&quot;email+&quot; + Math.floor(Math.random()*11111)+&quot;@gmail.com&quot;;}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Password</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PasswordConfirmation</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>nazwisko</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>The FirstName field is required.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Rejestracja</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=login</td>
+	<td>javascript{&quot;login+&quot; + Math.floor(Math.random()*11111);}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>javascript{&quot;email+&quot; + Math.floor(Math.random()*11111)+&quot;@gmail.com&quot;;}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Password</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=PasswordConfirmation</td>
+	<td>haslo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>imie</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.validation-summary-errors &gt; ul &gt; li</td>
+	<td>The LastName field is required.</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
