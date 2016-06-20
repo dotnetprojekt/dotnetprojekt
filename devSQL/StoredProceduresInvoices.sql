@@ -307,41 +307,40 @@ where 1=1';
 			declare @v_QueryConditions nvarchar(max) = '';
 
 			if(@p_Number is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Number like ''%'+ @p_Number + '%'''; --fulltextsearch?
-
-			if(@p_DateStart is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
-
-			if(@p_DateEnd is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
-
-			if(@p_Title is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Title like ''%'+ @p_Title + '%'''; --fulltextsearch?
-
-			if(@p_CostMin is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost >= ' + convert(nvarchar(16),@p_CostMin);
-
-			if(@p_CostMax is not null)
-				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
-
-			if( @p_StatusFilter is not null and @p_StatusFilter != '111' )
+				set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Number = '''+ @p_Number + '''';
+			else
 			begin
-				declare @tmp nvarchar(128) = '(0';
+				if(@p_DateStart is not null)
+					set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue >= ''' + @p_DateStart + '''';
 
-				if( substring(@p_StatusFilter,1,1) = '1' )
-					set @tmp = @tmp + ',1';
-					--set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status = 1';
+				if(@p_DateEnd is not null)
+					set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_DateOfIssue <= ''' + @p_DateEnd + '''';
 
-				if( substring(@p_StatusFilter,2,1) = '1')
-					set @tmp = @tmp + ',2';
-					--set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	or Inv_Status = 2';
+				if(@p_Title is not null)
+					set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_Title like ''%'+ @p_Title + '%''';
 
-				if( SUBSTRING(@p_StatusFilter,3,1) = '1')
-					set @tmp = @tmp + ',3';
-					--set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	or Inv_Status = 3';
+				if(@p_CostMin is not null)
+					set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost >= ' + convert(nvarchar(16),@p_CostMin);
 
-				set @tmp = @tmp + ')';
-				set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status in ' + @tmp;
+				if(@p_CostMax is not null)
+					set @v_QueryConditions = @v_QueryConditions +char(13)+char(10)+ '	and Inv_OverallCost <= ' + convert(nvarchar(16),@p_CostMax);
+
+				if( @p_StatusFilter is not null and @p_StatusFilter != '111' )
+				begin
+					declare @tmp nvarchar(128) = '(0';
+
+					if( substring(@p_StatusFilter,1,1) = '1' )
+						set @tmp = @tmp + ',1';
+
+					if( substring(@p_StatusFilter,2,1) = '1')
+						set @tmp = @tmp + ',2';
+
+					if( SUBSTRING(@p_StatusFilter,3,1) = '1')
+						set @tmp = @tmp + ',3';
+
+					set @tmp = @tmp + ')';
+					set @v_QueryConditions = @v_QueryConditions + char(13)+char(10)+ '	and Inv_Status in ' + @tmp;
+				end
 			end
 
 			set @v_QueryBody = @v_QueryBody + @v_QueryConditions;
