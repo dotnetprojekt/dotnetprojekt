@@ -65,6 +65,9 @@
     <None Include="LoadPartnersMixed.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="LoadInvoicesMixed.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="LoadUsers.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -81,6 +84,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="WebAddPartner.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="WebAddInvoice.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="WebSearchInvoice.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

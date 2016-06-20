@@ -15,3 +15,6 @@ F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bi
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebSearchPartner.webtest
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebAddPartner.webtest
 F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadPartnersMixed.loadtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebAddInvoice.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\WebSearchInvoice.webtest
+F:\.Net Projekt\dotnetprojekt\app\WebAndLoadTestProject\WebAndLoadTestProject\bin\Debug\LoadInvoicesMixed.loadtest
